@@ -70,6 +70,7 @@ class IMU
 
 		const float mag_decl = -1.233;
 
+    void persist_step_count();
 };
 
 extern IMU imu;
