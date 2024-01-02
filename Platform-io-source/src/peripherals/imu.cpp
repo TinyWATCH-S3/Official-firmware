@@ -149,6 +149,34 @@ void IMU::set_hibernate(bool state)
 	}
 }
 
+void IMU::manual_step_counter(bool going_to_sleep)
+{
+  if (!imu_ready)
+    return;
+
+  if (going_to_sleep)
+  {
+    imu.setStepCountWatermark(0);
+    uint32_t _step_count = 0;
+    imu.getStepCount(&_step_count);
+    if (_step_count > 0)
+      step_count = _step_count;
+    info_println("Step count just before sleep: "+step_count);
+    persist_step_count();
+    imu.resetStepCount();
+  }
+  else
+  {
+    uint32_t _step_count = 0;
+    imu.getStepCount(&_step_count);
+    if (_step_count > 0)
+      step_count = _step_count;
+    info_println("Step count just after sleep: "+step_count);
+    persist_step_count();
+    imu.setStepCountWatermark(1);
+  }
+}
+
 void IMU::process_steps()
 {
 	if (!imu_ready)
@@ -188,14 +216,7 @@ void IMU::process_steps()
 			if (movement_activity == BMI2_STEP_ACTIVITY_STILL)
 			{
 				// Track steps for day, month, year in settings with date rollover
-				if (step_count > 0)
-				{
-					uint16_t day, month, year;
-					rtc.get_step_date(day, month, year);
-					activity.track_steps(step_count, day, month, year);
-					activity.save(true);
-					step_count = 0;
-				}
+        persist_step_count();
 				imu.resetStepCount();
 			}
         }
@@ -204,6 +225,17 @@ void IMU::process_steps()
             // info_println("Unkown IInterrupt condition!");
         }
     }
+}
+
+void IMU::persist_step_count()
+{
+  if (step_count == 0)
+    return;
+  uint16_t day, month, year;
+  rtc.get_step_date(day, month, year);
+  activity.track_steps(step_count, day, month, year);
+  activity.save(true);
+  step_count = 0;
 }
 
 uint32_t IMU::get_steps(uint8_t day, uint8_t month, uint16_t year)
