@@ -1,0 +1,55 @@
+
+#include "tw_faces/face_Empty.h"
+#include "fonts/RobotoMono_Light_All.h"
+#include "fonts/RobotoMono_Regular_All.h"
+
+// Called when face is set to current
+void FaceEmpty::setup()
+{
+	if (!is_setup)
+	{
+		is_setup = true;
+		// Add any one time setup code here
+	}
+}
+
+void FaceEmpty::draw(bool force)
+{
+	if (force || millis() - next_update > update_period)
+	{
+		setup();
+		
+		next_update = millis();
+
+		if (!is_dragging || !is_cached)
+		{
+			if (is_dragging)
+				is_cached = true;
+
+			canvas[canvasid].fillSprite(TFT_BLACK);
+			canvas[canvasid].setTextDatum(4); // Middle, Center
+			canvas[canvasid].setFreeFont(RobotoMono_Regular[15]);
+			canvas[canvasid].setTextColor(TFT_GREEN);
+
+		}
+
+		canvas[canvasid].pushSprite(_x,_y);
+	}
+}
+
+bool FaceEmpty::click(uint pos_x, uint pos_y)
+{
+	return false;
+}
+
+bool FaceEmpty::click_double(uint pos_x, uint pos_y)
+{
+	return false;
+}
+
+bool FaceEmpty::click_long(uint pos_x, uint pos_y)
+{
+	return false;
+}
+
+FaceEmpty face_empty;
