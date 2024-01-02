@@ -30,7 +30,7 @@ void IMU::init()
     	// can remap the axes if needed by uncommenting the code below
 		bmi2_remap axes;
 		axes.x = BMI2_AXIS_NEG_X;
-		axes.y = BMI2_AXIS_NEG_Y;
+		axes.y = BMI2_AXIS_POS_Y;
 		axes.z = BMI2_AXIS_NEG_Z;
 		imu.remapAxes(axes);
 
