@@ -31,8 +31,6 @@ void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
 
 		uint32_t ring_color = col_rings[movement];
 
-        info_printf("Style_hint: %d\n", style_hint);
-
         if (style_hint == 0)
         {
 		    canvas[canvasid].drawSmoothArc(pos_x, pos_y+radius, radius, radius-thickness, 0, 360, col_rings[movement], 0);
