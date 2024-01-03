@@ -18,6 +18,9 @@ void tw_control::create(String _name, String _option1, String _option2, uint _po
 	pos_y = _pos_y;
 	width = _width;
 	height = _height;
+    
+	// my_sprite.setSwapBytes(true);
+	// my_sprite.createSprite(width, height);
 }
 
 void tw_control::create(String _name, uint _pos_x, uint _pos_y, uint _width, uint _height)

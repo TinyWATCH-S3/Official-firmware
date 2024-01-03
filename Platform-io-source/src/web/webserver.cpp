@@ -103,6 +103,7 @@ void WebServer::start_callback(bool success, const String &response)
    else
    {
 	_running = false;
+	error_println("Failed to connect to wifi to start webserver!");
 	setCpuFrequencyMhz(40);
    }
 }
@@ -110,9 +111,10 @@ void WebServer::start_callback(bool success, const String &response)
 void WebServer::stop(bool restart)
 {
 	info_println("Webserver stop");
-	_running = false;
 	web_server.end();
-	wifi_controller.disconnect(false);
+	wifi_controller.wifi_prevent_disconnect = false;
+	wifi_controller.disconnect(true);
+	_running = false;
 }
 
 void WebServer::process()

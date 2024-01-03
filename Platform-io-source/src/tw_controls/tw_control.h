@@ -37,15 +37,17 @@ class tw_control
         virtual void draw(uint canvasid) = 0;
 		virtual bool drag(int16_t drag_x, int16_t drag_y) = 0;
 		virtual void drag_end() = 0;
-		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
-		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
-		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
+		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
 		String name = "";
 
 		
 
     protected:
 		tw_face *parent = nullptr;
+
+        // TFT_eSprite my_sprite = TFT_eSprite(&tft);
 
 		CallbackFunction callbackFunction;
 
@@ -60,6 +62,8 @@ class tw_control
 		uint pos_y = 0;
 		uint padding_x = 20;
 		uint padding_y = 20;
+
+        bool requires_redraw = true;
 
 		bool can_scroll_x = false;
 		bool can_scroll_y = false;

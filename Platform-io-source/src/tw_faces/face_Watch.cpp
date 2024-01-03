@@ -31,9 +31,6 @@ void FaceWatch::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
-			// uint16_t day, month, year;
-			// rtc.get_step_date(day, month, year);
-
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[3]);
 			canvas[canvasid].fillSprite(RGB(0x00, 0x0, 0x0));
 			canvas[canvasid].setTextColor(TFT_WHITE);

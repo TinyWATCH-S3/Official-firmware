@@ -49,9 +49,9 @@ class tw_face
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-		virtual bool click(uint pos_x, uint pos_y) = 0;
-		virtual bool click_double(uint pos_x, uint pos_y) = 0;
-		virtual bool click_long(uint pos_x, uint pos_y) = 0;
+		virtual bool click(uint pos_x, uint pos_y) {return false;}
+		virtual bool click_double(uint pos_x, uint pos_y) {return false;}
+		virtual bool click_long(uint pos_x, uint pos_y) {return false;}
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
 

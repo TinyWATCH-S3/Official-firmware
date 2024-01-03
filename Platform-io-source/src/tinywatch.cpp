@@ -415,7 +415,7 @@ void TinyWATCH::go_to_sleep()
 	info_println("Flash de-init and going to sleep!");
 
 	// esp_sleep_enable_ext1_wakeup(WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
-	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT, ESP_EXT1_WAKEUP_ALL_LOW);
+	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
 	esp_deep_sleep_start();
 }
 

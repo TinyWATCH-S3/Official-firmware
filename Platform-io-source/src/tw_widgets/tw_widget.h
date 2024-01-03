@@ -17,9 +17,9 @@ class tw_widget
 		void draw(uint canvasid, uint _pos_x, uint _pos_y);
 
         virtual void draw(uint canvasid) = 0;
-		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
-		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
-		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) = 0;
+		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
 
     protected:
 		tw_face *parent = nullptr;

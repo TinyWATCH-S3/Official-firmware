@@ -17,7 +17,7 @@ WifiController::WifiController()
     }
 
     // Start the WiFi task
-    xTaskCreate(WifiController::wifi_task, "wifi_task", 8192, this, 1, &wifi_task_handler);
+    xTaskCreate(WifiController::wifi_task, "wifi_task", 8192, this, 5, &wifi_task_handler);
 }
 
 // Kill the pinned threaded task
@@ -85,10 +85,10 @@ void WifiController::disconnect(bool force)
 }
 
 // Process the task queue - called from the main thread in loop() in tinywatch.cpp
-// only process every 2 seconds
+// only process every 1 seconds
 void WifiController::loop()
 {
-	if (millis() - next_wifi_loop > 2000)
+	if (millis() - next_wifi_loop > 1000)
 	{
 		next_wifi_loop = millis();
 		wifi_callback_item result;
@@ -188,7 +188,10 @@ void WifiController::wifi_task(void *pvParameters)
 void WifiController::add_to_queue(const String &url, _CALLBACK callback)
 {
 	wifi_task_item item = {new String(url), callback};
-	info_println("Adding request to "+*item.url);
+    if (*item.url == "")
+        info_println("Adding request to connect to wifi if not connected!");
+    else
+	    info_println("Adding request to "+*item.url);
 	xQueueSend(wifi_task_queue, &item, portMAX_DELAY);
 }
 

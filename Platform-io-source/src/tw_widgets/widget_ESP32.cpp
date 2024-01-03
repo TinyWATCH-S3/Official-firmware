@@ -17,13 +17,6 @@ void WidgetESP32::draw(uint canvasid)
 
 bool WidgetESP32::click(uint16_t click_pos_x, uint16_t click_pos_y)
 {
-	if (bounds_check(click_pos_x, click_pos_y))
-	{
-		info_print(name);
-		info_println(" Click!");
-		return true;
-	}
-	
 	return false;
 }
 
