@@ -86,14 +86,14 @@ void FaceWatch_CustomBinary::draw(bool force)
 							canvas[canvasid].fillRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, on_color);
 
 						else
-							canvas[canvasid].fillCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, on_color);
+							canvas[canvasid].fillSmoothCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, on_color);
 
 					else
 						if (clock_style == 0) 
 							canvas[canvasid].fillRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, off_color);
 
 						else
-							canvas[canvasid].fillCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, off_color);
+							canvas[canvasid].fillSmoothCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, off_color);
 
 					if (clock_style == 0) 
 						canvas[canvasid].drawRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, bdr_color);
@@ -136,8 +136,9 @@ void FaceWatch_CustomBinary::draw(bool force)
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
 			canvas[canvasid].setTextColor(tim_color, RGB(0x00, 0x00, 0x00));				
 			canvas[canvasid].drawString(String(year), display.center_x + 72, display.height - 50);
-			canvas[canvasid].drawString(months[month - 1], display.center_x + 64, display.height - 25);
-			draw_children(false, 0);
+			canvas[canvasid].drawString(months[month], display.center_x + 64, display.height - 25);
+
+			draw_children(false, 0, abs(1-clock_style));
 		}
 
 		canvas[canvasid].pushSprite(_x,_y);
@@ -153,6 +154,7 @@ bool FaceWatch_CustomBinary::click(uint pos_x, uint pos_y)
 		settings.config.custom_binary.binary_clockstyle = !(settings.config.custom_binary.binary_clockstyle);
 		settings.config.custom_binary.binary_clockcolour = 0;
 	}
+    draw(true);
 	return true;
 }
 

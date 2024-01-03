@@ -3,7 +3,7 @@
 class WidgetActivityRing : public tw_widget
 {
 	public:
-		void draw(uint canvasid);
+		void draw(uint canvasid, uint8_t style_hint);
 		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
 		bool click_double(uint16_t click_pos_x, uint16_t click_pos_y);
 		bool click_long(uint16_t click_pos_x, uint16_t click_pos_y);

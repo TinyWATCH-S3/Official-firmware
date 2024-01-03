@@ -38,10 +38,10 @@ uint tw_widget::get_height()
 	return (height + padding_y);
 }
 
-void tw_widget::draw(uint canvasid, uint _pos_x, uint _pos_y)
+void tw_widget::draw(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint)
 {
 	pos_x = _pos_x;
 	pos_y = _pos_y;
-	draw(canvasid);
+	draw(canvasid, style_hint);
 }
 

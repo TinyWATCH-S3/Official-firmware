@@ -14,9 +14,9 @@ class tw_widget
 		void set_parent(tw_face *_parent);
 		bool bounds_check(uint click_pos_x, uint click_pos_y);
 		uint get_height();
-		void draw(uint canvasid, uint _pos_x, uint _pos_y);
+		void draw(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint);
 
-        virtual void draw(uint canvasid) = 0;
+        virtual void draw(uint canvasid, uint8_t style_hint) = 0;
 		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
 		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
 		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}

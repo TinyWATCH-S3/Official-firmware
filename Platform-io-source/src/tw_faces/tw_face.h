@@ -20,7 +20,7 @@ class tw_face
 		void add_control(tw_control *control);
 		bool control_process_clicks(uint click_pos_x, uint click_pos_y);
 
-		void draw_children(bool stacked, int16_t stacked_y_start);
+		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
 		void draw_children_scroll(int16_t offset_x, int16_t offset_y);
 		uint32_t get_cpu_speed();
 		

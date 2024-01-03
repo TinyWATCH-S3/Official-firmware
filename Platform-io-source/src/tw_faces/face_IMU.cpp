@@ -84,7 +84,7 @@ void FaceIMU::draw(bool force)
 
 			for (int w = 0; w < widgets.size(); w++)
 			{
-				widgets[w]->draw(canvasid);
+				widgets[w]->draw(canvasid, 0);
 			}
 		}
 		

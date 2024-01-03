@@ -453,14 +453,14 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 	return false;
 }
 
-void tw_face::draw_children(bool stacked, int16_t stacked_y_start)
+void tw_face::draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint)
 {
 	if (stacked)
 	{
 		int16_t _y = stacked_y_start;
 		for (int w = 0; w < widgets.size(); w++)
 		{
-			widgets[w]->draw(canvasid, 10, _y);
+			widgets[w]->draw(canvasid, 10, _y, style_hint);
 			_y -= widgets[w]->get_height();
 		}
 
@@ -474,7 +474,7 @@ void tw_face::draw_children(bool stacked, int16_t stacked_y_start)
 	{
 		for (int w = 0; w < widgets.size(); w++)
 		{
-			widgets[w]->draw(canvasid);
+			widgets[w]->draw(canvasid, style_hint);
 		}
 
 		for (int w = 0; w < controls.size(); w++)
@@ -489,7 +489,7 @@ void tw_face::draw_children_scroll(int16_t offset_x, int16_t offset_y)
 {
 	for (int w = 0; w < widgets.size(); w++)
 	{
-		widgets[w]->draw(canvasid, offset_x, offset_y);
+		widgets[w]->draw(canvasid, offset_x, offset_y, 0);
 	}
 
 	for (int w = 0; w < controls.size(); w++)

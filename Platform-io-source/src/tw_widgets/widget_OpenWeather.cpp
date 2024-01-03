@@ -71,8 +71,7 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
     }
 }
 
-
-void WidgetOpenWeather::draw(uint canvasid)
+void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 {
 	if (millis() - next_update > settings.config.open_weather.poll_frequency || next_update == 0)
 	{

@@ -52,9 +52,6 @@ void setup()
 
     Serial.begin(115200);
 
-    if (tinywatch.vbus_present())
-        delay(3000);
-
 	tinywatch.log_system_message("TinyWATCH S3");
 	tinywatch.log_system_message("FW "+tinywatch.version_firmware+" "+tinywatch.version_year);
 	tinywatch.log_system_message(String(ESP.getChipModel())+" R"+String(ESP.getChipRevision())+" "+String(ESP.getChipCores())+"C");

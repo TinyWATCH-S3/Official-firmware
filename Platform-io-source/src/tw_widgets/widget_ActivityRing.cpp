@@ -7,7 +7,7 @@
 #include "tinywatch.h"
 #include "activity.h"
 
-void WidgetActivityRing::draw(uint canvasid)
+void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
 {
 	if (settings.config.imu_process_steps)
 	{
@@ -31,7 +31,16 @@ void WidgetActivityRing::draw(uint canvasid)
 
 		uint32_t ring_color = col_rings[movement];
 
-		canvas[canvasid].drawSmoothArc(pos_x, pos_y+radius, radius, radius-thickness, 0, 360, col_rings[movement], 0);
+        info_printf("Style_hint: %d\n", style_hint);
+
+        if (style_hint == 0)
+        {
+		    canvas[canvasid].drawSmoothArc(pos_x, pos_y+radius, radius, radius-thickness, 0, 360, col_rings[movement], 0);
+        }
+        else
+        {
+            canvas[canvasid].drawSmoothRoundRect(pos_x-radius, pos_y, thickness, thickness-2, radius*2, radius*2, col_rings[movement], 0);
+        }
 		canvas[canvasid].setTextColor(RGB(0xff, 0xff, 0xff));
 		canvas[canvasid].drawNumber(steps, pos_x+1, pos_y+radius-1);
 	}

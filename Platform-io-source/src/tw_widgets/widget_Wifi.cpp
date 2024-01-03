@@ -4,7 +4,7 @@
 #include "wifi.h"
 #include "web/webserver.h"
 
-void WidgetWifi::draw(uint canvasid)
+void WidgetWifi::draw(uint canvasid, uint8_t style_hint)
 {
 	if (WiFi.status() == WL_CONNECTED)
     {
@@ -19,7 +19,15 @@ void WidgetWifi::draw(uint canvasid)
     else
     {
         canvas[canvasid].pushImage(pos_x-16, pos_y+8, 32, 32, icon_wifi_off);
-        canvas[canvasid].drawSmoothArc(pos_x, pos_y+23, 23, 19, 0, 360, col_off, 0);
+
+        if (style_hint == 0)
+        {
+            canvas[canvasid].drawSmoothArc(pos_x, pos_y+23, 23, 19, 0, 360, col_off, 0);
+        }
+        else
+        {
+            canvas[canvasid].drawSmoothRoundRect(pos_x-23, pos_y, 5, 1, 46, 46, col_off, 0);
+        }
     }
 }
 
