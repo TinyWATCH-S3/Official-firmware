@@ -127,10 +127,10 @@ void setup()
 	{
 		// Wake up the peripherals because we were sleeping!
 		imu.set_hibernate(false);
-    if (settings.config.imu_process_steps)
-    {
-      imu.manual_step_counter(false);
-    }
+		if (settings.config.imu_process_steps)
+		{
+			imu.manual_step_counter(false);
+		}
 
 		// work out why we were woken up and do something about it
 		// 0: Touched Screen
@@ -404,10 +404,10 @@ void TinyWATCH::go_to_sleep()
 	digitalWrite(TFT_LED, 0);
 	deinit_buzzer(BUZZER);
 	battery.set_hibernate(true);
-  if (settings.config.imu_process_steps)
-  {
-    imu.manual_step_counter(true);
-  }
+	if (settings.config.imu_process_steps)
+	{
+		imu.manual_step_counter(true);
+	}
 	imu.set_hibernate(false);
 	settings.save(true);
 	activity.save(true);
