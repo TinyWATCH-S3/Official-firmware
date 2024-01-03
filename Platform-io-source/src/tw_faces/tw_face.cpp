@@ -10,6 +10,7 @@ void tw_face::add(String _name, uint _update_period, uint32_t req_cpu_speed)
 	name = _name;
 	update_period = _update_period;
 	required_cpu_speed = req_cpu_speed;
+	is_clock_face = false;
 	// Only add the face to the MAP if there's no key for this name already.
 	if (faces.find(name) == faces.end())
 	{
@@ -28,6 +29,33 @@ void tw_face::add(String _name, uint _update_period)
 {
 	// Default to 40Mhz for this face
 	add(_name, _update_period, 40);
+}
+
+void tw_face::add_clock(String _name, uint _update_period, uint32_t req_cpu_speed)
+{
+	name = _name;
+	update_period = _update_period;
+	required_cpu_speed = req_cpu_speed;
+	is_clock_face = true;
+	// Only add the face to the MAP if there's no key for this name already.
+	if (faces.find(name) == faces.end())
+	{
+		faces[name] = this;
+	}
+	else
+	{
+		error_print("ERROR ADDING FACE: ");
+		error_print(name);
+		error_println(" already exists!");
+	}
+
+	display.add_clock_face(this);
+}
+
+void tw_face::add_clock(String _name, uint _update_period)
+{
+	// Default to 40Mhz for this face
+	add_clock(_name, _update_period, 40);
 }
 
 void tw_face::reset_can_swipe_flags()
@@ -383,7 +411,9 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 				{0, 15},
 				{2000, 40},
 			});
+			return false;
 		}
+
 	}
 	else if (total_touch_time > 600 && distance < 5)
 	{
@@ -395,22 +425,18 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 	{
 		//A click should only happen if the finger didn't drag - much 
 		if (widget_process_clicks(t_pos_x, t_pos_y))
-        {
+		{
 			BuzzerUI({ {2000, 10} });
-        }
+		}
 		else if (control_process_clicks(t_pos_x, t_pos_y))
-        {
+		{
 			BuzzerUI({ {2000, 10} });
-        }
+		}
 		else if (click(t_pos_x, t_pos_y))
-        {
+		{
 			BuzzerUI({ {2000, 20} });
-        }
+		}
 	}
-    else
-    {
-        info_println("distance "+String(distance));
-    }
 	
 	// Set the current face back to the 0,0 position in case the drag didn't reach it
 	_x = 0;
@@ -483,8 +509,9 @@ void tw_face::set_navigation(tw_face *u, tw_face *r, tw_face *d, tw_face *l)
 void tw_face::set_single_navigation(Directions dir, tw_face *face)
 {
 	navigation[(int)dir] = face;
-	int alt_dir = ((int)dir-2) & 3; // bit 3 is like doing modulo 4 - but I'll forget
-	face->navigation[(int)alt_dir] = this;
+	int alt_dir = ((int)dir-2) & 3; // This is like doing modulo 4 - says Michael H - I dont believe him
+	if (face != nullptr)
+		face->navigation[(int)alt_dir] = this;
 }
 
 tw_face * tw_face::changeFace(Directions dir)
@@ -592,7 +619,6 @@ void tw_face::debug_print()
 	info_print(is_cached);
 	info_print(" canvis id:?");
 	info_println(canvasid);
-
 }
 
 // Check if this face is currently cached

@@ -10,6 +10,8 @@ class tw_face
     public:
         void add(String _name, uint _update_period, uint32_t req_cpu_speed);
 		void add(String _name, uint _update_period);
+        void add_clock(String _name, uint _update_period, uint32_t req_cpu_speed);
+        void add_clock(String _name, uint _update_period);
         void set_navigation(tw_face *l, tw_face *r, tw_face *u, tw_face *d);
 		void set_single_navigation(Directions dir, tw_face *face);
         tw_face * changeFace(Directions dir);
@@ -60,6 +62,7 @@ class tw_face
         uint canvasid = 0;
 		uint update_period = 0;
 		uint8_t required_cpu_speed = 80;
+        bool is_clock_face = false;
 		unsigned long next_update = 0;
 		unsigned long next_click_update = 0;
 		unsigned long click_hold_start_timer = 0;

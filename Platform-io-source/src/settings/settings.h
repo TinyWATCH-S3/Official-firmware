@@ -76,7 +76,7 @@ struct Config
 
 	// Time
 	bool time_24hour = false;
-	uint8_t watch_face_index = 0;
+	uint8_t clock_face_index = 0;
 
 	// Watch
 	bool left_handed = true;
@@ -88,7 +88,7 @@ struct Config
 
 	// IMU
 	bool imu_process_steps = true;
-	bool imu_process_wrist = true;
+	bool imu_process_wrist = false;
 
 	json last_saved_data;
 };

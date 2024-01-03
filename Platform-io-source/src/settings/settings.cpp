@@ -32,7 +32,7 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
 	open_weather,
 	city, country, utc_offset,
 	bl_period_vbus, bl_period_vbat,
-	time_24hour, watch_face_index, left_handed, flipped,
+	time_24hour, clock_face_index, left_handed, flipped,
 	audio_ui, audio_alarm,
 	imu_process_steps, imu_process_wrist
 );

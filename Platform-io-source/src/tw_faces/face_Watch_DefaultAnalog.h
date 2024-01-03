@@ -2,18 +2,7 @@
 
 #include "tw_faces/tw_face.h"
 
-enum clock_face
-{
-    clock_face_analog = 0,
-    clock_face_digital = 1,
-    // New entries here for alternate face designs
-
-    // last element here has to be called clock_face_element_count and must equal the number of elements without this element.
-    // Cheat way to know the number of elements in the enum for iteration.
-    clock_face_element_count = 2
-};
-
-class FaceWatch : public tw_face
+class FaceWatch_DefaultAnalog : public tw_face
 {
     public:
 		void setup(void);
@@ -26,7 +15,6 @@ class FaceWatch : public tw_face
 
 		void setup_trig(void);
 		void draw_hand(int x, int y, int x1, int y1, uint16_t color);
-        bool check_clock_face(clock_face design);
         String version = "1.0";
 		bool cachedTrig = false;
 
@@ -39,4 +27,4 @@ class FaceWatch : public tw_face
 		float face_radius = 107;
 };
 
-extern FaceWatch face_watch;
+extern FaceWatch_DefaultAnalog face_watch_default_analog;

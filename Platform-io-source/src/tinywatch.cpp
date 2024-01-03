@@ -52,6 +52,9 @@ void setup()
 
     Serial.begin(115200);
 
+    if (tinywatch.vbus_present())
+        delay(3000);
+
 	tinywatch.log_system_message("TinyWATCH S3");
 	tinywatch.log_system_message("FW "+tinywatch.version_firmware+" "+tinywatch.version_year);
 	tinywatch.log_system_message(String(ESP.getChipModel())+" R"+String(ESP.getChipRevision())+" "+String(ESP.getChipCores())+"C");
@@ -93,7 +96,7 @@ void setup()
 	if (was_asleep)
 	{
 		// Temporarily set the settings from rtc memory save state
-		settings.config.watch_face_index = rtc_mem_watch_clock_screen;
+		settings.config.clock_face_index = rtc_mem_watch_clock_screen;
 		settings.config.flipped = rtc_mem_watch_flipped ;
 		settings.config.left_handed = rtc_mem_watch_handed;
 		tinywatch.log_system_message("Wake from sleep");
@@ -220,7 +223,7 @@ void setup()
 		{
 			// Hold the boot screen for a smidge
 			delay(1000);
-			display.update_boot_face(BOOT);
+			// display.update_boot_face(BOOT);
 			// display.show_low_battery();
 			display.show_watch_from_boot();
 		}
@@ -287,12 +290,12 @@ void loop()
 		}
 	}
 
-    // Wifi will crash if CPU speed is less than 80
-    // We might not need to call this in the loop though
-    if (wifi_controller.is_busy() || web_server.is_running())
-    {
-        setCpuFrequencyMhz(80);
-    }
+    // // Wifi will crash if CPU speed is less than 80
+    // // We might not need to call this in the loop though
+    // if (wifi_controller.is_busy() || web_server.is_running())
+    // {
+    //     setCpuFrequencyMhz(80);
+    // }
 
 	// Process the wifi controller task queue
 	// Only processes every 1 second 
@@ -329,6 +332,7 @@ void loop()
 	// Update the current face based on it's own update period 
 	display.update_current_face();
 
+    yield();
 }
 
 
@@ -392,7 +396,7 @@ void TinyWATCH::go_to_sleep()
 	// Dont call this if the task was not created!
 	wifi_controller.kill_controller_task();
 
-	rtc_mem_watch_clock_screen = settings.config.watch_face_index;
+	rtc_mem_watch_clock_screen = settings.config.clock_face_index;
 	rtc_mem_watch_flipped = settings.config.flipped;
 	rtc_mem_watch_handed = settings.config.left_handed;
 
@@ -415,7 +419,7 @@ void TinyWATCH::go_to_sleep()
 	info_println("Flash de-init and going to sleep!");
 
 	// esp_sleep_enable_ext1_wakeup(WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
-	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
+	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ANY_LOW);
 	esp_deep_sleep_start();
 }
 

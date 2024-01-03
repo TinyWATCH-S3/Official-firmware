@@ -34,8 +34,8 @@ bool Battery::init()
 	info_println(F("%"));
 
 	// Enable the State Of Change alert
-	info_print(F("Disabling the 1% State Of Change alert: "));
-	if (maxlipo.disableSOCAlert())
+	info_print(F("Enabling the State Of Change alert: "));
+	if (maxlipo.enableSOCAlert())
 		info_println(F("success."));
 	else
 		info_println(F("FAILED!"));

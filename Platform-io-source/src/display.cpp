@@ -11,10 +11,13 @@ Display display;
 #include "peripherals/battery.h"
 #include "peripherals/imu.h"
 
-// Faces
+// Faces Clock
+#include "tw_faces/face_Watch_DefaultDigital.h"
+#include "tw_faces/face_Watch_DefaultAnalog.h"
+
+// Faces General
 #include "tw_faces/face_Boot.h"
 #include "tw_faces/face_System.h"
-#include "tw_faces/face_Watch.h"
 #include "tw_faces/face_IMU.h"
 #include "tw_faces/face_Compass.h"
 #include "tw_faces/face_Settings.h"
@@ -79,6 +82,8 @@ int16_t startX = 0, startY = 0;
 uint touchTime = 0;
 bool isTouched = false;
 
+static std::vector<tw_face *> clock_faces;
+
 void Display::init_screen()
 {
 	if (touchpad.begin(mode_change))
@@ -111,9 +116,52 @@ void Display::kill_backlight_task()
 	vTaskDelete(backlightTaskHandle);
 }
 
+void Display::add_clock_face(tw_face *face)
+{
+	clock_faces.push_back(face);
+    info_println("Now "+String(clock_faces.size())+" clock faces");
+}
+
 void Display::set_current_face(tw_face *face)
 {
 	current_face = face;
+}
+
+
+tw_face * Display::set_current_clock_face(bool should_draw)
+{
+    // Before we switch the current clock face to a new clock face, we need to copy over the current clock faces
+    // navigation to the new face.
+    tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
+    if (current_face != nullptr)
+    {
+        for (int i = 0; i < 4; i++)
+            new_clock_face->set_single_navigation((Directions)i, current_face->navigation[i]);
+    }
+
+	current_face->reset_cache_status();
+    current_face = new_clock_face;
+	if (should_draw)
+	{
+		current_face->draw(true);
+		// info_println("draw "+current_face->name);
+	}
+
+	return current_face;
+}
+
+
+void Display::cycle_clock_face()
+{
+        // Cycle the clock face number we are displaying
+	settings.config.clock_face_index++;
+    // Hacky way to check the int against the number of elements in the enum
+    if (settings.config.clock_face_index == clock_faces.size())
+        settings.config.clock_face_index = 0;
+
+    // info_println("settings.config.clock_face_index "+String(settings.config.clock_face_index)+" from "+String(clock_faces.size()));
+
+    set_current_clock_face(true);
 }
 
 void Display::update_rotation()
@@ -154,7 +202,9 @@ void Display::force_save()
 
 void Display::show_watch_from_boot()
 {
-	current_face = &face_watch;
+	if (current_face == nullptr)
+		set_current_clock_face(false);
+
 	current_face->draw(true);
 
 	last_touch = millis();
@@ -195,10 +245,22 @@ void Display::createFaces(bool was_sleeping)
 	WidgetWifi * wWifi = new WidgetWifi();
 	wWifi->create("Wifi", 30, 7, 40, 40, 1000);
 
-	face_watch.add("Time", 1000);
-	face_watch.add_widget(wBattery);
-	face_watch.add_widget(wActivity);
-	face_watch.add_widget(wWifi);
+    // Faces that are "Clocks" that you want to be switchable with a dbl click need to use `add_clock()` instead of `add()`
+    // or they will not be added to the clock list for cycling.  
+	face_watch_default_analog.add_clock("Clock_Def_Analog", 1000);
+	face_watch_default_analog.add_widget(wBattery);
+	face_watch_default_analog.add_widget(wActivity);
+	face_watch_default_analog.add_widget(wWifi);
+
+    face_watch_default_digital.add_clock("Clock_Def_Digital", 1000);
+	face_watch_default_digital.add_widget(wBattery);
+	face_watch_default_digital.add_widget(wActivity);
+	face_watch_default_digital.add_widget(wWifi);
+
+    // needs a default clock face so it won't crash
+    // all clock faces need to be initialised before this
+    tw_face *current_clock_face = set_current_clock_face(false);
+
 	// face_watch.add_widget(wESP32);
 
 	// If we were sleeping, show the clock here, before processing everything else.
@@ -212,7 +274,7 @@ void Display::createFaces(bool was_sleeping)
 	// face_compass.add("Compass", 100, 80);
 
 	face_microphone.add("FFT", 25, 160);
-	face_microphone.set_single_navigation(LEFT, &face_watch);
+	face_microphone.set_single_navigation(LEFT, current_clock_face);
 
 	face_notifications.add("Messages", 1000, 80);
 	face_notifications.set_scrollable(false, true);
@@ -225,10 +287,10 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.set_scrollable(false, true);
 	face_settings.set_single_navigation(LEFT, &face_boot);
 	
-
-	face_watch.set_single_navigation(LEFT, &face_settings);
-	face_watch.set_single_navigation(UP, &face_imu);
-	face_watch.set_single_navigation(DOWN, &face_notifications);
+    // face_watch is a pointer to the current clock face
+	current_clock_face->set_single_navigation(LEFT, &face_settings);
+	current_clock_face->set_single_navigation(UP, &face_imu);
+	current_clock_face->set_single_navigation(DOWN, &face_notifications);
 
 	// WidgetOpenWeather * wWeather = new WidgetOpenWeather();
 	// wWeather->create("Weather", 10, 180, 90, 90, 5000);
@@ -357,7 +419,7 @@ void Display::check_navigation()
 			touchTime = millis()-touchTime;
 			// Directions swipe_dir;
 
-			bool double_click = (last_touch - dbl_touch < 300) && distance < 12;
+			bool double_click = (last_touch - dbl_touch < 300) && distance <= 15;
             // info_println( String(double_click ? "YES" : "NO") + " time: "+String(last_touch - dbl_touch)+" dist: "+String(distance));
             // info_println( "last_touch "+String(last_touch) + ", dbl_touch "+String(dbl_touch));
 			int16_t last_dir_x = touchpad.x - moved_x;

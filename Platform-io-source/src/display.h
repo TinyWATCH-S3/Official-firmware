@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Arduino.h"
+#include <vector>
 
 enum Directions {
     UP = 0,
@@ -51,7 +52,11 @@ class Display {
 		void kill_backlight_task();
 		uint8_t get_current_backlight_val();
 
+        void add_clock_face(tw_face *face);
+        void cycle_clock_face();
+
 		void set_current_face(tw_face *face);
+        tw_face * set_current_clock_face(bool should_draw);
 		void show_low_battery();
 
 		display_states get_current_display_state();
