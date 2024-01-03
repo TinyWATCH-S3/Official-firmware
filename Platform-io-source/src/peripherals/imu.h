@@ -27,7 +27,7 @@ class IMU
 		// BMI270 Step Counter
 		void setup_step_counter();
 		void process_steps();
-    void manual_step_counter(bool going_to_sleep);
+		void manual_step_counter(bool going_to_sleep);
 		uint32_t get_steps(uint8_t day, uint8_t month, uint16_t year);
 		uint8_t get_movement_activity_id();
 		String get_movement_activity();
@@ -70,7 +70,7 @@ class IMU
 
 		const float mag_decl = -1.233;
 
-    void persist_step_count();
+		void persist_step_count();
 };
 
 extern IMU imu;
