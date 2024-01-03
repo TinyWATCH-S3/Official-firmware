@@ -3,7 +3,6 @@
 #include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
 
-
 void FaceMicrophone::setup()
 {
 	if (!is_setup)
@@ -56,12 +55,12 @@ void FaceMicrophone::draw(bool force)
 				is_cached = true;
 
 
-			do_fft_calcs();
-
+			
 			canvas[canvasid].fillSprite(TFT_BLACK);
 
 			if (visual_state == 0)
 			{
+				do_fft_calcs();
 				canvas[canvasid].drawLine(0, 140, 240, 140, TFT_WHITE);
 				for (int b = 0; b < 8; b++)
 				{
@@ -73,15 +72,44 @@ void FaceMicrophone::draw(bool force)
 			}
 			else if (visual_state == 1)
 			{
+				do_fft_calcs();
 				for (int b = 0; b < 8; b++)
 				{
 					int8_t bar = bands[b] / 50;
 					int radius = 12 * (b+1) + 4;
 					display.fill_arc(canvasid, 120, 140, 0, constrain(bar, 1, 60), radius, radius, 8, colors[b]);
 				}
+			} 
+			else if (visual_state == 2)
+			{
+				do_waveform_calcs();
+				for (size_t i = 1; i < waveform_size; i++) 
+				{
+					uint8_t y1 = map(waveform_data[i-1], -32768, 32767, 10, display.height - 10);
+					uint8_t y2 = map(waveform_data[i], -32768, 32767, 10, display.height - 10);
+
+					// Option A
+					// canvas[canvasid].drawLine(1, display.height/2 , display.width, display.height/2, RGB(0x77,0x00,0x00)); // Graticule (looks a bit silly)
+					canvas[canvasid].drawLine((i*2), y1, (i*2), y2, colors[i / 15]);
+    			}
+			}
+			else if (visual_state == 3)
+			{
+				do_waveform_calcs();
+				for (size_t i = 1; i < waveform_size; i++) 
+				{
+					// Scale the Y position
+					uint8_t y1 = map(waveform_data[i-1], -32768, 32767, 10, display.height - 10);
+					uint8_t y2 = map(waveform_data[i], -32768, 32767, 10, display.height - 10);
+
+					// Option B
+					for (uint8_t y_offset = 0; y_offset < 8; y_offset++)
+					{
+						canvas[canvasid].drawLine((i*2), (y1 - 40) + (10 * y_offset) , (i*2), (y2 - 40) + (10 * y_offset), colors[y_offset]);
+					}
+    			}
 			}
 		}
-
 		canvas[canvasid].pushSprite(_x,_y);
 	}
 }
@@ -89,7 +117,7 @@ void FaceMicrophone::draw(bool force)
 bool FaceMicrophone::click(uint pos_x, uint pos_y)
 {
 	visual_state++;
-	if (visual_state == 2)
+	if (visual_state == 4)
 		visual_state = 0;
 	return true;
 }
@@ -139,5 +167,21 @@ void FaceMicrophone::do_fft_calcs()
   }
 }
 
+void FaceMicrophone::do_waveform_calcs()
+{
+    size_t bytes_read = 0;
+    i2s_read(I2S_NUM_0, raw_samples, sizeof(int32_t) * BLOCK_SIZE, &bytes_read, portMAX_DELAY);
 
+	for (int i = 0; i < waveform_size; i++)
+	{
+		// We just want Amplitude, so this should be sufficient
+		uint16_t sample_data = raw_samples[i+2] / 10000;
+		waveform_data[i] = (sample_data) << 2;
+	}
+
+	// Capture the end waveform state so it can be repeated at the start
+	// of the next refresh. (Looks neater)
+	waveform_data[0] = waveform_last;
+	waveform_last = waveform_data[waveform_size - 1];
+}
 FaceMicrophone face_microphone;
