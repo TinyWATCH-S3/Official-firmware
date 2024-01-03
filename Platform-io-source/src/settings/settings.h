@@ -1,5 +1,6 @@
 #pragma once
 
+#include "settings_extra.h"
 #include "json.h"
 #include "json_conversions.h"
 #include "utilities/logging.h"
@@ -7,49 +8,6 @@
 #include <Preferences.h>
 
 using json = nlohmann::json;
-
-struct Config_mqtt
-{
-	//MQTT Stuff
-    bool enabled = false;
-    String broker_ip = "";
-    int broker_port = 1883;
-    String username = "";
-    String password = "";
-    String device_name = "TinyWATCH";
-	String topic = "tinywatch";
-};
-
-struct Config_battery
-{
-	// Fuel Gauge/Battery
-	// This can be used to adjust what 100% is on your battery
-	// This can be needed because the PMIC will stop charging the battery before it gets to 4.2V, usually around 4.1V,
-	// So the fuel gauge will never actually get to a 100% state. 
-	// I'm not sure how to solve this othe than allow users to set an offset that visually shows full/no charging at 100%
-	float perc_offset = 7.0;
-	// User settable % to trigger fuel gauge wake from sleep trigger.
-	// This can only be between 1% and 32% 
-	uint8_t low_perc = 25;
-	// User settable V to trigger fuel gauge wake from sleep trigger.
-	float low_volt_warn = 3.5;
-	// User settable V to trigger power cutoff to the watch power switch.
-	float low_volt_cutoff = 3.2;
-};
-
-struct Config_open_weather
-{
-	// Widget specific settings for Open Weather
-	uint32_t poll_frequency = 180000; // Open Weather poll interval - 30mins. 
-	String api_key = ""; // API key for Open Weather
-};
-
-struct Config_custom_binary
-{
-	// Custom Watch Face - Binary Clock
-	uint8_t binary_clockcolour = 0;
-	uint8_t binary_clockstyle = 0;
-};
 
 // Save data struct
 struct Config
