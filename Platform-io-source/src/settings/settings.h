@@ -44,6 +44,13 @@ struct Config_open_weather
 	String api_key = ""; // API key for Open Weather
 };
 
+struct Config_custom_binary
+{
+	// Custom Watch Face - Binary Clock
+	uint8_t binary_clockcolour = 0;
+	uint8_t binary_clockstyle = 0;
+};
+
 // Save data struct
 struct Config
 {
@@ -69,6 +76,9 @@ struct Config
 
 	// Open Weather specific settings - see Struct above
 	Config_open_weather open_weather;
+
+	// Binary Clock Face specific settings
+	Config_custom_binary custom_binary;
 
 	// Display
 	uint bl_period_vbus = 60000;
