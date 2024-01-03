@@ -5,9 +5,12 @@
 
 using json = nlohmann::json;
 
-// All settings you want to be serialised and deserialised with JSON and stored in user flash need to be added here.
-// This has a HARD (NOT CHANGEABLE) LIMIT of 64 items
-
+/**
+ * @brief Construct a new nlohmann define type non intrusive with default object
+ * 
+ * All settings you want to be serialised and deserialised with JSON and stored in user flash need to be added here.
+ * This has a HARD (NOT CHANGEABLE) LIMIT of 64 items
+ */
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
 	Config_mqtt,
 	enabled, broker_ip, broker_port, username, password, device_name, topic
@@ -44,6 +47,12 @@ void Settings::log_to_nvs(const char * key, const char * log)
 	nvs.end();
 }
 
+/**
+ * @brief Checks to see if there are WiFi credentials stores in the user settings
+ * 
+ * @return true credentials are not empty strings
+ * @return false credentials are empty strings
+ */
 bool Settings::has_wifi_creds(void)
 {
 	// //  info_printf("SSID %s, PASS %s\n", config.wifi_ssid, config.wifi_pass);
@@ -55,6 +64,12 @@ bool Settings::has_country_set(void)
 	return !config.country.isEmpty();
 }
 
+/**
+ * @brief Update the users WiFi credentials in teh settings struct
+ * 
+ * @param ssid 
+ * @param pass 
+ */
 void Settings::update_wifi_credentials(String ssid, String pass)
 {
 	config.wifi_ssid = ssid;
@@ -82,7 +97,12 @@ String Settings::get_save_status()
 	return log;
 }
 
-
+/**
+ * @brief Load the user settings from the user flash FS and deserialise them from JSON back into the Config struct
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Settings::load()
 {
 	info_println("Loading settings");
@@ -187,6 +207,16 @@ bool Settings::backup()
 	return true;
 }
 
+/**
+ * @brief Serialise the cConfig struct into JSON and save to the user flash FS
+ * Only check for save every 5 mins, and then only save if the data has changed
+ * 
+ * We only want to save data when it's changed because we dont want to wear out the Flash.
+ * 
+ * @param force for the save regardless of time, but again, only if the data has changed
+ * @return true 
+ * @return false 
+ */
 bool Settings::save(bool force)
 {
 	// We only want to attempt  save every 1 min unless it's a forced save.
@@ -239,6 +269,15 @@ bool Settings::save(bool force)
 	return true;
 }
 
+/**
+ * @brief Create a new set of save data, either because this is the very first save, or because the load failed due to FS corruption,
+ * or malformed JSON data that could not be deserialised.
+ * 
+ * Once created, the data is automatically saved to flash. 
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Settings::create()
 {
 	info_println("Settings CREATE: Creating new data...");

@@ -459,9 +459,9 @@ void TinyWATCH::get_and_update_utc_settings(bool success, const String &response
 		settings.config.country = data["country_code"].get<String>();
 		String utc_offset = data["utc_offset"].get<String>();
 
-		info_println("city: "+settings.config.city);
-		info_println("country: "+settings.config.country);
-		info_println("utc: "+utc_offset);
+		info_printf("city: %s\n", settings.config.city);
+		info_printf("country: %s\n", settings.config.country);
+		info_printf("utc: %d\n", utc_offset);
 
 		const char *utc_offset_data = utc_offset.c_str();
 
@@ -472,7 +472,7 @@ void TinyWATCH::get_and_update_utc_settings(bool success, const String &response
 
 		settings.config.utc_offset = calc_offset / 3600;
 
-		info_println("utc fixed: "+String(settings.config.utc_offset));
+		info_printf("utc fixed: %d\n",settings.config.utc_offset);
 
 		settings.save(true);
 		tinywatch.log_system_message("UTC set "+String(settings.config.utc_offset));

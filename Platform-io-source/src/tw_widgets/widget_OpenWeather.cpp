@@ -135,5 +135,3 @@ bool WidgetOpenWeather::click_long(uint16_t click_pos_x, uint16_t click_pos_y)
 {
 	return false;
 }
-
-
