@@ -136,7 +136,7 @@ void FaceWatch_CustomBinary::draw(bool force)
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
 			canvas[canvasid].setTextColor(tim_color, RGB(0x00, 0x00, 0x00));				
 			canvas[canvasid].drawString(String(year), display.center_x + 72, display.height - 50);
-			canvas[canvasid].drawString(months[month], display.center_x + 64, display.height - 25);
+			canvas[canvasid].drawString(months[month - 1], display.center_x + 64, display.height - 25);
 			draw_children(false, 0);
 		}
 
