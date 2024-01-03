@@ -108,6 +108,10 @@ struct connect_responder
 	}
 };
 
+/**
+ * @brief Start the WiFi AP Hotspot portal that allows users to select their SSID from a scanned list and enter their password
+ * 
+ */
 void WifiSetup::start()
 {
 	done = false;
@@ -186,6 +190,11 @@ void WifiSetup::start()
 	webServer.begin();
 }
 
+/**
+ * @brief Stop the WiFi Setup Hotspot portal
+ * 
+ * @param restart Restart the ESP32 after stopping
+ */
 void WifiSetup::stop(bool restart)
 {
 	WiFi.mode(WIFI_OFF);
@@ -193,15 +202,18 @@ void WifiSetup::stop(bool restart)
 	dnsServer.stop();
 
 	if (restart)
+    {
 		ESP.restart();
+    }
 	else
 	{
-		display.update_boot_face(BOOT);
-		display.show_watch_from_boot();
+		display.set_current_clock_face(true);
 	}
 }
 
-// Call from main loop to handle dns requests
+/**
+ * @brief Call from main loop to handle dns requests
+ */
 void WifiSetup::process()
 {
 	dnsServer.processNextRequest();

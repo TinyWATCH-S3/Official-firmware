@@ -136,7 +136,7 @@ tw_face * Display::set_current_clock_face(bool should_draw)
     // Before we switch the current clock face to a new clock face, we need to copy over the current clock faces
     // navigation to the new face.
     tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
-    if (current_face != nullptr)
+    if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
     {
         for (int i = 0; i < 4; i++)
             new_clock_face->set_single_navigation((Directions)i, current_face->navigation[i]);

@@ -58,6 +58,11 @@ void tw_face::add_clock(String _name, uint _update_period)
 	add_clock(_name, _update_period, 40);
 }
 
+bool tw_face::is_face_clock_face()
+{
+    return is_clock_face;
+}
+
 void tw_face::reset_can_swipe_flags()
 {
 	for (int i = 0; i < 4; i++)
