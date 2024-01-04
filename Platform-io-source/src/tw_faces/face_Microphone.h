@@ -29,10 +29,14 @@ class FaceMicrophone : public tw_face
 
 		// local methods
 		void do_fft_calcs();
+		void do_waveform_calcs();
 		void fill_arc(int x, int y, int start_angle, int seg_count, int rx, int ry, int w, unsigned int colour);
 
     private:
 		int bands[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+		uint8_t waveform_size = 120;
+		int16_t waveform_data[200] = {0};
+		int16_t waveform_last = 0;
 		// const int BLOCK_SIZE = 512;
 		double vReal[BLOCK_SIZE];
 		double vImag[BLOCK_SIZE];
