@@ -123,8 +123,6 @@ void tw_face::drag_begin(int16_t pos_x, int16_t pos_y)
 
 void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y,bool current_face)
 {
-	is_dragging = true;
-
 	canvasid = current_face ? 1 : 0;
 
 	// Let's see if we are holding our finger still
@@ -189,7 +187,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 			}
 		}
 
-		if (drag_dir == -1 && abs(drag_x) > 30 || abs(drag_y) >30)
+		if (drag_dir == -1 && (abs(drag_x) > 10 || abs(drag_y) > 10))
 		{
 			// pre calc if am able to swipe based on where I start my touch
 			if (drag_start_x < drag_width && abs(drag_x) > abs(drag_y)) // swipe right, drag in from left if face exists
@@ -210,6 +208,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 		}
 
 		bool swipe_chance = (drag_dir >= 0);
+        is_dragging = (drag_dir >= 0);
 
 		// Lock the axis we are not dragging, and lock the max or min value based on the neighbour
 		if (drag_lock_x)
