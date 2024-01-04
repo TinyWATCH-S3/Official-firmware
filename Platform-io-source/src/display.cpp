@@ -84,6 +84,8 @@ int16_t moved_x = 0, moved_y = 0;
 int16_t startX = 0, startY = 0;
 uint touchTime = 0;
 bool isTouched = false;
+bool last_was_click = false;
+bool last_was_long = false;
 
 static std::vector<tw_face *> clock_faces;
 
@@ -130,11 +132,14 @@ void Display::set_current_face(tw_face *face)
 	current_face = face;
 }
 
-
+/**
+ * @brief Before we switch the current clock face to a new clock face, we need to copy over the current clock faces navigation to the new face.
+ * 
+ * @param should_draw 
+ * @return tw_face* 
+ */
 tw_face * Display::set_current_clock_face(bool should_draw)
 {
-    // Before we switch the current clock face to a new clock face, we need to copy over the current clock faces
-    // navigation to the new face.
     tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
     if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
     {
@@ -144,29 +149,30 @@ tw_face * Display::set_current_clock_face(bool should_draw)
 
 	current_face->reset_cache_status();
     current_face = new_clock_face;
+
 	if (should_draw)
-	{
 		current_face->draw(true);
-		// info_println("draw "+current_face->name);
-	}
 
 	return current_face;
 }
 
-
+/**
+ * @brief Cycle the clock face number we are displaying. This is called by double tapping the current clock face being shown
+ */
 void Display::cycle_clock_face()
 {
-        // Cycle the clock face number we are displaying
 	settings.config.clock_face_index++;
     // Hacky way to check the int against the number of elements in the enum
     if (settings.config.clock_face_index == clock_faces.size())
         settings.config.clock_face_index = 0;
 
-    // info_println("settings.config.clock_face_index "+String(settings.config.clock_face_index)+" from "+String(clock_faces.size()));
-
     set_current_clock_face(true);
 }
 
+/**
+ * @brief Adjust the rotation of the TFT based on the flipped user setting
+ * 
+ */
 void Display::update_rotation()
 {
 	tft.setRotation(settings.config.flipped ? 2 : 0);
@@ -215,6 +221,13 @@ void Display::show_watch_from_boot()
     dbl_touch[1] = millis();
 }
 
+/**
+ * @brief This is the entry point that creates all of the faces and widgets and controls, and hooks them all together. All face to face navigation is also setup here.
+ * 
+ * This also shows the watch boot face on startup, if the watch is booting from power up, otherwise, the clock wil be shows through a fast path is the watch is waking from sleep.
+ * 
+ * @param was_sleeping 
+ */
 void Display::createFaces(bool was_sleeping)
 {
 	tft.setSwapBytes(true);
@@ -363,6 +376,10 @@ void Display::update_boot_face(wifi_states status)
 	face_boot.wifi_connect_status(status);
 }
 
+/**
+ * @brief Tell the current face being shown to draw itself. Respects the update rate of the face by passing in false in the draw(false) method on the face.
+ * 
+ */
 void Display::update_current_face()
 {
 	current_face->draw(false);
@@ -374,7 +391,11 @@ void Display::show_low_battery()
 	update_current_face();
 }
 
-void Display::check_navigation()
+/**
+ * @brief Process the touch input from the user and coordinates clicks, dbl clicks, long presses, dragging, scrolling, widgets and controls. It's quite complex. 
+ * 
+ */
+void Display::process_touch()
 {
 	Directions _dir = NONE; 
 	Directions swipe_dir = NONE; 
@@ -406,6 +427,8 @@ void Display::check_navigation()
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
+            if (last_was_long)
+                return;
 			deltaX = touchpad.x - startX;
 			deltaY = touchpad.y - startY;
 
@@ -417,48 +440,75 @@ void Display::check_navigation()
 
 			last_touch = millis();
 
-			current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
+            if (abs(deltaX)> 5 || abs(deltaY)> 5)
+            {
+			    current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
+            }
+            else if (last_touch - touchTime > 600)
+            {
+                // might be a long click?
+                if (current_face->click_long(touchpad.x, touchpad.y))
+                {
+                    BuzzerUI({ {2000, 400} });
+                    // isTouched = false;
+                    last_was_click = false;
+                    last_was_long = true;
+                }
+            }
 		}
 		else if (isTouched && touchpad.finger_num == 0)
 		{
             isTouched = false;
 
-            last_touch = millis();
- 
-			deltaX = touchpad.x - startX;
-			deltaY = touchpad.y - startY;
-			int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
-			touchTime = millis()-touchTime;
-
-            dbl_touch[0] = dbl_touch[1];
-            dbl_touch[1] = millis();
-
-			bool double_click = (dbl_touch[1] - dbl_touch[0] < 300) && distance <= 8;
-
-            // info_println( String(double_click ? "YES" : "NO") + " time: "+String(dbl_touch[1] - dbl_touch[0])+" dist: "+String(distance));
-            // info_println( "dbl_touch[1] "+String(dbl_touch[1]) + ", dbl_touch[0] "+String(dbl_touch[0]));
-
-            if (double_click)
+            if (last_was_long)
             {
-                // block 2 dbl clicks in a row from 3 clicks
-                dbl_touch[1] = 0;
+                last_was_long = false;
+                return;
+            }
 
-                if (current_face->click_double(touchpad.x, touchpad.y))
+            last_touch = millis();
+
+            deltaX = touchpad.x - startX;
+            deltaY = touchpad.y - startY;
+
+            if (current_face->drag_dir == -1 || (abs(deltaX) < 5 && abs(deltaY) < 5))
+            {
+                dbl_touch[0] = dbl_touch[1];
+                dbl_touch[1] = millis();
+
+			    bool double_click = (dbl_touch[1] - dbl_touch[0] < 200);
+                if (double_click)
                 {
-                    BuzzerUI({
-                        {2000, 40},
-                        {0, 15},
-                        {2000, 40},
-                    });
-                    return;
+                    // block 2 dbl clicks in a row from 3 clicks
+                    dbl_touch[1] = 0;
+
+                    last_was_click = false;
+                    if (current_face->click_double(touchpad.x, touchpad.y))
+                    {
+                        BuzzerUI({
+                            {2000, 40},
+                            {0, 15},
+                            {2000, 40},
+                        });
+                        return;
+                    }
+
+                }
+                else
+                {
+                    last_was_click = true;
                 }
             }
             else
-            {
+            { 
+                int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
+                touchTime = millis()-touchTime;
+
+        
                 int16_t last_dir_x = touchpad.x - moved_x;
                 int16_t last_dir_y = touchpad.y - moved_y;
 
-                if (current_face->drag_end(deltaX, deltaY, true, distance, double_click, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
+                if (current_face->drag_end(deltaX, deltaY, true, distance, false, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
                 {
                     // switch face to the new one and make it the current face
                     int dir = current_face->drag_dir;
@@ -491,6 +541,26 @@ void Display::check_navigation()
 			}
 		}
 	}
+
+    // If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
+    if (millis()-last_touch > 150 && last_was_click)
+    {
+        last_was_click = false;
+        //A click should only happen if the finger didn't drag - much 
+        if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
+        {
+            BuzzerUI({ {2000, 10} });
+        }
+        else if (current_face->control_process_clicks(touchpad.x, touchpad.y))
+        {
+            BuzzerUI({ {2000, 10} });
+        }
+        else if (current_face->click(touchpad.x, touchpad.y))
+        {
+            BuzzerUI({ {2000, 20} });
+        }
+        last_was_click = false;
+    }
 
 	// Process the backlight timer
 	if (millis() - last_touch > get_backlight_period())
@@ -557,6 +627,11 @@ display_states Display::get_current_display_state()
 }
 
 // TODO: Convert backlight values from 0-255 to 0-100%
+/**
+ * @brief FreeRTOS Task for controlling the screen backlight to allow for fading and non-blocking adjustment
+ * 
+ * @param param 
+ */
 static void process_backlight(void *param)
 {
 	info_print("Starting backlight control and loading icon system on core ");
@@ -585,7 +660,19 @@ static void process_backlight(void *param)
 	}
 }
 
-
+/**
+ * @brief Old Fill Arc code from TFT_eSPI creator to draw non smoothed arcs. TFT_eSPI now has smooth arc drawing routines built in, but the microphone face still uses this method as it's faster.
+ * 
+ * @param canvasid 
+ * @param x 
+ * @param y 
+ * @param start_angle 
+ * @param seg_count 
+ * @param rx 
+ * @param ry 
+ * @param w 
+ * @param colour 
+ */
 void Display::fill_arc(uint8_t canvasid, int x, int y, int start_angle, int seg_count, int rx, int ry, int w, unsigned int colour)
 {
 

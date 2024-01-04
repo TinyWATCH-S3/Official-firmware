@@ -47,7 +47,11 @@ void WidgetBattery::draw(uint canvasid, uint8_t style_hint)
 		canvas[canvasid].drawSmoothArc(pos_x, pos_y+23, 23, 19, 180, 360, col_front, 0);
 		canvas[canvasid].drawSmoothArc(pos_x, pos_y+23, 23, 19, 0, arc_length-180, col_front, 0);
 	}
-	canvas[canvasid].setTextColor(RGB(0xff, 0xff, 0xff));
+    
+    if (tinywatch.vbus_present() && bat_perc < 98)
+        canvas[canvasid].setTextColor(col_text[1]);
+    else
+	    canvas[canvasid].setTextColor(col_text[0]);
 	canvas[canvasid].drawString(String((int)bat_perc), pos_x, pos_y+21);
 }
 

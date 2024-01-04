@@ -154,7 +154,7 @@ bool FaceWatch_CustomBinary::click(uint pos_x, uint pos_y)
 		settings.config.custom_binary.binary_clockstyle = !(settings.config.custom_binary.binary_clockstyle);
 		settings.config.custom_binary.binary_clockcolour = 0;
 	}
-    draw(false);
+    draw(true);
 	return true;
 }
 

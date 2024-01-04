@@ -41,7 +41,7 @@ class Display {
 		void createFaces(bool sleeping);
 		void set_backlight(int level);
 		void update_current_face();
-		void check_navigation();
+		void process_touch();
 		uint get_backlight_period();
 		void set_display_state(display_states state, String message);
 		void show_loading_icon();

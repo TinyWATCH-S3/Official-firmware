@@ -324,7 +324,7 @@ void loop()
 		imu.process_wrist_gestures();	
 
 	// Check if we have swiped or clicked
-	display.check_navigation();
+	display.process_touch();
 
 	// Update the current face based on it's own update period 
 	display.update_current_face();

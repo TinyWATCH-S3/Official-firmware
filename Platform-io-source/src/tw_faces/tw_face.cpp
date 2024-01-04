@@ -118,7 +118,6 @@ void tw_face::drag_begin(int16_t pos_x, int16_t pos_y)
 	next_click_update = millis();
 
 	selectedControl = find_draggable_control(pos_x, pos_y);
-
 }
 
 void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y,bool current_face)
@@ -163,7 +162,6 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 
 				if ( wHeight > 260)
 				{
-
 					if ( pos_y != 0)
 						inertia_y = pos_y;
 
@@ -187,7 +185,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 			}
 		}
 
-		if (drag_dir == -1 && (abs(drag_x) > 30 || abs(drag_y) > 30))
+		if (drag_dir == -1 && (abs(drag_x) > 10 || abs(drag_y) > 10))
 		{
 			// pre calc if am able to swipe based on where I start my touch
 			if (drag_start_x < drag_width && abs(drag_x) > abs(drag_y)) // swipe right, drag in from left if face exists
@@ -201,10 +199,8 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 
 			drag_dir = check_can_swipe();
 
-
 			drag_lock_y = (drag_dir==0 || drag_dir==2);
 			drag_lock_x = (drag_dir==1 || drag_dir==3);
-
 		}
 
 		bool swipe_chance = (drag_dir >= 0);
@@ -221,7 +217,6 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 					_x = constrain(_x, 0, 240);
 				else if (drag_dir == 1)
 					_x = constrain(_x, -240, 0);
-
 			}
 		}
 		else if (drag_lock_y)
@@ -295,18 +290,7 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 		{
 			switch_face = (abs(drag_y) > 130);
 			target = (_y > 0) ? 280 : -280;
-
 		}
-
-		// if (vbus_present())
-		// {
-		// 	info_print("Drag end (");
-		// 	info_print(abs(drag_x));
-		// 	info_print(",");
-		// 	info_print(abs(drag_y) );
-		// 	info_println(")");
-		// }
-
 
 		// We only switch face (like a swipe) if there's a face on the other side
 		// Otherwise we spring back
@@ -383,7 +367,6 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 						if (navigation[drag_dir] != nullptr)
 							navigation[drag_dir]->drag(_x-target, _y, t_pos_x, t_pos_y, 0, 0, false);
 					}
-					// delay(1);
 				}
 			}
 			else if (drag_lock_y)
@@ -400,32 +383,8 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 						if (navigation[drag_dir] != nullptr)
 							navigation[drag_dir]->drag(_x, _y-target, t_pos_x, t_pos_y, 0, 0, false);
 					}
-					// delay(1);
 				}
 			}
-		}
-	}
-	
-	if (total_touch_time > 600 && distance < 5)
-	{
-		// might be a long click?
-		if (click_long(t_pos_x, t_pos_y))
-			BuzzerUI({ {2000, 400} });
-	}
-	else if (distance < 5)
-	{
-		//A click should only happen if the finger didn't drag - much 
-		if (widget_process_clicks(t_pos_x, t_pos_y))
-		{
-			BuzzerUI({ {2000, 10} });
-		}
-		else if (control_process_clicks(t_pos_x, t_pos_y))
-		{
-			BuzzerUI({ {2000, 10} });
-		}
-		else if (click(t_pos_x, t_pos_y))
-		{
-			BuzzerUI({ {2000, 20} });
 		}
 	}
 	
