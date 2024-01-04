@@ -58,6 +58,8 @@ class FaceWatch_CustomBinary : public tw_face
 		uint16_t month = 0;
 		uint16_t year = 0;
 
+		uint16_t m_start = 0;
+		uint16_t m_end = 0;
 
 };
 

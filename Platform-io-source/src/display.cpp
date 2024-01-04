@@ -28,6 +28,7 @@ Display display;
 #include "tw_faces/face_WatchSettings.h"
 #include "tw_faces/face_Microphone.h"
 #include "tw_faces/face_BatteryEmpty.h"
+#include "tw_faces/face_TOTP.h"
 
 // Widgets
 #include "tw_widgets/widget_Battery.h"
@@ -293,8 +294,12 @@ void Display::createFaces(bool was_sleeping)
 		show_watch_from_boot();
 	
 
-	face_imu.add("IMU", 100, 80);
+	face_imu.add("IMU", 1000, 40);
+	face_imu.set_single_navigation(UP, &face_totp); // Swipe up from IMU to get to TOTP
 	// face_compass.add("Compass", 100, 80);
+
+	face_totp.add("TOTP", 1000, 80);
+	face_totp.set_single_navigation(DOWN, &face_imu); // Swipe down from TOTP to get to IMU
 
 	face_microphone.add("FFT", 25, 160);
 	face_microphone.set_single_navigation(LEFT, current_clock_face);

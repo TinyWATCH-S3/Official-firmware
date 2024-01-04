@@ -30,9 +30,11 @@ void FaceWatch_CustomBinary::draw(bool force)
 {
 	if (force || millis() - next_update > update_period)
 	{
+		m_start = millis();
 		setup();
 		
 		next_update = millis();
+		
 
 		if (!is_dragging || !is_cached)
 		{
@@ -142,6 +144,18 @@ void FaceWatch_CustomBinary::draw(bool force)
 		}
 
 		canvas[canvasid].pushSprite(_x,_y);
+
+		m_end = millis();
+
+		info_print("Render time:");
+		info_println(m_end - m_start);
+
+		info_print("is_dragging:");
+		info_println(is_dragging);
+
+		info_print("is_cached:");
+		info_println(is_cached);
+
 	}
 }
 
