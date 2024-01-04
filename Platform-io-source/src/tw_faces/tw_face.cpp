@@ -126,7 +126,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 	canvasid = current_face ? 1 : 0;
 
 	// Let's see if we are holding our finger still
-	if (abs(drag_x) < 1 && abs(drag_y) < 1)
+	if (drag_dir == -1 && selectedControl == nullptr && abs(drag_x) < 1 && abs(drag_y) < 1)
 	{
 		// Have we been holding still for half a second?
 		if (millis() - click_hold_start_timer > 500)
@@ -187,7 +187,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 			}
 		}
 
-		if (drag_dir == -1 && (abs(drag_x) > 10 || abs(drag_y) > 10))
+		if (drag_dir == -1 && (abs(drag_x) > 30 || abs(drag_y) > 30))
 		{
 			// pre calc if am able to swipe based on where I start my touch
 			if (drag_start_x < drag_width && abs(drag_x) > abs(drag_y)) // swipe right, drag in from left if face exists
@@ -238,7 +238,8 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 		}
 
 		// Draw the dragged face 
-		draw(true);
+        if (is_dragging)
+		    draw(true);
 
 		// We only drag the neighbour face if we have one!
 		if (drag_dir >= 0)
@@ -404,22 +405,8 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 			}
 		}
 	}
-
-
-	if (double_click)
-	{
-		if (click_double(t_pos_x, t_pos_y))
-		{
-			BuzzerUI({
-				{2000, 40},
-				{0, 15},
-				{2000, 40},
-			});
-			return false;
-		}
-
-	}
-	else if (total_touch_time > 600 && distance < 5)
+	
+	if (total_touch_time > 600 && distance < 5)
 	{
 		// might be a long click?
 		if (click_long(t_pos_x, t_pos_y))

@@ -76,7 +76,7 @@ String dirNames[7] = {"UP", "RIGHT", "DOWN", "LEFT", "CLICK", "CLICK_DBL", "CLIC
 
 unsigned long last_finger_move = 0;
 unsigned long last_touch = 0;
-unsigned long dbl_touch = 0;
+unsigned long dbl_touch[2] = {0};
 unsigned long drag_rate = 0;
 
 int16_t deltaX = 0, deltaY = 0;
@@ -211,7 +211,8 @@ void Display::show_watch_from_boot()
 	current_face->draw(true);
 
 	last_touch = millis();
-	dbl_touch = millis();
+	dbl_touch[0] = millis();
+    dbl_touch[1] = millis();
 }
 
 void Display::createFaces(bool was_sleeping)
@@ -392,17 +393,16 @@ void Display::check_navigation()
 			moved_y = touchpad.y;
 			isTouched = true;
 			touchTime = millis();
-			dbl_touch = last_touch;
+
 			last_touch = millis();
 			drag_rate = millis();
 			last_finger_move = millis();
 
 			current_face->drag_begin(startX, startY);
 
-		backlight_level = 0;
-		set_backlight(backlight_level);
+            backlight_level = 0;
+            set_backlight(backlight_level);
 
-		// info_println("Start");
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
@@ -421,35 +421,59 @@ void Display::check_navigation()
 		}
 		else if (isTouched && touchpad.finger_num == 0)
 		{
+            isTouched = false;
+
+            last_touch = millis();
+ 
 			deltaX = touchpad.x - startX;
 			deltaY = touchpad.y - startY;
 			int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
 			touchTime = millis()-touchTime;
-			// Directions swipe_dir;
 
-			bool double_click = (last_touch - dbl_touch < 300) && distance <= 15;
-            // info_println( String(double_click ? "YES" : "NO") + " time: "+String(last_touch - dbl_touch)+" dist: "+String(distance));
-            // info_println( "last_touch "+String(last_touch) + ", dbl_touch "+String(dbl_touch));
-			int16_t last_dir_x = touchpad.x - moved_x;
-			int16_t last_dir_y = touchpad.y - moved_y;
+            dbl_touch[0] = dbl_touch[1];
+            dbl_touch[1] = millis();
 
-			if (current_face->drag_end(deltaX, deltaY, true, distance, double_click, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
-			{
-				// switch face to the new one and make it the current face
-				int dir = current_face->drag_dir;
-				if (current_face->navigation[dir] != nullptr)
-				{
-					current_face = current_face->navigation[dir];
-					current_face->draw(true);
-				}
-				isTouched = false;
-				return;
-			}
+			bool double_click = (dbl_touch[1] - dbl_touch[0] < 300) && distance <= 8;
+
+            // info_println( String(double_click ? "YES" : "NO") + " time: "+String(dbl_touch[1] - dbl_touch[0])+" dist: "+String(distance));
+            // info_println( "dbl_touch[1] "+String(dbl_touch[1]) + ", dbl_touch[0] "+String(dbl_touch[0]));
+
+            if (double_click)
+            {
+                // block 2 dbl clicks in a row from 3 clicks
+                dbl_touch[1] = 0;
+
+                if (current_face->click_double(touchpad.x, touchpad.y))
+                {
+                    BuzzerUI({
+                        {2000, 40},
+                        {0, 15},
+                        {2000, 40},
+                    });
+                    return;
+                }
+            }
+            else
+            {
+                int16_t last_dir_x = touchpad.x - moved_x;
+                int16_t last_dir_y = touchpad.y - moved_y;
+
+                if (current_face->drag_end(deltaX, deltaY, true, distance, double_click, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
+                {
+                    // switch face to the new one and make it the current face
+                    int dir = current_face->drag_dir;
+                    if (current_face->navigation[dir] != nullptr)
+                    {
+                        current_face = current_face->navigation[dir];
+                        current_face->draw(true);
+                    }
+                    return;
+                }
+            }
 		}
 	}
 	else
 	{
-		isTouched = false;
 		tinywatch.set_cpu_frequency(current_face->get_cpu_speed(), CPU_CHANGE_LOW);
 
 		if ( current_face->is_face_cached())
