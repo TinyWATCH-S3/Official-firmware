@@ -8,7 +8,6 @@
 #include "peripherals/imu.h"
 #include "settings/settings.h"
 #include "tinywatch.h"
-#include <bitset>
 
 void FaceWatch_CustomBinary::setup()
 {
@@ -17,13 +16,6 @@ void FaceWatch_CustomBinary::setup()
 		is_setup = true;
 		// Add any one time setup code here
 	}
-}
-
-// Easier to read than using a binary shift.
-bool is_onoff(int number, int position) 
-{
-    std::bitset<6> binaryRepresentation(number);
-    return binaryRepresentation.test(position);
 }
 
 void FaceWatch_CustomBinary::draw(bool force)
@@ -56,7 +48,10 @@ void FaceWatch_CustomBinary::draw(bool force)
 				day = rtc.get_day();
 				month = rtc.get_month();
 				year = rtc.get_year();
-				tinywatch.log_system_message("Fetching T/D");
+
+				// Offset the Date for single/multiple digits
+				if (day > 9 )
+					day_offset = 0;
 			}
 			
 			uint8_t posmul = 32;
@@ -71,7 +66,7 @@ void FaceWatch_CustomBinary::draw(bool force)
 			// Set Colours
 			int16_t on_color = on_colors[settings.config.custom_binary.binary_clockcolour]; 
 			int16_t off_color = off_colors[settings.config.custom_binary.binary_clockcolour]; 
-			int16_t bdr_color = RGB(0x12, 0x12, 0x12);
+			int16_t bdr_color = RGB(0x0A, 0x0A, 0x0A);
 			int16_t tim_color = RGB(0xff, 0xff, 0xff);
 			int8_t clock_style = settings.config.custom_binary.binary_clockstyle;
 				
@@ -79,29 +74,32 @@ void FaceWatch_CustomBinary::draw(bool force)
 			int box_counts[6] = {4, 3, 4, 3, 4, 2};      // Not all columns need 4 boxes
 			int digit_num[6] = {secs % 10, secs / 10, mins % 10, mins / 10, hours % 10, hours / 10}; // this returns the individual digit for each column
 
+			int half_posmul = posmul/2;
+
 			for (int digit = 0; digit < 6; ++digit) 
 			{
 				int xOffset = x_offset + (posmul * box_positions[digit]) + (x_space * box_positions[digit]);
 				for (int box_y = 0; box_y < box_counts[digit]; ++box_y) {
-					if (is_onoff(digit_num[digit], box_y))
+					//if (is_onoff(, ))
+					if ((digit_num[digit] & (1 << box_y)) != 0)
 						if (clock_style == 0) 
 							canvas[canvasid].fillRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, on_color);
 
 						else
-							canvas[canvasid].fillSmoothCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, on_color);
+							canvas[canvasid].fillSmoothCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, on_color);
 
 					else
 						if (clock_style == 0) 
 							canvas[canvasid].fillRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, off_color);
 
 						else
-							canvas[canvasid].fillSmoothCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, off_color);
+							canvas[canvasid].fillSmoothCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, off_color);
 
 					if (clock_style == 0) 
 						canvas[canvasid].drawRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, bdr_color);
 
 					else
-						canvas[canvasid].drawCircle(xOffset + (posmul/2), y_offset - (box_y * (posmul + y_space)) + (posmul/2), posmul/2, bdr_color);
+					 	canvas[canvasid].drawCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, bdr_color);
 
 				}
 			}
@@ -110,7 +108,7 @@ void FaceWatch_CustomBinary::draw(bool force)
 			int16_t digit_backcolor[6] = {off_color, off_color, off_color, off_color, off_color, off_color};
 			for (int i = 0; i < 6; ++i) 
 			{
-				if (is_onoff(digit_num[i], 0))
+				if ((digit_num[i] & (1 << 0)) != 0)
 				digit_backcolor[i] = on_color;
 			}
 
@@ -124,10 +122,7 @@ void FaceWatch_CustomBinary::draw(bool force)
 			}
 
 			
-			// Offset the Date for single/multiple digits
-			int8_t day_offset = -16;
-			if (day > 9 )
-				day_offset = 0;
+
 			
 			// Show date below the clock
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[2]);
@@ -163,7 +158,7 @@ bool FaceWatch_CustomBinary::click(uint pos_x, uint pos_y)
 {
 	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
 	settings.config.custom_binary.binary_clockcolour++;
-	if (settings.config.custom_binary.binary_clockcolour > 8) 
+	if (settings.config.custom_binary.binary_clockcolour >= 3) 
 	{ 
 		settings.config.custom_binary.binary_clockstyle = !(settings.config.custom_binary.binary_clockstyle);
 		settings.config.custom_binary.binary_clockcolour = 0;
