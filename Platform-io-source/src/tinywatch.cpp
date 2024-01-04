@@ -15,8 +15,7 @@
 
 #include "activity.h"
 #include "settings/settings.h"
-#include "utilities/user_flash.h"
-#include <SdFat.h>
+#include <LittleFS.h>
 
 #include "utilities/logging.h"
 
@@ -55,10 +54,10 @@ void setup()
 	tinywatch.log_system_message("FW " + tinywatch.version_firmware + " " + tinywatch.version_year);
 	tinywatch.log_system_message(String(ESP.getChipModel()) + " R" + String(ESP.getChipRevision()) + " " + String(ESP.getChipCores()) + "C");
 
-	if (!user_flash.init())
+	if (!LittleFS.begin(true))
 	{
-		error_println("User Flash FS failed to initialise");
-		tinywatch.log_system_message("User Flash Error!");
+		error_println("LittleFS failed to initialise");
+		tinywatch.log_system_message("LittleFS Error!");
 		return;
 	}
 	else
@@ -392,15 +391,7 @@ void TinyWATCH::go_to_sleep()
 	settings.save(true);
 	activity.save(true);
 
-	while (user_flash.is_busy())
-	{
-		info_println("waiting for flash to not be busy...");
-		delay(1);
-	}
-
-	user_flash.deinit();
-
-	info_println("Flash de-init and going to sleep!");
+	LittleFS.end();
 
 	// esp_sleep_enable_ext1_wakeup(WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
 	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ANY_LOW);

@@ -1,6 +1,6 @@
 #include "activity.h"
 #include "utilities/logging.h"
-#include "utilities/user_flash.h"
+#include <LittleFS.h>
 
 using json = nlohmann::json;
 
@@ -10,7 +10,7 @@ bool Activity::load()
 {
 	info_println("Loading activity");
 
-	File file = flashFS.open(filename);
+	File file = LittleFS.open(filename);
 	if (!file || file.isDirectory() || file.size() == 0)
 	{
 		// No data on the flash chip, so create new data
@@ -77,7 +77,7 @@ bool Activity::save(bool force)
 
 	std::string serializedObject = json_data.dump();
 
-	File file = flashFS.open(filename, FILE_WRITE);
+	File file = LittleFS.open(tmp_filename, FILE_WRITE);
 	if (!file)
 	{
 		error_println("Failed to write to activity file");
@@ -86,6 +86,7 @@ bool Activity::save(bool force)
 
 	file.print(serializedObject.c_str());
 	file.close();
+	LittleFS.rename(tmp_filename, filename);
 	info_println(F("Activity SAVE: Saved!"));
 
 	// Store last saved data for comparison on next save
