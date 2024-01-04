@@ -37,7 +37,9 @@ class FaceWatch_CustomBinary : public tw_face
 			"JUL", "AUG", "SEP",
 			"OCT", "NOV", "DEC"
 		};
-			
+		
+		// Settings
+		bool show_borders = true;
 
 		// Kept for Caching
 		uint8_t hours = 0;
