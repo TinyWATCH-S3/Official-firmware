@@ -86,6 +86,7 @@ uint touchTime = 0;
 bool isTouched = false;
 bool last_was_click = false;
 bool last_was_long = false;
+bool prevent_long_press = false;
 
 static std::vector<tw_face *> clock_faces;
 
@@ -413,6 +414,7 @@ void Display::process_touch()
 			moved_x = touchpad.x;
 			moved_y = touchpad.y;
 			isTouched = true;
+            prevent_long_press = false;
 			touchTime = millis();
 
 			last_touch = millis();
@@ -443,8 +445,9 @@ void Display::process_touch()
             if (abs(deltaX)> 5 || abs(deltaY)> 5)
             {
 			    current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
+                prevent_long_press = true;
             }
-            else if (last_touch - touchTime > 600)
+            else if (!prevent_long_press && last_touch - touchTime > 600)
             {
                 // might be a long click?
                 if (current_face->click_long(touchpad.x, touchpad.y))
@@ -515,6 +518,7 @@ void Display::process_touch()
                     if (current_face->navigation[dir] != nullptr)
                     {
                         current_face = current_face->navigation[dir];
+                        current_face->reset_cache_status();
                         current_face->draw(true);
                     }
                     return;

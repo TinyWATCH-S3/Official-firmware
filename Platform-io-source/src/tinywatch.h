@@ -20,7 +20,7 @@ class TinyWATCH {
 		unsigned long low_battery_update_check = 0;
 
 		const String version_firmware = "v0.3";
-		const String version_year = "2023";
+		const String version_year = "2024";
 
 		std::vector<String> messages;
 

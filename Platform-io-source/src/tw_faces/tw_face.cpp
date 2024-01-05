@@ -124,33 +124,34 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 {
 	canvasid = current_face ? 1 : 0;
 
-	// Let's see if we are holding our finger still
-	if (drag_dir == -1 && selectedControl == nullptr && abs(drag_x) < 1 && abs(drag_y) < 1)
-	{
-		// Have we been holding still for half a second?
-		if (millis() - click_hold_start_timer > 500)
-		{
-			//Are we over a control?
-			if (control_process_clicks(t_pos_x, t_pos_y))
-			{
-				// draw(true);
-				BuzzerUI({ {2000, 2} });
-				return;
-			}
-		}
-	}
-	else if (selectedControl != nullptr)
-	{
-		if (selectedControl->drag(drag_x, drag_y))
-		{
-			BuzzerUI({ {2000, 2} });
-		}
-		return;
-	}
-
 	// We only move the other faces if we are the current_face (current) face
 	if (current_face)
 	{
+        // Let's see if we are holding our finger still
+        if (drag_dir == -1 && selectedControl == nullptr && abs(drag_x) < 1 && abs(drag_y) < 1)
+        {
+            // Have we been holding still for half a second?
+            if (millis() - click_hold_start_timer > 500)
+            {
+                //Are we over a control?
+                if (control_process_clicks(t_pos_x, t_pos_y))
+                {
+                    // draw(true);
+                    BuzzerUI({ {2000, 2} });
+                    return;
+                }
+            }
+        }
+        else if (selectedControl != nullptr)
+        {
+            if (selectedControl->drag(drag_x, drag_y))
+            {
+                BuzzerUI({ {2000, 2} });
+            }
+            return;
+        }
+
+
 		is_scrolling = false;
 
 		// can the contents of the face scroll? If so we calculate 
@@ -248,6 +249,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 	else
 	{
 		// we are the not the current_face face, so just update the positions and draw
+        is_dragging = true;
 		_x = drag_x;
 		_y = drag_y;
 		draw(true);
