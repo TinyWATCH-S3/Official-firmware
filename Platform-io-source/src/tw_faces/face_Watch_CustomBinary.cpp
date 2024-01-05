@@ -1,8 +1,6 @@
 #include "tw_faces/face_Watch_CustomBinary.h"
 #include "fonts/Clock_Digits.h"
-//#include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
-//#include "fonts/Roboto_Regular18.h"
 #include "bitmaps/bitmaps_general.h"
 #include "peripherals/battery.h"
 #include "peripherals/imu.h"
@@ -14,7 +12,6 @@ void FaceWatch_CustomBinary::setup()
 	if (!is_setup)
 	{
 		is_setup = true;
-		// Add any one time setup code here
 	}
 }
 
@@ -22,11 +19,9 @@ void FaceWatch_CustomBinary::draw(bool force)
 {
 	if (force || millis() - next_update > update_period)
 	{
-		m_start = millis();
 		setup();
 		
 		next_update = millis();
-		
 
 		if (!is_dragging || !is_cached)
 		{
@@ -40,8 +35,8 @@ void FaceWatch_CustomBinary::draw(bool force)
 			uint8_t secs = rtc.get_seconds();
 
 			// Only fetch the mins, hrs, and date once a minute. 
-			// Also do it for first run (year cant be 0)
-			if (secs == 0 || year == 0) 
+			// Also do it for first run (year cant be 0, or 2000)
+			if (secs == 0 || year == 0 || year == 2000) 
 			{
 				mins = rtc.get_mins();
 				hours = rtc.get_hours();
@@ -94,13 +89,15 @@ void FaceWatch_CustomBinary::draw(bool force)
 
 						else
 							canvas[canvasid].fillSmoothCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, off_color);
+					if (show_borders)
+					{
+						if (clock_style == 0) 
+							canvas[canvasid].drawRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, bdr_color);
 
-					if (clock_style == 0) 
-						canvas[canvasid].drawRect(xOffset, y_offset - (box_y * (posmul + y_space)), posmul, posmul, bdr_color);
+						else
+					 		canvas[canvasid].drawCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, bdr_color);
 
-					else
-					 	canvas[canvasid].drawCircle(xOffset + (half_posmul), y_offset - (box_y * (posmul + y_space)) + (half_posmul), half_posmul, bdr_color);
-
+					}
 				}
 			}
 
@@ -121,9 +118,6 @@ void FaceWatch_CustomBinary::draw(bool force)
 				y_offset - (0 * (posmul + y_space)) + digit_yoffset);
 			}
 
-			
-
-			
 			// Show date below the clock
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[2]);
 			canvas[canvasid].setTextColor(tim_color, RGB(0x00, 0x00, 0x00));				
@@ -139,18 +133,6 @@ void FaceWatch_CustomBinary::draw(bool force)
 		}
 
 		canvas[canvasid].pushSprite(_x,_y);
-
-		m_end = millis();
-
-		info_print("Render time:");
-		info_println(m_end - m_start);
-
-		info_print("is_dragging:");
-		info_println(is_dragging);
-
-		info_print("is_cached:");
-		info_println(is_cached);
-
 	}
 }
 
