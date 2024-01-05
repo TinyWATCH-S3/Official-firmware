@@ -293,7 +293,7 @@ void Display::createFaces(bool was_sleeping)
 		show_watch_from_boot();
 	
 
-	face_imu.add("IMU", 1000, 40);
+	face_imu.add("IMU", 100, 40);
 	// face_compass.add("Compass", 100, 80);
 
 	face_microphone.add("FFT", 25, 160);
