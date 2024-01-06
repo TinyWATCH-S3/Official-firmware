@@ -1,8 +1,8 @@
 
 #include "tw_faces/face_IMU.h"
-#include "peripherals/imu.h"
 #include "fonts/Clock_Digits.h"
 #include "fonts/RobotoMono_Regular_All.h"
+#include "peripherals/imu.h"
 
 void FaceIMU::setup()
 {
@@ -18,7 +18,7 @@ void FaceIMU::draw(bool force)
 	if (force || millis() - next_update > update_period)
 	{
 		setup();
-		
+
 		next_update = millis();
 
 		if (!is_dragging || !is_cached)
@@ -28,8 +28,7 @@ void FaceIMU::draw(bool force)
 
 			if (true)
 
-
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
+				canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
 			canvas[canvasid].fillSprite(RGB(0x22, 0x22, 0x22));
 			canvas[canvasid].setTextColor(TFT_WHITE);
 			canvas[canvasid].setTextDatum(4); // Middle, Center
@@ -47,11 +46,11 @@ void FaceIMU::draw(bool force)
 				canvas[canvasid].fillRoundRect(10, 175, 105, 38, 8, RGB(0x55, 0x22, 0x22));
 				canvas[canvasid].fillRoundRect(10, 230, 105, 38, 8, RGB(0x55, 0x22, 0x22));
 				canvas[canvasid].setCursor(15, 144);
-				canvas[canvasid].print("X "+String(imu.get_gyro_x()));
+				canvas[canvasid].print("X " + String(imu.get_gyro_x()));
 				canvas[canvasid].setCursor(15, 199);
-				canvas[canvasid].print("Y "+String(imu.get_gyro_y()));
+				canvas[canvasid].print("Y " + String(imu.get_gyro_y()));
 				canvas[canvasid].setCursor(15, 254);
-				canvas[canvasid].print("Z "+String(imu.get_gyro_z()));
+				canvas[canvasid].print("Z " + String(imu.get_gyro_z()));
 			}
 			else
 			{
@@ -62,11 +61,11 @@ void FaceIMU::draw(bool force)
 				canvas[canvasid].fillRoundRect(10, 175, 105, 38, 8, RGB(0x22, 0x22, 0x55));
 				canvas[canvasid].fillRoundRect(10, 230, 105, 38, 8, RGB(0x22, 0x22, 0x55));
 				canvas[canvasid].setCursor(15, 144);
-				canvas[canvasid].print("X "+String(imu.get_accel_x()));
+				canvas[canvasid].print("X " + String(imu.get_accel_x()));
 				canvas[canvasid].setCursor(15, 199);
-				canvas[canvasid].print("Y "+String(imu.get_accel_y()));
+				canvas[canvasid].print("Y " + String(imu.get_accel_y()));
 				canvas[canvasid].setCursor(15, 254);
-				canvas[canvasid].print("Z "+String(imu.get_accel_z()));
+				canvas[canvasid].print("Z " + String(imu.get_accel_z()));
 			}
 
 			canvas[canvasid].setTextColor(TFT_YELLOW);
@@ -87,25 +86,19 @@ void FaceIMU::draw(bool force)
 				widgets[w]->draw(canvasid, 0);
 			}
 		}
-		
+
 		canvas[canvasid].pushSprite(_x, _y);
 	}
 }
 
-bool FaceIMU::click(uint pos_x, uint pos_y)
+bool FaceIMU::click(int16_t pos_x, int16_t pos_y)
 {
 	showingGyro = !showingGyro;
 	return true;
 }
 
-bool FaceIMU::click_double(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceIMU::click_double(int16_t pos_x, int16_t pos_y) { return false; }
 
-bool FaceIMU::click_long(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceIMU::click_long(int16_t pos_x, int16_t pos_y) { return false; }
 
 FaceIMU face_imu;

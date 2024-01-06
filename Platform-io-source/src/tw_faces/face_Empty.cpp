@@ -18,7 +18,7 @@ void FaceEmpty::draw(bool force)
 	if (force || millis() - next_update > update_period)
 	{
 		setup();
-		
+
 		next_update = millis();
 
 		if (!is_dragging || !is_cached)
@@ -30,26 +30,16 @@ void FaceEmpty::draw(bool force)
 			canvas[canvasid].setTextDatum(4); // Middle, Center
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[15]);
 			canvas[canvasid].setTextColor(TFT_GREEN);
-
 		}
 
-		canvas[canvasid].pushSprite(_x,_y);
+		canvas[canvasid].pushSprite(_x, _y);
 	}
 }
 
-bool FaceEmpty::click(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceEmpty::click(int16_t pos_x, int16_t pos_y) { return false; }
 
-bool FaceEmpty::click_double(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceEmpty::click_double(int16_t pos_x, int16_t pos_y) { return false; }
 
-bool FaceEmpty::click_long(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceEmpty::click_long(int16_t pos_x, int16_t pos_y) { return false; }
 
 FaceEmpty face_empty;

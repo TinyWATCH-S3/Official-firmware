@@ -19,37 +19,41 @@
 #define GESTURE_DOUBLE_CLICK 0x0B
 #define GESTURE_LONG_PRESS 0x0C
 
-enum touchpad_mode { mode_touch,
-                             mode_change,
-                             mode_fast,
-                             mode_motion };
+enum touchpad_mode
+{
+	mode_touch,
+	mode_change,
+	mode_fast,
+	mode_motion
+};
 
 class cst816t
 {
-    public:
-        cst816t(int8_t _rst, int8_t _irq);
-        /*
-           mode_touch: interrupt every 10ms when a touch is detected
-           mode_change: interrupt when a touch change is detected
-           mode_fast: interrupt when a click or swipe is detected
-           mode_motion: interrupt when a click, swipe, double click, or long press is detected
-         */
-        bool begin(touchpad_mode tp_mode = mode_change);
-        bool available(bool flipped);
-        String version();
-        String state();
-        uint8_t chip_id;
-        uint8_t firmware_version;
-        uint8_t gesture_id;
-        uint8_t finger_num;
-        uint16_t x;
-        uint16_t y;
-    private:
-        int8_t rst;
-        int8_t irq;
+	public:
+		cst816t(int8_t _rst, int8_t _irq);
+		/*
+		   mode_touch: interrupt every 10ms when a touch is detected
+		   mode_change: interrupt when a touch change is detected
+		   mode_fast: interrupt when a click or swipe is detected
+		   mode_motion: interrupt when a click, swipe, double click, or long press is detected
+		 */
+		bool begin(touchpad_mode tp_mode = mode_change);
+		bool available(bool flipped);
+		String version();
+		String state();
+		uint8_t chip_id;
+		uint8_t firmware_version;
+		uint8_t gesture_id;
+		uint8_t finger_num;
+		uint16_t x;
+		uint16_t y;
+
+	private:
+		int8_t rst;
+		int8_t irq;
 		bool touching = false;
-        uint8_t i2c_read(uint16_t addr, uint8_t reg_addr, uint8_t *reg_data, uint32_t length);
-        uint8_t i2c_write(uint8_t addr, uint8_t reg_addr, const uint8_t *reg_data, uint32_t length);
+		uint8_t i2c_read(uint16_t addr, uint8_t reg_addr, uint8_t *reg_data, uint32_t length);
+		uint8_t i2c_write(uint8_t addr, uint8_t reg_addr, const uint8_t *reg_data, uint32_t length);
 };
 
 #endif

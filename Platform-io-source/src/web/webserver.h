@@ -10,12 +10,10 @@ class WebServer
 {
 
 	public:
-		WebServer() : web_server(80)
-		{
-		}
+		WebServer() : web_server(80) {}
 
 		void start();
-        void start_callback(bool success, const String &response);
+		void start_callback(bool success, const String &response);
 		void stop(bool restart);
 		void process();
 		bool is_running();
@@ -26,7 +24,6 @@ class WebServer
 		bool _running = false;
 		AsyncWebServer web_server;
 		DNSServer dns_server;
-
 };
 
 extern WebServer web_server;

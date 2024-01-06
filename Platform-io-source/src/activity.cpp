@@ -6,7 +6,6 @@ using json = nlohmann::json;
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Activity_Data, steps_day, steps_year, imu_day, imu_month, imu_year);
 
-
 bool Activity::load()
 {
 	info_println("Loading activity");
@@ -108,13 +107,12 @@ bool Activity::create()
 	return true;
 }
 
-
 void Activity::track_steps(uint32_t steps, uint8_t day, uint8_t month, uint16_t year)
 {
 	uint32_t key = (year * 100) + month;
-	info_println("Year: "+String(year) +", month: "+String(month) +", day: "+String(day));
-	info_println("Key: "+String(key));
-	data.steps_day[key][day-1] += steps;  // day is 1-31, but array is 0-30
+	info_println("Year: " + String(year) + ", month: " + String(month) + ", day: " + String(day));
+	info_println("Key: " + String(key));
+	data.steps_day[key][day - 1] += steps; // day is 1-31, but array is 0-30
 	data.steps_year[year] += steps;
 
 	// data.steps_day += steps;

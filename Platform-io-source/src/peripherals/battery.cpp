@@ -1,11 +1,10 @@
 #include "peripherals/battery.h"
-#include "utilities/logging.h"
+#include "Wire.h"
 #include "settings/settings.h"
 #include "tinywatch.h"
-#include "Wire.h"
+#include "utilities/logging.h"
 
 #define FG_INT 14
-
 
 bool Battery::init()
 {
@@ -13,7 +12,6 @@ bool Battery::init()
 
 	maxlipo.setDevice(MAX1704X_MAX17048);
 	maxlipo.enableDebugging();
-
 
 	if (!maxlipo.begin())
 	{
@@ -88,54 +86,50 @@ bool Battery::is_low(bool using_perc)
 		return maxlipo.isVoltageLow();
 }
 
-// returns if we have tiggered the voltage too high threshold (4.2V) - should not ever happen, but maybe? 
-bool Battery::is_high()
-{
-	return maxlipo.isVoltageHigh();
-}
-
+// returns if we have tiggered the voltage too high threshold (4.2V) - should not ever happen, but maybe?
+bool Battery::is_high() { return maxlipo.isVoltageHigh(); }
 
 void Battery::set_hibernate(bool state)
 {
 	if (state)
 		maxlipo.enableHibernate();
 	else
-  		maxlipo.disableHibernate();
+		maxlipo.disableHibernate();
 }
 
 void Battery::update_stats(bool forced)
 {
-    if ((millis() - next_battery_read > 500) || forced) // we only read the IC every 500ms unless forced
-    {
-        cached_voltage = maxlipo.getVoltage();
+	if ((millis() - next_battery_read > 500) || forced) // we only read the IC every 500ms unless forced
+	{
+		cached_voltage = maxlipo.getVoltage();
 		// Why this fudge?
 		// Well, the FG internal table it set to see 4.2V as the max voltage, but the PMIC (battery charge IC) won't charge above 4.1-4.13
 		// So the FG will technically never reach 100%, so will never show the battery as full.
 		// This is all based on experimentation, and I'm not really sure what else to do here - it's just a visual tweak really as
-		// the charge/depletion rate still shows a depletion.  
+		// the charge/depletion rate still shows a depletion.
 		cached_percent = constrain(maxlipo.getSOC() + settings.config.battery.perc_offset, 0.0, 100.0);
 		cached_rate = maxlipo.getChangeRate();
-        next_battery_read = millis();
-    }
+		next_battery_read = millis();
+	}
 }
 
 float Battery::get_rate(bool forced)
 {
 	update_stats(forced);
-    return cached_rate;
+	return cached_rate;
 }
 
 float Battery::get_voltage(bool forced)
 {
-    update_stats(forced);
-    return cached_voltage;
+	update_stats(forced);
+	return cached_voltage;
 }
 
 float Battery::get_percent(bool forced)
 {
 
 	update_stats(forced);
-    return cached_percent;
+	return cached_percent;
 }
 
 uint8_t Battery::get_alert_status()

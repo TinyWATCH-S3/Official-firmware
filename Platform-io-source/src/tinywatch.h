@@ -2,12 +2,14 @@
 #include <Arduino.h>
 #include <vector>
 
-enum CPU_SPEED {
+enum CPU_SPEED
+{
 	CPU_CHANGE_LOW = 0,
 	CPU_CHANGE_HIGH = 1,
 };
 
-class TinyWATCH {
+class TinyWATCH
+{
 	public:
 		bool was_sleeping();
 		int woke_by();
@@ -33,6 +35,5 @@ class TinyWATCH {
 	private:
 		//
 };
-
 
 extern TinyWATCH tinywatch;

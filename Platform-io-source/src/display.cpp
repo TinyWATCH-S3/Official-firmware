@@ -1,57 +1,57 @@
+#include "display.h"
 #include "Arduino.h"
 #include "esp32-hal-cpu.h"
-#include "display.h"
 #include "tinywatch.h"
 #include "tw_widgets/tw_widget.h"
 
 Display display;
 
 // Peripherals
-#include "peripherals/buzzer.h"
 #include "peripherals/battery.h"
+#include "peripherals/buzzer.h"
 #include "peripherals/imu.h"
 
 // Faces Clock
-#include "tw_faces/face_Watch_DefaultDigital.h"
 #include "tw_faces/face_Watch_DefaultAnalog.h"
+#include "tw_faces/face_Watch_DefaultDigital.h"
 
 // Custom Faces
 #include "tw_faces/face_Watch_CustomBinary.h"
 
 // Faces General
-#include "tw_faces/face_Boot.h"
-#include "tw_faces/face_System.h"
 #include "tw_faces/face_AppList.h"
-#include "tw_faces/face_IMU.h"
-#include "tw_faces/face_Settings.h"
-#include "tw_faces/face_Notifications.h"
-#include "tw_faces/face_WatchSettings.h"
 #include "tw_faces/face_BatteryEmpty.h"
+#include "tw_faces/face_Boot.h"
+#include "tw_faces/face_IMU.h"
+#include "tw_faces/face_Notifications.h"
+#include "tw_faces/face_Settings.h"
+#include "tw_faces/face_System.h"
+#include "tw_faces/face_WatchSettings.h"
 
 // Widgets
+#include "tw_widgets/widget_ActivityRing.h"
 #include "tw_widgets/widget_Battery.h"
 #include "tw_widgets/widget_ESP32.h"
-#include "tw_widgets/widget_Wifi.h"
 #include "tw_widgets/widget_Message.h"
-#include "tw_widgets/widget_ActivityRing.h"
+#include "tw_widgets/widget_Wifi.h"
 // #include "tw_widgets/widget_OpenWeather.h"
 
 // Controls
-#include "tw_controls/control_Toggle.h"
 #include "tw_controls/control_Button.h"
+#include "tw_controls/control_Label.h"
+#include "tw_controls/control_Toggle.h"
 #include "tw_controls/control_Value.h"
 #include "tw_controls/control_ValueSlider.h"
-#include "tw_controls/control_Label.h"
 
 // Apps
+#include "tw_apps/app_Compass.h"
+#include "tw_apps/app_Microphone.h"
 #include "tw_apps/tw_app.h"
-#include "tw_apps/app_Microphone.h" 
-#include "tw_apps/app_Compass.h" 
 
 // Other
-#include "settings/settings.h"
 #include "bitmaps/bitmaps_general.h"
 #include "fonts/RobotoMono_Regular_All.h"
+#include "settings/settings.h"
 
 #define TFT_CS 16
 #define TFT_RST 17
@@ -71,7 +71,6 @@ static TaskHandle_t backlightTaskHandle;
 TFT_eSPI tft = TFT_eSPI();
 TFT_eSprite canvas[] = {TFT_eSprite(&tft), TFT_eSprite(&tft)};
 TFT_eSprite loading_screen_canvas = TFT_eSprite(&tft);
-
 
 // Touch is initialised on I2C bus 2, using IO5 for SDA, and IO10 for SCL
 cst816t touchpad(TP_RST, TP_IRQ);
@@ -129,21 +128,18 @@ void Display::kill_backlight_task()
 void Display::add_clock_face(tw_face *face)
 {
 	clock_faces.push_back(face);
-	info_println("Now "+String(clock_faces.size())+" clock faces");
+	info_println("Now " + String(clock_faces.size()) + " clock faces");
 }
 
-void Display::set_current_face(tw_face *face)
-{
-	current_face = face;
-}
+void Display::set_current_face(tw_face *face) { current_face = face; }
 
 /**
  * @brief Before we switch the current clock face to a new clock face, we need to copy over the current clock faces navigation to the new face.
- * 
- * @param should_draw 
- * @return tw_face* 
+ *
+ * @param should_draw
+ * @return tw_face*
  */
-tw_face * Display::set_current_clock_face(bool should_draw)
+tw_face *Display::set_current_clock_face(bool should_draw)
 {
 	tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
 	if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
@@ -176,12 +172,9 @@ void Display::cycle_clock_face()
 
 /**
  * @brief Adjust the rotation of the TFT based on the flipped user setting
- * 
+ *
  */
-void Display::update_rotation()
-{
-	tft.setRotation(settings.config.flipped ? 2 : 0);
-}
+void Display::update_rotation() { tft.setRotation(settings.config.flipped ? 2 : 0); }
 
 void Display::set_display_state(display_states state, String message)
 {
@@ -201,7 +194,7 @@ void Display::set_display_state(display_states state, String message)
 void Display::show_loading_icon()
 {
 	loading_screen_canvas.createSprite(64, 64);
-	loading_screen_canvas.setPivot(32, 32);   
+	loading_screen_canvas.setPivot(32, 32);
 	loading_screen_canvas.pushImage(0, 0, 64, 64, bitmap_loading_icon);
 	loading_screen_canvas.pushRotated(loading_screen_rotation, TFT_BLACK);
 
@@ -209,10 +202,7 @@ void Display::show_loading_icon()
 	loading_screen_rotation += 30;
 }
 
-void Display::force_save()
-{
-	settings.save(true);
-}
+void Display::force_save() { settings.save(true); }
 
 void Display::show_watch_from_boot()
 {
@@ -228,10 +218,10 @@ void Display::show_watch_from_boot()
 
 /**
  * @brief This is the entry point that creates all of the faces and widgets and controls, and hooks them all together. All face to face navigation is also setup here.
- * 
+ *
  * This also shows the watch boot face on startup, if the watch is booting from power up, otherwise, the clock wil be shows through a fast path is the watch is waking from sleep.
- * 
- * @param was_sleeping 
+ *
+ * @param was_sleeping
  */
 void Display::createFaces(bool was_sleeping)
 {
@@ -246,16 +236,16 @@ void Display::createFaces(bool was_sleeping)
 	if (!was_sleeping)
 	{
 		face_boot.draw(true);
-		BuzzerUI({ {262, 210}, {1851, 150}, {523, 150} });
+		BuzzerUI({{262, 210}, {1851, 150}, {523, 150}});
 	}
 
 	backlight_level = 0;
 	set_backlight(0);
-	
-	WidgetBattery * wBattery = new WidgetBattery();
+
+	WidgetBattery *wBattery = new WidgetBattery();
 	wBattery->create("Battery", 210, 7, 40, 40, 1000);
 
-	WidgetActivityRing * wActivity = new WidgetActivityRing();
+	WidgetActivityRing *wActivity = new WidgetActivityRing();
 	wActivity->create("Activity", 40, 218, 40, 40, 1000);
 
 	// Used to show the current CPU frequency on a watch face
@@ -264,11 +254,11 @@ void Display::createFaces(bool was_sleeping)
 
 	// Used to show the WiFi icon if WiFi is enabled
 	// Needs to be refactored once the new WiFi threaded manager is ready
-	WidgetWifi * wWifi = new WidgetWifi();
+	WidgetWifi *wWifi = new WidgetWifi();
 	wWifi->create("Wifi", 30, 7, 40, 40, 1000);
 
 	// Faces that are "Clocks" that you want to be switchable with a dbl click need to use `add_clock()` instead of `add()`
-	// or they will not be added to the clock list for cycling.  
+	// or they will not be added to the clock list for cycling.
 	face_watch_default_analog.add_clock("Clock_Def_Analog", 1000);
 	face_watch_default_analog.add_widget(wBattery);
 	face_watch_default_analog.add_widget(wActivity);
@@ -292,10 +282,9 @@ void Display::createFaces(bool was_sleeping)
 
 	// If we were sleeping, show the clock here, before processing everything else.
 	// Otherwise the clock will be shown from main.cpp once all boot processing is done.
-	// Michael H is going to HATE how this logic is split! 
+	// Michael H is going to HATE how this logic is split!
 	if (was_sleeping)
 		show_watch_from_boot();
-	
 
 	face_imu.add("IMU", 100, 80);
 	// face_compass.add("Compass", 100, 80);
@@ -318,7 +307,7 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.add("Settings", 0, 80);
 	face_settings.set_scrollable(false, true);
 	face_settings.set_single_navigation(LEFT, &face_boot);
-	
+
 	// face_watch is a pointer to the current clock face
 	current_clock_face->set_single_navigation(LEFT, &face_settings);
 	current_clock_face->set_single_navigation(UP, &face_imu);
@@ -333,7 +322,6 @@ void Display::createFaces(bool was_sleeping)
 	// wMessage->create("Message", 0, 0, 200, 50, 1000);
 	// face_notifications.add_widget(wMessage);
 
-		
 	ControlToggle *cToggle = new ControlToggle();
 	cToggle->create("24 Hour", "OFF", "OK", 30, 60, 80, 30);
 	cToggle->set_data(&settings.setting_time_24hour);
@@ -388,12 +376,9 @@ void Display::update_boot_face(wifi_states status)
 
 /**
  * @brief Tell the current face being shown to draw itself. Respects the update rate of the face by passing in false in the draw(false) method on the face.
- * 
+ *
  */
-void Display::update_current_face()
-{
-	current_face->draw(false);
-}
+void Display::update_current_face() { current_face->draw(false); }
 
 void Display::show_low_battery()
 {
@@ -402,18 +387,18 @@ void Display::show_low_battery()
 }
 
 /**
- * @brief Process the touch input from the user and coordinates clicks, dbl clicks, long presses, dragging, scrolling, widgets and controls. It's quite complex. 
- * 
+ * @brief Process the touch input from the user and coordinates clicks, dbl clicks, long presses, dragging, scrolling, widgets and controls. It's quite complex.
+ *
  */
 void Display::process_touch()
 {
-	Directions _dir = NONE; 
-	Directions swipe_dir = NONE; 
+	Directions _dir = NONE;
+	Directions swipe_dir = NONE;
 
 	if (touchpad.available(settings.config.flipped))
 	{
 		tinywatch.set_cpu_frequency(current_face->get_cpu_speed(), CPU_CHANGE_HIGH);
-		
+
 		if (!isTouched && touchpad.finger_num == 1)
 		{
 			startX = touchpad.x;
@@ -434,7 +419,6 @@ void Display::process_touch()
 
 			backlight_level = 0;
 			set_backlight(backlight_level);
-
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
@@ -451,7 +435,7 @@ void Display::process_touch()
 
 			last_touch = millis();
 
-			if (abs(deltaX)> 5 || abs(deltaY)> 5)
+			if (abs(deltaX) > 5 || abs(deltaY) > 5)
 			{
 				current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
 				prevent_long_press = true;
@@ -461,7 +445,7 @@ void Display::process_touch()
 				// might be a long click?
 				if (current_face->click_long(touchpad.x, touchpad.y))
 				{
-					BuzzerUI({ {2000, 400} });
+					BuzzerUI({{2000, 400}});
 					// isTouched = false;
 					last_was_click = false;
 					last_was_long = true;
@@ -504,7 +488,6 @@ void Display::process_touch()
 						});
 						return;
 					}
-
 				}
 				else
 				{
@@ -512,15 +495,14 @@ void Display::process_touch()
 				}
 			}
 			else
-			{ 
-				int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
-				touchTime = millis()-touchTime;
+			{
+				int distance = sqrt(pow((touchpad.x - startX), 2) + pow((touchpad.y - startY), 2));
+				touchTime = millis() - touchTime;
 
-		
 				int16_t last_dir_x = touchpad.x - moved_x;
 				int16_t last_dir_y = touchpad.y - moved_y;
 
-				if (current_face->drag_end(deltaX, deltaY, true, distance, false, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
+				if (current_face->drag_end(deltaX, deltaY, true, distance, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
 				{
 					// switch face to the new one and make it the current face
 					int dir = current_face->drag_dir;
@@ -539,7 +521,7 @@ void Display::process_touch()
 	{
 		tinywatch.set_cpu_frequency(current_face->get_cpu_speed(), CPU_CHANGE_LOW);
 
-		if ( current_face->is_face_cached())
+		if (current_face->is_face_cached())
 			current_face->reset_cache_status();
 
 		if (backlight_level > 0)
@@ -547,30 +529,30 @@ void Display::process_touch()
 			imu.update();
 			if (imu.is_looking_at_face())
 			{
-				backlight_level=0;
+				backlight_level = 0;
 				set_backlight(backlight_level);
 				last_touch = millis();
-				info_println("IMU backlight level: "+String(backlight_level));
+				info_println("IMU backlight level: " + String(backlight_level));
 			}
 		}
 	}
 
 	// If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
-	if (millis()-last_touch > 150 && last_was_click)
+	if (millis() - last_touch > 150 && last_was_click)
 	{
 		last_was_click = false;
-		//A click should only happen if the finger didn't drag - much 
+		// A click should only happen if the finger didn't drag - much
 		if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
 		{
-			BuzzerUI({ {2000, 10} });
+			BuzzerUI({{2000, 10}});
 		}
 		else if (current_face->control_process_clicks(touchpad.x, touchpad.y))
 		{
-			BuzzerUI({ {2000, 10} });
+			BuzzerUI({{2000, 10}});
 		}
 		else if (current_face->click(touchpad.x, touchpad.y))
 		{
-			BuzzerUI({ {2000, 20} });
+			BuzzerUI({{2000, 20}});
 		}
 		last_was_click = false;
 	}
@@ -583,7 +565,7 @@ void Display::process_touch()
 		{
 			backlight_level++;
 			set_backlight(backlight_level);
-			info_println("Setting backlight level: "+String(backlight_level));
+			info_println("Setting backlight level: " + String(backlight_level));
 		}
 		else if (!tinywatch.vbus_present() || true)
 		{
@@ -599,7 +581,7 @@ uint Display::get_backlight_period()
 }
 
 void Display::set_backlight(int level)
-{	
+{
 	if (last_backlight != level)
 	{
 		last_backlight = level;
@@ -629,26 +611,20 @@ bool Display::adjust_backlight()
 	return false;
 }
 
-uint8_t Display::get_current_backlight_val()
-{
-	return backlight_current_val;
-}
+uint8_t Display::get_current_backlight_val() { return backlight_current_val; }
 
-display_states Display::get_current_display_state()
-{
-	return current_display_state;
-}
+display_states Display::get_current_display_state() { return current_display_state; }
 
 // TODO: Convert backlight values from 0-255 to 0-100%
 /**
  * @brief FreeRTOS Task for controlling the screen backlight to allow for fading and non-blocking adjustment
- * 
- * @param param 
+ *
+ * @param param
  */
 static void process_backlight(void *param)
 {
 	info_print("Starting backlight control and loading icon system on core ");
-  	info_println(xPortGetCoreID());
+	info_println(xPortGetCoreID());
 
 	while (true)
 	{
@@ -657,7 +633,7 @@ static void process_backlight(void *param)
 
 		if (update_pwm)
 		{
-			doing_something = true;	
+			doing_something = true;
 			analogWrite(TFT_LED, display.get_current_backlight_val());
 		}
 
@@ -675,49 +651,50 @@ static void process_backlight(void *param)
 
 /**
  * @brief Old Fill Arc code from TFT_eSPI creator to draw non smoothed arcs. TFT_eSPI now has smooth arc drawing routines built in, but the microphone face still uses this method as it's faster.
- * 
- * @param canvasid 
- * @param x 
- * @param y 
- * @param start_angle 
- * @param seg_count 
- * @param rx 
- * @param ry 
- * @param w 
- * @param colour 
+ *
+ * @param canvasid
+ * @param x
+ * @param y
+ * @param start_angle
+ * @param seg_count
+ * @param rx
+ * @param ry
+ * @param w
+ * @param colour
  */
 void Display::fill_arc(uint8_t canvasid, int x, int y, int start_angle, int seg_count, int rx, int ry, int w, unsigned int colour)
 {
 
-  byte seg = 6; // Segments are 3 degrees wide = 120 segments for 360 degrees
-  byte inc = 6; // Draw segments every 3 degrees, increase to 6 for segmented ring
+	byte seg = 6; // Segments are 3 degrees wide = 120 segments for 360 degrees
+	byte inc = 6; // Draw segments every 3 degrees, increase to 6 for segmented ring
 
-  // Calculate first pair of coordinates for segment start
-  float sx = cos((start_angle - 90) * DEG2RAD);
-  float sy = sin((start_angle - 90) * DEG2RAD);
-  uint16_t x0 = sx * (rx - w) + x;
-  uint16_t y0 = sy * (ry - w) + y;
-  uint16_t x1 = sx * rx + x;
-  uint16_t y1 = sy * ry + y;
+	// Calculate first pair of coordinates for segment start
+	float sx = cos((start_angle - 90) * DEG2RAD);
+	float sy = sin((start_angle - 90) * DEG2RAD);
+	uint16_t x0 = sx * (rx - w) + x;
+	uint16_t y0 = sy * (ry - w) + y;
+	uint16_t x1 = sx * rx + x;
+	uint16_t y1 = sy * ry + y;
 
-  // Draw colour blocks every inc degrees
-  for (int i = start_angle; i < start_angle + seg * seg_count; i += inc) {
+	// Draw colour blocks every inc degrees
+	for (int i = start_angle; i < start_angle + seg * seg_count; i += inc)
+	{
 
-	// Calculate pair of coordinates for segment end
-	float sx2 = cos((i + seg - 90) * DEG2RAD);
-	float sy2 = sin((i + seg - 90) * DEG2RAD);
-	int x2 = sx2 * (rx - w) + x;
-	int y2 = sy2 * (ry - w) + y;
-	int x3 = sx2 * rx + x;
-	int y3 = sy2 * ry + y;
+		// Calculate pair of coordinates for segment end
+		float sx2 = cos((i + seg - 90) * DEG2RAD);
+		float sy2 = sin((i + seg - 90) * DEG2RAD);
+		int x2 = sx2 * (rx - w) + x;
+		int y2 = sy2 * (ry - w) + y;
+		int x3 = sx2 * rx + x;
+		int y3 = sy2 * ry + y;
 
-	canvas[canvasid].fillTriangle(x0, y0, x1, y1, x2, y2, colour);
-	canvas[canvasid].fillTriangle(x1, y1, x2, y2, x3, y3, colour);
+		canvas[canvasid].fillTriangle(x0, y0, x1, y1, x2, y2, colour);
+		canvas[canvasid].fillTriangle(x1, y1, x2, y2, x3, y3, colour);
 
-	// Copy segment end to segment start for next segment
-	x0 = x2;
-	y0 = y2;
-	x1 = x3;
-	y1 = y3;
-  }
+		// Copy segment end to segment start for next segment
+		x0 = x2;
+		y0 = y2;
+		x1 = x3;
+		y1 = y3;
+	}
 }

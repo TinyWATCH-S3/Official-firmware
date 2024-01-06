@@ -4,18 +4,17 @@
 
 class FaceWatch_DefaultAnalog : public tw_face
 {
-    public:
+	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(uint pos_x, uint pos_y);
-		bool click_double(uint pos_x, uint pos_y);
-		bool click_long(uint pos_x, uint pos_y);
+		bool click(int16_t pos_x, int16_t pos_y);
+		bool click_double(int16_t pos_x, int16_t pos_y);
+		bool click_long(int16_t pos_x, int16_t pos_y);
 
-    private:
-
+	private:
 		void setup_trig(void);
 		void draw_hand(int x, int y, int x1, int y1, uint16_t color);
-        String version = "1.0";
+		String version = "1.0";
 		bool cachedTrig = false;
 
 		float pos_secs[60][2];

@@ -4,23 +4,23 @@
 
 class AppCompass : public tw_app
 {
-    public:
+	public:
 		void setup(void);
-        void pre_start(void);
+		void pre_start(void);
 		void draw(bool force);
-        void draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint);
-		bool click(uint pos_x, uint pos_y);
-		bool click_double(uint pos_x, uint pos_y);
+		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
+		bool click(int16_t pos_x, int16_t pos_y);
+		bool click_double(int16_t pos_x, int16_t pos_y);
 
 		void drawCompass(int x, int y, int angle);
 		void getCoord(int x, int y, int *xp, int *yp, int r, int a);
 
-    private:
-        String version = "1.0";
+	private:
+		String version = "1.0";
 		bool showingGyro = false;
 
 		int number = 0;
-		int angle  = 0;
+		int angle = 0;
 
 		int lx1 = 0;
 		int ly1 = 0;
@@ -32,9 +32,8 @@ class AppCompass : public tw_app
 		int ly4 = 0;
 
 		// Test only
-		uint16_t  n = 0;
+		uint16_t n = 0;
 		uint32_t dt = 0;
-
 };
 
 extern AppCompass app_compass;

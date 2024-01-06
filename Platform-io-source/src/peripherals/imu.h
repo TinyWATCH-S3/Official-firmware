@@ -8,8 +8,8 @@
 
 class IMU
 {
-    public:
-        void init();
+	public:
+		void init();
 		void update();
 		float get_accel_x();
 		float get_accel_y();
@@ -41,12 +41,12 @@ class IMU
 		bool imu_ready = true;
 		bool mag_ready = true;
 
-    private:
-        BMI270 imu;
-        Adafruit_MMC5603 mag;
-        uint8_t i2cAddress = BMI2_I2C_PRIM_ADDR;
+	private:
+		BMI270 imu;
+		Adafruit_MMC5603 mag;
+		uint8_t i2cAddress = BMI2_I2C_PRIM_ADDR;
 
-        unsigned long next_imu_read = 0;
+		unsigned long next_imu_read = 0;
 		float prev_yaw_read = 0;
 		float curr_yaw_read = 0;
 		float hacky_yaw = 0;
@@ -56,19 +56,12 @@ class IMU
 
 		// Magnetometer Calibration
 		// Hard-iron calibration settings
-		const float hard_iron[3] = {
-		17.77,  -30.08,  16.21
-		};
+		const float hard_iron[3] = {17.77, -30.08, 16.21};
 
 		// Soft-iron calibration settings
-		const float soft_iron[3][3] = {
-		{  1.003,  0.008, -0.001  },
-		{  0.008,  1.004, 0.000  },
-		{ -0.001, -0.000,  0.994  }
-		};
+		const float soft_iron[3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}};
 
 		const float mag_decl = -1.233;
-
 };
 
 extern IMU imu;

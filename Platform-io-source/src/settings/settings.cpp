@@ -1,50 +1,26 @@
 #include "settings/settings.h"
-#include "utilities/user_flash.h"
 #include "tinywatch.h"
-
+#include "utilities/user_flash.h"
 
 using json = nlohmann::json;
 
 /**
  * @brief Construct a new nlohmann define type non intrusive with default object
- * 
+ *
  * All settings you want to be serialised and deserialised with JSON and stored in user flash need to be added here.
  * This has a HARD (NOT CHANGEABLE) LIMIT of 64 items
  */
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-	Config_mqtt,
-	enabled, broker_ip, broker_port, username, password, device_name, topic
-);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_mqtt, enabled, broker_ip, broker_port, username, password, device_name, topic);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-	Config_battery,
-	perc_offset, low_perc, low_volt_warn, low_volt_cutoff
-);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_battery, perc_offset, low_perc, low_volt_warn, low_volt_cutoff);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-	Config_open_weather,
-	api_key, poll_frequency
-);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_open_weather, api_key, poll_frequency);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-	Config_custom_binary,
-	binary_clockcolour, binary_clockstyle
-);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_custom_binary, binary_clockcolour, binary_clockstyle);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(
-	Config,
-	wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode,
-	mqtt,
-	battery,
-	open_weather,
-	city, country, utc_offset,
-	bl_period_vbus, bl_period_vbat,
-	time_24hour, clock_face_index, left_handed, flipped,
-	audio_ui, audio_alarm,
-	imu_process_steps, imu_process_wrist
-);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, time_24hour, clock_face_index, left_handed, flipped, audio_ui, audio_alarm, imu_process_steps, imu_process_wrist);
 
-void Settings::log_to_nvs(const char * key, const char * log)
+void Settings::log_to_nvs(const char *key, const char *log)
 {
 	nvs.begin("flash_log");
 	nvs.putString(key, log);
@@ -53,7 +29,7 @@ void Settings::log_to_nvs(const char * key, const char * log)
 
 /**
  * @brief Checks to see if there are WiFi credentials stores in the user settings
- * 
+ *
  * @return true credentials are not empty strings
  * @return false credentials are empty strings
  */
@@ -63,16 +39,13 @@ bool Settings::has_wifi_creds(void)
 	return !config.wifi_ssid.isEmpty() && !config.wifi_pass.isEmpty();
 }
 
-bool Settings::has_country_set(void)
-{
-	return !config.country.isEmpty();
-}
+bool Settings::has_country_set(void) { return !config.country.isEmpty(); }
 
 /**
- * @brief Update the users WiFi credentials in teh settings struct
- * 
- * @param ssid 
- * @param pass 
+ * @brief Update the users WiFi credentials in the settings struct
+ *
+ * @param ssid
+ * @param pass
  */
 void Settings::update_wifi_credentials(String ssid, String pass)
 {
@@ -103,9 +76,9 @@ String Settings::get_save_status()
 
 /**
  * @brief Load the user settings from the user flash FS and deserialise them from JSON back into the Config struct
- * 
- * @return true 
- * @return false 
+ *
+ * @return true
+ * @return false
  */
 bool Settings::load()
 {
@@ -128,7 +101,7 @@ bool Settings::load()
 	{
 		// Reading failed
 		tinywatch.log_system_message("Reading data failed");
-		String log = "bad read "+String(file.size())+" "+String((int)data_bytes_read);
+		String log = "bad read " + String(file.size()) + " " + String((int)data_bytes_read);
 		log_to_nvs("load_status", log.c_str());
 		file.close();
 		create();
@@ -214,12 +187,12 @@ bool Settings::backup()
 /**
  * @brief Serialise the cConfig struct into JSON and save to the user flash FS
  * Only check for save every 5 mins, and then only save if the data has changed
- * 
+ *
  * We only want to save data when it's changed because we dont want to wear out the Flash.
- * 
+ *
  * @param force for the save regardless of time, but again, only if the data has changed
- * @return true 
- * @return false 
+ * @return true
+ * @return false
  */
 bool Settings::save(bool force)
 {
@@ -261,7 +234,7 @@ bool Settings::save(bool force)
 
 	file.close();
 	log_to_nvs("save_status", "file closed");
-	
+
 	info_println("Settings SAVE: Saved!");
 
 	tinywatch.log_system_message("Settings saved");
@@ -276,11 +249,11 @@ bool Settings::save(bool force)
 /**
  * @brief Create a new set of save data, either because this is the very first save, or because the load failed due to FS corruption,
  * or malformed JSON data that could not be deserialised.
- * 
- * Once created, the data is automatically saved to flash. 
- * 
- * @return true 
- * @return false 
+ *
+ * Once created, the data is automatically saved to flash.
+ *
+ * @return true
+ * @return false
  */
 bool Settings::create()
 {
@@ -295,10 +268,6 @@ bool Settings::create()
 	return true;
 }
 
-void Settings::print_file(void)
-{
-
-	info_println("] Done!");
-}
+void Settings::print_file(void) { info_println("] Done!"); }
 
 Settings settings;

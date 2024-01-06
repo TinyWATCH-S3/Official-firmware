@@ -5,8 +5,8 @@
 
 struct BuzzerNote
 {
-    int16_t freq;     // Hz
-    int16_t time;     // ms
+		int16_t freq; // Hz
+		int16_t time; // ms
 };
 
 void init_buzzer(int pin, int pwmChannel);

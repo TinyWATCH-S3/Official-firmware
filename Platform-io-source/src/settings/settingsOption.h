@@ -7,8 +7,7 @@
 class SettingsOptionInt
 {
 	public:
-		SettingsOptionInt(int * val, int val_min, int val_max, int val_step, bool wrap) : 
-			setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap) {}
+		SettingsOptionInt(int *val, int val_min, int val_max, int val_step, bool wrap) : setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap) {}
 		int change(int dir);
 		int get();
 		String get_str();
@@ -24,8 +23,7 @@ class SettingsOptionInt
 class SettingsOptionFloat
 {
 	public:
-		SettingsOptionFloat(float * val, float val_min, float val_max, float val_step, bool wrap) : 
-			setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap) {}
+		SettingsOptionFloat(float *val, float val_min, float val_max, float val_step, bool wrap) : setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap) {}
 		float change(int dir);
 		float get();
 		String get_str();
@@ -41,7 +39,7 @@ class SettingsOptionFloat
 class SettingsOptionBool
 {
 	public:
-		SettingsOptionBool(bool * val) : setting_ref(val) {}
+		SettingsOptionBool(bool *val) : setting_ref(val) {}
 		bool change();
 		bool get();
 		String get_str();

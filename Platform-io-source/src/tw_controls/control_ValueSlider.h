@@ -1,10 +1,10 @@
-#include "tw_controls/tw_control.h"
 #include "settings/settingsOption.h"
+#include "tw_controls/tw_control.h"
 
-class ControlValueSlider: public tw_control
+class ControlValueSlider : public tw_control
 {
 	public:
-	    void draw(uint _canvasid);
+		void draw(uint _canvasid);
 		bool drag(int16_t drag_x, int16_t drag_y);
 		void drag_end();
 		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
@@ -18,7 +18,6 @@ class ControlValueSlider: public tw_control
 		bool selected = false;
 
 		SettingsOptionInt *setting_option = nullptr;
-		
 
 		unsigned long next_click_update = 0;
 
@@ -37,6 +36,4 @@ class ControlValueSlider: public tw_control
 		uint32_t gradient_dark = RGB(0x11, 0x11, 0x11);
 		uint32_t col_selected = RGB(0xaa, 0xaa, 0xaa);
 		uint32_t col_normal = RGB(0x66, 0x66, 0x66);
-
-
 };

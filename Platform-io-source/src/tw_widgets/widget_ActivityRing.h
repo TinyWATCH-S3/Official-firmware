@@ -9,11 +9,10 @@ class WidgetActivityRing : public tw_widget
 		bool click_long(uint16_t click_pos_x, uint16_t click_pos_y);
 
 	private:
-        String version = "1.0";
+		String version = "1.0";
 		uint32_t col_rings[3] = {RGB(0x00, 0x00, 0x66), RGB(0x00, 0x64, 0xaa), RGB(0x00, 0x00, 0xff)};
 
 		uint8_t radius = 31;
 		uint8_t thickness = 6;
 		uint16_t arc_pos = 0;
-
 };

@@ -1,0 +1,28 @@
+---
+IndentAccessModifiers: true
+UseTab: Always
+TabWidth: 4
+BraceWrapping:
+  AfterClass: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterStruct: true
+  AfterCaseLabel: true
+  AfterControlStatement: Always
+  AfterNamespace: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeWhile: true
+  AfterObjCDeclaration: true
+BreakBeforeBraces: Custom
+CommentPragmas: ""
+ColumnLimit: 0
+AccessModifierOffset: 4
+AlignAfterOpenBracket: BlockIndent
+IndentWidth: 4
+AllowShortFunctionsOnASingleLine: true
+AllowShortEnumsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+SortIncludes: Never

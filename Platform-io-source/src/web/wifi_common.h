@@ -1,11 +1,11 @@
 #pragma once
 
-#include <WiFi.h>
-#include <Arduino.h>
 #include "peripherals/buzzer.h"
+#include <Arduino.h>
+#include <WiFi.h>
 
-
-enum wifi_states {
+enum wifi_states
+{
 	BOOT = 0,
 	WIFI_SETUP = 1,
 	WIFI_SETUP_STEP_2 = 2,
@@ -18,5 +18,3 @@ enum wifi_states {
 	WIFI_ERROR_NOSSID = 21,
 	WIFI_RESET = 30,
 };
-
-

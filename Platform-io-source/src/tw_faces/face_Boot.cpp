@@ -1,8 +1,8 @@
 
 #include "tw_faces/face_Boot.h"
+#include "bitmaps/bitmaps_general.h"
 #include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
-#include "bitmaps/bitmaps_general.h"
 #include "settings/settings.h"
 #include "tinywatch.h"
 
@@ -20,7 +20,7 @@ void FaceBoot::draw(bool force)
 	if (force || millis() - next_update > update_period)
 	{
 		setup();
-		
+
 		next_update = millis();
 
 		if (!is_dragging || !is_cached)
@@ -34,10 +34,10 @@ void FaceBoot::draw(bool force)
 
 			canvas[canvasid].setFreeFont(RobotoMono_Light[9]);
 			canvas[canvasid].setTextColor(RGB(0xAA, 0xAA, 0xAA));
-			canvas[canvasid].drawString(tinywatch.version_year+" Unexpected Maker", 120, 250);
+			canvas[canvasid].drawString(tinywatch.version_year + " Unexpected Maker", 120, 250);
 
 			canvas[canvasid].setFreeFont(RobotoMono_Light[7]);
-			canvas[canvasid].drawString("Firmware "+tinywatch.version_firmware, 120, 270);
+			canvas[canvasid].drawString("Firmware " + tinywatch.version_firmware, 120, 270);
 
 			if (wifi_status == BOOT)
 			{
@@ -109,21 +109,20 @@ void FaceBoot::draw(bool force)
 				wifiSetup.process();
 				if (wifiSetup.is_done())
 				{
-					settings.update_wifi_credentials(wifiSetup.get_ssid(),wifiSetup.get_pass());
+					settings.update_wifi_credentials(wifiSetup.get_ssid(), wifiSetup.get_pass());
 					// Delay required so the wifi client can land on the connected page
 					delay(1000);
 					wifiSetup.stop(true);
 					wifi_status = BOOT;
 				}
 			}
-
 		}
 
-		canvas[canvasid].pushSprite(_x,_y);
+		canvas[canvasid].pushSprite(_x, _y);
 	}
 }
 
-bool FaceBoot::click(uint pos_x, uint pos_y)
+bool FaceBoot::click(int16_t pos_x, int16_t pos_y)
 {
 	if (wifi_status == WIFI_SETUP || wifi_status == WIFI_SETUP_STEP_2)
 	{
@@ -135,22 +134,16 @@ bool FaceBoot::click(uint pos_x, uint pos_y)
 	return false;
 }
 
-bool FaceBoot::click_double(uint pos_x, uint pos_y)
-{
-	return true;
-}
+bool FaceBoot::click_double(int16_t pos_x, int16_t pos_y) { return true; }
 
-bool FaceBoot::click_long(uint pos_x, uint pos_y)
-{
-	return false;
-}
+bool FaceBoot::click_long(int16_t pos_x, int16_t pos_y) { return false; }
 
 void FaceBoot::wifi_connect_status(wifi_states status)
 {
 	wifi_status = status;
-	info_println("Setting wifi status to "+wifi_connection_strings[(int)wifi_status]);
+	info_println("Setting wifi status to " + wifi_connection_strings[(int)wifi_status]);
 	// Only force draw the screen is we are not resetting the status to 0
-	if ( (int)wifi_status > 0)
+	if ((int)wifi_status > 0)
 		draw(true);
 }
 

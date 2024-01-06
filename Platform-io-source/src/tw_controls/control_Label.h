@@ -3,7 +3,7 @@
 class ControlLabel : public tw_control
 {
 	public:
-	    void draw(uint canvasid);
+		void draw(uint8_t canvasid);
 		bool drag(int16_t drag_x, int16_t drag_y);
 		void drag_end();
 		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
@@ -12,5 +12,4 @@ class ControlLabel : public tw_control
 
 	private:
 		String version = "1.0";
-
 };

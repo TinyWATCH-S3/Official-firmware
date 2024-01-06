@@ -1,40 +1,39 @@
 #pragma once
 
-#include "tw_widgets/tw_widget.h"
 #include "tw_apps/tw_app.h"
 #include "tw_controls/tw_control.h"
+#include "tw_widgets/tw_widget.h"
 #include "utilities/logging.h"
 #include <map>
 
 class tw_face
 {
-    public:
-        void add(String _name, uint _update_period, uint32_t req_cpu_speed);
+	public:
+		void add(String _name, uint16_t _update_period, uint32_t req_cpu_speed);
 		void add(String _name, uint _update_period);
-        void add_clock(String _name, uint _update_period, uint32_t req_cpu_speed);
-        void add_clock(String _name, uint _update_period);
-        void set_navigation(tw_face *l, tw_face *r, tw_face *u, tw_face *d);
+		void add_clock(String _name, uint16_t _update_period, uint32_t req_cpu_speed);
+		void add_clock(String _name, uint _update_period);
+		void set_navigation(tw_face *l, tw_face *r, tw_face *u, tw_face *d);
 		void set_single_navigation(Directions dir, tw_face *face);
-        tw_face * changeFace(Directions dir);
+		// tw_face * changeFace(Directions dir);
 		void add_widget(tw_widget *widget);
-		bool widget_process_clicks(uint click_pos_x, uint click_pos_y);
+		bool widget_process_clicks(int16_t click_pos_x, int16_t click_pos_y);
 		void add_control(tw_control *control);
-		bool control_process_clicks(uint click_pos_x, uint click_pos_y);
-        bool is_face_clock_face();
+		bool control_process_clicks(int16_t click_pos_x, int16_t click_pos_y);
+		bool is_face_clock_face();
 
 		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
 		void draw_children_scroll(int16_t offset_x, int16_t offset_y);
 		uint32_t get_cpu_speed();
-		
 
 		// Dragging
 		void drag_begin(int16_t pos_x, int16_t pos_y);
-		void drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y,bool current_face);
-		bool drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_t distance, bool double_click, int16_t t_pos_x, int16_t t_pos_y, int16_t last_dir_x, int16_t last_dir_y);
+		void drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y, bool current_face);
+		bool drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_t distance, int16_t t_pos_x, int16_t t_pos_y, int16_t last_dir_x, int16_t last_dir_y);
 		int drag_dir = -1;
 		void reset_can_swipe_flags();
 		int check_can_swipe();
-        void prevent_dragging(bool state);
+		void prevent_dragging(bool state);
 
 		// graphics caching
 		void reset_cache_status();
@@ -47,25 +46,25 @@ class tw_face
 		uint16_t get_control_height();
 
 		// control dragging
-		tw_control * find_draggable_control(int16_t click_pos_x, int16_t click_pos_y);
+		tw_control *find_draggable_control(int16_t click_pos_x, int16_t click_pos_y);
 
 		String name = "";
 
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-		virtual bool click(uint pos_x, uint pos_y) {return false;}
-		virtual bool click_double(uint pos_x, uint pos_y) {return false;}
-		virtual bool click_long(uint pos_x, uint pos_y) {return false;}
+		virtual bool click(int16_t pos_x, int16_t pos_y) { return false; }
+		virtual bool click_double(int16_t pos_x, int16_t pos_y) { return false; }
+		virtual bool click_long(int16_t pos_x, int16_t pos_y) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
 
-    protected:
+	protected:
 		bool is_setup = false;
-        uint canvasid = 0;
-		uint update_period = 0;
+		uint8_t canvasid = 0;
+		uint16_t update_period = 0;
 		uint8_t required_cpu_speed = 80;
-        bool is_clock_face = false;
+		bool is_clock_face = false;
 		unsigned long next_update = 0;
 		unsigned long next_click_update = 0;
 		unsigned long click_hold_start_timer = 0;
@@ -79,9 +78,9 @@ class tw_face
 		int16_t drag_start_y = 0;
 		int16_t _x = 0;
 		int16_t _y = 0;
-		int drag_width = 70; // threshold from screen edge to detect a swipe might happen
-        bool block_dragging = false;
-		
+		int drag_width = 90;		 // threshold from screen edge to detect a swipe might happen
+		bool block_dragging = false; // used for app screens where dragging is not possible (yet, maybe)
+
 		unsigned long drag_start_time = 0;
 
 		// Scrolling content?
@@ -94,9 +93,8 @@ class tw_face
 		bool is_scrolling = false;
 
 		// dragging controls?
-		tw_control * selectedControl = nullptr;
+		tw_control *selectedControl = nullptr;
 
 		std::vector<tw_widget *> widgets;
 		std::vector<tw_control *> controls;
-
 };

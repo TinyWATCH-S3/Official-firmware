@@ -3,36 +3,33 @@
 #include "utilities/logging.h"
 
 bool interruptTriggered = true;
-const char* ntpServer = "pool.ntp.org";
+const char *ntpServer = "pool.ntp.org";
 
 String days[7] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
 String months[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
 bool RTC::init()
 {
-    if (rtc.begin() == false)
-    {
-        info_println("Failed to detect RV-3028-C7!");
-        return false;
-    }
+	if (rtc.begin() == false)
+	{
+		info_println("Failed to detect RV-3028-C7!");
+		return false;
+	}
 
-    info_println("RV-3028-C7 connected!");
-	
+	info_println("RV-3028-C7 connected!");
+
 	enabled = true;
 
-    interruptTriggered = false;
+	interruptTriggered = false;
 
 	// pinMode(RTC_INT, INPUT_PULLUP);
-    // attachInterrupt(digitalPinToInterrupt(RTC_INT), rtcInterrupt, FALLING);
-
-
-
+	// attachInterrupt(digitalPinToInterrupt(RTC_INT), rtcInterrupt, FALLING);
 
 	requiresNTP = rtc.getCurrentDateTimeComponent(DATETIME_YEAR) < 23;
 
-    next_rtc_read = millis();
+	next_rtc_read = millis();
 
-    return true;
+	return true;
 }
 
 bool RTC::set_time_from_NTP(int16_t utc_offset)
@@ -42,43 +39,43 @@ bool RTC::set_time_from_NTP(int16_t utc_offset)
 
 	bool time_error = false;
 
-    if (utc_offset != 999)
-    {
-      configTime(utc_offset * 3600, 0, ntpServer);
-      delay(100);
+	if (utc_offset != 999)
+	{
+		configTime(utc_offset * 3600, 0, ntpServer);
+		delay(100);
 
-      struct tm timeinfo;
-      if (!getLocalTime(&timeinfo))
-      {
-        info_println("Failed to obtain time");
-        time_error = true;
-      }
-      else
-      {
-        rtc.setDateTimeFromTM(timeinfo);
-      }
-    }
-    else
-      time_error = true;
+		struct tm timeinfo;
+		if (!getLocalTime(&timeinfo))
+		{
+			info_println("Failed to obtain time");
+			time_error = true;
+		}
+		else
+		{
+			rtc.setDateTimeFromTM(timeinfo);
+		}
+	}
+	else
+		time_error = true;
 
-    if (time_error)
-    {
-      // Hard-coded for time error
-      rtc.setDateTimeFromISO8601("1900-01-01T00:00:00");
-    }
+	if (time_error)
+	{
+		// Hard-coded for time error
+		rtc.setDateTimeFromISO8601("1900-01-01T00:00:00");
+	}
 
-    // Writes the new date time to RTC, good or bad
-    rtc.synchronize();
+	// Writes the new date time to RTC, good or bad
+	rtc.synchronize();
 
 	return !time_error;
 }
 
 void RTC::set_hourly_alarm(uint minuets)
 {
-    setup_interrupt();
+	setup_interrupt();
 
-    rtc.setHourlyAlarm(/*minute=*/ minuets);
-    rtc.enableInterrupt(INTERRUPT_ALARM);
+	rtc.setHourlyAlarm(/*minute=*/minuets);
+	rtc.enableInterrupt(INTERRUPT_ALARM);
 }
 
 String RTC::get_hours_string(bool padded, bool is24hour)
@@ -89,7 +86,8 @@ String RTC::get_hours_string(bool padded, bool is24hour)
 	String txt = String(rtc.getCurrentDateTimeComponent(DATETIME_HOUR));
 	if (padded && hour < 10)
 		return "0" + String(hour);
-	return String(hour);;
+	return String(hour);
+	;
 }
 
 String RTC::get_mins_string(bool padded)
@@ -117,35 +115,17 @@ String RTC::get_time_string(bool padded, bool is24hour)
 	return txt;
 }
 
-int RTC::get_hours()
-{
-	return (rtc.getCurrentDateTimeComponent(DATETIME_HOUR));
-}
+int RTC::get_hours() { return (rtc.getCurrentDateTimeComponent(DATETIME_HOUR)); }
 
-int RTC::get_mins()
-{
-	return (rtc.getCurrentDateTimeComponent(DATETIME_MINUTE));
-}
+int RTC::get_mins() { return (rtc.getCurrentDateTimeComponent(DATETIME_MINUTE)); }
 
-int RTC::get_seconds()
-{
-	return (rtc.getCurrentDateTimeComponent(DATETIME_SECOND));
-}
+int RTC::get_seconds() { return (rtc.getCurrentDateTimeComponent(DATETIME_SECOND)); }
 
-uint16_t RTC::get_day()
-{
-	return (rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_MONTH));
-}
+uint16_t RTC::get_day() { return (rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_MONTH)); }
 
-uint16_t RTC::get_month()
-{
-	return (rtc.getCurrentDateTimeComponent(DATETIME_MONTH));
-}
+uint16_t RTC::get_month() { return (rtc.getCurrentDateTimeComponent(DATETIME_MONTH)); }
 
-uint16_t RTC::get_year()
-{
-	return ((uint16_t)rtc.getCurrentDateTimeComponent(DATETIME_YEAR) + 2000);
-}
+uint16_t RTC::get_year() { return ((uint16_t)rtc.getCurrentDateTimeComponent(DATETIME_YEAR) + 2000); }
 
 void RTC::get_step_date(uint16_t &day, uint16_t &month, uint16_t &year)
 {
@@ -162,23 +142,19 @@ void RTC::get_step_date(uint16_t &day, uint16_t &month, uint16_t &year)
 	year = cached_year;
 }
 
-void rtcInterrupt()
-{
-    interruptTriggered = true;
-}
+void rtcInterrupt() { interruptTriggered = true; }
 
 void RTC::setup_interrupt()
 {
-    interruptTriggered = false;
-    attachInterrupt(digitalPinToInterrupt(interruptPin), rtcInterrupt, FALLING);
-
+	interruptTriggered = false;
+	attachInterrupt(digitalPinToInterrupt(interruptPin), rtcInterrupt, FALLING);
 }
 
 String RTC::get_day_date()
 {
 	String raw = days[rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_WEEK)];
 	raw += " ";
-	raw += months[rtc.getCurrentDateTimeComponent(DATETIME_MONTH)-1];
+	raw += months[rtc.getCurrentDateTimeComponent(DATETIME_MONTH) - 1];
 	raw += " ";
 	raw += String(rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_MONTH));
 	raw += " ";
@@ -188,38 +164,32 @@ String RTC::get_day_date()
 	return raw;
 }
 
-String RTC::get_day_of_week()
-{
-	return days[rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_WEEK)];
-}
+String RTC::get_day_of_week() { return days[rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_WEEK)]; }
 
 String RTC::get_month_date()
 {
-	String raw = months[rtc.getCurrentDateTimeComponent(DATETIME_MONTH)-1].substring(0,3);
+	String raw = months[rtc.getCurrentDateTimeComponent(DATETIME_MONTH) - 1].substring(0, 3);
 	raw += " ";
 	raw += String(rtc.getCurrentDateTimeComponent(DATETIME_DAY_OF_MONTH));
 	return raw;
-
 }
-
-
 
 bool RTC::check_interrupt()
 {
-    if (!interruptTriggered)
-    {
-        return false;
-    }
+	if (!interruptTriggered)
+	{
+		return false;
+	}
 
-    interruptTriggered = false;
-    if (rtc.isInterruptDetected(INTERRUPT_ALARM))
-    {
-        info_print("Alarm: ");
-        // info_println(getTime());
-        rtc.clearInterrupt(INTERRUPT_ALARM);
-    }
+	interruptTriggered = false;
+	if (rtc.isInterruptDetected(INTERRUPT_ALARM))
+	{
+		info_print("Alarm: ");
+		// info_println(getTime());
+		rtc.clearInterrupt(INTERRUPT_ALARM);
+	}
 
-    return true;
+	return true;
 }
 
 RTC rtc;

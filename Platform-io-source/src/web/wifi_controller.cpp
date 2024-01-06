@@ -7,17 +7,18 @@ using json = nlohmann::json;
 // Initialise the controller, create the incoming and outgoing queues and start the process task
 WifiController::WifiController()
 {
-    // Create the task and callback queues
-    wifi_task_queue = xQueueCreate(10, sizeof(wifi_task_item));
-    wifi_callback_queue = xQueueCreate(10, sizeof(wifi_callback_item));
+	// Create the task and callback queues
+	wifi_task_queue = xQueueCreate(10, sizeof(wifi_task_item));
+	wifi_callback_queue = xQueueCreate(10, sizeof(wifi_callback_item));
 
-    if (wifi_task_queue == NULL || wifi_callback_queue == NULL) {
-        Serial.println("Error creating the queues");
-        return;
-    }
+	if (wifi_task_queue == NULL || wifi_callback_queue == NULL)
+	{
+		Serial.println("Error creating the queues");
+		return;
+	}
 
-    // Start the WiFi task
-    xTaskCreate(WifiController::wifi_task, "wifi_task", 8192, this, 5, &wifi_task_handler);
+	// Start the WiFi task
+	xTaskCreate(WifiController::wifi_task, "wifi_task", 8192, this, 5, &wifi_task_handler);
 }
 
 // Kill the pinned threaded task
@@ -28,15 +29,9 @@ void WifiController::kill_controller_task()
 }
 
 // Return the busy state of the WiFi queue
-bool WifiController::is_busy()
-{
-	return wifi_busy;
-}
+bool WifiController::is_busy() { return wifi_busy; }
 
-bool WifiController::is_connected()
-{
-    return (WiFi.status() == WL_CONNECTED);
-}
+bool WifiController::is_connected() { return (WiFi.status() == WL_CONNECTED); }
 
 // Connect to the WiFi network
 bool WifiController::connect()
@@ -55,7 +50,7 @@ bool WifiController::connect()
 	}
 	else
 	{
-        delay(500);
+		delay(500);
 		wifi_busy = true;
 		WiFi.mode(WIFI_STA);
 		WiFi.begin(settings.config.wifi_ssid, settings.config.wifi_pass);
@@ -75,12 +70,12 @@ bool WifiController::connect()
 // Disconnect from the WiFi network
 void WifiController::disconnect(bool force)
 {
-    info_println("wifi disconnect, forced? "+String(force));
-    if (!wifi_prevent_disconnect || force)
-    {
-        WiFi.disconnect(true);
-        WiFi.mode(WIFI_OFF);
-    }
+	info_println("wifi disconnect, forced? " + String(force));
+	if (!wifi_prevent_disconnect || force)
+	{
+		WiFi.disconnect(true);
+		WiFi.mode(WIFI_OFF);
+	}
 	wifi_busy = false;
 }
 
@@ -122,8 +117,8 @@ String WifiController::http_request(const String &url)
 		else
 			http.begin(client, url.c_str());
 
-		http_code = http.GET();  //send GET request
-		info_println("Response Code: "+String(http_code));
+		http_code = http.GET(); // send GET request
+		info_println("Response Code: " + String(http_code));
 		if (http_code == 200)
 		{
 			payload = http.getString();
@@ -137,18 +132,18 @@ String WifiController::http_request(const String &url)
 	return payload;
 }
 
-// Function to call out to the HTTP Request and then add the result to the outgoing queue 
+// Function to call out to the HTTP Request and then add the result to the outgoing queue
 void WifiController::perform_wifi_request(const String &url, _CALLBACK callback)
 {
-    bool success = true;
-    String response = "OK";
+	bool success = true;
+	String response = "OK";
 
-    // Only process if there is an actual URL, otherwise do the callback
-    if (!url.isEmpty())
-    {
-        response = http_request(url);
-        success = (response != "ERROR"); // or false, based on the HTTP request result
-    }
+	// Only process if there is an actual URL, otherwise do the callback
+	if (!url.isEmpty())
+	{
+		response = http_request(url);
+		success = (response != "ERROR"); // or false, based on the HTTP request result
+	}
 
 	// Create a wifi_callback_item and enqueue it
 	wifi_callback_item result = {success, new String(response), callback};
@@ -158,8 +153,8 @@ void WifiController::perform_wifi_request(const String &url, _CALLBACK callback)
 // Task for processing the queue items
 void WifiController::wifi_task(void *pvParameters)
 {
-	WifiController* controller = static_cast<WifiController*>(pvParameters);
-    while (true)
+	WifiController *controller = static_cast<WifiController *>(pvParameters);
+	while (true)
 	{
 		wifi_task_item item;
 		if (xQueueReceive(controller->wifi_task_queue, &item, portMAX_DELAY) == pdTRUE)
@@ -181,17 +176,17 @@ void WifiController::wifi_task(void *pvParameters)
 				controller->wifi_busy = false;
 			}
 		}
-    }
+	}
 }
 
 // Function to add items to the queue
 void WifiController::add_to_queue(const String &url, _CALLBACK callback)
 {
 	wifi_task_item item = {new String(url), callback};
-    if (*item.url == "")
-        info_println("Adding request to connect to wifi if not connected!");
-    else
-	    info_println("Adding request to "+*item.url);
+	if (*item.url == "")
+		info_println("Adding request to connect to wifi if not connected!");
+	else
+		info_println("Adding request to " + *item.url);
 	xQueueSend(wifi_task_queue, &item, portMAX_DELAY);
 }
 

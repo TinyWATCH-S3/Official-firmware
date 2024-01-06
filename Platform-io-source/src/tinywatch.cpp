@@ -3,20 +3,20 @@
 #include <SPI.h>
 #include <Wire.h>
 
-#include "peripherals/buzzer.h"
 #include "peripherals/battery.h"
+#include "peripherals/buzzer.h"
 #include "peripherals/imu.h"
 #include "peripherals/rtc.h"
 #include "tw_faces/face_Notifications.h"
-#include "web/wifi_setup.h"
-#include "web/wifi_controller.h"
 #include "web/webserver.h"
+#include "web/wifi_controller.h"
+#include "web/wifi_setup.h"
 #include <PubSubClient.h>
 
+#include "activity.h"
+#include "settings/settings.h"
 #include "utilities/user_flash.h"
 #include <SdFat.h>
-#include "settings/settings.h"
-#include "activity.h"
 
 #include "utilities/logging.h"
 
@@ -37,26 +37,25 @@
 #define WAKE_REASON_FG_ALERT BIT64(GPIO_NUM_14)
 #define WAKE_REASON_BMI270_WRIST BIT64(GPIO_NUM_7)
 
-
 RTC_DATA_ATTR int rtc_mem_watch_clock_screen = 0; // 0 Digital, 1: Analog
 RTC_DATA_ATTR bool rtc_mem_watch_flipped = false; // True: Rotated, False: Default
-RTC_DATA_ATTR bool rtc_mem_watch_handed = true; // True: Left Handed, False: Right Handed
+RTC_DATA_ATTR bool rtc_mem_watch_handed = true;	  // True: Left Handed, False: Right Handed
 
 void setup()
 {
 	pinMode(0, INPUT_PULLUP);
 	pinMode(PWR_SHUTDOWN, OUTPUT);
-    digitalWrite(PWR_SHUTDOWN, LOW);
+	digitalWrite(PWR_SHUTDOWN, LOW);
 
 	tinywatch.messages.clear();
 
-    Serial.begin(115200);
+	Serial.begin(115200);
 
 	tinywatch.log_system_message("TinyWATCH S3");
-	tinywatch.log_system_message("FW "+tinywatch.version_firmware+" "+tinywatch.version_year);
-	tinywatch.log_system_message(String(ESP.getChipModel())+" R"+String(ESP.getChipRevision())+" "+String(ESP.getChipCores())+"C");
+	tinywatch.log_system_message("FW " + tinywatch.version_firmware + " " + tinywatch.version_year);
+	tinywatch.log_system_message(String(ESP.getChipModel()) + " R" + String(ESP.getChipRevision()) + " " + String(ESP.getChipCores()) + "C");
 
-    if (!user_flash.init())
+	if (!user_flash.init())
 	{
 		error_println("User Flash FS failed to initialise");
 		tinywatch.log_system_message("User Flash Error!");
@@ -77,16 +76,13 @@ void setup()
 
 	display.init_screen();
 
-    analogWriteResolution(8);
+	analogWriteResolution(8);
 
 	Wire.begin(8, 9);
 
-    // Initialise the Buzzer
-    init_buzzer(BUZZER, 4);
-    esp_register_shutdown_handler([]()
-    {
-        deinit_buzzer(BUZZER);
-    });
+	// Initialise the Buzzer
+	init_buzzer(BUZZER, 4);
+	esp_register_shutdown_handler([]() { deinit_buzzer(BUZZER); });
 
 	bool was_asleep = tinywatch.was_sleeping();
 
@@ -94,7 +90,7 @@ void setup()
 	{
 		// Temporarily set the settings from rtc memory save state
 		settings.config.clock_face_index = rtc_mem_watch_clock_screen;
-		settings.config.flipped = rtc_mem_watch_flipped ;
+		settings.config.flipped = rtc_mem_watch_flipped;
 		settings.config.left_handed = rtc_mem_watch_handed;
 		tinywatch.log_system_message("Wake from sleep");
 	}
@@ -116,12 +112,11 @@ void setup()
 	// battery.update_interrupt_values(settings.config.battery.low_perc, settings.config.battery.low_volt_warn);
 
 	display.set_backlight(0);
-	
+
 	// Create the UI and show the boot screen is it's a clean boot
-    display.createFaces(was_asleep);
+	display.createFaces(was_asleep);
 
 	display.update_rotation();
-
 
 	if (was_asleep)
 	{
@@ -131,21 +126,19 @@ void setup()
 		// work out why we were woken up and do something about it
 		// 0: Touched Screen
 		// 1: RTC Alarm
-		// 2: FG Alert 
+		// 2: FG Alert
 		// 3: IMU Wrist
 		int wake_reason = tinywatch.woke_by();
 		info_println("Woke from sleep by " + String(wake_reason));
 
-
 		// String bat_volt = String(battery.get_voltage(true));
-		tinywatch.log_system_message("BAT: "+String(battery.get_voltage(true))+"V");
+		tinywatch.log_system_message("BAT: " + String(battery.get_voltage(true)) + "V");
 
 		if (wake_reason == 1)
 		{
 			// show alarm status and then clear the RTC alarm flag
 			tinywatch.log_system_message("WOKE RTC");
-	
-		} 
+		}
 		else if (wake_reason == 2)
 		{
 			if (battery.is_high())
@@ -168,7 +161,7 @@ void setup()
 			tinywatch.low_battery_update_check = millis();
 
 			// If our voltage is too low, we exit startup and show a blocking battery screen until the battery charges
-			// We only do this if we are running from battery, with no USB connected 
+			// We only do this if we are running from battery, with no USB connected
 			if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
 				return;
 		}
@@ -184,7 +177,7 @@ void setup()
 
 		if (rtc.requiresNTP || !settings.has_wifi_creds() || !settings.has_country_set())
 		{
-			// TODO: We really need to make this more robust, with retried, and proper error handling. 
+			// TODO: We really need to make this more robust, with retried, and proper error handling.
 			if (!settings.has_wifi_creds())
 			{
 				tinywatch.log_system_message("no SSID");
@@ -209,9 +202,7 @@ void setup()
 				wifi_controller.wifi_blocks_display = true;
 
 				// Grab our public IP address, and then get out UTC offset and country and suburb.
-				wifi_controller.add_to_queue("http://api.ipify.org", [](bool success, const String& response) {
-					tinywatch.get_public_ip(success, response);
-				});
+				wifi_controller.add_to_queue("http://api.ipify.org", [](bool success, const String &response) { tinywatch.get_public_ip(success, response); });
 			}
 		}
 
@@ -241,7 +232,7 @@ void loop()
 		if (millis() - tinywatch.low_battery_update_check > 2000)
 		{
 			tinywatch.low_battery_update_check = millis();
-		
+
 			display.show_low_battery();
 			display.set_backlight(2);
 
@@ -258,7 +249,7 @@ void loop()
 				if (bat_volt > 2.0 && bat_volt < settings.config.battery.low_volt_cutoff)
 				{
 					// battery is too low, so shutting down the watch power, but we need to make sure
-					// it's not low because it's not initialised yet on wake from sleep or boot  
+					// it's not low because it's not initialised yet on wake from sleep or boot
 					digitalWrite(PWR_SHUTDOWN, HIGH);
 				}
 			}
@@ -279,26 +270,26 @@ void loop()
 				info_print(battery.get_voltage(true));
 				info_println("V");
 
-				tinywatch.log_system_message("loop LOW V: "+String(battery.is_low(false)));
-				tinywatch.log_system_message("loop LOW %: "+String(battery.is_low(true)));
+				tinywatch.log_system_message("loop LOW V: " + String(battery.is_low(false)));
+				tinywatch.log_system_message("loop LOW %: " + String(battery.is_low(true)));
 				battery.clear_alert_status();
 				tinywatch.block_update_low_battery = true;
 			}
 		}
 	}
 
-    // // Wifi will crash if CPU speed is less than 80
-    // // We might not need to call this in the loop though
-    // if (wifi_controller.is_busy() || web_server.is_running())
-    // {
-    //     setCpuFrequencyMhz(80);
-    // }
+	// // Wifi will crash if CPU speed is less than 80
+	// // We might not need to call this in the loop though
+	// if (wifi_controller.is_busy() || web_server.is_running())
+	// {
+	//     setCpuFrequencyMhz(80);
+	// }
 
 	// Process the wifi controller task queue
-	// Only processes every 1 second 
+	// Only processes every 1 second
 	wifi_controller.loop();
 
-	// If we are doing a loading activity, halt the rest of the loop 
+	// If we are doing a loading activity, halt the rest of the loop
 	if (display.get_current_display_state() == LOADING)
 	{
 		return;
@@ -321,26 +312,25 @@ void loop()
 	}
 
 	if (settings.config.imu_process_wrist)
-		imu.process_wrist_gestures();	
+		imu.process_wrist_gestures();
 
 	// Check if we have swiped or clicked
 	display.process_touch();
 
-	// Update the current face based on it's own update period 
+	// Update the current face based on it's own update period
 	display.update_current_face();
 
-    yield();
+	yield();
 }
-
 
 void TinyWATCH::set_cpu_frequency(uint32_t freq, CPU_SPEED speed)
 {
-    // Wifi will crash if the CPU speed is less than 80 
-    if (wifi_controller.is_busy() || web_server.is_running())
-    {
-        setCpuFrequencyMhz(80);
-        return;
-    }
+	// Wifi will crash if the CPU speed is less than 80
+	if (wifi_controller.is_busy() || web_server.is_running())
+	{
+		setCpuFrequencyMhz(80);
+		return;
+	}
 
 	if (speed == CPU_CHANGE_LOW)
 	{
@@ -358,10 +348,7 @@ void TinyWATCH::set_cpu_frequency(uint32_t freq, CPU_SPEED speed)
 	}
 }
 
-bool TinyWATCH::was_sleeping()
-{
-  return (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT1);
-}
+bool TinyWATCH::was_sleeping() { return (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_EXT1); }
 
 int TinyWATCH::woke_by()
 {
@@ -377,12 +364,12 @@ int TinyWATCH::woke_by()
 
 void TinyWATCH::go_to_sleep()
 {
-    // if the web server is running, we don't want to go to sleep...
-    if (web_server.is_running())
-        return;
+	// if the web server is running, we don't want to go to sleep...
+	if (web_server.is_running())
+		return;
 
-    if (wifi_controller.is_connected())
-        wifi_controller.disconnect(true);
+	if (wifi_controller.is_connected())
+		wifi_controller.disconnect(true);
 
 	if (wifi_controller.is_busy())
 	{
@@ -404,7 +391,7 @@ void TinyWATCH::go_to_sleep()
 	imu.set_hibernate(false);
 	settings.save(true);
 	activity.save(true);
-	
+
 	while (user_flash.is_busy())
 	{
 		info_println("waiting for flash to not be busy...");
@@ -427,26 +414,20 @@ bool TinyWATCH::vbus_present()
 	return (vbus);
 }
 
-void TinyWATCH::log_system_message(String txt)
-{
-	tinywatch.messages.push_back(txt);
-}
+void TinyWATCH::log_system_message(String txt) { tinywatch.messages.push_back(txt); }
 
 void TinyWATCH::get_public_ip(bool success, const String &response)
 {
 	// info_println("Callback executed. Success: " + String(success ? "TRUE" : "FALSE") + ", Response: " + String(response));
-	wifi_controller.add_to_queue("https://ipapi.co/"+response+"/json/", [](bool success, const String& response) {
-		tinywatch.get_and_update_utc_settings(success, response);
-	});
- }
+	wifi_controller.add_to_queue("https://ipapi.co/" + response + "/json/", [](bool success, const String &response) { tinywatch.get_and_update_utc_settings(success, response); });
+}
 
 void TinyWATCH::get_and_update_utc_settings(bool success, const String &response)
 {
 	// info_println("Callback executed. Success: " + String(success ? "TRUE" : "FALSE") + ", Response: " + String(response));
-	
+
 	// don't hold wifi on anymore
 	settings.config.wifi_start = false;
-
 
 	if (success && !response.isEmpty())
 	{
@@ -469,27 +450,27 @@ void TinyWATCH::get_and_update_utc_settings(bool success, const String &response
 
 		settings.config.utc_offset = calc_offset / 3600;
 
-		info_printf("utc fixed: %d\n",settings.config.utc_offset);
+		info_printf("utc fixed: %d\n", settings.config.utc_offset);
 
 		settings.save(true);
-		tinywatch.log_system_message("UTC set "+String(settings.config.utc_offset));
+		tinywatch.log_system_message("UTC set " + String(settings.config.utc_offset));
 
-        bool obtained = false;
-        uint8_t retries = 3;
-        while (!obtained && retries > 0)
-        {
-            obtained = rtc.set_time_from_NTP(settings.config.utc_offset);
-            retries--;
-        }
-        if (!obtained)
-        {
-            error_println("Failed to set NTP time");
-		    tinywatch.log_system_message("Failed NTP time");
-        }
-        else
-        {
-            tinywatch.log_system_message("NTP time set");
-        }
+		bool obtained = false;
+		uint8_t retries = 3;
+		while (!obtained && retries > 0)
+		{
+			obtained = rtc.set_time_from_NTP(settings.config.utc_offset);
+			retries--;
+		}
+		if (!obtained)
+		{
+			error_println("Failed to set NTP time");
+			tinywatch.log_system_message("Failed NTP time");
+		}
+		else
+		{
+			tinywatch.log_system_message("NTP time set");
+		}
 	}
 	else
 	{
@@ -499,11 +480,9 @@ void TinyWATCH::get_and_update_utc_settings(bool success, const String &response
 
 	wifi_controller.wifi_blocks_display = false;
 	display.set_display_state(NORMAL, "");
-	
+
 	if (!settings.config.wifi_start)
 		wifi_controller.disconnect(false);
-
 }
 
 TinyWATCH tinywatch;
-

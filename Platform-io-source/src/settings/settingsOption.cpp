@@ -1,9 +1,9 @@
 /*
-* SettingsOption are classes used to bind user settings from the settings class into tw_Controls
-* so the control can read and change the setting value.
-*
-* Classes are provided for Int, Bool, Float and String
-*/
+ * SettingsOption are classes used to bind user settings from the settings class into tw_Controls
+ * so the control can read and change the setting value.
+ *
+ * Classes are provided for Int, Bool, Float and String
+ */
 
 #include "settings/settingsOption.h"
 #include "settings/settings.h"
@@ -33,15 +33,9 @@ int SettingsOptionInt::change(int dir)
 	return *setting_ref;
 }
 
-int SettingsOptionInt::get()
-{
-	return *setting_ref;
-}
+int SettingsOptionInt::get() { return *setting_ref; }
 
-String SettingsOptionInt::get_str()
-{
-	return String(*setting_ref);
-}
+String SettingsOptionInt::get_str() { return String(*setting_ref); }
 
 //
 // FLOAT
@@ -66,18 +60,11 @@ float SettingsOptionFloat::change(int dir)
 	*setting_ref = current;
 	settings.save(true);
 	return *setting_ref;
-
 }
 
-float SettingsOptionFloat::get()
-{
-	return *setting_ref;
-}
+float SettingsOptionFloat::get() { return *setting_ref; }
 
-String SettingsOptionFloat::get_str()
-{
-	return String(*setting_ref);
-}
+String SettingsOptionFloat::get_str() { return String(*setting_ref); }
 
 //
 // BOOL
@@ -90,15 +77,9 @@ bool SettingsOptionBool::change()
 	return *setting_ref;
 }
 
-bool SettingsOptionBool::get()
-{
-	return *setting_ref;
-}
+bool SettingsOptionBool::get() { return *setting_ref; }
 
-String SettingsOptionBool::get_str()
-{
-	return String(*setting_ref);
-}
+String SettingsOptionBool::get_str() { return String(*setting_ref); }
 
 //
 // STRING
@@ -109,7 +90,4 @@ void SettingsOptionString::change(String *val)
 	settings.save(true);
 }
 
-String SettingsOptionString::get()
-{
-	return *setting_ref;
-}
+String SettingsOptionString::get() { return *setting_ref; }

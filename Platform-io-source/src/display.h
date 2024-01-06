@@ -3,11 +3,12 @@
 #include "Arduino.h"
 #include <vector>
 
-enum Directions {
-    UP = 0,
-    RIGHT = 1,
-    DOWN = 2,
-    LEFT = 3,
+enum Directions
+{
+	UP = 0,
+	RIGHT = 1,
+	DOWN = 2,
+	LEFT = 3,
 	CLICK = 4,
 	CLICK_DBL = 5,
 	CLICK_LONG = 6,
@@ -16,26 +17,28 @@ enum Directions {
 
 constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)
 {
-//   return ((r / 8) << 11) | ((g / 4) << 5) | (b / 8);
-  return (( r & 0xf8 ) << 8 ) | (( g & 0xfc ) << 3 ) | ( b >> 3 );
+	//   return ((r / 8) << 11) | ((g / 4) << 5) | (b / 8);
+	return ((r & 0xf8) << 8) | ((g & 0xfc) << 3) | (b >> 3);
 }
 
-#include <TFT_eSPI.h>
 #include "cst816t.h" // capacitive touch
 #include "peripherals/rtc.h"
 #include "utilities/logging.h"
 #include "web/wifi_controller.h"
+#include <TFT_eSPI.h>
 #include <Tween.h>
-#include <vector> 
+#include <vector>
 
-enum display_states {
+enum display_states
+{
 	LOADING = 0,
 	NORMAL = 1,
 };
 
 class tw_face;
 
-class Display {
+class Display
+{
 	public:
 		void init_screen();
 		void createFaces(bool sleeping);
@@ -52,11 +55,11 @@ class Display {
 		void kill_backlight_task();
 		uint8_t get_current_backlight_val();
 
-        void add_clock_face(tw_face *face);
-        void cycle_clock_face();
+		void add_clock_face(tw_face *face);
+		void cycle_clock_face();
 
 		void set_current_face(tw_face *face);
-        tw_face * set_current_clock_face(bool should_draw);
+		tw_face *set_current_clock_face(bool should_draw);
 		void show_low_battery();
 
 		display_states get_current_display_state();

@@ -4,40 +4,32 @@
 
 class FaceWatch_CustomBinary : public tw_face
 {
-    public:
+	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(uint pos_x, uint pos_y);
-		bool click_double(uint pos_x, uint pos_y);
-		bool click_long(uint pos_x, uint pos_y);
+		bool click(int16_t pos_x, int16_t pos_y);
+		bool click_double(int16_t pos_x, int16_t pos_y);
+		bool click_long(int16_t pos_x, int16_t pos_y);
 
-    private:
-        String version = "1.0";
+	private:
+		String version = "1.0";
 
 		// Binary Watch Colour Pallette - On
-		const uint16_t on_colors[3] = 
-		{
+		const uint16_t on_colors[3] = {
 			RGB(127, 0, 0),
 			RGB(0, 127, 0),
 			RGB(0, 0, 191),
 		};
 
 		// Binary Watch Colour Pallette - Off
-		const uint16_t off_colors[3] = 
-		{
+		const uint16_t off_colors[3] = {
 			RGB(32, 0, 0),
 			RGB(0, 32, 0),
 			RGB(0, 0, 32),
 		};
 
-		const String months[12] = 
-		{
-			"JAN", "FEB", "MAR",
-			"APR", "MAY", "JUN",
-			"JUL", "AUG", "SEP",
-			"OCT", "NOV", "DEC"
-		};
-		
+		const String months[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+
 		// Settings
 		bool show_borders = true;
 
@@ -48,7 +40,6 @@ class FaceWatch_CustomBinary : public tw_face
 		uint16_t month = 0;
 		uint16_t year = 0;
 		int8_t day_offset = -16;
-
 };
 
 extern FaceWatch_CustomBinary face_watch_custom_binary;

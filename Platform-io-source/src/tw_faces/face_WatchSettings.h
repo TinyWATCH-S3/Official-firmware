@@ -4,14 +4,14 @@
 
 class FaceWatchSettings : public tw_face
 {
-    public:
+	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(uint pos_x, uint pos_y);
-		bool click_double(uint pos_x, uint pos_y);
-		bool click_long(uint pos_x, uint pos_y);
+		bool click(int16_t pos_x, int16_t pos_y);
+		bool click_double(int16_t pos_x, int16_t pos_y);
+		bool click_long(int16_t pos_x, int16_t pos_y);
 
-    private:
+	private:
 		//
 };
 

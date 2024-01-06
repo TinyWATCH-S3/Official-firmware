@@ -1,13 +1,13 @@
 #pragma once
 
-#include "wifi_common.h"
-#include "HTTPClient.h" 
+#include "HTTPClient.h"
 #include "json.h"
 #include "json_conversions.h"
-#include <functional>
+#include "wifi_common.h"
 #include <freertos/queue.h>
+#include <functional>
 
-typedef std::function<void(bool, const String&)> _CALLBACK;
+typedef std::function<void(bool, const String &)> _CALLBACK;
 
 class WifiController
 {
@@ -18,7 +18,7 @@ class WifiController
 		void disconnect(bool force);
 		bool is_busy();
 		void kill_controller_task();
-        bool is_connected();
+		bool is_connected();
 
 		// task queue related functions
 		void perform_wifi_request(const String &url, _CALLBACK callback);
@@ -28,7 +28,7 @@ class WifiController
 		String http_request(const String &url);
 
 		bool wifi_blocks_display = false;
-        bool wifi_prevent_disconnect = false;
+		bool wifi_prevent_disconnect = false;
 
 	private:
 		String user_config_json;
@@ -39,16 +39,16 @@ class WifiController
 		// Structure for task items
 		struct wifi_task_item
 		{
-			String * url;
-			_CALLBACK callback;
+				String *url;
+				_CALLBACK callback;
 		};
 
 		// Structure for callback items
 		struct wifi_callback_item
 		{
-			bool success;
-			String * response;
-			_CALLBACK callback;
+				bool success;
+				String *response;
+				_CALLBACK callback;
 		};
 
 		TaskHandle_t wifi_task_handler;

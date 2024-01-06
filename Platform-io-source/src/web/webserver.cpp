@@ -1,8 +1,8 @@
 #include "web/webserver.h"
-#include "web/webserver_templates.h"
-#include "tinywatch.h"
 #include "peripherals/buzzer.h"
 #include "settings/settings.h"
+#include "tinywatch.h"
+#include "web/webserver_templates.h"
 #include "web/wifi_controller.h"
 
 String WebServer::processor(const String &var)
@@ -45,19 +45,17 @@ void WebServer::start()
 
 	info_println("Starting webserver");
 
-    // Start the WiFi
+	// Start the WiFi
 	WiFi.mode(WIFI_STA);
 
-    // Start the webserver by connecting to the wifi network first, done via a non-blocking callback
-    wifi_controller.add_to_queue("", [this](bool success, const String& response) {
-        this->start_callback(success, response);
-    });
+	// Start the webserver by connecting to the wifi network first, done via a non-blocking callback
+	wifi_controller.add_to_queue("", [this](bool success, const String &response) { this->start_callback(success, response); });
 }
 
 void WebServer::start_callback(bool success, const String &response)
 {
-   if (response == "OK")
-   {
+	if (response == "OK")
+	{
 		info_print("IP Address: ");
 		info_println(WiFi.localIP());
 
@@ -75,37 +73,24 @@ void WebServer::start_callback(bool success, const String &response)
 			return;
 		}
 
-		web_server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-		{
-			request->send_P(200, "text/html", index_html, processor);
-		});
+		web_server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
 
-		web_server.on("/index.htm", HTTP_GET, [](AsyncWebServerRequest *request)
-		{
-			request->send_P(200, "text/html", index_html, processor);
-		});
+		web_server.on("/index.htm", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
 
-		web_server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request)
-		{
-			request->send_P(200, "text/html", index_html, processor);
-		});
+		web_server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
 
-		web_server.onNotFound(
-			[](AsyncWebServerRequest *request)
-			{
-				request->send(404, "text/plain", "Not found");
-			});
+		web_server.onNotFound([](AsyncWebServerRequest *request) { request->send(404, "text/plain", "Not found"); });
 
 		info_println("web_server.begin();");
 		web_server.begin();
 		_running = true;
-   }
-   else
-   {
-	_running = false;
-	error_println("Failed to connect to wifi to start webserver!");
-	setCpuFrequencyMhz(40);
-   }
+	}
+	else
+	{
+		_running = false;
+		error_println("Failed to connect to wifi to start webserver!");
+		setCpuFrequencyMhz(40);
+	}
 }
 
 void WebServer::stop(bool restart)
@@ -117,15 +102,8 @@ void WebServer::stop(bool restart)
 	_running = false;
 }
 
-void WebServer::process()
-{
-	
-}
+void WebServer::process() {}
 
-bool WebServer::is_running()
-{
-	return _running;
-}
-
+bool WebServer::is_running() { return _running; }
 
 WebServer web_server;

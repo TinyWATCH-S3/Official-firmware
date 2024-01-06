@@ -1,18 +1,18 @@
-#include "tw_controls/tw_control.h"
 #include "settings/settingsOption.h"
+#include "tw_controls/tw_control.h"
 
-class ControlValue: public tw_control
+class ControlValue : public tw_control
 {
 	public:
-	    void draw(uint _canvasid);
+		void draw(uint _canvasid);
 		bool drag(int16_t drag_x, int16_t drag_y);
 		void drag_end();
 		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
 		bool click_double(uint16_t click_pos_x, uint16_t click_pos_y);
 		bool click_long(uint16_t click_pos_x, uint16_t click_pos_y);
 
-		bool buttons_check_left(uint click_pos_x, uint click_pos_y);
-		bool buttons_check_right(uint click_pos_x, uint click_pos_y);
+		bool buttons_check_left(int16_t click_pos_x, int16_t click_pos_y);
+		bool buttons_check_right(int16_t click_pos_x, int16_t click_pos_y);
 
 		void set_data(SettingsOptionInt *sett);
 
@@ -34,5 +34,4 @@ class ControlValue: public tw_control
 		int val_width_half = 0;
 		int button_left_x = 0;
 		int button_right_x = 0;
-
 };
