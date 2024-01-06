@@ -102,6 +102,7 @@ void Display::init_screen()
 		info_println(touchpad.version());
 	}
 	tft.init();
+	tft.initDMA();
 	tft.setRotation(settings.config.flipped ? 2 : 0);
 	tft.setPivot(120, 140);
 	tft.fillScreen(TFT_BLACK);
