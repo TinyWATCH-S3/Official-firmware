@@ -89,17 +89,19 @@ void FaceAppList::draw(bool force)
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[15]);
 			canvas[canvasid].setTextColor(TFT_GREEN);
 
-			int16_t icon_x = 20;
-			int16_t icon_y = 20;
+			int8_t icon_spacing = 9;
+
+			int16_t icon_x = icon_spacing;
+			int16_t icon_y = icon_spacing;
 
 			for (auto _app : app_icons)
 			{
 				_app.second->draw_icon(canvasid, icon_x, icon_y, 0);
-				icon_x += 84;
-				if (icon_x > 262)
+				icon_x += 64 + icon_spacing;
+				if (icon_x > ((64 + icon_spacing) * 3))
 				{
-					icon_x = 84;
-					icon_y += 84;
+					icon_x = icon_spacing;
+					icon_y += 64 + icon_spacing;
 				}
 			}
 		}
