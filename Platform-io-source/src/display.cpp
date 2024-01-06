@@ -53,9 +53,6 @@ Display display;
 #include "fonts/RobotoMono_Regular_All.h"
 #include "settings/settings.h"
 
-#define TFT_CS 16
-#define TFT_RST 17
-#define TFT_DC 15
 #define TFT_LED 13
 
 // touch
