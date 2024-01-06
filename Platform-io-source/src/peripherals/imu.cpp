@@ -274,9 +274,9 @@ void IMU::update()
 
 float IMU::get_accel_x() {
   if (!imu_ready)
-    return 0;
+		return 0;
 
-  return (imu.data.accelX);
+	return (imu.data.accelX);
 }
 
 float IMU::get_accel_y()
@@ -289,16 +289,16 @@ float IMU::get_accel_y()
 
 float IMU::get_accel_z() {
   if (!imu_ready)
-    return 0;
+		return 0;
 
-  return (imu.data.accelZ);
+	return (imu.data.accelZ);
 }
 
 float IMU::get_gyro_x() {
   if (!imu_ready)
-    return 0;
+		return 0;
 
-  return (imu.data.gyroX);
+	return (imu.data.gyroX);
 }
 
 float IMU::get_gyro_y()
