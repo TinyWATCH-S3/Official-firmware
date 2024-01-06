@@ -273,8 +273,8 @@ void IMU::update()
 }
 
 float IMU::get_accel_x() {
-  if (!imu_ready)
-		return 0;
+	if (!imu_ready)
+	  return 0;
 
 	return (imu.data.accelX);
 }
@@ -288,7 +288,7 @@ float IMU::get_accel_y()
 }
 
 float IMU::get_accel_z() {
-  if (!imu_ready)
+	if (!imu_ready)
 		return 0;
 
 	return (imu.data.accelZ);
