@@ -1,5 +1,5 @@
 
-#include "tw_faces/face_Compass.h"
+#include "tw_apps/app_Compass.h"
 #include "peripherals/imu.h"
 #include "fonts/Clock_Digits.h"
 #include "fonts/RobotoMono_Regular_All.h"
@@ -9,7 +9,7 @@
 #define BACKGROUND TFT_BLACK
 
 
-void FaceCompass::setup()
+void AppCompass::setup()
 {
 	if (!is_setup)
 	{
@@ -18,46 +18,70 @@ void FaceCompass::setup()
 	}
 }
 
-void FaceCompass::draw(bool force)
+/**
+ * @brief Put anything in here that you want to have run every time the app is opened
+ * 
+ * This is not the same as setup() above that only ever gets called the first time the app opens
+ * 
+ */
+void AppCompass::pre_start()
+{
+
+}
+
+/**
+ * @brief Draw the icon that gets shown on the app menu face 
+ *
+ * Icons are 64x64 with rounded corners as per the code below, but the inner content can be anything that represents the app well  
+ * @param canvasid 
+ * @param _pos_x 
+ * @param _pos_y 
+ * @param style_hint 
+ */
+void AppCompass::draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint)
+{
+    if (!is_icon_cached)
+	{
+		is_icon_cached = true;
+		icon_sprite.fillSprite(0);
+		icon_sprite.drawSmoothRoundRect(0, 0, 10, 6, icon_width, icon_width, RGB(0xdd, 0xa6, 0x00), 0);
+		icon_sprite.setTextDatum(4); // Middle, Center
+		icon_sprite.setFreeFont(RobotoMono_Regular[15]);
+		icon_sprite.setTextColor(TFT_WHITE);
+        icon_sprite.drawSmoothCircle(icon_width/2, icon_height/2, 20, RGB(0xff, 0xc9, 0x00), 0);
+		icon_sprite.drawString("C", icon_width/2, icon_width/2);
+	}
+
+	icon_x = _pos_x;
+	icon_y = _pos_y;
+	icon_sprite.pushToSprite(&canvas[canvasid], _pos_x, _pos_y);
+}
+
+void AppCompass::draw(bool force)
 {
 	if (force || millis() - next_update > update_period)
 	{
 		setup();
 		
 		next_update = millis();
+		angle = imu.get_yaw();
 
-		if (!is_dragging || !is_cached)
-		{
-			if (is_dragging)
-				is_cached = true;
-
-			angle = imu.get_yaw();
-
-			drawCompass(120,140,angle); // Draw centre of compass at 120,140
-
-		}
-		
+		drawCompass(120,140,angle); // Draw centre of compass at 120,140
 		canvas[canvasid].pushSprite(_x, _y);
 	}
 }
 
-bool FaceCompass::click(uint pos_x, uint pos_y)
-{
-	showingGyro = !showingGyro;
-	return true;
-}
-
-bool FaceCompass::click_double(uint pos_x, uint pos_y)
+bool AppCompass::click(uint pos_x, uint pos_y)
 {
 	return false;
 }
 
-bool FaceCompass::click_long(uint pos_x, uint pos_y)
+bool AppCompass::click_double(uint pos_x, uint pos_y)
 {
 	return false;
 }
 
-void FaceCompass::drawCompass(int x, int y, int angle)
+void AppCompass::drawCompass(int x, int y, int angle)
 {
  canvas[canvasid].setFreeFont(RobotoMono_Regular[12]);
 
@@ -99,7 +123,7 @@ void FaceCompass::drawCompass(int x, int y, int angle)
 
 // Get coordinates of end of a vector, centre at x,y, length r, angle a
 // Coordinates are returned to caller via the xp and yp pointers
-void FaceCompass::getCoord(int x, int y, int *xp, int *yp, int r, int a)
+void AppCompass::getCoord(int x, int y, int *xp, int *yp, int r, int a)
 {
   float sx1 = cos( (a-90) * RAD2DEG );    
   float sy1 = sin( (a-90) * RAD2DEG );
@@ -107,5 +131,5 @@ void FaceCompass::getCoord(int x, int y, int *xp, int *yp, int r, int a)
   *yp =  sy1 * r + y;
 }
 
-FaceCompass face_compass;
+AppCompass app_compass;
 

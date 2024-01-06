@@ -21,12 +21,11 @@ Display display;
 // Faces General
 #include "tw_faces/face_Boot.h"
 #include "tw_faces/face_System.h"
+#include "tw_faces/face_AppList.h"
 #include "tw_faces/face_IMU.h"
-#include "tw_faces/face_Compass.h"
 #include "tw_faces/face_Settings.h"
 #include "tw_faces/face_Notifications.h"
 #include "tw_faces/face_WatchSettings.h"
-#include "tw_faces/face_Microphone.h"
 #include "tw_faces/face_BatteryEmpty.h"
 
 // Widgets
@@ -43,6 +42,11 @@ Display display;
 #include "tw_controls/control_Value.h"
 #include "tw_controls/control_ValueSlider.h"
 #include "tw_controls/control_Label.h"
+
+// Apps
+#include "tw_apps/tw_app.h"
+#include "tw_apps/app_Microphone.h" 
+#include "tw_apps/app_Compass.h" 
 
 // Other
 #include "settings/settings.h"
@@ -125,7 +129,7 @@ void Display::kill_backlight_task()
 void Display::add_clock_face(tw_face *face)
 {
 	clock_faces.push_back(face);
-    info_println("Now "+String(clock_faces.size())+" clock faces");
+	info_println("Now "+String(clock_faces.size())+" clock faces");
 }
 
 void Display::set_current_face(tw_face *face)
@@ -141,15 +145,15 @@ void Display::set_current_face(tw_face *face)
  */
 tw_face * Display::set_current_clock_face(bool should_draw)
 {
-    tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
-    if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
-    {
-        for (int i = 0; i < 4; i++)
-            new_clock_face->set_single_navigation((Directions)i, current_face->navigation[i]);
-    }
+	tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
+	if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
+	{
+		for (int i = 0; i < 4; i++)
+			new_clock_face->set_single_navigation((Directions)i, current_face->navigation[i]);
+	}
 
 	current_face->reset_cache_status();
-    current_face = new_clock_face;
+	current_face = new_clock_face;
 
 	if (should_draw)
 		current_face->draw(true);
@@ -163,11 +167,11 @@ tw_face * Display::set_current_clock_face(bool should_draw)
 void Display::cycle_clock_face()
 {
 	settings.config.clock_face_index++;
-    // Hacky way to check the int against the number of elements in the enum
-    if (settings.config.clock_face_index == clock_faces.size())
-        settings.config.clock_face_index = 0;
+	// Hacky way to check the int against the number of elements in the enum
+	if (settings.config.clock_face_index == clock_faces.size())
+		settings.config.clock_face_index = 0;
 
-    set_current_clock_face(true);
+	set_current_clock_face(true);
 }
 
 /**
@@ -219,7 +223,7 @@ void Display::show_watch_from_boot()
 
 	last_touch = millis();
 	dbl_touch[0] = millis();
-    dbl_touch[1] = millis();
+	dbl_touch[1] = millis();
 }
 
 /**
@@ -236,8 +240,8 @@ void Display::createFaces(bool was_sleeping)
 
 	update_rotation();
 
-    // Now create the boot and watch tw_face
-    face_boot.add("boot", 0, 80);
+	// Now create the boot and watch tw_face
+	face_boot.add("boot", 0, 80);
 
 	if (!was_sleeping)
 	{
@@ -263,26 +267,26 @@ void Display::createFaces(bool was_sleeping)
 	WidgetWifi * wWifi = new WidgetWifi();
 	wWifi->create("Wifi", 30, 7, 40, 40, 1000);
 
-    // Faces that are "Clocks" that you want to be switchable with a dbl click need to use `add_clock()` instead of `add()`
-    // or they will not be added to the clock list for cycling.  
+	// Faces that are "Clocks" that you want to be switchable with a dbl click need to use `add_clock()` instead of `add()`
+	// or they will not be added to the clock list for cycling.  
 	face_watch_default_analog.add_clock("Clock_Def_Analog", 1000);
 	face_watch_default_analog.add_widget(wBattery);
 	face_watch_default_analog.add_widget(wActivity);
 	face_watch_default_analog.add_widget(wWifi);
 
-    face_watch_default_digital.add_clock("Clock_Def_Digital", 1000);
+	face_watch_default_digital.add_clock("Clock_Def_Digital", 1000);
 	face_watch_default_digital.add_widget(wBattery);
 	face_watch_default_digital.add_widget(wActivity);
 	face_watch_default_digital.add_widget(wWifi);
 
-    face_watch_custom_binary.add_clock("Clock_Custom_Binary", 1000);
+	face_watch_custom_binary.add_clock("Clock_Custom_Binary", 1000);
 	face_watch_custom_binary.add_widget(wBattery);
 	face_watch_custom_binary.add_widget(wActivity);
 	face_watch_custom_binary.add_widget(wWifi);
 
-    // needs a default clock face so it won't crash
-    // all clock faces need to be initialised before this
-    tw_face *current_clock_face = set_current_clock_face(false);
+	// needs a default clock face so it won't crash
+	// all clock faces need to be initialised before this
+	tw_face *current_clock_face = set_current_clock_face(false);
 
 	// face_watch.add_widget(wESP32);
 
@@ -296,8 +300,13 @@ void Display::createFaces(bool was_sleeping)
 	face_imu.add("IMU", 100, 80);
 	// face_compass.add("Compass", 100, 80);
 
-	face_microphone.add("FFT", 25, 160);
-	face_microphone.set_single_navigation(LEFT, current_clock_face);
+	app_microphone.add("FFT", 25, 160);
+	app_compass.add("Compass", 100, 80);
+
+	face_applist.add("APPS", 1000, 40);
+	face_applist.set_single_navigation(LEFT, current_clock_face);
+	face_applist.add_app(&app_microphone);
+	face_applist.add_app(&app_compass);
 
 	face_notifications.add("Messages", 1000, 80);
 	face_notifications.set_scrollable(false, true);
@@ -310,7 +319,7 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.set_scrollable(false, true);
 	face_settings.set_single_navigation(LEFT, &face_boot);
 	
-    // face_watch is a pointer to the current clock face
+	// face_watch is a pointer to the current clock face
 	current_clock_face->set_single_navigation(LEFT, &face_settings);
 	current_clock_face->set_single_navigation(UP, &face_imu);
 	current_clock_face->set_single_navigation(DOWN, &face_notifications);
@@ -402,7 +411,7 @@ void Display::process_touch()
 	Directions swipe_dir = NONE; 
 
 	if (touchpad.available(settings.config.flipped))
-    {
+	{
 		tinywatch.set_cpu_frequency(current_face->get_cpu_speed(), CPU_CHANGE_HIGH);
 		
 		if (!isTouched && touchpad.finger_num == 1)
@@ -414,7 +423,7 @@ void Display::process_touch()
 			moved_x = touchpad.x;
 			moved_y = touchpad.y;
 			isTouched = true;
-            prevent_long_press = false;
+			prevent_long_press = false;
 			touchTime = millis();
 
 			last_touch = millis();
@@ -423,14 +432,14 @@ void Display::process_touch()
 
 			current_face->drag_begin(startX, startY);
 
-            backlight_level = 0;
-            set_backlight(backlight_level);
+			backlight_level = 0;
+			set_backlight(backlight_level);
 
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
-            if (last_was_long)
-                return;
+			if (last_was_long)
+				return;
 			deltaX = touchpad.x - startX;
 			deltaY = touchpad.y - startY;
 
@@ -442,88 +451,88 @@ void Display::process_touch()
 
 			last_touch = millis();
 
-            if (abs(deltaX)> 5 || abs(deltaY)> 5)
-            {
-			    current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
-                prevent_long_press = true;
-            }
-            else if (!prevent_long_press && last_touch - touchTime > 600)
-            {
-                // might be a long click?
-                if (current_face->click_long(touchpad.x, touchpad.y))
-                {
-                    BuzzerUI({ {2000, 400} });
-                    // isTouched = false;
-                    last_was_click = false;
-                    last_was_long = true;
-                }
-            }
+			if (abs(deltaX)> 5 || abs(deltaY)> 5)
+			{
+				current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
+				prevent_long_press = true;
+			}
+			else if (!prevent_long_press && last_touch - touchTime > 600)
+			{
+				// might be a long click?
+				if (current_face->click_long(touchpad.x, touchpad.y))
+				{
+					BuzzerUI({ {2000, 400} });
+					// isTouched = false;
+					last_was_click = false;
+					last_was_long = true;
+				}
+			}
 		}
 		else if (isTouched && touchpad.finger_num == 0)
 		{
-            isTouched = false;
+			isTouched = false;
 
-            if (last_was_long)
-            {
-                last_was_long = false;
-                return;
-            }
+			if (last_was_long)
+			{
+				last_was_long = false;
+				return;
+			}
 
-            last_touch = millis();
+			last_touch = millis();
 
-            deltaX = touchpad.x - startX;
-            deltaY = touchpad.y - startY;
+			deltaX = touchpad.x - startX;
+			deltaY = touchpad.y - startY;
 
-            if (current_face->drag_dir == -1 || (abs(deltaX) < 5 && abs(deltaY) < 5))
-            {
-                dbl_touch[0] = dbl_touch[1];
-                dbl_touch[1] = millis();
+			if (current_face->drag_dir == -1 || (abs(deltaX) < 5 && abs(deltaY) < 5))
+			{
+				dbl_touch[0] = dbl_touch[1];
+				dbl_touch[1] = millis();
 
-			    bool double_click = (dbl_touch[1] - dbl_touch[0] < 200);
-                if (double_click)
-                {
-                    // block 2 dbl clicks in a row from 3 clicks
-                    dbl_touch[1] = 0;
+				bool double_click = (dbl_touch[1] - dbl_touch[0] < 200);
+				if (double_click)
+				{
+					// block 2 dbl clicks in a row from 3 clicks
+					dbl_touch[1] = 0;
 
-                    last_was_click = false;
-                    if (current_face->click_double(touchpad.x, touchpad.y))
-                    {
-                        BuzzerUI({
-                            {2000, 40},
-                            {0, 15},
-                            {2000, 40},
-                        });
-                        return;
-                    }
+					last_was_click = false;
+					if (current_face->click_double(touchpad.x, touchpad.y))
+					{
+						BuzzerUI({
+							{2000, 40},
+							{0, 15},
+							{2000, 40},
+						});
+						return;
+					}
 
-                }
-                else
-                {
-                    last_was_click = true;
-                }
-            }
-            else
-            { 
-                int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
-                touchTime = millis()-touchTime;
+				}
+				else
+				{
+					last_was_click = true;
+				}
+			}
+			else
+			{ 
+				int distance = sqrt(pow((touchpad.x-startX),2)+pow((touchpad.y-startY),2));
+				touchTime = millis()-touchTime;
 
-        
-                int16_t last_dir_x = touchpad.x - moved_x;
-                int16_t last_dir_y = touchpad.y - moved_y;
+		
+				int16_t last_dir_x = touchpad.x - moved_x;
+				int16_t last_dir_y = touchpad.y - moved_y;
 
-                if (current_face->drag_end(deltaX, deltaY, true, distance, false, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
-                {
-                    // switch face to the new one and make it the current face
-                    int dir = current_face->drag_dir;
-                    if (current_face->navigation[dir] != nullptr)
-                    {
-                        current_face = current_face->navigation[dir];
-                        current_face->reset_cache_status();
-                        current_face->draw(true);
-                    }
-                    return;
-                }
-            }
+				if (current_face->drag_end(deltaX, deltaY, true, distance, false, touchpad.x, touchpad.y, last_dir_x, last_dir_y))
+				{
+					// switch face to the new one and make it the current face
+					int dir = current_face->drag_dir;
+					if (current_face->navigation[dir] != nullptr)
+					{
+						current_face = current_face->navigation[dir];
+						current_face->reset_cache_status();
+						current_face->draw(true);
+					}
+					return;
+				}
+			}
 		}
 	}
 	else
@@ -546,25 +555,25 @@ void Display::process_touch()
 		}
 	}
 
-    // If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
-    if (millis()-last_touch > 150 && last_was_click)
-    {
-        last_was_click = false;
-        //A click should only happen if the finger didn't drag - much 
-        if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
-        {
-            BuzzerUI({ {2000, 10} });
-        }
-        else if (current_face->control_process_clicks(touchpad.x, touchpad.y))
-        {
-            BuzzerUI({ {2000, 10} });
-        }
-        else if (current_face->click(touchpad.x, touchpad.y))
-        {
-            BuzzerUI({ {2000, 20} });
-        }
-        last_was_click = false;
-    }
+	// If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
+	if (millis()-last_touch > 150 && last_was_click)
+	{
+		last_was_click = false;
+		//A click should only happen if the finger didn't drag - much 
+		if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
+		{
+			BuzzerUI({ {2000, 10} });
+		}
+		else if (current_face->control_process_clicks(touchpad.x, touchpad.y))
+		{
+			BuzzerUI({ {2000, 10} });
+		}
+		else if (current_face->click(touchpad.x, touchpad.y))
+		{
+			BuzzerUI({ {2000, 20} });
+		}
+		last_was_click = false;
+	}
 
 	// Process the backlight timer
 	if (millis() - last_touch > get_backlight_period())
@@ -694,21 +703,21 @@ void Display::fill_arc(uint8_t canvasid, int x, int y, int start_angle, int seg_
   // Draw colour blocks every inc degrees
   for (int i = start_angle; i < start_angle + seg * seg_count; i += inc) {
 
-    // Calculate pair of coordinates for segment end
-    float sx2 = cos((i + seg - 90) * DEG2RAD);
-    float sy2 = sin((i + seg - 90) * DEG2RAD);
-    int x2 = sx2 * (rx - w) + x;
-    int y2 = sy2 * (ry - w) + y;
-    int x3 = sx2 * rx + x;
-    int y3 = sy2 * ry + y;
+	// Calculate pair of coordinates for segment end
+	float sx2 = cos((i + seg - 90) * DEG2RAD);
+	float sy2 = sin((i + seg - 90) * DEG2RAD);
+	int x2 = sx2 * (rx - w) + x;
+	int y2 = sy2 * (ry - w) + y;
+	int x3 = sx2 * rx + x;
+	int y3 = sy2 * ry + y;
 
-    canvas[canvasid].fillTriangle(x0, y0, x1, y1, x2, y2, colour);
-    canvas[canvasid].fillTriangle(x1, y1, x2, y2, x3, y3, colour);
+	canvas[canvasid].fillTriangle(x0, y0, x1, y1, x2, y2, colour);
+	canvas[canvasid].fillTriangle(x1, y1, x2, y2, x3, y3, colour);
 
-    // Copy segment end to segment start for next segment
-    x0 = x2;
-    y0 = y2;
-    x1 = x3;
-    y1 = y3;
+	// Copy segment end to segment start for next segment
+	x0 = x2;
+	y0 = y2;
+	x1 = x3;
+	y1 = y3;
   }
 }

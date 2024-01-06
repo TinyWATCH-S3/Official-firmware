@@ -5,6 +5,8 @@
 
 static std::map<String, tw_face *> faces;
 
+class tw_app;
+
 void tw_face::add(String _name, uint _update_period, uint32_t req_cpu_speed)
 {
 	name = _name;
@@ -107,8 +109,16 @@ tw_control * tw_face::find_draggable_control(int16_t click_pos_x, int16_t click_
 	return nullptr;
 }
 
+void tw_face::prevent_dragging(bool state)
+{
+    block_dragging = state;
+}
+
 void tw_face::drag_begin(int16_t pos_x, int16_t pos_y)
 {
+    if (block_dragging)
+        return;
+
 	drag_start_time = millis();
 	drag_dir = -1;
 
@@ -122,7 +132,10 @@ void tw_face::drag_begin(int16_t pos_x, int16_t pos_y)
 
 void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y,bool current_face)
 {
-	canvasid = current_face ? 1 : 0;
+    if (block_dragging)
+        return;
+	
+    canvasid = current_face ? 1 : 0;
 
 	// We only move the other faces if we are the current_face (current) face
 	if (current_face)
@@ -258,6 +271,9 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 
 bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_t distance, bool double_click, int16_t t_pos_x, int16_t t_pos_y, int16_t last_dir_x, int16_t last_dir_y)
 {
+    if (block_dragging)
+        return false;
+
 	if (selectedControl != nullptr)
 	{
 		selectedControl->drag_end();

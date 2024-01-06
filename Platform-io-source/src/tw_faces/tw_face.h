@@ -1,6 +1,7 @@
 #pragma once
 
 #include "tw_widgets/tw_widget.h"
+#include "tw_apps/tw_app.h"
 #include "tw_controls/tw_control.h"
 #include "utilities/logging.h"
 #include <map>
@@ -33,6 +34,7 @@ class tw_face
 		int drag_dir = -1;
 		void reset_can_swipe_flags();
 		int check_can_swipe();
+        void prevent_dragging(bool state);
 
 		// graphics caching
 		void reset_cache_status();
@@ -78,6 +80,7 @@ class tw_face
 		int16_t _x = 0;
 		int16_t _y = 0;
 		int drag_width = 70; // threshold from screen edge to detect a swipe might happen
+        bool block_dragging = false;
 		
 		unsigned long drag_start_time = 0;
 

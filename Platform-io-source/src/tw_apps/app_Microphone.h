@@ -1,6 +1,6 @@
 #pragma once
 
-#include "tw_faces/tw_face.h"
+#include "tw_apps/tw_app.h"
 #include <driver/i2s.h>
 #include <soc/i2s_reg.h>
 #include <arduinoFFT.h>
@@ -17,15 +17,16 @@
 #define DEG2RAD 0.0174532925
 
 
-class FaceMicrophone : public tw_face
+class AppMicrophone : public tw_app
 {
     public:
 		// virtual methods
 		void setup(void);
+        void pre_start(void);
 		void draw(bool force);
-		bool click(uint pos_x, uint pos_y);
-		bool click_double(uint pos_x, uint pos_y);
-		bool click_long(uint pos_x, uint pos_y);
+        void draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint);
+		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
+		bool click_double(uint16_t click_pos_x, uint16_t click_pos_y);
 
 		// local methods
 		void do_fft_calcs();
@@ -51,6 +52,8 @@ class FaceMicrophone : public tw_face
 		uint8_t visual_state = 0;
 
 		bool should_calc = true;
+
+        unsigned long shutdown_timer = 0;
 
 		const uint16_t colors[9] = {
 			RGB(255, 0, 0),
@@ -79,4 +82,4 @@ class FaceMicrophone : public tw_face
 
 };
 
-extern FaceMicrophone face_microphone;
+extern AppMicrophone app_microphone;

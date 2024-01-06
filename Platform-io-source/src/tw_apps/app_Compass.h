@@ -1,15 +1,16 @@
 #pragma once
 
-#include "tw_faces/tw_face.h"
+#include "tw_apps/tw_app.h"
 
-class FaceCompass : public tw_face
+class AppCompass : public tw_app
 {
     public:
 		void setup(void);
+        void pre_start(void);
 		void draw(bool force);
+        void draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint);
 		bool click(uint pos_x, uint pos_y);
 		bool click_double(uint pos_x, uint pos_y);
-		bool click_long(uint pos_x, uint pos_y);
 
 		void drawCompass(int x, int y, int angle);
 		void getCoord(int x, int y, int *xp, int *yp, int r, int a);
@@ -36,4 +37,4 @@ class FaceCompass : public tw_face
 
 };
 
-extern FaceCompass face_compass;
+extern AppCompass app_compass;

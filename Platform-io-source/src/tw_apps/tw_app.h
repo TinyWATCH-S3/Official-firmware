@@ -1,0 +1,44 @@
+#pragma once
+
+#include "display.h"
+#include <map>
+
+class tw_app
+{
+    public:
+		tw_app() {}
+		~tw_app() {}
+
+        void add(String _name, uint _update_period, uint32_t req_cpu_speed);
+		void add(String _name, uint _update_period);
+        bool click_icon(uint pos_x, uint pos_y);
+        void set_canvas(uint _canvasid);
+
+        virtual void pre_start() = 0;
+		virtual void draw(bool force) = 0;
+        virtual void draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t style_hint) = 0;
+		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) {return false;}
+
+        String name = "";
+
+    protected:
+		tw_face *owner;
+
+        bool is_setup = false;
+        uint8_t canvasid = 0;
+		uint8_t required_cpu_speed = 80;
+		uint16_t update_period = 0;
+		unsigned long next_update = 0;
+		int16_t _x = 0;
+		int16_t _y = 0;
+
+        // Icon stuff
+        uint8_t icon_width = 64;
+        uint8_t icon_height = 64;
+        int16_t icon_x = 0;
+		int16_t icon_y = 0;
+
+        bool is_icon_cached = false;
+        TFT_eSprite icon_sprite = TFT_eSprite(&tft);
+};
