@@ -2,7 +2,6 @@
 #include "tw_apps/app_Microphone.h"
 // #include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
-#include "tw_faces/face_AppList.h"
 
 /**
  * @brief Called the first time an app is opened
@@ -92,14 +91,19 @@ void AppMicrophone::draw_icon(uint canvasid, uint _pos_x, uint _pos_y, uint8_t s
  */
 void AppMicrophone::draw(bool force)
 {
+	// Override the CPU settings for this app
 	setCpuFrequencyMhz(160);
+	
 	setup();
 
-	if (millis() - shutdown_timer > 5000)
-	{
-		face_applist.close_app();
-		return;
-	}
+	// Example of how to auto shut down the app after a period of time
+	//
+	// if (millis() - shutdown_timer > 5000)
+	// {
+	// 	// close without saving settings
+	// 	close(false);
+	// 	return;
+	// }
 
 	if (force || millis() - next_update > update_period)
 	{

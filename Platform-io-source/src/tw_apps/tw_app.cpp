@@ -1,7 +1,10 @@
 #include "tw_apps/tw_app.h"
+#include "tw_faces/face_AppList.h"
+#include "settings/settings.h"
 
 extern TFT_eSPI tft;
 extern TFT_eSprite canvas[];
+
 
 static std::map<String, tw_app *> apps;
 
@@ -30,12 +33,12 @@ void tw_app::add(String _name, uint _update_period, uint32_t req_cpu_speed)
 		error_println(" already exists!");
 	}
 
-    // icons (for now) are 72x72 and get cached in the icon sprite, so only ever drawn once to save power
+    // icons (for now) are 64x64 and get cached in the icon sprite, so only ever drawn once to save power
     // but at the cost of memory
     // This is important if we are going to have a face of scrollable app icons.
     // If we only ever have a single non scrollable page, then we can remove this as the app icon face itself will cache the
     icon_sprite.setSwapBytes(true);
-	icon_sprite.createSprite(72, 72);
+	icon_sprite.createSprite(64, 64);
 }
 
 /**
@@ -58,6 +61,19 @@ void tw_app::add(String _name, uint _update_period)
 void tw_app::set_canvas(uint _canvasid)
 {
     canvasid = _canvasid;
+}
+
+/**
+ * @brief Close the app and go back to the app list
+ * 
+ * @param save save settings on exit
+ */
+void tw_app::close(bool save)
+{
+    if (save)
+        settings.save(true);
+
+    face_applist.close_app();
 }
 
 /**

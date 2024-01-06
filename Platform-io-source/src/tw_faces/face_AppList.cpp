@@ -140,9 +140,8 @@ bool FaceAppList::click_long(uint pos_x, uint pos_y)
 {
     if (current_app != nullptr)
     {
-        current_app = nullptr;
-        prevent_dragging(false);
-        draw(true);
+        BuzzerUI({ {2000, 400} });
+        close_app();
         return true;
     }
 	return false;
@@ -150,13 +149,10 @@ bool FaceAppList::click_long(uint pos_x, uint pos_y)
 
 void FaceAppList::close_app()
 {
-    if (current_app != nullptr)
-    {
-        current_app = nullptr;
-        prevent_dragging(false);
-        reset_cache_status();
-        draw(true);
-    }
+    current_app = nullptr;
+    prevent_dragging(false);
+    reset_cache_status();
+    draw(true);
 }
 
 FaceAppList face_applist;

@@ -13,6 +13,7 @@ class tw_app
 		void add(String _name, uint _update_period);
         bool click_icon(uint pos_x, uint pos_y);
         void set_canvas(uint _canvasid);
+        void close(bool save);
 
         virtual void pre_start() = 0;
 		virtual void draw(bool force) = 0;
