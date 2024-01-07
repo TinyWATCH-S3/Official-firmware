@@ -17,6 +17,7 @@ Display display;
 
 // Custom Faces
 #include "tw_faces/face_Watch_CustomBinary.h"
+#include "tw_faces/face_Watch_CustomWindows.h"
 
 // Faces General
 #include "tw_faces/face_AppList.h"
@@ -271,6 +272,11 @@ void Display::createFaces(bool was_sleeping)
 	face_watch_custom_binary.add_widget(wBattery);
 	face_watch_custom_binary.add_widget(wActivity);
 	face_watch_custom_binary.add_widget(wWifi);
+
+	face_watch_custom_windows.add_clock("Clock_Custom_Windows", 1000);
+	//face_watch_custom_windows.add_widget(wBattery);
+	//face_watch_custom_windows.add_widget(wActivity);
+	//face_watch_custom_windows.add_widget(wWifi);
 
 	// needs a default clock face so it won't crash
 	// all clock faces need to be initialised before this
