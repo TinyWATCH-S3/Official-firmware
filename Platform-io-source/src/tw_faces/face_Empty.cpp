@@ -26,10 +26,15 @@ void FaceEmpty::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
+			// Start Custom Face Code
+
 			canvas[canvasid].fillSprite(TFT_BLACK);
-			canvas[canvasid].setTextDatum(4); // Middle, Center
+			canvas[canvasid].setTextDatum(MC_DATUM); // Middle, Center
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[15]);
 			canvas[canvasid].setTextColor(TFT_GREEN);
+			canvas[canvasid].drawString("Hello, World", display.center_x, display.center_y);
+
+			// End Custom Face Code
 		}
 
 		canvas[canvasid].pushSprite(_x, _y);
