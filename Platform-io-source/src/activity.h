@@ -8,8 +8,9 @@
 using json = nlohmann::json;
 
 // Activity data struct
-typedef struct
+struct Activity_Data
 {
+	public:
 		std::map<uint32_t, std::array<uint32_t, 31>> steps_day;
 		std::map<uint32_t, uint32_t> steps_year;
 
@@ -18,7 +19,7 @@ typedef struct
 		uint8_t imu_year = 0;
 
 		json last_saved_data;
-} Activity_Data;
+};
 
 class Activity
 {

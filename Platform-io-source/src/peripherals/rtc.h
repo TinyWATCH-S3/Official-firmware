@@ -2,13 +2,13 @@
 
 #include "RV3028C7.h"
 
-typedef struct
+struct TT_Time
 {
+	public:
 		uint8_t secs = 0;
 		uint8_t mins = 0;
 		uint8_t hours = 0;
-
-} TT_Time;
+};
 
 class RTC
 {

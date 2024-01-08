@@ -22,6 +22,7 @@ ColumnLimit: 0
 AccessModifierOffset: 4
 AlignAfterOpenBracket: BlockIndent
 IndentWidth: 4
+ContinuationIndentWidth: 4
 AllowShortFunctionsOnASingleLine: true
 AllowShortEnumsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
