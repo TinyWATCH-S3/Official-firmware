@@ -17,6 +17,7 @@ Display display;
 
 // Custom Faces
 #include "tw_faces/face_Watch_CustomBinary.h"
+#include "tw_faces/face_Watch_CustomWindows.h"
 
 // Faces General
 #include "tw_faces/face_AppList.h"
@@ -272,6 +273,11 @@ void Display::createFaces(bool was_sleeping)
 	face_watch_custom_binary.add_widget(wActivity);
 	face_watch_custom_binary.add_widget(wWifi);
 
+	face_watch_custom_windows.add_clock("Clock_Custom_Windows", 1000);
+	//face_watch_custom_windows.add_widget(wBattery);
+	//face_watch_custom_windows.add_widget(wActivity);
+	//face_watch_custom_windows.add_widget(wWifi);
+
 	// needs a default clock face so it won't crash
 	// all clock faces need to be initialised before this
 	tw_face *current_clock_face = set_current_clock_face(false);
@@ -348,6 +354,11 @@ void Display::createFaces(bool was_sleeping)
 	cToggle5->create("Alarm", "OFF", "ON", 130, 210, 80, 30);
 	cToggle5->set_data(&settings.setting_audio_alarm);
 
+	ControlToggle *cToggle6 = new ControlToggle();
+	cToggle6->create("Date Format", "DMY", "MDY", 130, 130, 80, 30);
+	cToggle6->set_data(&settings.setting_time_dateformat);
+
+
 	// ControlButton * cButton1 = new ControlButton();
 	// cButton1->create("SAVE", 70, 250, 100, 40);
 	// cButton1->set_callback(force_save);
@@ -365,6 +376,7 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.add_control(cLabel1);
 	face_settings.add_control(cToggle4);
 	face_settings.add_control(cToggle5);
+	face_settings.add_control(cToggle6);
 	// face_settings.add_control(cValue1);
 	// face_settings.add_control(cValue2);
 }
