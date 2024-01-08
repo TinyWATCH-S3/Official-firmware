@@ -74,6 +74,8 @@ class FaceWatch_CustomWindows : public tw_face
 
 		float face_radius = 100;
 
+		int cnt = 0;
+		int cnth = 3;
 };
 
 extern FaceWatch_CustomWindows face_watch_custom_windows;

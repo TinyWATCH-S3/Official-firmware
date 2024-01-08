@@ -354,6 +354,11 @@ void Display::createFaces(bool was_sleeping)
 	cToggle5->create("Alarm", "OFF", "ON", 130, 210, 80, 30);
 	cToggle5->set_data(&settings.setting_audio_alarm);
 
+	ControlToggle *cToggle6 = new ControlToggle();
+	cToggle6->create("Date Format", "DMY", "MDY", 130, 130, 80, 30);
+	cToggle6->set_data(&settings.setting_time_dateformat);
+
+
 	// ControlButton * cButton1 = new ControlButton();
 	// cButton1->create("SAVE", 70, 250, 100, 40);
 	// cButton1->set_callback(force_save);
@@ -371,6 +376,7 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.add_control(cLabel1);
 	face_settings.add_control(cToggle4);
 	face_settings.add_control(cToggle5);
+	face_settings.add_control(cToggle6);
 	// face_settings.add_control(cValue1);
 	// face_settings.add_control(cValue2);
 }

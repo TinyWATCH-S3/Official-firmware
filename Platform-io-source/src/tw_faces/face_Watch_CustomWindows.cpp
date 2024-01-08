@@ -34,15 +34,15 @@ void FaceWatch_CustomWindows::setup_trig()
 
 		// Generate offsets for fancy hr/min hand
 		int tick_lo = tick + 15;
-		if (tick > 45)
+		if (tick >= 45)
 			tick_lo = tick - 45;
 
 		int tick_ro = tick + 45;
-		if (tick > 15)
+		if (tick >= 15)
 			tick_ro = tick - 15;
 
 		int tick_rear = tick + 30;
-		if (tick > 30)
+		if (tick >= 30)
 			tick_rear = tick - 30;
 
 		pos_lo[tick_lo][0] = (4 * cos(i)) + center_x;
@@ -153,7 +153,13 @@ void FaceWatch_CustomWindows::draw(bool force)
 			canvas[canvasid].setTextDatum(MC_DATUM);
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
 			canvas[canvasid].setTextColor(winclock.color_titletext, winclock.color_titlebar);
-			canvas[canvasid].drawString(String(day) + "/" + String(month) + "/" + String(year), 85 + xo, 12 + yo);
+
+			String toolbar_date = String(day) + "/" + String(month) + "/" + String(year);
+			if (settings.config.time_dateformat == true) {
+				toolbar_date = String(month) + "/" + String(day) + "/" + String(year);
+			}
+
+			canvas[canvasid].drawString(toolbar_date, 85 + xo, 12 + yo);
 
 			// Menu Bar Text
 			canvas[canvasid].setTextDatum(ML_DATUM);
@@ -185,12 +191,16 @@ void FaceWatch_CustomWindows::draw(bool force)
 			if (hr_index > 59)
 				hr_index -= 60;
 
+			if (mins > 59)
+				mins -= 60;
+
 			// Seconds Hand
 			canvas[canvasid].drawWideLine(center_x, center_y, pos_secs[secs][0], pos_secs[secs][1], 1.0f, winclock.color_sechand);
 
 			// Minutes Hand
 			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
+		
 			// Mins Hand Rear
 			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins_rlo[mins][0], pos_mins_rlo[mins][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins_rro[mins][0], pos_mins_rro[mins][1], 1.0f, winclock.color_hrminhand);
@@ -201,9 +211,6 @@ void FaceWatch_CustomWindows::draw(bool force)
 			// Hours Hand Rear
 			canvas[canvasid].drawWideLine(pos_lo[hr_index][0], pos_lo[hr_index][1], pos_hours_rlo[hr_index][0], pos_hours_rlo[hr_index][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[hr_index][0], pos_ro[hr_index][1], pos_hours_rro[hr_index][0], pos_hours_rro[hr_index][1], 1.0f, winclock.color_hrminhand);
-
-			// Hour Debug
-			info_println("Index: " + String(hr_index) + ", index0: " + String(pos_hours[hr_index][0]) + ", index1: " + String(pos_hours[hr_index][1]));
 
 			// Clock Face Ends Here
 

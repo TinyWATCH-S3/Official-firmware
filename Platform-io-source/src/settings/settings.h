@@ -44,6 +44,7 @@ struct Config
 
 		// Time
 		bool time_24hour = false;
+		bool time_dateformat = false;	// False - DMY, True - MDY
 		uint8_t clock_face_index = 0;
 
 		// Watch
@@ -80,6 +81,7 @@ class Settings
 		// Add any SettingsOption values here for any settings you want to bind with a tw_Control
 		SettingsOptionBool setting_wifi_start{&config.wifi_start};
 		SettingsOptionBool setting_time_24hour{&config.time_24hour};
+		SettingsOptionBool setting_time_dateformat{&config.time_dateformat};
 		SettingsOptionBool setting_left_handed{&config.left_handed};
 		SettingsOptionBool setting_flipped{&config.flipped};
 		SettingsOptionBool setting_audio_ui{&config.audio_ui};
