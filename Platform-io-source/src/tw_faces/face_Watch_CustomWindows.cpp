@@ -182,6 +182,8 @@ void FaceWatch_CustomWindows::draw(bool force)
 
 			// Move the hours hand with the precision of minutes
 			int hr_index = (hours * 5) + (mins / 12);
+			if (hr_index > 59)
+				hr_index -= 60;
 
 			// Seconds Hand
 			canvas[canvasid].drawWideLine(center_x, center_y, pos_secs[secs][0], pos_secs[secs][1], 1.0f, winclock.color_sechand);
@@ -199,6 +201,9 @@ void FaceWatch_CustomWindows::draw(bool force)
 			// Hours Hand Rear
 			canvas[canvasid].drawWideLine(pos_lo[hr_index][0], pos_lo[hr_index][1], pos_hours_rlo[hr_index][0], pos_hours_rlo[hr_index][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[hr_index][0], pos_ro[hr_index][1], pos_hours_rro[hr_index][0], pos_hours_rro[hr_index][1], 1.0f, winclock.color_hrminhand);
+
+			// Hour Debug
+			info_println("Index: " + String(hr_index) + ", index0: " + String(pos_hours[hr_index][0]) + ", index1: " + String(pos_hours[hr_index][1]));
 
 			// Clock Face Ends Here
 
