@@ -23,17 +23,42 @@ void FaceWatch_CustomWindows::setup_trig()
 
 	for (int tick = 0; tick < 60; tick++)
 	{
-		if (tick % 5 == 0)
-		{
-			pos_hours[b][0] = ((face_radius - 60) * cos(i)) + center_x;
-			pos_hours[b][1] = ((face_radius - 60) * sin(i)) + center_y;
-			b++;
-		}
+		pos_hours[tick][0] = ((face_radius - 50) * cos(i)) + center_x;
+		pos_hours[tick][1] = ((face_radius - 50) * sin(i)) + center_y;
 
 		pos_mins[tick][0] = ((face_radius - 30) * cos(i)) + center_x;
 		pos_mins[tick][1] = ((face_radius - 30) * sin(i)) + center_y;
+
 		pos_secs[tick][0] = ((face_radius - 20) * cos(i)) + center_x;
 		pos_secs[tick][1] = ((face_radius - 20) * sin(i)) + center_y;
+
+		// Generate offsets for fancy hr/min hand
+		int tick_lo = tick + 15;
+		if (tick > 45)
+			tick_lo = tick - 45;
+
+		int tick_ro = tick + 45;
+		if (tick > 15)
+			tick_ro = tick - 15;
+
+		int tick_rear = tick + 30;
+		if (tick > 30)
+			tick_rear = tick - 30;
+
+		pos_lo[tick_lo][0] = (4 * cos(i)) + center_x;
+		pos_lo[tick_lo][1] = (4 * sin(i)) + center_y;
+		pos_ro[tick_ro][0] = (4 * cos(i)) + center_x;
+		pos_ro[tick_ro][1] = (4 * sin(i)) + center_y;
+
+		pos_mins_rlo[tick_rear][0] = (16 * cos(i)) + center_x;
+		pos_mins_rlo[tick_rear][1] = (16 * sin(i)) + center_y;
+		pos_mins_rro[tick_rear][0] = (16 * cos(i)) + center_x;
+		pos_mins_rro[tick_rear][1] = (16 * sin(i)) + center_y;
+
+		pos_hours_rlo[tick_rear][0] = (10 * cos(i)) + center_x;
+		pos_hours_rlo[tick_rear][1] = (10 * sin(i)) + center_y;
+		pos_hours_rro[tick_rear][0] = (10 * cos(i)) + center_x;
+		pos_hours_rro[tick_rear][1] = (10 * sin(i)) + center_y;
 
 		i += M_PI * 2.0 / 60.0;
 	}
@@ -147,17 +172,33 @@ void FaceWatch_CustomWindows::draw(bool force)
 			// Hours Dots
 			for (int x = 0; x < 12; x++)
 			{
-				canvas[canvasid].fillRect(pos_secs[x*5][0] - 1, pos_secs[x*5][1] - 1, 5, 5, winclock.color_buttonshadow);
-				canvas[canvasid].fillRect(pos_secs[x*5][0] - 2, pos_secs[x*5][1] - 2, 5, 5, winclock.color_hourblock);
+				canvas[canvasid].fillRect(pos_secs[x * 5][0] - 1, pos_secs[x * 5][1] - 1, 5, 5, winclock.color_buttonshadow);
+				canvas[canvasid].fillRect(pos_secs[x * 5][0] - 2, pos_secs[x * 5][1] - 2, 5, 5, winclock.color_hourblock);
 			}
 
 			// Analog Clock Hands
 			if (hours > 12)
 				hours -= 12;
 
-			canvas[canvasid].drawWideLine(center_x, center_y, pos_hours[hours][0], pos_hours[hours][1], 4.0f, winclock.color_hrminhand);
-			canvas[canvasid].drawWideLine(center_x, center_y, pos_mins[mins][0], pos_mins[mins][1], 4.0f, winclock.color_hrminhand);
+			// Move the hours hand with the precision of minutes
+			int hr_index = (hours * 5) + (mins / 5);
+
+			// Seconds Hand
 			canvas[canvasid].drawWideLine(center_x, center_y, pos_secs[secs][0], pos_secs[secs][1], 1.0f, winclock.color_sechand);
+
+			// Minutes Hand
+			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
+			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
+			// Mins Hand Rear
+			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins_rlo[mins][0], pos_mins_rlo[mins][1], 1.0f, winclock.color_hrminhand);
+			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins_rro[mins][0], pos_mins_rro[mins][1], 1.0f, winclock.color_hrminhand);
+
+			// Hours Hand
+			canvas[canvasid].drawWideLine(pos_lo[hr_index][0], pos_lo[hr_index][1], pos_hours[hr_index][0], pos_hours[hr_index][1], 1.0f, winclock.color_hrminhand);
+			canvas[canvasid].drawWideLine(pos_ro[hr_index][0], pos_ro[hr_index][1], pos_hours[hr_index][0], pos_hours[hr_index][1], 1.0f, winclock.color_hrminhand);
+			// Hours Hand Rear
+			canvas[canvasid].drawWideLine(pos_lo[hr_index][0], pos_lo[hr_index][1], pos_hours_rlo[hr_index][0], pos_hours_rlo[hr_index][1], 1.0f, winclock.color_hrminhand);
+			canvas[canvasid].drawWideLine(pos_ro[hr_index][0], pos_ro[hr_index][1], pos_hours_rro[hr_index][0], pos_hours_rro[hr_index][1], 1.0f, winclock.color_hrminhand);
 
 			// Clock Face Ends Here
 

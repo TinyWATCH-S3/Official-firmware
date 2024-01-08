@@ -61,7 +61,14 @@ class FaceWatch_CustomWindows : public tw_face
 		bool cachedTrig = false;
 		float pos_secs[60][2];
 		float pos_mins[60][2];
-		float pos_hours[12][2];
+		float pos_lo[60][2];
+		float pos_ro[60][2];
+		float pos_mins_rlo[60][2];
+		float pos_mins_rro[60][2];
+		float pos_hours_rlo[60][2];
+		float pos_hours_rro[60][2];
+
+		float pos_hours[60][2];
 		int center_x = 120;
 		int center_y = 155;
 
@@ -70,3 +77,4 @@ class FaceWatch_CustomWindows : public tw_face
 };
 
 extern FaceWatch_CustomWindows face_watch_custom_windows;
+
