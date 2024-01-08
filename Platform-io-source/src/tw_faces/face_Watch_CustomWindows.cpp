@@ -181,7 +181,7 @@ void FaceWatch_CustomWindows::draw(bool force)
 				hours -= 12;
 
 			// Move the hours hand with the precision of minutes
-			int hr_index = (hours * 5) + (mins / 5);
+			int hr_index = (hours * 5) + (mins / 12);
 
 			// Seconds Hand
 			canvas[canvasid].drawWideLine(center_x, center_y, pos_secs[secs][0], pos_secs[secs][1], 1.0f, winclock.color_sechand);
