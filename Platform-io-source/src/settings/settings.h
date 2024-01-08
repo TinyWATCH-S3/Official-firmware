@@ -87,6 +87,7 @@ class Settings
 
 	private:
 		static constexpr const char *filename = "/settings.json";
+		static constexpr const char *tmp_filename = "/tmp_settings.json";
 		static constexpr const char *log = "/log.txt";
 		static constexpr const char *backup_prefix = "settings_back_";
 		static const int max_backups = 10;

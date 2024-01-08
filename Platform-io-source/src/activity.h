@@ -38,6 +38,7 @@ class Activity
 
 	private:
 		static constexpr const char *filename = "/activity.json";
+		static constexpr const char *tmp_filename = "/tmp_activity.json";
 
 		unsigned long max_time_between_saves = 300000; // every 5 mins
 		unsigned long last_save_time = 0;			   //

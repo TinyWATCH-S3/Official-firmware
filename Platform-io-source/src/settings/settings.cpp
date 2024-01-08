@@ -1,6 +1,6 @@
 #include "settings/settings.h"
 #include "tinywatch.h"
-#include "utilities/user_flash.h"
+#include <LittleFS.h>
 
 using json = nlohmann::json;
 
@@ -84,7 +84,7 @@ bool Settings::load()
 {
 	info_println("Loading settings");
 
-	File file = flashFS.open(filename);
+	File file = LittleFS.open(filename);
 	if (!file || file.isDirectory() || file.size() == 0)
 	{
 		// No data on the flash chip, so create new data
@@ -220,7 +220,7 @@ bool Settings::save(bool force)
 	// info_print("Data Length: "+String(serializedObject.length())+"-> ");
 	// info_println(serializedObject);
 
-	File file = flashFS.open(filename, FILE_WRITE);
+	File file = LittleFS.open(tmp_filename, FILE_WRITE);
 	if (!file)
 	{
 		error_println("Failed to write to settings file");
@@ -234,6 +234,9 @@ bool Settings::save(bool force)
 
 	file.close();
 	log_to_nvs("save_status", "file closed");
+
+	LittleFS.rename(tmp_filename, filename);
+	log_to_nvs("save_status", "file renamed");
 
 	info_println("Settings SAVE: Saved!");
 
