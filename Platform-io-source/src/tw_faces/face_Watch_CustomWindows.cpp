@@ -64,6 +64,94 @@ void FaceWatch_CustomWindows::setup_trig()
 	}
 }
 
+void FaceWatch_CustomWindows::draw_batteryicon(uint16_t x, uint16_t y, WindowsClockSettings winclock)
+{
+	// Battery Icon
+	uint16_t bat_barsize = (16.0 * (bat_perc / 100.0));
+	uint16_t bat_barcolor = RGB(0x00, 0xaa, 0x00);
+
+	if (bat_perc <= 50)
+		bat_barcolor = RGB(0xff, 0xff, 0x00);
+
+	if (bat_perc <= 25)
+		bat_barcolor = RGB(0xff, 0x88, 0x00);
+
+	if (bat_perc <= 15)
+		bat_barcolor = RGB(0xff, 0x00, 0x00);
+
+	canvas[canvasid].fillRect(x, y, 20, 10, RGB(0x00, 0x00, 0x00));					// Battery Outer Box
+	canvas[canvasid].fillRect(x + 20, y + 2, 2, 6, RGB(0x00, 0x00, 0x00));			// Battery Tip
+	canvas[canvasid].fillRect(x + 1, y + 1, 18, 8, RGB(0xff, 0xff, 0xff));			// Battery Inner Box
+	canvas[canvasid].fillRect(x + 2, y + 2, bat_barsize, 6, bat_barcolor); // Battery Status Box
+
+	canvas[canvasid].setTextDatum(ML_DATUM);
+	canvas[canvasid].setFreeFont(RobotoMono_Regular[4]);
+	canvas[canvasid].setTextColor(winclock.color_menutext, winclock.color_menubar);
+	canvas[canvasid].drawString(String((int)bat_perc), x + 24, y + 3);
+}
+
+void FaceWatch_CustomWindows::draw_window(uint16_t x, uint16_t y, uint16_t w, uint16_t h, WindowsClockSettings winclock)
+{
+	// Main Window
+	canvas[canvasid].fillRect(0 + x, 0 + y, w, h, winclock.color_background);		  // Clock window background
+	canvas[canvasid].drawRect(0 + x, 0 + y, w, h, winclock.color_borderedge);		  // Border outer edge
+	canvas[canvasid].drawRect(3 + x, 3 + y, w - 6, h - 6, winclock.color_borderedge); // Border inner edge
+
+	// Corner Markers
+	canvas[canvasid].drawLine(1 + x, 23 + y, 2 + x, 23 + y, winclock.color_borderedge);
+	canvas[canvasid].drawLine(1 + x, (h + y) - 23, 2 + x, (h + y) - 23, winclock.color_borderedge);
+	canvas[canvasid].drawLine((w + x) - 2, 23 + y, (w + x) - 3, 23 + y, winclock.color_borderedge);
+	canvas[canvasid].drawLine((w + x) - 2, (h + y) - 23, (w + x) - 3, (h + y) - 23, winclock.color_borderedge);
+
+	canvas[canvasid].drawLine(22 + x, 1 + y, 22 + x, 2 + y, winclock.color_borderedge);
+	canvas[canvasid].drawLine((w + x) - 23, 1 + y, (w + x) - 23, 2 + y, winclock.color_borderedge);
+	canvas[canvasid].drawLine(22 + x, (h + y) - 2, 22 + x, (h + y) - 3, winclock.color_borderedge);
+	canvas[canvasid].drawLine((w + x) - 23, (h + y) - 2, (w + x) - 23, (h + y) - 3, winclock.color_borderedge);
+}
+
+void FaceWatch_CustomWindows::draw_window_objects(uint16_t x, uint16_t y, uint16_t w, uint16_t h, WindowsClockSettings winclock)
+{
+	// Title Box
+	canvas[canvasid].fillRect(3 + x, 3 + y, w - 6, 20, winclock.color_titlebar);   // Border title edge
+	canvas[canvasid].drawRect(3 + x, 3 + y, w - 6, 20, winclock.color_borderedge); // Border title edge
+
+	// Control Box
+	canvas[canvasid].fillRect(3 + x, 3 + y, 20, 20, winclock.color_background);		 // Control Box Background
+	canvas[canvasid].drawRect(3 + x, 3 + y, 20, 20, winclock.color_borderedge);		 // Control Box Border
+	canvas[canvasid].fillRect(7 + x, 12 + y, 13, 3, winclock.color_buttonshadow);	 // Control Box Minus Shadow
+	canvas[canvasid].fillRect(6 + x, 11 + y, 13, 3, winclock.color_buttonhighlight); // Control Box Minus Fill
+	canvas[canvasid].drawRect(6 + x, 11 + y, 13, 3, winclock.color_borderedge);		 // Control Box Minus Border
+
+	// Maximise Box
+	canvas[canvasid].fillRect((x + w) - 23, 3 + y, 20, 20, winclock.color_background); // Control Box Background
+	canvas[canvasid].drawRect((x + w) - 23, 3 + y, 20, 20, winclock.color_borderedge); // Control Box Border
+
+	canvas[canvasid].drawLine((x + w) - 13, 11 + y, (x + w) - 13, 11 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 14, 12 + y, (x + w) - 12, 12 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 15, 13 + y, (x + w) - 11, 13 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 16, 14 + y, (x + w) - 10, 14 + y, winclock.color_menutext);
+
+	// Minimise Box
+	canvas[canvasid].fillRect((x + w) - 42, 3 + y, 20, 20, winclock.color_background); // Control Box Background
+	canvas[canvasid].drawRect((x + w) - 42, 3 + y, 20, 20, winclock.color_borderedge); // Control Box Border
+
+	canvas[canvasid].drawLine((x + w) - 32, 14 + y, (x + w) - 32, 14 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 33, 13 + y, (x + w) - 31, 13 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 34, 12 + y, (x + w) - 30, 12 + y, winclock.color_menutext);
+	canvas[canvasid].drawLine((x + w) - 35, 11 + y, (x + w) - 29, 11 + y, winclock.color_menutext);
+
+	// Menu Box
+	canvas[canvasid].fillRect(3 + x, 23 + y, w - 6, 20, winclock.color_menubar);	// Border title edge
+	canvas[canvasid].drawRect(3 + x, 23 + y, w - 6, 20, winclock.color_borderedge); // Border title edge
+
+	// Menu Bar Text
+	canvas[canvasid].setTextDatum(ML_DATUM);
+	canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
+	canvas[canvasid].setTextColor(winclock.color_menutext, winclock.color_menubar);
+	canvas[canvasid].drawString("Settings", 10 + x, 32 + y);
+	canvas[canvasid].drawLine(10 + x, 39 + y, 18 + x, 39 + y, winclock.color_menutext);
+}
+
 void FaceWatch_CustomWindows::draw(bool force)
 {
 	if (force || millis() - next_update > update_period)
@@ -76,6 +164,21 @@ void FaceWatch_CustomWindows::draw(bool force)
 		{
 			if (is_dragging)
 				is_cached = true;
+
+			// Clock Face Starts Here
+			WindowsClockSettings winclock;
+
+			// Update Y centering before checking cached_trig invalidation
+			if (show_toolbars)
+			{
+				winclock.height = display.height - 50;
+				center_y = center_y_wtoolbar;
+			}
+			else
+			{
+				winclock.height = display.width - 50; // keep it square
+				center_y = center_y_ntoolbar;
+			}
 
 			if (!cachedTrig)
 			{
@@ -94,14 +197,12 @@ void FaceWatch_CustomWindows::draw(bool force)
 				day = rtc.get_day();
 				month = rtc.get_month();
 				year = rtc.get_year();
+				bat_perc = (int)battery.get_percent(false);
 
 				// Offset the Date for single/multiple digits
 				if (day > 9)
 					day_offset = 0;
 			}
-
-			// Clock Face Starts Here
-			WindowsClockSettings winclock;
 
 			// Blank the display
 			canvas[canvasid].fillSprite(winclock.color_displaybkg);
@@ -110,63 +211,26 @@ void FaceWatch_CustomWindows::draw(bool force)
 			uint16_t xo = (display.width - winclock.width) / 2;
 			uint16_t yo = (display.height - winclock.height) / 2;
 
-			//  x, y, w , h
-			// Main Window
-			canvas[canvasid].fillRect(0 + xo, 0 + yo, winclock.width, winclock.height, winclock.color_background);		   // Clock window background
-			canvas[canvasid].drawRect(0 + xo, 0 + yo, winclock.width, winclock.height, winclock.color_borderedge);		   // Border outer edge
-			canvas[canvasid].drawRect(3 + xo, 3 + yo, winclock.width - 6, winclock.height - 6, winclock.color_borderedge); // Border inner edge
+			draw_window(xo, yo, winclock.width, winclock.height, winclock);
 
-			// Title Box
-			canvas[canvasid].fillRect(3 + xo, 3 + yo, winclock.width - 6, 20, winclock.color_titlebar);	  // Border title edge
-			canvas[canvasid].drawRect(3 + xo, 3 + yo, winclock.width - 6, 20, winclock.color_borderedge); // Border title edge
+			if (show_toolbars)
+			{
+				// Draw Menus and Title Bars
+				draw_window_objects(xo, yo, winclock.width, winclock.height, winclock);
 
-			// Control Box
-			canvas[canvasid].fillRect(3 + xo, 3 + yo, 20, 20, winclock.color_background);	   // Control Box Background
-			canvas[canvasid].drawRect(3 + xo, 3 + yo, 20, 20, winclock.color_borderedge);	   // Control Box Border
-			canvas[canvasid].fillRect(7 + xo, 12 + yo, 13, 3, winclock.color_buttonshadow);	   // Control Box Minus Shadow
-			canvas[canvasid].fillRect(6 + xo, 11 + yo, 13, 3, winclock.color_buttonhighlight); // Control Box Minus Fill
-			canvas[canvasid].drawRect(6 + xo, 11 + yo, 13, 3, winclock.color_borderedge);	   // Control Box Minus Border
+				// Title Bar Date
+				canvas[canvasid].setTextDatum(MC_DATUM);
+				canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
+				canvas[canvasid].setTextColor(winclock.color_titletext, winclock.color_titlebar);
+				String toolbar_date = String(day) + "/" + String(month) + "/" + String(year);
+				if (settings.config.time_dateformat == true)
+					toolbar_date = String(month) + "/" + String(day) + "/" + String(year);
 
-			// Maximise Box
-			canvas[canvasid].fillRect((xo + winclock.width) - 23, 3 + yo, 20, 20, winclock.color_background); // Control Box Background
-			canvas[canvasid].drawRect((xo + winclock.width) - 23, 3 + yo, 20, 20, winclock.color_borderedge); // Control Box Border
+				canvas[canvasid].drawString(toolbar_date, 85 + xo, 12 + yo);
 
-			canvas[canvasid].drawLine((xo + winclock.width) - 13, 11 + yo, (xo + winclock.width) - 13, 11 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 14, 12 + yo, (xo + winclock.width) - 12, 12 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 15, 13 + yo, (xo + winclock.width) - 11, 13 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 16, 14 + yo, (xo + winclock.width) - 10, 14 + yo, winclock.color_menutext);
-
-			// Minimise Box
-			canvas[canvasid].fillRect((xo + winclock.width) - 42, 3 + yo, 20, 20, winclock.color_background); // Control Box Background
-			canvas[canvasid].drawRect((xo + winclock.width) - 42, 3 + yo, 20, 20, winclock.color_borderedge); // Control Box Border
-
-			canvas[canvasid].drawLine((xo + winclock.width) - 32, 14 + yo, (xo + winclock.width) - 32, 14 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 33, 13 + yo, (xo + winclock.width) - 31, 13 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 34, 12 + yo, (xo + winclock.width) - 30, 12 + yo, winclock.color_menutext);
-			canvas[canvasid].drawLine((xo + winclock.width) - 35, 11 + yo, (xo + winclock.width) - 29, 11 + yo, winclock.color_menutext);
-
-			// Menu Box
-			canvas[canvasid].fillRect(3 + xo, 23 + yo, winclock.width - 6, 20, winclock.color_menubar);	   // Border title edge
-			canvas[canvasid].drawRect(3 + xo, 23 + yo, winclock.width - 6, 20, winclock.color_borderedge); // Border title edge
-
-			// Title Bar Date
-			canvas[canvasid].setTextDatum(MC_DATUM);
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
-			canvas[canvasid].setTextColor(winclock.color_titletext, winclock.color_titlebar);
-
-			String toolbar_date = String(day) + "/" + String(month) + "/" + String(year);
-			if (settings.config.time_dateformat == true) {
-				toolbar_date = String(month) + "/" + String(day) + "/" + String(year);
+				// Add a battery icon to the menu bar
+				draw_batteryicon(winclock.width - 29, 28 + yo, winclock);
 			}
-
-			canvas[canvasid].drawString(toolbar_date, 85 + xo, 12 + yo);
-
-			// Menu Bar Text
-			canvas[canvasid].setTextDatum(ML_DATUM);
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
-			canvas[canvasid].setTextColor(winclock.color_menutext, winclock.color_menubar);
-			canvas[canvasid].drawString("Settings", 10 + xo, 32 + yo);
-			canvas[canvasid].drawLine(10 + xo, 39 + yo, 18 + xo, 39 + yo, winclock.color_menutext);
 
 			// Seconds Dots
 			for (int x = 0; x < 60; x++)
@@ -200,7 +264,7 @@ void FaceWatch_CustomWindows::draw(bool force)
 			// Minutes Hand
 			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins[mins][0], pos_mins[mins][1], 1.0f, winclock.color_hrminhand);
-		
+
 			// Mins Hand Rear
 			canvas[canvasid].drawWideLine(pos_lo[mins][0], pos_lo[mins][1], pos_mins_rlo[mins][0], pos_mins_rlo[mins][1], 1.0f, winclock.color_hrminhand);
 			canvas[canvasid].drawWideLine(pos_ro[mins][0], pos_ro[mins][1], pos_mins_rro[mins][0], pos_mins_rro[mins][1], 1.0f, winclock.color_hrminhand);
@@ -224,7 +288,10 @@ void FaceWatch_CustomWindows::draw(bool force)
 bool FaceWatch_CustomWindows::click(int16_t pos_x, int16_t pos_y)
 {
 	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
-	return false;
+	show_toolbars = !show_toolbars; // Turn the toolbar on and off
+	cachedTrig = false;
+	draw(true);
+	return true;
 }
 
 bool FaceWatch_CustomWindows::click_double(int16_t pos_x, int16_t pos_y)

@@ -33,14 +33,7 @@ class FaceWatch_CustomWindows : public tw_face
 
 		};
 
-		struct Box
-		{
-				int16_t x1;
-				int16_t x2;
-				int16_t y1;
-				int16_t y2;
-				uint16_t color;
-		};
+		
 
 		const String months[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
@@ -54,9 +47,13 @@ class FaceWatch_CustomWindows : public tw_face
 		uint16_t month = 0;
 		uint16_t year = 0;
 		int8_t day_offset = -16;
+		float bat_perc = 0.0;
 
-		// UM Analog Clock Stuff
+		// Windows Clock Stuff
 		void setup_trig(void);
+		void draw_batteryicon(uint16_t x, uint16_t y, WindowsClockSettings winclock);
+		void draw_window(uint16_t x, uint16_t y, uint16_t w, uint16_t h, WindowsClockSettings winclock);
+		void draw_window_objects(uint16_t x, uint16_t y, uint16_t w, uint16_t h, WindowsClockSettings winclock);
 		void draw_hand(int x, int y, int x1, int y1, uint16_t color);
 		bool cachedTrig = false;
 		float pos_secs[60][2];
@@ -67,15 +64,17 @@ class FaceWatch_CustomWindows : public tw_face
 		float pos_mins_rro[60][2];
 		float pos_hours_rlo[60][2];
 		float pos_hours_rro[60][2];
-
 		float pos_hours[60][2];
+
+		// Window Positioning
 		int center_x = 120;
-		int center_y = 155;
+		int center_y;
+		int center_y_wtoolbar = 157;	// Clock Position with Toolbar
+		int center_y_ntoolbar = 137;	// Clock Position without Toolbar
 
 		float face_radius = 100;
 
-		int cnt = 0;
-		int cnth = 3;
+		bool show_toolbars = true;
 };
 
 extern FaceWatch_CustomWindows face_watch_custom_windows;

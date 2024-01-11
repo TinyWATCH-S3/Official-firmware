@@ -274,9 +274,9 @@ void Display::createFaces(bool was_sleeping)
 	face_watch_custom_binary.add_widget(wWifi);
 
 	face_watch_custom_windows.add_clock("Clock_Custom_Windows", 1000);
-	//face_watch_custom_windows.add_widget(wBattery);
-	//face_watch_custom_windows.add_widget(wActivity);
-	//face_watch_custom_windows.add_widget(wWifi);
+	// face_watch_custom_windows.add_widget(wBattery);
+	// face_watch_custom_windows.add_widget(wActivity);
+	// face_watch_custom_windows.add_widget(wWifi);
 
 	// needs a default clock face so it won't crash
 	// all clock faces need to be initialised before this
@@ -357,7 +357,6 @@ void Display::createFaces(bool was_sleeping)
 	ControlToggle *cToggle6 = new ControlToggle();
 	cToggle6->create("Date Format", "DMY", "MDY", 130, 130, 80, 30);
 	cToggle6->set_data(&settings.setting_time_dateformat);
-
 
 	// ControlButton * cButton1 = new ControlButton();
 	// cButton1->create("SAVE", 70, 250, 100, 40);
