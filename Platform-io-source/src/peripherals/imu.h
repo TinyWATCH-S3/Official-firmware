@@ -9,6 +9,7 @@
 class IMU
 {
 	public:
+		void preinit(bool woke_from_sleep);
 		void init();
 		void update();
 		float get_accel_x();
@@ -27,6 +28,7 @@ class IMU
 		// BMI270 Step Counter
 		void setup_step_counter();
 		void process_steps();
+		void process_steps(bool force);
 		uint32_t get_steps(uint8_t day, uint8_t month, uint16_t year);
 		uint8_t get_movement_activity_id();
 		String get_movement_activity();
@@ -38,7 +40,8 @@ class IMU
 		void process_wrist_gestures();
 
 		// Ready states
-		bool imu_ready = true;
+		bool imu_preinit_ok = false;
+		bool imu_ready = false;
 		bool mag_ready = true;
 
 	private:
@@ -62,6 +65,8 @@ class IMU
 		const float soft_iron[3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}};
 
 		const float mag_decl = -1.233;
+
+		bool persist_step_count();
 };
 
 extern IMU imu;

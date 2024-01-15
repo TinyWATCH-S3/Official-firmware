@@ -101,6 +101,7 @@ void setup()
 	// Start the RTC & Battery early as they are needed for wake fom sleep
 	battery.init();
 	rtc.init();
+	imu.preinit(was_asleep);
 
 	if (was_asleep)
 	{
@@ -120,7 +121,6 @@ void setup()
 	if (was_asleep)
 	{
 		// Wake up the peripherals because we were sleeping!
-		imu.set_hibernate(false);
 
 		// work out why we were woken up and do something about it
 		// 0: Touched Screen
@@ -218,6 +218,16 @@ void setup()
 
 	// load the activity data
 	activity.load();
+
+	if (was_asleep)
+	{
+		// Do the steps last, after activity is loaded
+		imu.set_hibernate(false);
+		if (settings.config.imu_process_steps)
+		{
+			imu.process_steps(true);
+		}
+	}
 
 	// Start the rest of the peripherals
 	imu.init();
@@ -387,9 +397,16 @@ void TinyWATCH::go_to_sleep()
 	digitalWrite(TFT_LED, 0);
 	deinit_buzzer(BUZZER);
 	battery.set_hibernate(true);
+
+	if (settings.config.imu_process_steps)
+	{
+		imu.process_steps(true);
+	}
+
 	imu.set_hibernate(false);
 	settings.save(true);
 	activity.save(true);
+	delay(500); // no delay and it sometimes wakes up immediately
 
 	LittleFS.end();
 
