@@ -47,7 +47,7 @@ class RTC
 		uint8_t interruptPin = 33;
 		unsigned long next_rtc_read = 0;
 		uint16_t cached_day = 0;
-		uint cached_month = 0;
+		uint16_t cached_month = 0;
 		uint16_t cached_year = 0;
 };
 
