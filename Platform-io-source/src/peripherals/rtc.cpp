@@ -27,8 +27,6 @@ bool RTC::init()
 
 	requiresNTP = rtc.getCurrentDateTimeComponent(DATETIME_YEAR) < 23;
 
-	next_rtc_read = millis();
-
 	return true;
 }
 
@@ -70,11 +68,11 @@ bool RTC::set_time_from_NTP(int16_t utc_offset)
 	return !time_error;
 }
 
-void RTC::set_hourly_alarm(uint minuets)
+void RTC::set_hourly_alarm(uint minutes)
 {
 	setup_interrupt();
 
-	rtc.setHourlyAlarm(/*minute=*/minuets);
+	rtc.setHourlyAlarm(/*minute=*/minutes);
 	rtc.enableInterrupt(INTERRUPT_ALARM);
 }
 
@@ -129,7 +127,7 @@ uint16_t RTC::get_year() { return ((uint16_t)rtc.getCurrentDateTimeComponent(DAT
 
 void RTC::get_step_date(uint16_t &day, uint16_t &month, uint16_t &year)
 {
-	if (millis() - next_rtc_read > 5000)
+	if (next_rtc_read == 0 || millis() - next_rtc_read > 5000)
 	{
 		next_rtc_read = millis();
 		cached_day = get_day();
