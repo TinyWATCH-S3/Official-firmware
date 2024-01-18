@@ -17,7 +17,7 @@ class RTC
 		void setup_interrupt();
 		bool check_interrupt();
 		bool set_time_from_NTP(int16_t utc_offset);
-		void set_hourly_alarm(uint minuets);
+		void set_hourly_alarm(uint minutes);
 		// String getTime();
 		String get_hours_string(bool padded, bool is24hour);
 		String get_mins_string(bool padded);
@@ -47,7 +47,7 @@ class RTC
 		uint8_t interruptPin = 33;
 		unsigned long next_rtc_read = 0;
 		uint16_t cached_day = 0;
-		uint cached_month = 0;
+		uint16_t cached_month = 0;
 		uint16_t cached_year = 0;
 };
 

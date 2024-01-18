@@ -6,20 +6,27 @@
 extern Activity activity;
 extern RTC rtc;
 
-void IMU::init()
+void IMU::preinit(bool woke_from_sleep)
 {
-	imu_ready = true;
-	mag_ready = true;
-
-	if (imu.beginI2C(i2cAddress) != BMI2_OK)
+	imu_preinit_ok = true;
+	if (imu.beginI2C(i2cAddress, Wire, woke_from_sleep) != BMI2_OK)
 	{
 		// Not connected, inform user
 		info_println("Error: BMI270 not connected, check wiring and I2C address!");
-		imu_ready = false;
+		imu_preinit_ok = false;
+		return;
 	}
-	else
+	info_println(F("Found BMI270"));
+}
+
+void IMU::init()
+{
+	imu_ready = imu_preinit_ok;
+	mag_ready = true;
+
+	if (imu_ready)
 	{
-		info_println(F("Found BMI270"));
+		info_println(F("Setting up BMI270"));
 
 		imu.setAccelPowerMode(BMI2_POWER_OPT_MODE);
 		imu.setGyroPowerMode(BMI2_POWER_OPT_MODE, BMI2_POWER_OPT_MODE);
@@ -144,58 +151,80 @@ void IMU::set_hibernate(bool state)
 
 void IMU::process_steps()
 {
-	if (!imu_ready)
+	process_steps(false);
+}
+
+void IMU::process_steps(bool force)
+{
+	if (!imu_preinit_ok)
 	{
-		info_println("IMU not ready");
+		info_println("process_steps: IMU not ready");
 		return;
 	}
 
 	// Wait for interrupt to occur
+	if (!interrupt_happened && !force)
+	{
+		return;
+	}
+
+	uint16_t interrupt_status = 0;
+
+	//    Serial.println("interrupt caught!"); Serial.flush();
+	// Reset flag for next interrupt
 	if (interrupt_happened)
 	{
-		// Reset flag for next interrupt
 		interrupt_happened = false;
-
 		// Get the interrupt status to know which condition triggered
-		uint16_t interrupt_status = 0;
 		imu.getInterruptStatus(&interrupt_status);
+		if (force)
+			interrupt_status |= BMI270_STEP_CNT_STATUS_MASK; // force in effect
+	}
+	else
+	{
+		// no interrupt but we're forced to process
+		interrupt_status = BMI270_STEP_CNT_STATUS_MASK;
+	}
 
-		// Check if this is the correct interrupt condition
-		if (interrupt_status & BMI270_STEP_CNT_STATUS_MASK)
+	bool processed = false;
+
+	// Check if this is the correct interrupt condition
+	if (interrupt_status & BMI270_STEP_CNT_STATUS_MASK)
+	{
+		// Get the step count
+		uint32_t _step_count = 0;
+		imu.getStepCount(&_step_count);
+
+		if (_step_count > 0)
 		{
-			// Get the step count
-			uint32_t _step_count = 0;
-			imu.getStepCount(&_step_count);
-
-			if (_step_count > 0)
-				step_count = _step_count;
-
-			info_println("Step count: " + step_count);
+			step_count = _step_count;
+			imu.resetStepCount();
 		}
-		if (interrupt_status & BMI270_STEP_ACT_STATUS_MASK)
+
+		processed = true;
+		info_println("Step count: " + String(step_count));
+	}
+
+	if (interrupt_status & BMI270_STEP_ACT_STATUS_MASK)
+	{
+		// Get the step activity
+		movement_activity = 0;
+		imu.getStepActivity(&movement_activity);
+
+		if (movement_activity == BMI2_STEP_ACTIVITY_STILL && !processed)
 		{
-			// Get the step activity
-			movement_activity = 0;
-			imu.getStepActivity(&movement_activity);
+			process_steps(true);
+			return;
+		}
+	}
+	if (!(interrupt_status & (BMI270_STEP_CNT_STATUS_MASK | BMI270_STEP_ACT_STATUS_MASK)))
+	{
+		// info_println("Unknown Interrupt condition! " + String(interrupt_status));
+	}
 
-			if (movement_activity == BMI2_STEP_ACTIVITY_STILL)
-			{
-				// Track steps for day, month, year in settings with date rollover
-				if (step_count > 0)
-				{
-					uint16_t day, month, year;
-					rtc.get_step_date(day, month, year);
-					activity.track_steps(step_count, day, month, year);
-					activity.save(true);
-					step_count = 0;
-				}
-				imu.resetStepCount();
-			}
-		}
-		if (!(interrupt_status & (BMI270_STEP_CNT_STATUS_MASK | BMI270_STEP_ACT_STATUS_MASK)))
-		{
-			// info_println("Unkown IInterrupt condition!");
-		}
+	if (force)
+	{
+		persist_step_count();
 	}
 }
 
@@ -390,6 +419,20 @@ bool IMU::is_looking_at_face()
 	// Watch on left hand!
 	// Silly calculation to detect if the wrist is casing the wearers face.
 	return (p >= 30 && p <= 50 && r > -10 && r < 10);
+}
+
+bool IMU::persist_step_count()
+{
+	if (step_count == 0)
+		return false;
+
+	// Track steps for day, month, year in settings with date rollover
+	uint16_t day, month, year;
+	rtc.get_step_date(day, month, year);
+	activity.track_steps(step_count, day, month, year);
+	auto saved = activity.save(false);
+	step_count = 0;
+	return saved;
 }
 
 IMU imu;
