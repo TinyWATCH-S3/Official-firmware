@@ -21,7 +21,7 @@ Main display and touch interaction code ives in [display.cpp](tw_docs_display.md
 #### Faces
 [TW Faces](tw_docs_faces.md) are where you build your content for TinyWATCH. You can display anything you like using th `draw()` method, as well as assign Widgets and Controls to any face you create.
 
-Faces can be setup to br navigated to each other, via swiping up, down, left and right.
+Faces can be setup to allow navigation between them, via swiping up, down, left and right.
 
 #### Widgets
 [TW Widgets](tw_docs_widgets.md) are self contained little "interactive apps" can run logic, or connectivity tasks and show specific info.
