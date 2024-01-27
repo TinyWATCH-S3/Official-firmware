@@ -480,7 +480,8 @@ void Display::process_touch()
 			deltaX = touchpad.x - startX;
 			deltaY = touchpad.y - startY;
 
-			if (current_face->drag_dir == -1 || (abs(deltaX) < 5 && abs(deltaY) < 5))
+			// If no drag direction was selected and the delta from first touch to last is small enough to suggest a click, process a click or long click
+			if (current_face->drag_dir == -1 && (abs(deltaX) < 5 && abs(deltaY) < 5))
 			{
 				dbl_touch[0] = dbl_touch[1];
 				dbl_touch[1] = millis();
@@ -507,7 +508,8 @@ void Display::process_touch()
 					last_was_click = true;
 				}
 			}
-			else
+			// If we have selected a drag direction, make sure the delta is long enough to activate the drag
+			else if (current_face->drag_dir > -1 && (abs(deltaX) > 5 || abs(deltaY) > 5))
 			{
 				int distance = sqrt(pow((touchpad.x - startX), 2) + pow((touchpad.y - startY), 2));
 				touchTime = millis() - touchTime;
