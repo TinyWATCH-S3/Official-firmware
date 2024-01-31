@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['last_5fbacklight_0',['last_backlight',['../class_display.html#a6750a83619ceebd90eddde941ff80cef',1,'Display']]],
+  ['last_5ffinger_5fmove_1',['last_finger_move',['../display_8cpp.html#ae3739741f9886e2a5acfb51d6845f15e',1,'display.cpp']]],
+  ['last_5fsave_5ftime_2',['last_save_time',['../class_activity.html#a996870b92eaf75e9e00cdaf244710782',1,'Activity::last_save_time'],['../class_settings.html#a142b93e70d4701aec73d790d0636003c',1,'Settings::last_save_time']]],
+  ['last_5fsaved_5fdata_3',['last_saved_data',['../struct_activity___data.html#a769665f5cf1dc4cba1adc2fa4ee2b156',1,'Activity_Data::last_saved_data'],['../struct_config.html#ad223c29215eb3925e60cd2540a0736f3',1,'Config::last_saved_data']]],
+  ['last_5ftouch_4',['last_touch',['../display_8cpp.html#a7521b94ee0818adfd6b61c1e229089ee',1,'display.cpp']]],
+  ['last_5fwas_5fclick_5',['last_was_click',['../display_8cpp.html#ae9ce7ec5e04f07a2403c5f921a8f8c35',1,'display.cpp']]],
+  ['last_5fwas_5flong_6',['last_was_long',['../display_8cpp.html#ab0232c5d01608a95c4abba342e841bf7',1,'display.cpp']]],
+  ['left_5fhanded_7',['left_handed',['../struct_config.html#a518cf08162ace4e56474952c9e173e4f',1,'Config']]],
+  ['loaded_8',['loaded',['../class_activity.html#acb1f94f911de9f67eea0d5251417188b',1,'Activity']]],
+  ['loading_5fscreen_5fcanvas_9',['loading_screen_canvas',['../display_8cpp.html#a9705b715f506cbfb1cd1791ae2a049c9',1,'display.cpp']]],
+  ['loading_5fscreen_5frotation_10',['loading_screen_rotation',['../class_display.html#a448408d6156e28b5ff72e7e1acee9f13',1,'Display']]],
+  ['log_11',['log',['../class_settings.html#a02350e39c1cb382d74b6e2ae869b5e85',1,'Settings']]],
+  ['low_5fbattery_5fupdate_5fcheck_12',['low_battery_update_check',['../class_tiny_w_a_t_c_h.html#af3f1a673303ccb81a7ea8e304fd3b304',1,'TinyWATCH']]],
+  ['low_5fperc_13',['low_perc',['../struct_config__battery.html#adac3adaef450ed845278e67195c8958e',1,'Config_battery']]],
+  ['low_5fvolt_5fcutoff_14',['low_volt_cutoff',['../struct_config__battery.html#ae24941bd9fde2d9a92db501c65b21504',1,'Config_battery']]],
+  ['low_5fvolt_5fwarn_15',['low_volt_warn',['../struct_config__battery.html#acae9c3e64244795684f07e19ff4fdafa',1,'Config_battery']]],
+  ['lx1_16',['lx1',['../class_app_compass.html#add6bdfd3ca76572b9f8f7cd63523435c',1,'AppCompass']]],
+  ['lx2_17',['lx2',['../class_app_compass.html#a4bad571b5878a5202c2ec074e449f425',1,'AppCompass']]],
+  ['lx3_18',['lx3',['../class_app_compass.html#acf693bb08c96c50bc5e6c485a901913f',1,'AppCompass']]],
+  ['lx4_19',['lx4',['../class_app_compass.html#a1d731948d14c66a8cd2ae213584f75cc',1,'AppCompass']]],
+  ['ly1_20',['ly1',['../class_app_compass.html#a46e7bec61bb18264ee0f0e0a46cbcb94',1,'AppCompass']]],
+  ['ly2_21',['ly2',['../class_app_compass.html#a76dc1f19c3bf4468c528e5f3c1d9bfa9',1,'AppCompass']]],
+  ['ly3_22',['ly3',['../class_app_compass.html#ac2f01327ea643802c00a290cfdbc4400',1,'AppCompass']]],
+  ['ly4_23',['ly4',['../class_app_compass.html#ac10924ad46dfb33364fdbccf167b47a0',1,'AppCompass']]]
+];

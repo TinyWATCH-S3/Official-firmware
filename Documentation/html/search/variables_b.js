@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['mag_0',['mag',['../class_i_m_u.html#aff58b784a845ca84d577c3105d06f87b',1,'IMU']]],
+  ['mag_5fdecl_1',['mag_decl',['../class_i_m_u.html#ac3d0e91d37f0eb267bde18df5826148a',1,'IMU']]],
+  ['mag_5fready_2',['mag_ready',['../class_i_m_u.html#aa47dfb8aea00c0540ab9421d3ed9e669',1,'IMU']]],
+  ['max_5fbackups_3',['max_backups',['../class_settings.html#af893529f9727266e69ab3dd11de07eed',1,'Settings']]],
+  ['max_5ftime_5fbetween_5fsaves_4',['max_time_between_saves',['../class_activity.html#a8048049ce777a64219c3fa110aef72be',1,'Activity::max_time_between_saves'],['../class_settings.html#ae9cfa0afc12575661b57f107fca803e6',1,'Settings::max_time_between_saves']]],
+  ['maxlipo_5',['maxlipo',['../class_battery.html#ae1b8df5681abe3fdb5a9ad6511954c65',1,'Battery']]],
+  ['mdns_5fname_6',['mdns_name',['../struct_config.html#a18da6a55416dac44a9cad77a9fcf5588',1,'Config']]],
+  ['message_5fqueue_7',['message_queue',['../class_face_notifications.html#a350559681dd9c99a78ea0dbb6f9a6f84',1,'FaceNotifications']]],
+  ['messages_8',['messages',['../class_tiny_w_a_t_c_h.html#aeb44ecae81f3bf26847e1e52f8cfda6c',1,'TinyWATCH']]],
+  ['mins_9',['mins',['../struct_t_t___time.html#ae4f59ca0cbaab2fb7ea4910608b5bf69',1,'TT_Time::mins'],['../class_face_watch___custom_binary.html#ab1a37ac5a58c6a54bedd66465abc3826',1,'FaceWatch_CustomBinary::mins'],['../class_face_watch___custom_windows.html#abeb9d206e8422a2db61bee78f5b58b23',1,'FaceWatch_CustomWindows::mins']]],
+  ['month_10',['month',['../class_face_watch___custom_binary.html#a477efcf8fbea5ea2158c188161cec971',1,'FaceWatch_CustomBinary::month'],['../class_face_watch___custom_windows.html#ac1e352e7a88350a7a3c4f5fac3c83f77',1,'FaceWatch_CustomWindows::month']]],
+  ['months_11',['months',['../class_face_watch___custom_binary.html#a66d99a4f4dccea64616abb4396e0ac20',1,'FaceWatch_CustomBinary::months'],['../class_face_watch___custom_windows.html#a16fab51da165caf1cea48a5872f8669a',1,'FaceWatch_CustomWindows::months'],['../rtc_8cpp.html#a1950b74d251f4d30c82a0a0efef490ef',1,'months:&#160;rtc.cpp']]],
+  ['moved_5fx_12',['moved_x',['../display_8cpp.html#a042d7b975b4fb1ed770986ec5d5a0f4f',1,'display.cpp']]],
+  ['moved_5fy_13',['moved_y',['../display_8cpp.html#a04635b916c5f541c33d0d4d7b911e65f',1,'display.cpp']]],
+  ['movement_5factivity_14',['movement_activity',['../class_i_m_u.html#a2b21e9b83326b62a4b1b8a0ae92cfc50',1,'IMU']]],
+  ['mqtt_15',['mqtt',['../struct_config.html#ad1c996a549e246a1b7140a8f5dee8652',1,'Config']]]
+];

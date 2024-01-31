@@ -1,0 +1,25 @@
+var class_settings =
+[
+    [ "backup", "class_settings.html#aa4e5b7dd1bc7037dae326078619852a6", null ],
+    [ "create", "class_settings.html#aa65b7c45b1ba3a125a818224094d63d4", null ],
+    [ "get_load_status", "class_settings.html#a5ed3552ca49c29b917e5826c799b70d7", null ],
+    [ "get_save_status", "class_settings.html#a00753c3834f8ac98173ed55b06d26477", null ],
+    [ "has_country_set", "class_settings.html#a53c5758b55206fe6754ed044a50a41ee", null ],
+    [ "has_wifi_creds", "class_settings.html#a3c276563c885a8a30ef340e6e9e6d979", null ],
+    [ "load", "class_settings.html#a06d1d58938c8fdc7a577e52f9ffda29d", null ],
+    [ "log_to_nvs", "class_settings.html#a77482d4930cb4f700856c02ccc528785", null ],
+    [ "print_file", "class_settings.html#a1a20fe3938eafa97da459177007ab050", null ],
+    [ "save", "class_settings.html#a00dcb4d9f9a4f7deaee375a545947752", null ],
+    [ "update_wifi_credentials", "class_settings.html#afe820637e10449ff29f61ab90f59cc2f", null ],
+    [ "config", "class_settings.html#a4ca1d960902db935f5a7ec3db599b53c", null ],
+    [ "last_save_time", "class_settings.html#a142b93e70d4701aec73d790d0636003c", null ],
+    [ "max_time_between_saves", "class_settings.html#ae9cfa0afc12575661b57f107fca803e6", null ],
+    [ "nvs", "class_settings.html#ab1656c5e0b8259976be7cfd2d720459d", null ],
+    [ "setting_audio_alarm", "class_settings.html#a7b75bfb359b1533477accd5e65601f60", null ],
+    [ "setting_audio_ui", "class_settings.html#a07f3193633d813269b3495255dc63125", null ],
+    [ "setting_flipped", "class_settings.html#a1207215c27f2d0beb3b23115e0001463", null ],
+    [ "setting_left_handed", "class_settings.html#ae7292aa2bf29892b83474e794f4d8764", null ],
+    [ "setting_time_24hour", "class_settings.html#aa42da92c05be487651de3a57ba3a53b0", null ],
+    [ "setting_time_dateformat", "class_settings.html#ab8a0fdb8c98a2f7738995106b522f17d", null ],
+    [ "setting_wifi_start", "class_settings.html#a509f772f09ffc6fff7979da55a31a39e", null ]
+];
