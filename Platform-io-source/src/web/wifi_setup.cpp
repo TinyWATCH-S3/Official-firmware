@@ -1,3 +1,9 @@
+/**
+ *
+ * @details The `WifiSetup` class handles the setup of WiFi AP connections for the TinyWATCH S3 device. It provides an access point (AP) mode for connecting the device to a WiFi network and storing the AP credentials. 
+ *
+ */
+
 #include "wifi_setup.h"
 #include "display.h"
 #include "peripherals/buzzer.h"

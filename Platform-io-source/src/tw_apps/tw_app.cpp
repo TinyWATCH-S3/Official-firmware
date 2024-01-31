@@ -77,8 +77,8 @@ void tw_app::close(bool save)
  *
  * Needs to have better bounds checking with padding.
  *
- * @param pos_x
- * @param pos_y
+ * @param click_pos_x
+ * @param click_pos_y
  * @return true
  * @return false
  */

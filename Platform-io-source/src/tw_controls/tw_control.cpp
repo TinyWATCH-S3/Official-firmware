@@ -1,10 +1,9 @@
-/*
- * TW Controls are UI elements lik buttons, toggles, value sliders etc.
- * They can be placed on FACES and can also be bound to user settings
- * using the SettingsOption classes.
+/**
+ * @file tw_control.cpp
+ * @details TW Controls are UI elements lik buttons, toggles, value sliders etc.
+ * They can be placed on FACES and can also be bound to user settings using the SettingsOption classes.
  *
  */
-
 #include "tw_controls/tw_control.h"
 #include "utilities/logging.h"
 

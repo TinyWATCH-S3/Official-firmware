@@ -1,3 +1,14 @@
+/**
+ * @file tw_widget.cpp
+ * @details TW Widgets are self-contained interactive apps designed for reuse across different watch faces. They can perform logic, connectivity tasks, and display specific information.
+
+An example of a widget could be a weather app that connects to OpenWeather, downloads information, and displays it on the watch face. 
+
+Clicking on the widget could switch between showing the current temperature, humidity, chance of rain, etc.
+
+A `Widget` differs from a `Control` in that a control is a single-use interactive item bound to a setting or callback on a specific face. You can place the same widget on multiple faces, each in a different location. 
+ * 
+ */
 #include "tw_widgets/tw_widget.h"
 #include "display.h"
 

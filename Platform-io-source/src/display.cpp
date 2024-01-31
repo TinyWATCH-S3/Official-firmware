@@ -1,3 +1,9 @@
+/**
+ * @file display.cpp
+ * @details The `Display` class is responsible for managing the display and touch functionalities of the TinyWATCH S3 project. It includes methods for initializing the screen, handling touch interactions, managing faces, and controlling backlight levels.
+ *
+ */
+
 #include "display.h"
 #include "Arduino.h"
 #include "esp32-hal-cpu.h"
@@ -539,17 +545,17 @@ void Display::process_touch()
 		if (current_face->is_face_cached())
 			current_face->reset_cache_status();
 
-		if (backlight_level > 0)
-		{
-			imu.update();
-			if (imu.is_looking_at_face())
-			{
-				backlight_level = 0;
-				set_backlight(backlight_level);
-				last_touch = millis();
-				info_println("IMU backlight level: " + String(backlight_level));
-			}
-		}
+		// if (backlight_level > 0)
+		// {
+		// 	imu.update();
+		// 	if (imu.is_looking_at_face())
+		// 	{
+		// 		backlight_level = 0;
+		// 		set_backlight(backlight_level);
+		// 		last_touch = millis();
+		// 		info_println("IMU backlight level: " + String(backlight_level));
+		// 	}
+		// }
 	}
 
 	// If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
@@ -576,7 +582,7 @@ void Display::process_touch()
 	if (millis() - last_touch > get_backlight_period())
 	{
 		last_touch = millis();
-		if (backlight_level < 2)
+		if (backlight_level < 3)
 		{
 			backlight_level++;
 			set_backlight(backlight_level);
@@ -584,7 +590,7 @@ void Display::process_touch()
 		}
 		else if (!tinywatch.vbus_present() || true)
 		{
-			tinywatch.go_to_sleep();
+			// tinywatch.go_to_sleep();
 		}
 	}
 }

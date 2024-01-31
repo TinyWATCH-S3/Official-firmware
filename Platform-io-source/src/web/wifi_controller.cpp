@@ -1,3 +1,10 @@
+/**
+ * @file wifi_controller.cpp
+ * @details `WifiController` is a class designed for managing non-blocking WiFi connectivity and HTTP request handling in a separate thead using and incoming task queue and outgoing callback queue.
+
+ The idea behind this class is to implement a way to fire off a HTTP or HTTPS request along with a callback, and have the WiFi connection, request and disconnection happen without blocking the main thread. 
+ * 
+ */
 #include "web/wifi_controller.h"
 #include "settings/settings.h"
 #include "utilities/logging.h"

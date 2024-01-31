@@ -1,3 +1,9 @@
+/**
+ * @file tw_face.cpp
+ * @details The `tw_face` class represents a face on the TinyWatch and includes methods for handling touch events, dragging, and managing controls on the face. 
+ * 
+ */
+
 #include "tw_faces/tw_face.h"
 #include "peripherals/buzzer.h"
 #include "tinywatch.h"
