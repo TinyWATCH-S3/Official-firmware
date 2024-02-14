@@ -590,7 +590,7 @@ void Display::process_touch()
 		}
 		else if (!tinywatch.vbus_present() || true)
 		{
-			// tinywatch.go_to_sleep();
+			tinywatch.go_to_sleep();
 		}
 	}
 }

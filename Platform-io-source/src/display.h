@@ -27,7 +27,6 @@ constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)
 #include "web/wifi_controller.h"
 #include <TFT_eSPI.h>
 #include <Tween.h>
-#include <vector>
 
 enum display_states
 {
@@ -80,8 +79,8 @@ class Display
 		bool showing_loading_icon = false;
 		uint16_t loading_screen_rotation = 0;
 
-		const uint8_t backlight_settings_vbus[3] = {200, 150, 100, 0};
-		const uint8_t backlight_settings_vbat[3] = {200, 100, 50, 0};
+		const uint8_t backlight_settings_vbus[3] = {200, 150, 100};
+		const uint8_t backlight_settings_vbat[3] = {200, 100, 50};
 		unsigned long next_loading_rotation = 0;
 
 		// Screen Brightness levels
