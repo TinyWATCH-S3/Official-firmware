@@ -22,11 +22,12 @@ var searchData=
   ['inertia_5fy_19',['inertia_y',['../classtw__face.html#a0da244bddaf186eacf0893064007c574',1,'tw_face']]],
   ['interruptpin_20',['interruptPin',['../class_r_t_c.html#ab0b4e674c18c508d4d07a7e2452cc051',1,'RTC']]],
   ['interrupttriggered_21',['interruptTriggered',['../rtc_8cpp.html#aeab314524096f5423acf1fe3905b2acf',1,'rtc.cpp']]],
-  ['is_5fcached_22',['is_cached',['../classtw__face.html#aaf4db7d3b1123560eaa2ddb227ab48c3',1,'tw_face']]],
-  ['is_5fclock_5fface_23',['is_clock_face',['../classtw__face.html#ae638d9d240228539afc9ab7c033350cd',1,'tw_face']]],
-  ['is_5fdragging_24',['is_dragging',['../classtw__face.html#a1473b4ffe942ac8fc7351679f1a07908',1,'tw_face']]],
-  ['is_5ficon_5fcached_25',['is_icon_cached',['../classtw__app.html#abfb6376cac0c80d6a0e2e654fc6224e0',1,'tw_app']]],
-  ['is_5fscrolling_26',['is_scrolling',['../classtw__face.html#afd78ecb56ee6d2adffe8664923e6f9e4',1,'tw_face']]],
-  ['is_5fsetup_27',['is_setup',['../classtw__app.html#a1f05f0bec0d05ada029834780b4ff186',1,'tw_app::is_setup'],['../classtw__face.html#aec1ed832785650e404c7b5dd37c2a016',1,'tw_face::is_setup']]],
-  ['istouched_28',['isTouched',['../display_8cpp.html#a0d3f1758bf7fdcec892f211bf3553d4f',1,'display.cpp']]]
+  ['is_5fanimating_22',['is_animating',['../class_face_app_list.html#aba2864941788c33912a6e6027162568a',1,'FaceAppList']]],
+  ['is_5fcached_23',['is_cached',['../classtw__face.html#aaf4db7d3b1123560eaa2ddb227ab48c3',1,'tw_face']]],
+  ['is_5fclock_5fface_24',['is_clock_face',['../classtw__face.html#ae638d9d240228539afc9ab7c033350cd',1,'tw_face']]],
+  ['is_5fdragging_25',['is_dragging',['../classtw__face.html#a1473b4ffe942ac8fc7351679f1a07908',1,'tw_face']]],
+  ['is_5ficon_5fcached_26',['is_icon_cached',['../classtw__app.html#abfb6376cac0c80d6a0e2e654fc6224e0',1,'tw_app']]],
+  ['is_5fscrolling_27',['is_scrolling',['../classtw__face.html#afd78ecb56ee6d2adffe8664923e6f9e4',1,'tw_face']]],
+  ['is_5fsetup_28',['is_setup',['../classtw__app.html#a1f05f0bec0d05ada029834780b4ff186',1,'tw_app::is_setup'],['../classtw__face.html#aec1ed832785650e404c7b5dd37c2a016',1,'tw_face::is_setup']]],
+  ['istouched_29',['isTouched',['../display_8cpp.html#a0d3f1758bf7fdcec892f211bf3553d4f',1,'display.cpp']]]
 ];

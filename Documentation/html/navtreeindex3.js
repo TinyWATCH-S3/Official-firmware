@@ -1,5 +1,14 @@
 var NAVTREEINDEX3 =
 {
+"classtw__face.html#a1473b4ffe942ac8fc7351679f1a07908":[2,0,44,54],
+"classtw__face.html#a1749d6681b444adc5fba9b71ec8715ad":[2,0,44,45],
+"classtw__face.html#a1b261fd794c01335af0e997d20657227":[2,0,44,25],
+"classtw__face.html#a1bde18ca3b23fe38659a92d68e5534b1":[2,0,44,22],
+"classtw__face.html#a20698a0b95c187953207dd6aecc9ae88":[2,0,44,36],
+"classtw__face.html#a2879c119587b2a89971de112cc18b7d5":[2,0,44,2],
+"classtw__face.html#a2a06705a81eb1cf7525b39c14e9ec08a":[2,0,44,8],
+"classtw__face.html#a2b7008aa8bb8f46f7cd896edcf50923f":[2,0,44,10],
+"classtw__face.html#a2d6d1c8c3cf3cf1deb42bad6e2d01cb3":[2,0,44,40],
 "classtw__face.html#a2f130bd11d482e8567aa04b2abde291d":[2,0,44,49],
 "classtw__face.html#a33f9a809180158da04ef616d179a7975":[2,0,44,17],
 "classtw__face.html#a35b743b1503cfe53383c3a60fcaf4623":[2,0,44,46],
@@ -147,7 +156,8 @@ var NAVTREEINDEX3 =
 "display_8h.html#ac7066778400fb6bbc6ba0437606c606fa50d1448013c6f17125caee18aa418af7":[3,0,1,13,2,1],
 "display_8h.html#ace9174c9ba98b11c902a8888832df739":[3,0,1,13,4],
 "face___app_list_8cpp.html":[3,0,1,6,0],
-"face___app_list_8cpp.html#a47fe1eaed6aacb8f4f006ee78a87bd22":[3,0,1,6,0,0],
+"face___app_list_8cpp.html#a221521636ec3649bb25efc752c5666d2":[3,0,1,6,0,0],
+"face___app_list_8cpp.html#a47fe1eaed6aacb8f4f006ee78a87bd22":[3,0,1,6,0,1],
 "face___app_list_8h.html":[3,0,1,6,1],
 "face___app_list_8h.html#a47fe1eaed6aacb8f4f006ee78a87bd22":[3,0,1,6,1,1],
 "face___battery_empty_8cpp.html":[3,0,1,6,2],
@@ -239,15 +249,5 @@ var NAVTREEINDEX3 =
 "functions_r.html":[2,3,0,16],
 "functions_rela.html":[2,3,4],
 "functions_s.html":[2,3,0,17],
-"functions_t.html":[2,3,0,18],
-"functions_type.html":[2,3,3],
-"functions_u.html":[2,3,0,19],
-"functions_v.html":[2,3,0,20],
-"functions_vars.html":[2,3,2,0],
-"functions_vars.html":[2,3,2],
-"functions_vars_a.html":[2,3,2,1],
-"functions_vars_b.html":[2,3,2,2],
-"functions_vars_c.html":[2,3,2,3],
-"functions_vars_d.html":[2,3,2,4],
-"functions_vars_e.html":[2,3,2,5]
+"functions_t.html":[2,3,0,18]
 };

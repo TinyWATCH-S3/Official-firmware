@@ -117,7 +117,7 @@ void setup()
 
 	// battery.update_interrupt_values(settings.config.battery.low_perc, settings.config.battery.low_volt_warn);
 
-	display.set_backlight(0);
+	display.set_backlight(0, true);
 
 	// Create the UI and show the boot screen is it's a clean boot
 	display.createFaces(was_asleep);
@@ -249,7 +249,7 @@ void loop()
 			tinywatch.low_battery_update_check = millis();
 
 			display.show_low_battery();
-			display.set_backlight(2);
+			display.set_backlight(2, true);
 
 			if (tinywatch.vbus_present())
 			{

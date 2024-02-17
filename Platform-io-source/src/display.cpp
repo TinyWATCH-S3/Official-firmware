@@ -245,7 +245,7 @@ void Display::createFaces(bool was_sleeping)
 	}
 
 	backlight_level = 0;
-	set_backlight(0);
+	set_backlight(0, true);
 
 	WidgetBattery *wBattery = new WidgetBattery();
 	wBattery->create("Battery", 210, 7, 40, 40, 1000);
@@ -439,7 +439,7 @@ void Display::process_touch()
 			current_face->drag_begin(startX, startY);
 
 			backlight_level = 0;
-			set_backlight(backlight_level);
+			set_backlight(backlight_level, false);
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
@@ -609,7 +609,7 @@ void Display::process_touch()
 		if (backlight_level < 3)
 		{
 			backlight_level++;
-			set_backlight(backlight_level);
+			set_backlight(backlight_level, false);
 			info_println("Setting backlight level: " + String(backlight_level));
 		}
 		else if (!tinywatch.vbus_present() || true)
@@ -625,27 +625,46 @@ uint Display::get_backlight_period()
 	return tinywatch.vbus_present() ? settings.config.bl_period_vbus : settings.config.bl_period_vbat;
 }
 
-void Display::set_backlight(int level)
+void Display::set_backlight(int level, bool force)
 {
-	if (last_backlight != level)
+	if (last_backlight != level || force)
 	{
 		last_backlight = level;
 		backlight_target_val = tinywatch.vbus_present() ? backlight_settings_vbus[level] : backlight_settings_vbat[level];
 	}
 }
 
+/**
+ * @brief Set the backlight to be a specific PWM value
+ *
+ * @param val PWM duty value between 0 and 255, constrained.
+ */
+void Display::set_backlight_val_direct(uint8_t val)
+{
+	backlight_target_val = constrain(val, 0, 255);
+	// info_printf("backlight cur: %d, target: %d\n", backlight_current_val, backlight_target_val);
+}
+
+/**
+ * @brief Is called from a separate task and fades the backlight value up and down based on a target value
+ *
+ * @return true
+ * @return false
+ */
 bool Display::adjust_backlight()
 {
 	if (backlight_current_val < backlight_target_val - 1)
 	{
-		uint8_t delta = (backlight_target_val - backlight_current_val) / 2;
-		backlight_current_val += delta;
+		float delta = constrain((backlight_target_val - backlight_current_val) / 50, 1, backlight_target_val);
+		backlight_current_val = constrain(backlight_current_val + (int)delta, 0, backlight_target_val);
+		// info_printf("> backlight cur: %d, target: %d, delta: %f\n", backlight_current_val, backlight_target_val, delta);
 		return true;
 	}
 	else if (backlight_current_val > backlight_target_val + 1)
 	{
-		uint8_t delta = (backlight_current_val - backlight_target_val) / 2;
-		backlight_current_val -= delta;
+		float delta = constrain((backlight_current_val - backlight_target_val) / 50, 1, backlight_current_val);
+		backlight_current_val = constrain(backlight_current_val - (int)delta, backlight_target_val, 255);
+		// info_printf("< backlight cur: %d, target: %d, delta: %f\n", backlight_current_val, backlight_target_val, delta);
 		return true;
 	}
 	else if (backlight_current_val != backlight_target_val)
@@ -680,6 +699,7 @@ static void process_backlight(void *param)
 		{
 			doing_something = true;
 			analogWrite(TFT_LED, display.get_current_backlight_val());
+			vTaskDelay(1);
 		}
 
 		if (display.get_current_display_state() == LOADING)

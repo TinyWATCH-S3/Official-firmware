@@ -23,11 +23,14 @@ class FaceAppList : public tw_face
 
 	private:
 		tw_app *current_app = nullptr;
-		// int16_t icon_x = 30;
-		// int16_t icon_y = 30;
+		bool is_animating = false;
 
-		// int16_t icon_space_x = 90;
-		// int16_t icon_space_y = 90;
+		uint16_t anim_icon_pos_x = 0;
+		uint16_t anim_icon_pos_y = 0;
+		uint16_t anim_icon_width = 0;
+		uint16_t anim_icon_height = 0;
+		uint8_t anim_corner_roundness = 6;
+		uint8_t anim_backlight = 255;
 };
 
 extern FaceAppList face_applist;

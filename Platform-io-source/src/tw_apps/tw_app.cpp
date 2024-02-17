@@ -72,6 +72,14 @@ void tw_app::close(bool save)
 	face_applist.close_app();
 }
 
+void tw_app::get_icon_pos(uint16_t &_icon_x, uint16_t &_icon_y, uint16_t &_icon_width, uint16_t &_icon_height)
+{
+	_icon_x = icon_x;
+	_icon_y = icon_y;
+	_icon_width = icon_width;
+	_icon_height = icon_height;
+}
+
 /**
  * @brief Check if we have clicked on an app icon
  *

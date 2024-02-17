@@ -10,6 +10,7 @@ var classtw__app =
     [ "close", "classtw__app.html#ab1914aae31b736e21441c926a7045854", null ],
     [ "draw", "classtw__app.html#aac3219a95c9f0b26a6f4226ba2bc9bc2", null ],
     [ "draw_icon", "classtw__app.html#af52944199ec0fcedf5a0d10dd2b3cda3", null ],
+    [ "get_icon_pos", "classtw__app.html#ab15356ac70f04a3a428fcd3a8af616cf", null ],
     [ "pre_start", "classtw__app.html#a9210babf07943910c5324c71d0cb4575", null ],
     [ "set_canvas", "classtw__app.html#a5cf0211251f14dd57c0f575c4ac2ec04", null ],
     [ "swipe", "classtw__app.html#a15a6ec10f08afab2a3cf4ea5c41524ea", null ],

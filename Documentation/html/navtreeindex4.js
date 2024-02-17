@@ -1,5 +1,15 @@
 var NAVTREEINDEX4 =
 {
+"functions_type.html":[2,3,3],
+"functions_u.html":[2,3,0,19],
+"functions_v.html":[2,3,0,20],
+"functions_vars.html":[2,3,2,0],
+"functions_vars.html":[2,3,2],
+"functions_vars_a.html":[2,3,2,1],
+"functions_vars_b.html":[2,3,2,2],
+"functions_vars_c.html":[2,3,2,3],
+"functions_vars_d.html":[2,3,2,4],
+"functions_vars_e.html":[2,3,2,5],
 "functions_vars_f.html":[2,3,2,6],
 "functions_vars_g.html":[2,3,2,7],
 "functions_vars_h.html":[2,3,2,8],
@@ -239,14 +249,5 @@ var NAVTREEINDEX4 =
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221adb2d951879fa890b05f5a7ced70683c2":[3,0,1,9,3,0,3],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221aee429d2b18e984f9be3d8a35ab58f77f":[3,0,1,9,3,0,0],
 "wifi__controller_8cpp.html":[3,0,1,9,4],
-"wifi__controller_8cpp.html#a7a8968b4961f4fc30e36cd5ae8f862ef":[3,0,1,9,4,1],
-"wifi__controller_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,1,9,4,0],
-"wifi__controller_8h.html":[3,0,1,9,5],
-"wifi__controller_8h.html#a7a8968b4961f4fc30e36cd5ae8f862ef":[3,0,1,9,5,4],
-"wifi__controller_8h.html#ad2bfbde3284b4cbc134036a94997f70b":[3,0,1,9,5,3],
-"wifi__setup_8cpp.html":[3,0,1,9,6],
-"wifi__setup_8cpp.html#a8e9196c4b5c9e3a69989756b17c07fb3":[3,0,1,9,6,2],
-"wifi__setup_8h.html":[3,0,1,9,7],
-"wifi__setup_8h.html#a8e9196c4b5c9e3a69989756b17c07fb3":[3,0,1,9,7,1],
-"wifi__setup__templates_8h.html":[3,0,1,9,8]
+"wifi__controller_8cpp.html#a7a8968b4961f4fc30e36cd5ae8f862ef":[3,0,1,9,4,1]
 };

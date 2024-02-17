@@ -41,7 +41,7 @@ class Display
 	public:
 		void init_screen();
 		void createFaces(bool sleeping);
-		void set_backlight(int level);
+		void set_backlight(int level, bool force);
 		void update_current_face();
 		void process_touch();
 		uint get_backlight_period();
@@ -51,6 +51,7 @@ class Display
 		void force_save();
 		void update_boot_face(wifi_states status);
 		bool adjust_backlight();
+		void set_backlight_val_direct(uint8_t val);
 		void kill_backlight_task();
 		uint8_t get_current_backlight_val();
 

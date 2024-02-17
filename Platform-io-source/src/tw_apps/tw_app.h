@@ -15,6 +15,8 @@ class tw_app
 		void set_canvas(uint _canvasid);
 		void close(bool save);
 
+		void get_icon_pos(uint16_t &_icon_x, uint16_t &_icon_y, uint16_t &_icon_width, uint16_t &_icon_height);
+
 		// Virtual
 		virtual void pre_start() = 0;
 		virtual void draw(bool force) = 0;

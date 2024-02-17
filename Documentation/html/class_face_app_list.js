@@ -10,5 +10,12 @@ var class_face_app_list =
     [ "icon_process_clicks", "class_face_app_list.html#ae5cb0a1049b3b8ecf8d30163b2fc83e5", null ],
     [ "setup", "class_face_app_list.html#a07cffb361f5c8cae6fc1db32f195e4e4", null ],
     [ "swipe", "class_face_app_list.html#a56e21b3c683047d02a44114a26e4f526", null ],
-    [ "current_app", "class_face_app_list.html#a12cb46e5d7b4c5e2606d94c5366cbf0a", null ]
+    [ "anim_backlight", "class_face_app_list.html#a2d3324a7d10f2c964a23bbdf48c9e684", null ],
+    [ "anim_corner_roundness", "class_face_app_list.html#a261477ef8b429e3d198ddfcc24e7e291", null ],
+    [ "anim_icon_height", "class_face_app_list.html#ac6acc9ef27568c65bd09587cca49f5a3", null ],
+    [ "anim_icon_pos_x", "class_face_app_list.html#abc7e30c387fbe7c5ae6e28146760277f", null ],
+    [ "anim_icon_pos_y", "class_face_app_list.html#a5b270c78e97aba67ac0c08442f61d8f9", null ],
+    [ "anim_icon_width", "class_face_app_list.html#a1668546adb59a9da06078d9446f6662a", null ],
+    [ "current_app", "class_face_app_list.html#a12cb46e5d7b4c5e2606d94c5366cbf0a", null ],
+    [ "is_animating", "class_face_app_list.html#aba2864941788c33912a6e6027162568a", null ]
 ];
