@@ -51,6 +51,8 @@ bool FaceAppList::icon_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y
 bool FaceAppList::animate_app_in()
 {
 	is_animating = true;
+	// Let's ramp up the CPU clock speed to make the animation buttery smooth.
+	setCpuFrequencyMhz(160);
 	float step = 0.0;
 
 	// grab the selected icon ps and size so we can animate it
@@ -75,8 +77,10 @@ bool FaceAppList::animate_app_in()
 	}
 	yield;
 	is_animating = false;
-	// draw(true);
-
+	
+	// Drop the CPU speed back to default
+	setCpuFrequencyMhz(40);
+	
 	return false;
 }
 
