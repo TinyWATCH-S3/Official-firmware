@@ -60,7 +60,7 @@ void AppEmpty::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8
 void AppEmpty::draw(bool force)
 {
 	// Override the CPU settings for this app (if needed)
-	// setCpuFrequencyMhz(160);
+	setCpuFrequencyMhz(required_cpu_speed);
 
 	setup();
 

@@ -84,7 +84,7 @@ void AppMicrophone::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, 
 void AppMicrophone::draw(bool force)
 {
 	// Override the CPU settings for this app
-	setCpuFrequencyMhz(160);
+	setCpuFrequencyMhz(required_cpu_speed);
 
 	setup();
 

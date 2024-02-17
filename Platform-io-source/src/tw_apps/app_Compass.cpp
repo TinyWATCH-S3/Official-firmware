@@ -54,6 +54,9 @@ void AppCompass::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uin
 
 void AppCompass::draw(bool force)
 {
+	// Override the CPU settings for this app (if needed)
+	setCpuFrequencyMhz(required_cpu_speed);
+
 	if (force || millis() - next_update > update_period)
 	{
 		setup();
