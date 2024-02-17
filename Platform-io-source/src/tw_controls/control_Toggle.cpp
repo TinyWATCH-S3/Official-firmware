@@ -66,10 +66,10 @@ bool ControlToggle::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlToggle::drag_end() {}
 
-bool ControlToggle::click(uint16_t click_pos_x, uint16_t click_pos_y)
+bool ControlToggle::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	// Did we click within the bounds of this control?
-	if (bounds_check(click_pos_x, click_pos_y))
+	if (bounds_check(touch_pos_x, touch_pos_y))
 	{
 		// If we have bound a SettingOption to this control, fire the change method
 		if (setting_option != nullptr)
@@ -85,6 +85,6 @@ bool ControlToggle::click(uint16_t click_pos_x, uint16_t click_pos_y)
 	return false;
 }
 
-bool ControlToggle::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlToggle::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlToggle::click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlToggle::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

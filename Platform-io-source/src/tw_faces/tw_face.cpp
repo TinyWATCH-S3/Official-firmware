@@ -1,7 +1,7 @@
 /**
  * @file tw_face.cpp
- * @details The `tw_face` class represents a face on the TinyWatch and includes methods for handling touch events, dragging, and managing controls on the face. 
- * 
+ * @details The `tw_face` class represents a face on the TinyWatch and includes methods for handling touch events, dragging, and managing controls on the face.
+ *
  */
 
 #include "tw_faces/tw_face.h"
@@ -102,15 +102,15 @@ int tw_face::check_can_swipe()
  * @brief Searches through all of the controls added to the face to see if any are "draggable" and if so
  * returns the control
  *
- * @param click_pos_x
- * @param click_pos_y
+ * @param touch_pos_x
+ * @param touch_pos_y
  * @return tw_control*
  */
-tw_control *tw_face::find_draggable_control(int16_t click_pos_x, int16_t click_pos_y)
+tw_control *tw_face::find_draggable_control(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	for (int w = 0; w < controls.size(); w++)
 	{
-		if (controls[w]->can_drag(click_pos_x, click_pos_y))
+		if (controls[w]->can_drag(touch_pos_x, touch_pos_y))
 			return controls[w];
 	}
 	return nullptr;
@@ -532,11 +532,11 @@ void tw_face::add_widget(tw_widget *widget)
 	}
 }
 
-bool tw_face::widget_process_clicks(int16_t click_pos_x, int16_t click_pos_y)
+bool tw_face::widget_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	for (int w = 0; w < widgets.size(); w++)
 	{
-		if (widgets[w]->click(click_pos_x, click_pos_y))
+		if (widgets[w]->click(touch_pos_x, touch_pos_y))
 		{
 			next_update = 0;
 			return true;
@@ -555,11 +555,11 @@ void tw_face::add_control(tw_control *control)
 	}
 }
 
-bool tw_face::control_process_clicks(int16_t click_pos_x, int16_t click_pos_y)
+bool tw_face::control_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	for (int w = 0; w < controls.size(); w++)
 	{
-		if (controls[w]->click(click_pos_x, click_pos_y))
+		if (controls[w]->click(touch_pos_x, touch_pos_y))
 		{
 			next_update = 0;
 			return true;

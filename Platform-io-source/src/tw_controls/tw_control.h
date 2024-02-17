@@ -18,7 +18,7 @@ class tw_control
 		void set_callback(CallbackFunction callback);
 		void set_values(String _option1, String _option2);
 		void set_parent(tw_face *_parent);
-		bool bounds_check(int16_t click_pos_x, int16_t click_pos_y);
+		bool bounds_check(int16_t touch_pos_x, int16_t touch_pos_y);
 		uint16_t get_height();
 		uint16_t get_height_stacked();
 
@@ -29,15 +29,15 @@ class tw_control
 		void draw_scroll(uint canvasid, uint16_t offset_x, uint16_t offset_y);
 
 		void set_scrollable(bool scroll_x, bool scroll_y);
-		bool can_drag(int16_t click_pos_x, int16_t click_pos_y);
+		bool can_drag(int16_t touch_pos_x, int16_t touch_pos_y);
 
 		// Virtual functions
 		virtual void draw(uint8_t canvasid) = 0;
 		virtual bool drag(int16_t drag_x, int16_t drag_y) = 0;
 		virtual void drag_end() = 0;
-		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
-		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
-		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		String name = "";
 
 	protected:

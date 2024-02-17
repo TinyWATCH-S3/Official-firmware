@@ -12,14 +12,14 @@ class tw_widget
 
 		void create(String _name, uint _pos_x, uint _pos_y, uint _width, uint _height, uint _update_period);
 		void set_parent(tw_face *_parent);
-		bool bounds_check(int16_t click_pos_x, int16_t click_pos_y);
+		bool bounds_check(int16_t touch_pos_x, int16_t touch_pos_y);
 		uint get_height();
 		void draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
 
 		virtual void draw(uint canvasid, uint8_t style_hint) = 0;
-		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
-		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
-		virtual bool click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 	protected:
 		tw_face *parent = nullptr;

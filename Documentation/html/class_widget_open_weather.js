@@ -1,9 +1,9 @@
 var class_widget_open_weather =
 [
     [ "build_server_path", "class_widget_open_weather.html#aeea1c2e14beb3f5c31b541422f045eef", null ],
-    [ "click", "class_widget_open_weather.html#a6f96b4752ccacdcf46e927b343274087", null ],
-    [ "click_double", "class_widget_open_weather.html#abb8557db5f15c3181acf47dc941196f5", null ],
-    [ "click_long", "class_widget_open_weather.html#aa9363bde5964b72ab8eff84c8f61956e", null ],
+    [ "click", "class_widget_open_weather.html#aee35e8456c290c692eb3321b26b0be27", null ],
+    [ "click_double", "class_widget_open_weather.html#a67b563d8db08e5a39992b634a2a09e3c", null ],
+    [ "click_long", "class_widget_open_weather.html#acaf241cc2c6d7085adbfb88980e17d5b", null ],
     [ "decode_json", "class_widget_open_weather.html#a9fd1649e1dfbbc64ee7c712d191cbae0", null ],
     [ "draw", "class_widget_open_weather.html#ac08b20e012d1ea886abbbbf7887c7a9c", null ],
     [ "load_icons", "class_widget_open_weather.html#aac1dff4b3d44e1feaa818ee90b3cdb00", null ],

@@ -56,7 +56,7 @@ void tw_control::set_values(String _option1, String _option2)
 
 void tw_control::set_parent(tw_face *_parent) { parent = _parent; }
 
-bool tw_control::bounds_check(int16_t click_pos_x, int16_t click_pos_y)
+bool tw_control::bounds_check(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	if (pos_x - padding_x > 0)
@@ -64,10 +64,10 @@ bool tw_control::bounds_check(int16_t click_pos_x, int16_t click_pos_y)
 	if ((int)pos_y - padding_y > 0)
 		min_y = (int)pos_y - padding_y;
 
-	bool in_x = (click_pos_x >= min_x && click_pos_x <= pos_x + width + padding_x);
-	bool in_y = (click_pos_y >= min_y + offset_y && click_pos_y <= pos_y + height + padding_y + offset_y);
+	bool in_x = (touch_pos_x >= min_x && touch_pos_x <= pos_x + width + padding_x);
+	bool in_y = (touch_pos_y >= min_y + offset_y && touch_pos_y <= pos_y + height + padding_y + offset_y);
 
-	// info_println(String(in_x)+" - "+String(in_y)+" ("+String(click_pos_x)+","+String(click_pos_y)+") in ("+String(min_x)+","+String(min_y)+")-("+String(pos_x + width + padding_x)+","+String(pos_y + height + padding_y)+")");
+	// info_println(String(in_x)+" - "+String(in_y)+" ("+String(touch_pos_x)+","+String(touch_pos_y)+") in ("+String(min_x)+","+String(min_y)+")-("+String(pos_x + width + padding_x)+","+String(pos_y + height + padding_y)+")");
 
 	return (in_x && in_y);
 }
@@ -96,9 +96,9 @@ void tw_control::set_scrollable(bool scroll_x, bool scroll_y)
 	can_scroll_y = scroll_y;
 }
 
-bool tw_control::can_drag(int16_t click_pos_x, int16_t click_pos_y)
+bool tw_control::can_drag(int16_t touch_pos_x, int16_t touch_pos_y)
 {
-	if (bounds_check(click_pos_x, click_pos_y))
+	if (bounds_check(touch_pos_x, touch_pos_y))
 	{
 		return (can_scroll_x || can_scroll_y);
 	}

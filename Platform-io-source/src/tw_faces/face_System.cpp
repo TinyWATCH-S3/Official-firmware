@@ -62,10 +62,10 @@ void FaceSystem::draw(bool force)
 	}
 }
 
-bool FaceSystem::click(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceSystem::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceSystem::click_double(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceSystem::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceSystem::click_long(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceSystem::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
 FaceSystem face_system;

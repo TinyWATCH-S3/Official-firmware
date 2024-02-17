@@ -35,10 +35,10 @@ void FaceWatchSettings::draw(bool force)
 	}
 }
 
-bool FaceWatchSettings::click(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceWatchSettings::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceWatchSettings::click_double(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceWatchSettings::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceWatchSettings::click_long(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceWatchSettings::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
 FaceWatchSettings face_watchsettings;

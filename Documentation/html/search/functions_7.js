@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['icon_5fprocess_5fclicks_0',['icon_process_clicks',['../class_face_app_list.html#a935df2e5ce6722b7d1208425bbd65f7b',1,'FaceAppList']]],
+  ['icon_5fprocess_5fclicks_0',['icon_process_clicks',['../class_face_app_list.html#a01dbee1fb5e0acce6ae03bff5ac507df',1,'FaceAppList']]],
   ['init_1',['init',['../class_battery.html#a55b4e3efe26262aa8eac3ec3530029f5',1,'Battery::init()'],['../class_i_m_u.html#a3850c006b37efdf08652063673f3b27f',1,'IMU::init()'],['../class_r_t_c.html#a57ecd4dca8ffc8d3ea9d95a3598d6945',1,'RTC::init()']]],
   ['init_5fbuzzer_2',['init_buzzer',['../buzzer_8cpp.html#adf775279632314af92e24d9352cf1a2d',1,'init_buzzer(int pin, int pwmChannel):&#160;buzzer.cpp'],['../buzzer_8h.html#adf775279632314af92e24d9352cf1a2d',1,'init_buzzer(int pin, int pwmChannel):&#160;buzzer.cpp']]],
   ['init_5fscreen_3',['init_screen',['../class_display.html#a480b145aebc205f9bb3e8b14873408e4',1,'Display']]],

@@ -95,12 +95,12 @@ void AppEmpty::draw(bool force)
 /**
  * @brief Did we click on the app? If so, where?
  *
- * @param click_pos_x
- * @param click_pos_y
+ * @param touch_pos_x
+ * @param touch_pos_y
  * @return true
  * @return false
  */
-bool AppEmpty::click(uint16_t click_pos_x, uint16_t click_pos_y)
+bool AppEmpty::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 
 	return false;
@@ -109,12 +109,12 @@ bool AppEmpty::click(uint16_t click_pos_x, uint16_t click_pos_y)
 /**
  * @brief Did we double click on the app? If so, where?
  *
- * @param click_pos_x
- * @param click_pos_y
+ * @param touch_pos_x
+ * @param touch_pos_y
  * @return true
  * @return false
  */
 
-bool AppEmpty::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool AppEmpty::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 AppEmpty app_empty;

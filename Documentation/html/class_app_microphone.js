@@ -1,7 +1,7 @@
 var class_app_microphone =
 [
-    [ "click", "class_app_microphone.html#a7253960b96e01c8c0b08870f83825399", null ],
-    [ "click_double", "class_app_microphone.html#a9588f633630342330507570cd10e685b", null ],
+    [ "click", "class_app_microphone.html#ac35990432fee319feb488b4bbb3d8981", null ],
+    [ "click_double", "class_app_microphone.html#ad21ef183b6992b128641b62ec7d9931d", null ],
     [ "do_fft_calcs", "class_app_microphone.html#a1ae20553e83be4534241100eaa56c243", null ],
     [ "do_waveform_calcs", "class_app_microphone.html#af21c9e10dd5f781358eb28606b32c4a3", null ],
     [ "draw", "class_app_microphone.html#af062de6d4e4191d30579caa2cba9dd71", null ],

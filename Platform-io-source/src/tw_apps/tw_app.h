@@ -11,15 +11,15 @@ class tw_app
 
 		void add(String _name, uint16_t _update_period, uint32_t req_cpu_speed);
 		void add(String _name, uint _update_period);
-		bool click_icon(int16_t click_pos_x, int16_t click_pos_y);
+		bool click_icon(int16_t touch_pos_x, int16_t touch_pos_y);
 		void set_canvas(uint _canvasid);
 		void close(bool save);
 
 		virtual void pre_start() = 0;
 		virtual void draw(bool force) = 0;
 		virtual void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint) = 0;
-		virtual bool click(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
-		virtual bool click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 		String name = "";
 

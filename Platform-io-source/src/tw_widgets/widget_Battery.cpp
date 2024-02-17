@@ -55,9 +55,9 @@ void WidgetBattery::draw(uint canvasid, uint8_t style_hint)
 	canvas[canvasid].drawString(String((int)bat_perc), pos_x, pos_y + 21);
 }
 
-bool WidgetBattery::click(uint16_t click_pos_x, uint16_t click_pos_y)
+bool WidgetBattery::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
-	if (bounds_check(click_pos_x, click_pos_y))
+	if (bounds_check(touch_pos_x, touch_pos_y))
 	{
 		info_println("Battery stats? Not sure we can track any");
 		return true;
@@ -66,9 +66,9 @@ bool WidgetBattery::click(uint16_t click_pos_x, uint16_t click_pos_y)
 	return false;
 }
 
-bool WidgetBattery::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool WidgetBattery::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool WidgetBattery::click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool WidgetBattery::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 // tft.setTextColor(ST77XX_YELLOW);
 // tft.setCursor(15, 15);

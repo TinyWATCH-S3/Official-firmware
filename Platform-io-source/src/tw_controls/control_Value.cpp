@@ -44,13 +44,13 @@ bool ControlValue::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlValue::drag_end() {}
 
-bool ControlValue::click(uint16_t click_pos_x, uint16_t click_pos_y)
+bool ControlValue::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	if (millis() - next_click_update > 50)
 	{
 		next_click_update = millis();
 
-		if (buttons_check_left(click_pos_x, click_pos_y))
+		if (buttons_check_left(touch_pos_x, touch_pos_y))
 		{
 			if (value > value_min)
 			{
@@ -71,7 +71,7 @@ bool ControlValue::click(uint16_t click_pos_x, uint16_t click_pos_y)
 				canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
 			}
 		}
-		else if (buttons_check_right(click_pos_x, click_pos_y))
+		else if (buttons_check_right(touch_pos_x, touch_pos_y))
 		{
 			if (value < value_max)
 			{
@@ -96,11 +96,11 @@ bool ControlValue::click(uint16_t click_pos_x, uint16_t click_pos_y)
 	return false;
 }
 
-bool ControlValue::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlValue::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlValue::click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlValue::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlValue::buttons_check_left(int16_t click_pos_x, int16_t click_pos_y)
+bool ControlValue::buttons_check_left(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	int max_x = 240;
@@ -115,13 +115,13 @@ bool ControlValue::buttons_check_left(int16_t click_pos_x, int16_t click_pos_y)
 	min_x = constrain(button_left_x - padding_x, 0, 240);
 	max_x = constrain(button_left_x + height + padding_x, 0, 240);
 
-	bool in_x = (click_pos_x >= min_x && click_pos_x <= max_x);
-	bool in_y = (click_pos_y >= min_y + offset_y && click_pos_y <= max_y + offset_y);
+	bool in_x = (touch_pos_x >= min_x && touch_pos_x <= max_x);
+	bool in_y = (touch_pos_y >= min_y + offset_y && touch_pos_y <= max_y + offset_y);
 
 	return (in_x && in_y);
 }
 
-bool ControlValue::buttons_check_right(int16_t click_pos_x, int16_t click_pos_y)
+bool ControlValue::buttons_check_right(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	int max_x = 240;
@@ -136,8 +136,8 @@ bool ControlValue::buttons_check_right(int16_t click_pos_x, int16_t click_pos_y)
 	min_x = constrain(button_right_x + padding_x, 0, 240);
 	max_x = constrain(button_right_x + height + padding_x, 0, 240);
 
-	bool in_x = (click_pos_x >= min_x && click_pos_x <= max_x);
-	bool in_y = (click_pos_y >= min_y + offset_y && click_pos_y <= max_y + offset_y);
+	bool in_x = (touch_pos_x >= min_x && touch_pos_x <= max_x);
+	bool in_y = (touch_pos_y >= min_y + offset_y && touch_pos_y <= max_y + offset_y);
 
 	return (in_x && in_y);
 }

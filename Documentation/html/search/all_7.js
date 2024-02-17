@@ -49,7 +49,7 @@ var searchData=
   ['get_5fyaw_46',['get_yaw',['../class_i_m_u.html#ad98004c7e643ff5378a1082e3cc01d79',1,'IMU']]],
   ['get_5fyear_47',['get_year',['../class_r_t_c.html#ae8f63503b20d8504e4a4fd2669bcfb27',1,'RTC']]],
   ['getcoord_48',['getCoord',['../class_app_compass.html#ad22a2ab973d0fc837d085828f21d5018',1,'AppCompass']]],
-  ['getting_20started_49',['Getting Started',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md10',1,'']]],
+  ['getting_20started_49',['Getting Started',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md9',1,'']]],
   ['go_5fto_5fsleep_50',['go_to_sleep',['../class_tiny_w_a_t_c_h.html#af40eb68ae6d6d22a5e5dd0295268df4f',1,'TinyWATCH']]],
   ['gradient_5fbright_51',['gradient_bright',['../class_control_value_slider.html#a76615a1295cb9f70acc32a933d0454fd',1,'ControlValueSlider']]],
   ['gradient_5fdark_52',['gradient_dark',['../class_control_value_slider.html#a1e60aaa9981f380b76cad205c0e60996',1,'ControlValueSlider']]]

@@ -2,7 +2,7 @@ var searchData=
 [
   ['tft_0',['tft',['../display_8cpp.html#ac5d2dc3534f30f704fd7529ad0f89ff1',1,'tft:&#160;display.cpp'],['../display_8h.html#ac5d2dc3534f30f704fd7529ad0f89ff1',1,'tft:&#160;display.cpp'],['../tw__app_8cpp.html#ac5d2dc3534f30f704fd7529ad0f89ff1',1,'tft:&#160;display.cpp'],['../tw__control_8h.html#ac5d2dc3534f30f704fd7529ad0f89ff1',1,'tft:&#160;display.cpp'],['../tw__widget_8cpp.html#ac5d2dc3534f30f704fd7529ad0f89ff1',1,'tft:&#160;display.cpp']]],
   ['tft_5fled_1',['TFT_LED',['../display_8cpp.html#a0dca31463a4633b158a8cbf90f8d0102',1,'TFT_LED:&#160;display.cpp'],['../tinywatch_8cpp.html#a0dca31463a4633b158a8cbf90f8d0102',1,'TFT_LED:&#160;tinywatch.cpp']]],
-  ['the_20project_2',['The Project',['../index.html#autotoc_md14',1,'Contributing To The Project'],['../index.html#autotoc_md12',1,'State Of The Project']]],
+  ['the_20project_2',['The Project',['../index.html#autotoc_md13',1,'Contributing To The Project'],['../index.html#autotoc_md11',1,'State Of The Project']]],
   ['thickness_3',['thickness',['../class_widget_activity_ring.html#a27b0e4193f3a56a96cc1393ee50a64ad',1,'WidgetActivityRing']]],
   ['time_4',['time',['../struct_buzzer_note.html#ababcc68ec3e25727c75fd056a150b6c9',1,'BuzzerNote']]],
   ['time_5f24hour_5',['time_24hour',['../struct_config.html#a5b5857809cb30257039307e7aea8a7fc',1,'Config']]],
@@ -14,7 +14,7 @@ var searchData=
   ['tinywatch_2ecpp_11',['tinywatch.cpp',['../tinywatch_8cpp.html',1,'']]],
   ['tinywatch_2eh_12',['tinywatch.h',['../tinywatch_8h.html',1,'']]],
   ['tmp_5ffilename_13',['tmp_filename',['../class_activity.html#a218a8407a46e4170bb08c1ed97ba03db',1,'Activity::tmp_filename'],['../class_settings.html#a11318b2647ea7d36db2185fc652c2c8a',1,'Settings::tmp_filename']]],
-  ['to_20the_20project_14',['Contributing To The Project',['../index.html#autotoc_md14',1,'']]],
+  ['to_20the_20project_14',['Contributing To The Project',['../index.html#autotoc_md13',1,'']]],
   ['topic_15',['topic',['../struct_config__mqtt.html#a236e6351d75e096abff3f2f39ec58311',1,'Config_mqtt']]],
   ['touchpad_16',['touchpad',['../display_8cpp.html#a3d21a6000bc9ebdd20f8376b69d0dee7',1,'display.cpp']]],
   ['touchtime_17',['touchTime',['../display_8cpp.html#aa0b58ff066c020587b279e2ade0ccce9',1,'display.cpp']]],

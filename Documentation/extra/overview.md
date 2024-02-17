@@ -1,7 +1,8 @@
-# Overview
-Welcome to the documentation for the source code of the TinyWATCH S3 project. This guide provides insights into the intricacies of the firmware that powers the TinyWATCH S3, offering a deeper understanding of the functionalities and inner workings of the smartwatch.
+# Code Structure & Concepts
+The main areas of the code project are separated into folders to keep things grouped in a logical way.
 
-## Contents
+Everything you see displayed on the screen of the TinyWATCH happens inside a `FACE`. Faces inherit from the `tw_face` class, which manages the ability for faces to be swiped and navigated to. It also handles drawing of any controls or widgets assigned to a face.
+
 Class Documentation: Detailed breakdowns of the key classes within the firmware, including their members, methods, and purposes.
 
 The main entry point and runtime loop of the firmware lives in [tinywatch.cpp](@ref tinywatch.cpp). This is where the `Arduino setup() and loop()` functions live. 

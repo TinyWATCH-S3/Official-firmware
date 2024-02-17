@@ -24,8 +24,8 @@ class AppMicrophone : public tw_app
 		void pre_start(void);
 		void draw(bool force);
 		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
-		bool click(uint16_t click_pos_x, uint16_t click_pos_y);
-		bool click_double(uint16_t click_pos_x, uint16_t click_pos_y);
+		bool click(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
 		// local methods
 		void do_fft_calcs();
@@ -55,11 +55,27 @@ class AppMicrophone : public tw_app
 		unsigned long shutdown_timer = 0;
 
 		const uint16_t colors[9] = {
-			RGB(255, 0, 0), RGB(255, 128, 0), RGB(255, 255, 0), RGB(128, 255, 0), RGB(0, 255, 0), RGB(0, 255, 128), RGB(0, 255, 255), RGB(0, 128, 255), RGB(0, 0, 255),
+			RGB(255, 0, 0),
+			RGB(255, 128, 0),
+			RGB(255, 255, 0),
+			RGB(128, 255, 0),
+			RGB(0, 255, 0),
+			RGB(0, 255, 128),
+			RGB(0, 255, 255),
+			RGB(0, 128, 255),
+			RGB(0, 0, 255),
 		};
 
 		const uint16_t colors_dark[9] = {
-			RGB(128, 0, 0), RGB(128, 64, 0), RGB(128, 128, 0), RGB(64, 128, 0), RGB(0, 128, 0), RGB(0, 128, 64), RGB(0, 128, 128), RGB(0, 64, 128), RGB(0, 0, 128),
+			RGB(128, 0, 0),
+			RGB(128, 64, 0),
+			RGB(128, 128, 0),
+			RGB(64, 128, 0),
+			RGB(0, 128, 0),
+			RGB(0, 128, 64),
+			RGB(0, 128, 128),
+			RGB(0, 64, 128),
+			RGB(0, 0, 128),
 		};
 		arduinoFFT FFT = arduinoFFT();
 };

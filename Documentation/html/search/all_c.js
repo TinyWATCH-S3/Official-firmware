@@ -9,7 +9,7 @@ var searchData=
   ['last_5fwas_5flong_6',['last_was_long',['../display_8cpp.html#ab0232c5d01608a95c4abba342e841bf7',1,'display.cpp']]],
   ['left_7',['LEFT',['../display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5adb45120aafd37a973140edee24708065',1,'display.h']]],
   ['left_5fhanded_8',['left_handed',['../struct_config.html#a518cf08162ace4e56474952c9e173e4f',1,'Config']]],
-  ['license_9',['Open Source License',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md9',1,'']]],
+  ['license_9',['Open Source License',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md8',1,'']]],
   ['load_10',['load',['../class_activity.html#a285ded5fb1bb6c7a9a4cc937e9d708e7',1,'Activity::load()'],['../class_settings.html#a06d1d58938c8fdc7a577e52f9ffda29d',1,'Settings::load()']]],
   ['load_5ficons_11',['load_icons',['../class_widget_open_weather.html#aac1dff4b3d44e1feaa818ee90b3cdb00',1,'WidgetOpenWeather']]],
   ['loaded_12',['loaded',['../class_activity.html#acb1f94f911de9f67eea0d5251417188b',1,'Activity']]],

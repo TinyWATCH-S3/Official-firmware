@@ -1,8 +1,8 @@
 var class_control_value_slider =
 [
-    [ "click", "class_control_value_slider.html#a4325374ff8b5856ad117a1407f4463d7", null ],
-    [ "click_double", "class_control_value_slider.html#ad06305c39ad2ef09200332997afd7fc8", null ],
-    [ "click_long", "class_control_value_slider.html#aa6ec2012c0c3f7014a6650bbb57a6e69", null ],
+    [ "click", "class_control_value_slider.html#a3e60da9f947121de3c0b426a8d1bb222", null ],
+    [ "click_double", "class_control_value_slider.html#a0791fc3f11b772666b7c01867ca2b836", null ],
+    [ "click_long", "class_control_value_slider.html#afb3370d698c480d80f4f06b4df5c95e7", null ],
     [ "drag", "class_control_value_slider.html#a3159bdf73db50b13efab719486ff2a62", null ],
     [ "drag_end", "class_control_value_slider.html#adae535346c324c99ca4352a1dd3cb15f", null ],
     [ "draw", "class_control_value_slider.html#a590e97be9555ecb144e419459d09509f", null ],

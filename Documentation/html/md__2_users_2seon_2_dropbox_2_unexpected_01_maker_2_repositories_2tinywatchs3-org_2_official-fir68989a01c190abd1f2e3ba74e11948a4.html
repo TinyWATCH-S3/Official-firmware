@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TinyWATCH S3: Overview</title>
+<title>TinyWATCH S3: Code Structure &amp; Concepts</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,47 +92,46 @@ $(function(){initNavTree('md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_re
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Overview</div></div>
+  <div class="headertitle"><div class="title">Code Structure &amp; Concepts</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a>Welcome to the documentation for the source code of the <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a> S3 project. This guide provides insights into the intricacies of the firmware that powers the <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a> S3, offering a deeper understanding of the functionalities and inner workings of the smartwatch.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Contents</h1>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a>The main areas of the code project are separated into folders to keep things grouped in a logical way.</p>
+<p>Everything you see displayed on the screen of the <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a> happens inside a <code>FACE</code>. Faces inherit from the <code><a class="el" href="classtw__face.html">tw_face</a></code> class, which manages the ability for faces to be swiped and navigated to. It also handles drawing of any controls or widgets assigned to a face.</p>
 <p>Class Documentation: Detailed breakdowns of the key classes within the firmware, including their members, methods, and purposes.</p>
 <p>The main entry point and runtime loop of the firmware lives in <a class="el" href="tinywatch_8cpp.html">tinywatch.cpp</a>. This is where the <code>Arduino <a class="el" href="tinywatch_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup()</a> and <a class="el" href="tinywatch_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop()</a></code> functions live.</p>
 <p>Main display and touch interaction code lives in <a class="el" href="display_8cpp.html">display.cpp</a></p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md1"></a>
 Faces</h2>
 <p><a class="el" href="tw__face_8cpp.html">TW Faces</a> are where you build your content for <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a>. You can display anything you like using the <code>draw()</code> method, as well as assign Widgets and Controls to any face you create.</p>
 <p>Faces can be setup to br navigated to each other, via swiping up, down, left and right.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
 Widgets</h2>
 <p><a class="el" href="tw__widget_8cpp.html">TW Widgets</a> are self contained little "interactive apps" can run logic, or connectivity tasks and show specific info.</p>
 <p>They are designed to be reusable, so can be placed on one or more faces. <br  />
 </p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Controls</h2>
 <p><a class="el" href="tw__control_8cpp.html">TW Controls</a> are UI elements like buttons, toggles, value sliders etc. They can be placed on FACES and can also be bound to user settings using the <a class="el" href="settings_option_8cpp.html">SettingsOption</a> classes.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Peripherals</h2>
 <p>Classes for the onboard peripherals are provided as convenient ways to talk to each peripheral library/driver.</p>
 <p><a class="el" href="rtc_8cpp.html">RTC</a></p>
 <p><a class="el" href="imu_8cpp.html">IMU + MAG</a></p>
 <p><a class="el" href="battery_8cpp.html">Battery</a></p>
 <p><a class="el" href="buzzer_8cpp.html">Buzzer</a></p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 WiFi</h2>
 <p>WiFi access setup lives in the <a class="el" href="wifi__setup_8cpp.html">wifi_setup</a> class and general communication lives in the <a class="el" href="wifi__controller_8cpp.html">wifi_controller</a> class.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 User Settings</h2>
 <p>User <a class="el" href="class_settings.html">Settings</a> are managed in the <a class="el" href="settings_8cpp.html">settings</a> class. They are loaded and saved in the secondary user Flash IC.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Coding Style</h1>
 <p>The source code uses <code>TABS</code> and all method and variable names use <code>snake_case</code> - Please respect that for any contributions you may make for the project.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Open Source License</h1>
 <p>This source code is released under the GPL 3.0 license. Please read the license to understand your obligations if you wish to use this code ibn you own projects, or contribute back to the project.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Getting Started</h1>
 <p>Whether you are a developer looking to extend the functionality of the smartwatch or a user curious about the technology behind the device, this documentation is your gateway to unlocking the full potential of the firmware.</p>
 <p>Let's embark on this journey of exploration and innovation as we delve into the heart of the <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a> S3 firmware. </p>

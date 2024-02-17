@@ -2,12 +2,12 @@
  * @file tw_widget.cpp
  * @details TW Widgets are self-contained interactive apps designed for reuse across different watch faces. They can perform logic, connectivity tasks, and display specific information.
 
-An example of a widget could be a weather app that connects to OpenWeather, downloads information, and displays it on the watch face. 
+An example of a widget could be a weather app that connects to OpenWeather, downloads information, and displays it on the watch face.
 
 Clicking on the widget could switch between showing the current temperature, humidity, chance of rain, etc.
 
-A `Widget` differs from a `Control` in that a control is a single-use interactive item bound to a setting or callback on a specific face. You can place the same widget on multiple faces, each in a different location. 
- * 
+A `Widget` differs from a `Control` in that a control is a single-use interactive item bound to a setting or callback on a specific face. You can place the same widget on multiple faces, each in a different location.
+ *
  */
 #include "tw_widgets/tw_widget.h"
 #include "display.h"
@@ -33,10 +33,10 @@ void tw_widget::create(String _name, uint _pos_x, uint _pos_y, uint _width, uint
 
 void tw_widget::set_parent(tw_face *_parent) { parent = _parent; }
 
-bool tw_widget::bounds_check(int16_t click_pos_x, int16_t click_pos_y)
+bool tw_widget::bounds_check(int16_t touch_pos_x, int16_t touch_pos_y)
 {
-	bool in_x = (click_pos_x >= bounds_x[0] && click_pos_x <= bounds_x[1]);
-	bool in_y = (click_pos_y >= bounds_y[0] && click_pos_y <= bounds_y[1]);
+	bool in_x = (touch_pos_x >= bounds_x[0] && touch_pos_x <= bounds_x[1]);
+	bool in_y = (touch_pos_y >= bounds_y[0] && touch_pos_y <= bounds_y[1]);
 
 	return (in_x && in_y);
 }

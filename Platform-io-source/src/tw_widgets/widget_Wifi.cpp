@@ -30,9 +30,9 @@ void WidgetWifi::draw(uint canvasid, uint8_t style_hint)
 	}
 }
 
-bool WidgetWifi::click(uint16_t click_pos_x, uint16_t click_pos_y)
+bool WidgetWifi::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
-	if (bounds_check(click_pos_x, click_pos_y))
+	if (bounds_check(touch_pos_x, touch_pos_y))
 	{
 		if (!web_server.is_running())
 			web_server.start();
@@ -45,6 +45,6 @@ bool WidgetWifi::click(uint16_t click_pos_x, uint16_t click_pos_y)
 	return false;
 }
 
-bool WidgetWifi::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool WidgetWifi::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool WidgetWifi::click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool WidgetWifi::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

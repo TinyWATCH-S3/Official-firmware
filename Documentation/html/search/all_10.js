@@ -7,7 +7,7 @@ var searchData=
   ['password_4',['password',['../struct_config__mqtt.html#a18b51efe683e422cf540ca6ff5c88cb1',1,'Config_mqtt']]],
   ['perc_5foffset_5',['perc_offset',['../struct_config__battery.html#acac7fc228f2297e9a021e1f48e4af561',1,'Config_battery']]],
   ['perform_5fwifi_5frequest_6',['perform_wifi_request',['../class_wifi_controller.html#a1e12f839fca953bc23867273119d69a1',1,'WifiController']]],
-  ['peripherals_7',['Peripherals',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md5',1,'']]],
+  ['peripherals_7',['Peripherals',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md4',1,'']]],
   ['persist_5fstep_5fcount_8',['persist_step_count',['../class_i_m_u.html#a1316f25b98d8df78dcb7247c31d63aa2',1,'IMU']]],
   ['poll_5ffrequency_9',['poll_frequency',['../struct_config__open__weather.html#a826f186975c7c30c21384fa40d47cfa8',1,'Config_open_weather']]],
   ['pop_5fmessage_10',['pop_message',['../class_face_notifications.html#a26b1b8a9a8787d201a7137538f15ac42',1,'FaceNotifications']]],
@@ -35,7 +35,7 @@ var searchData=
   ['process_5fwrist_5fgestures_32',['process_wrist_gestures',['../class_i_m_u.html#a9fe304262319330cf05dafa40d580520',1,'IMU']]],
   ['processor_33',['processor',['../class_web_server.html#af173220cfa6fb71452ff6fad8a1b5a45',1,'WebServer']]],
   ['progmem_34',['PROGMEM',['../bitmaps__general_8h.html#ab8b7c6f6d9f5ff4851e1bf400ab2eeb2',1,'PROGMEM:&#160;bitmaps_general.h'],['../bitmaps__ow_8h.html#a08058ad221013639f684f2eb678379c8',1,'PROGMEM:&#160;bitmaps_ow.h'],['../_clock___digits_8h.html#a7e13855f9cd431deadde2a91cc5929f7',1,'PROGMEM:&#160;Clock_Digits.h'],['../_roboto___light20_8h.html#ab318f58a06adf80a1401fe4ef721b789',1,'PROGMEM:&#160;Roboto_Light20.h'],['../_roboto___medium26_8h.html#a358adc22c73d38d90995656f73b89275',1,'PROGMEM:&#160;Roboto_Medium26.h'],['../_roboto___regular18_8h.html#a31176368376418537a0b7d8c2ca931db',1,'PROGMEM:&#160;Roboto_Regular18.h'],['../_roboto___regular20_8h.html#af0928c4c663c1fa02c9ca4dd79c069eb',1,'PROGMEM:&#160;Roboto_Regular20.h'],['../_roboto___regular22_8h.html#a7ab4c63086f4125369942684729e15d7',1,'PROGMEM:&#160;Roboto_Regular22.h'],['../_roboto___regular26_8h.html#a294d631a763445eb5f680dafd4712a75',1,'PROGMEM:&#160;Roboto_Regular26.h'],['../_roboto_mono___light___all_8h.html#ab955d5621e80345ec927ba72752b524a',1,'PROGMEM:&#160;RobotoMono_Light_All.h'],['../_roboto_mono___regular___all_8h.html#ab8b7c6f6d9f5ff4851e1bf400ab2eeb2',1,'PROGMEM:&#160;RobotoMono_Regular_All.h'],['../webserver__templates_8h.html#a232427fe84e92c9624e8b1aa6ef568cf',1,'PROGMEM:&#160;webserver_templates.h']]],
-  ['project_35',['Project',['../index.html#autotoc_md14',1,'Contributing To The Project'],['../index.html#autotoc_md12',1,'State Of The Project']]],
-  ['project_20overview_36',['Project Overview',['../index.html#autotoc_md11',1,'']]],
+  ['project_35',['Project',['../index.html#autotoc_md13',1,'Contributing To The Project'],['../index.html#autotoc_md11',1,'State Of The Project']]],
+  ['project_20overview_36',['Project Overview',['../index.html#autotoc_md10',1,'']]],
   ['pwr_5fshutdown_37',['PWR_SHUTDOWN',['../tinywatch_8cpp.html#a6781314b7702028523dc70f4822c99c9',1,'tinywatch.cpp']]]
 ];

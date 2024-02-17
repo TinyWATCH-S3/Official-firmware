@@ -1,11 +1,11 @@
 var classtw__control =
 [
     [ "CallbackFunction", "classtw__control.html#aa5866ceadd9ee0a7b62dab42eb0c4d26", null ],
-    [ "bounds_check", "classtw__control.html#a14b56d61053455a8340fa0ef873f8438", null ],
-    [ "can_drag", "classtw__control.html#a0cb2d4f0f7f62b27d0c8d25adbf62167", null ],
-    [ "click", "classtw__control.html#ab262e7a645b158adf967a5365a44cc1c", null ],
-    [ "click_double", "classtw__control.html#aba09793680c70400242c8a7261c923a3", null ],
-    [ "click_long", "classtw__control.html#ad1bd8d58a154843ac26d86afbd1a02a0", null ],
+    [ "bounds_check", "classtw__control.html#a30134b1be21f4febada5ddf43168ef8e", null ],
+    [ "can_drag", "classtw__control.html#a32095ff6d8c24e3c74b66be64fc2c9db", null ],
+    [ "click", "classtw__control.html#a7d350a49d7343f6c3c3293fb34ba182f", null ],
+    [ "click_double", "classtw__control.html#a02cde65627839d0fc9b63d35a2ff6902", null ],
+    [ "click_long", "classtw__control.html#a8b67b054333241da9bec27967d2e0eee", null ],
     [ "create", "classtw__control.html#a45b7cecc9b4d6be7885b00129cf71450", null ],
     [ "create", "classtw__control.html#a92de6ce8244528f528b5b6a06f788702", null ],
     [ "create", "classtw__control.html#a2bd5e84b349d3acd4332e691252e9a4e", null ],

@@ -12,7 +12,7 @@ var searchData=
   ['update_5fwifi_5fcredentials_9',['update_wifi_credentials',['../class_settings.html#afe820637e10449ff29f61ab90f59cc2f',1,'Settings']]],
   ['update_5fwifisetup_5fstatus_10',['update_wifisetup_status',['../class_face_boot.html#a44a46fe2faa8de0071bdd6a0755f4fd4',1,'FaceBoot::update_wifisetup_status()'],['../class_wifi_setup.html#ae59cbb7162edff463ad115d42344416e',1,'WifiSetup::update_wifisetup_status()']]],
   ['url_11',['url',['../struct_wifi_controller_1_1wifi__task__item.html#acb013fefced5abc20069fb7a93a971dd',1,'WifiController::wifi_task_item']]],
-  ['user_20settings_12',['User Settings',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md7',1,'']]],
+  ['user_20settings_12',['User Settings',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md6',1,'']]],
   ['user_5fconfig_5fjson_13',['user_config_json',['../class_wifi_controller.html#aa3238d9661f8e518b7b716605146b277',1,'WifiController']]],
   ['user_5fflash_5fcs_14',['USER_FLASH_CS',['../tinywatch_8cpp.html#a5cfe65e237d66c978683609af616a2be',1,'tinywatch.cpp']]],
   ['username_15',['username',['../struct_config__mqtt.html#a55567c71e966a889409bfde1316fad33',1,'Config_mqtt']]],

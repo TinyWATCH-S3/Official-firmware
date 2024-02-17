@@ -79,9 +79,9 @@ void FaceWatch_CustomWindows::draw_batteryicon(uint16_t x, uint16_t y, WindowsCl
 	if (bat_perc <= 15)
 		bat_barcolor = RGB(0xff, 0x00, 0x00);
 
-	canvas[canvasid].fillRect(x, y, 20, 10, RGB(0x00, 0x00, 0x00));					// Battery Outer Box
-	canvas[canvasid].fillRect(x + 20, y + 2, 2, 6, RGB(0x00, 0x00, 0x00));			// Battery Tip
-	canvas[canvasid].fillRect(x + 1, y + 1, 18, 8, RGB(0xff, 0xff, 0xff));			// Battery Inner Box
+	canvas[canvasid].fillRect(x, y, 20, 10, RGB(0x00, 0x00, 0x00));		   // Battery Outer Box
+	canvas[canvasid].fillRect(x + 20, y + 2, 2, 6, RGB(0x00, 0x00, 0x00)); // Battery Tip
+	canvas[canvasid].fillRect(x + 1, y + 1, 18, 8, RGB(0xff, 0xff, 0xff)); // Battery Inner Box
 	canvas[canvasid].fillRect(x + 2, y + 2, bat_barsize, 6, bat_barcolor); // Battery Status Box
 
 	canvas[canvasid].setTextDatum(ML_DATUM);
@@ -285,7 +285,7 @@ void FaceWatch_CustomWindows::draw(bool force)
 	}
 }
 
-bool FaceWatch_CustomWindows::click(int16_t pos_x, int16_t pos_y)
+bool FaceWatch_CustomWindows::click(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
 	show_toolbars = !show_toolbars; // Turn the toolbar on and off
@@ -294,7 +294,7 @@ bool FaceWatch_CustomWindows::click(int16_t pos_x, int16_t pos_y)
 	return true;
 }
 
-bool FaceWatch_CustomWindows::click_double(int16_t pos_x, int16_t pos_y)
+bool FaceWatch_CustomWindows::click_double(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	display.cycle_clock_face();
 
@@ -303,7 +303,7 @@ bool FaceWatch_CustomWindows::click_double(int16_t pos_x, int16_t pos_y)
 	return true;
 }
 
-bool FaceWatch_CustomWindows::click_long(int16_t pos_x, int16_t pos_y)
+bool FaceWatch_CustomWindows::click_long(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	// info_println("LOOOONG!");
 	// TODO: Add display of watch specific settings here when the user long presses

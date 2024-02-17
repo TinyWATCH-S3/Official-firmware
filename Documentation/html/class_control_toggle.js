@@ -1,8 +1,8 @@
 var class_control_toggle =
 [
-    [ "click", "class_control_toggle.html#a2d402c3ae5959e440ada9c1d05805bc6", null ],
-    [ "click_double", "class_control_toggle.html#ab584330a4f396b74a4cea7136822e6cc", null ],
-    [ "click_long", "class_control_toggle.html#a96587d838d07da94749a0dcb20842b30", null ],
+    [ "click", "class_control_toggle.html#a91c60324d3f7529ac6ec84c1f1051d59", null ],
+    [ "click_double", "class_control_toggle.html#ade2c5e18b4ab7e3dc3bcdea01c8ea446", null ],
+    [ "click_long", "class_control_toggle.html#a7110e9662ed57abe0218d76d3daacb69", null ],
     [ "drag", "class_control_toggle.html#a0a9cbde8c63198f6e66c5dac1e413757", null ],
     [ "drag_end", "class_control_toggle.html#a1970b2a6c73f5abd77dfb35bd55b61e5", null ],
     [ "draw", "class_control_toggle.html#a0f74a6098d7a0e5d041d779a6085389c", null ],

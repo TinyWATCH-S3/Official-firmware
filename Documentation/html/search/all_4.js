@@ -24,7 +24,7 @@ var searchData=
   ['dnsserver_21',['dnsServer',['../class_wifi_setup.html#ab6fee4a186f7a639d4c649432b19353a',1,'WifiSetup']]],
   ['do_5ffft_5fcalcs_22',['do_fft_calcs',['../class_app_microphone.html#a1ae20553e83be4534241100eaa56c243',1,'AppMicrophone']]],
   ['do_5fwaveform_5fcalcs_23',['do_waveform_calcs',['../class_app_microphone.html#af21c9e10dd5f781358eb28606b32c4a3',1,'AppMicrophone']]],
-  ['documentation_24',['Documentation',['../index.html#autotoc_md13',1,'']]],
+  ['documentation_24',['Documentation',['../index.html#autotoc_md12',1,'']]],
   ['done_25',['done',['../class_wifi_setup.html#ad101af470865816410d313969129600d',1,'WifiSetup']]],
   ['down_26',['DOWN',['../display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5a9b0b4a95b99523966e0e34ffdadac9da',1,'display.h']]],
   ['drag_27',['drag',['../class_control_button.html#ae0a6a5d52ab0a23ee201eb96be6b7e0c',1,'ControlButton::drag()'],['../class_control_label.html#aed95a14ddc7e360eb9677ea3da06a8c8',1,'ControlLabel::drag()'],['../class_control_toggle.html#a0a9cbde8c63198f6e66c5dac1e413757',1,'ControlToggle::drag()'],['../class_control_value.html#a9a8817134a5e17aafc0417e1233787ea',1,'ControlValue::drag()'],['../class_control_value_slider.html#a3159bdf73db50b13efab719486ff2a62',1,'ControlValueSlider::drag()'],['../classtw__control.html#a5801ddb432eba15482734b6d4e973d9f',1,'tw_control::drag()'],['../classtw__face.html#a668367032fcee7476d121c63fdbba622',1,'tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y, int16_t t_pos_x, int16_t t_pos_y, bool current_face)']]],

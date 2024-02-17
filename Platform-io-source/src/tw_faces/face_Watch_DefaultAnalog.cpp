@@ -76,9 +76,9 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 	}
 }
 
-bool FaceWatch_DefaultAnalog::click(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceWatch_DefaultAnalog::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceWatch_DefaultAnalog::click_double(int16_t pos_x, int16_t pos_y)
+bool FaceWatch_DefaultAnalog::click_double(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	display.cycle_clock_face();
 	is_dragging = false;
@@ -86,7 +86,7 @@ bool FaceWatch_DefaultAnalog::click_double(int16_t pos_x, int16_t pos_y)
 	return true;
 }
 
-bool FaceWatch_DefaultAnalog::click_long(int16_t pos_x, int16_t pos_y)
+bool FaceWatch_DefaultAnalog::click_long(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	// info_println("LOOOONG!");
 	// TODO: Add display of watch specific settings here when the user long presses

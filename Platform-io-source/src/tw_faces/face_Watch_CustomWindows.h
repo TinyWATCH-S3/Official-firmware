@@ -7,13 +7,13 @@ class FaceWatch_CustomWindows : public tw_face
 	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(int16_t pos_x, int16_t pos_y);
-		bool click_double(int16_t pos_x, int16_t pos_y);
-		bool click_long(int16_t pos_x, int16_t pos_y);
+		bool click(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool click_double(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool click_long(int16_t touch_pos_x, int16_t touch_pos_y);
 
 	private:
 		String version = "3.11";
-		
+
 		struct WindowsClockSettings
 		{
 				uint16_t width = display.width - 50;
@@ -29,11 +29,8 @@ class FaceWatch_CustomWindows : public tw_face
 				uint16_t color_menutext = RGB(0x00, 0x00, 0x00);		// Blue
 				uint16_t color_hrminhand = RGB(0x00, 0x00, 0x00);		// Black
 				uint16_t color_sechand = RGB(0x88, 0x88, 0x88);			// Grey
-				uint16_t color_hourblock = RGB(85, 170, 170);				// Aqua
-
+				uint16_t color_hourblock = RGB(85, 170, 170);			// Aqua
 		};
-
-		
 
 		const String months[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
@@ -69,8 +66,8 @@ class FaceWatch_CustomWindows : public tw_face
 		// Window Positioning
 		int center_x = 120;
 		int center_y;
-		int center_y_wtoolbar = 157;	// Clock Position with Toolbar
-		int center_y_ntoolbar = 137;	// Clock Position without Toolbar
+		int center_y_wtoolbar = 157; // Clock Position with Toolbar
+		int center_y_ntoolbar = 137; // Clock Position without Toolbar
 
 		float face_radius = 100;
 
@@ -78,4 +75,3 @@ class FaceWatch_CustomWindows : public tw_face
 };
 
 extern FaceWatch_CustomWindows face_watch_custom_windows;
-

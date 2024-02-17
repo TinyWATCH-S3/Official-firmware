@@ -68,14 +68,14 @@ void FaceSettings::draw(bool force)
 	}
 }
 
-bool FaceSettings::click(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceSettings::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceSettings::click_double(int16_t pos_x, int16_t pos_y)
+bool FaceSettings::click_double(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	// digitalWrite(21, HIGH);
 	return false;
 }
 
-bool FaceSettings::click_long(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceSettings::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
 FaceSettings face_settings;

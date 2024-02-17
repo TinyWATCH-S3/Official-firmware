@@ -17,9 +17,9 @@ class tw_face
 		void set_single_navigation(Directions dir, tw_face *face);
 		// tw_face * changeFace(Directions dir);
 		void add_widget(tw_widget *widget);
-		bool widget_process_clicks(int16_t click_pos_x, int16_t click_pos_y);
+		bool widget_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y);
 		void add_control(tw_control *control);
-		bool control_process_clicks(int16_t click_pos_x, int16_t click_pos_y);
+		bool control_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y);
 		bool is_face_clock_face();
 
 		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
@@ -46,16 +46,16 @@ class tw_face
 		uint16_t get_control_height();
 
 		// control dragging
-		tw_control *find_draggable_control(int16_t click_pos_x, int16_t click_pos_y);
+		tw_control *find_draggable_control(int16_t touch_pos_x, int16_t touch_pos_y);
 
 		String name = "";
 
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-		virtual bool click(int16_t pos_x, int16_t pos_y) { return false; }
-		virtual bool click_double(int16_t pos_x, int16_t pos_y) { return false; }
-		virtual bool click_long(int16_t pos_x, int16_t pos_y) { return false; }
+		virtual bool click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+		virtual bool click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+		virtual bool click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
 

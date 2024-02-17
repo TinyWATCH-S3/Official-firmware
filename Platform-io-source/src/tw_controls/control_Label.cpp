@@ -16,8 +16,8 @@ bool ControlLabel::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlLabel::drag_end() {}
 
-bool ControlLabel::click(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlLabel::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlLabel::click_double(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlLabel::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlLabel::click_long(uint16_t click_pos_x, uint16_t click_pos_y) { return false; }
+bool ControlLabel::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

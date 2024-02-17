@@ -20,11 +20,11 @@ void FaceAppList::setup()
 
 void FaceAppList::add_app(tw_app *app) { app_icons[app->name] = app; }
 
-bool FaceAppList::icon_process_clicks(int16_t click_pos_x, int16_t click_pos_y)
+bool FaceAppList::icon_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	for (auto _app : app_icons)
 	{
-		if (_app.second->click_icon(click_pos_x, click_pos_y))
+		if (_app.second->click_icon(touch_pos_x, touch_pos_y))
 		{
 			current_app = _app.second;
 			current_app->pre_start();
@@ -110,26 +110,26 @@ void FaceAppList::draw(bool force)
 	}
 }
 
-bool FaceAppList::click(int16_t pos_x, int16_t pos_y)
+bool FaceAppList::click(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	if (current_app != nullptr)
 	{
 
-		bool was_clicked = (current_app->click(pos_x, pos_y));
+		bool was_clicked = (current_app->click(touch_pos_x, touch_pos_y));
 		// info_printf("Clicked app %s result %d\n",current_app->name, was_clicked);
 		return (was_clicked);
 	}
 
-	if (icon_process_clicks(pos_x, pos_y))
+	if (icon_process_clicks(touch_pos_x, touch_pos_y))
 	{
 		return true;
 	}
 	return false;
 }
 
-bool FaceAppList::click_double(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceAppList::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
-bool FaceAppList::click_long(int16_t pos_x, int16_t pos_y)
+bool FaceAppList::click_long(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	if (current_app != nullptr)
 	{

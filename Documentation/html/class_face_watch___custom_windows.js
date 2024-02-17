@@ -1,9 +1,9 @@
 var class_face_watch___custom_windows =
 [
     [ "WindowsClockSettings", "struct_face_watch___custom_windows_1_1_windows_clock_settings.html", "struct_face_watch___custom_windows_1_1_windows_clock_settings" ],
-    [ "click", "class_face_watch___custom_windows.html#a02926ca6e6ceb436b53a9baa5dd0c566", null ],
-    [ "click_double", "class_face_watch___custom_windows.html#a603282f72632591ef276f88f99503c86", null ],
-    [ "click_long", "class_face_watch___custom_windows.html#a11d52238ad5f2076550be72481e6a003", null ],
+    [ "click", "class_face_watch___custom_windows.html#ad8e592edb16e46e6984821bbf4c073fd", null ],
+    [ "click_double", "class_face_watch___custom_windows.html#a162e0e12f8c27c13b7fd7e4645791857", null ],
+    [ "click_long", "class_face_watch___custom_windows.html#a29dbc0a133a5af6e2c136b52768e32e6", null ],
     [ "draw", "class_face_watch___custom_windows.html#ae9b4b5161c30d7242751168aabd606de", null ],
     [ "draw_batteryicon", "class_face_watch___custom_windows.html#aa3039289556d9e97da1e9273fe3e5cce", null ],
     [ "draw_hand", "class_face_watch___custom_windows.html#a6189c834eb35491eaf8933430fc344bb", null ],

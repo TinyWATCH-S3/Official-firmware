@@ -122,7 +122,7 @@ void FaceBoot::draw(bool force)
 	}
 }
 
-bool FaceBoot::click(int16_t pos_x, int16_t pos_y)
+bool FaceBoot::click(int16_t touch_pos_x, int16_t touch_pos_y)
 {
 	if (wifi_status == WIFI_SETUP || wifi_status == WIFI_SETUP_STEP_2)
 	{
@@ -134,9 +134,9 @@ bool FaceBoot::click(int16_t pos_x, int16_t pos_y)
 	return false;
 }
 
-bool FaceBoot::click_double(int16_t pos_x, int16_t pos_y) { return true; }
+bool FaceBoot::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return true; }
 
-bool FaceBoot::click_long(int16_t pos_x, int16_t pos_y) { return false; }
+bool FaceBoot::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
 
 void FaceBoot::wifi_connect_status(wifi_states status)
 {
