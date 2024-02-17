@@ -90,10 +90,10 @@ void AppCompass::drawCompass(int x, int y, int angle)
 	canvas[canvasid].setTextDatum(MC_DATUM);
 	canvas[canvasid].setTextColor(TFT_WHITE);
 
-	canvas[canvasid].drawString("N", 120, 140 - 42, 2);
-	canvas[canvasid].drawString("E", 120 + 42, 140, 2);
-	canvas[canvasid].drawString("S", 120, 140 + 42, 2);
-	canvas[canvasid].drawString("W", 120 - 42, 140, 2);
+	canvas[canvasid].drawString("N", 120, 140 - 42);
+	canvas[canvasid].drawString("E", 120 + 42, 140);
+	canvas[canvasid].drawString("S", 120, 140 + 42);
+	canvas[canvasid].drawString("W", 120 - 42, 140);
 
 	canvas[canvasid].drawCircle(120, 140, 30, TFT_DARKGREY);
 
