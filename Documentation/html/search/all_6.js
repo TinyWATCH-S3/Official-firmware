@@ -58,7 +58,7 @@ var searchData=
   ['fg_5fint_55',['FG_INT',['../battery_8cpp.html#a697016cc25b82087cb0eb8259480cf7c',1,'battery.cpp']]],
   ['filename_56',['filename',['../class_activity.html#afb1f89c6bbcd9be475e267615e8ab6fa',1,'Activity::filename'],['../class_settings.html#adb8b7aff516eea8ae61ea171321ec857',1,'Settings::filename']]],
   ['fill_5farc_57',['fill_arc',['../class_display.html#ad4a051cab5730c70c4797534c9273032',1,'Display::fill_arc()'],['../class_app_microphone.html#a78629ec2c830bb67f5d856bc164ab8f2',1,'AppMicrophone::fill_arc()']]],
-  ['find_5fdraggable_5fcontrol_58',['find_draggable_control',['../classtw__face.html#a3154f3e476a093c1ee743c194d98a9f7',1,'tw_face']]],
+  ['find_5fdraggable_5fcontrol_58',['find_draggable_control',['../classtw__face.html#ab109a0610f0e20092b6ff62dc905f357',1,'tw_face']]],
   ['first_5ftime_59',['first_time',['../struct_config.html#a099a67b516ac62f95fa2f49483721310',1,'Config']]],
   ['flipped_60',['flipped',['../struct_config.html#a81edb463c86272b52b8fd5b1c535e226',1,'Config']]],
   ['force_5fsave_61',['force_save',['../class_display.html#ac49cfd43decf1f706021c5c272c7921c',1,'Display']]],

@@ -1,7 +1,7 @@
 var class_app_compass =
 [
-    [ "click", "class_app_compass.html#a19d6f60164db24b408e10a6c7af8f99d", null ],
-    [ "click_double", "class_app_compass.html#a8a277ea37daf0798bcbe347c453d3e30", null ],
+    [ "click", "class_app_compass.html#ae43833db4e0db12ef0486b7cd77d8772", null ],
+    [ "click_double", "class_app_compass.html#aea45e78b1599aba9f61626edf5fc1451", null ],
     [ "draw", "class_app_compass.html#a94e74af29d8ebcc9d7de0879ed94e540", null ],
     [ "draw_icon", "class_app_compass.html#ab6a82cec74937c780c78d978891de9da", null ],
     [ "drawCompass", "class_app_compass.html#a2e1ec53ba887b0340f2441318e2979cf", null ],

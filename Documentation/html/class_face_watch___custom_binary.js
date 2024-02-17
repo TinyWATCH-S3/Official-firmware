@@ -1,8 +1,8 @@
 var class_face_watch___custom_binary =
 [
-    [ "click", "class_face_watch___custom_binary.html#a9eac06ac47f9968e836f16b3e2763750", null ],
-    [ "click_double", "class_face_watch___custom_binary.html#ac3440c61ae9fee73fe5bda554940c20c", null ],
-    [ "click_long", "class_face_watch___custom_binary.html#aea6972f99d126f134db5d2ea683ff081", null ],
+    [ "click", "class_face_watch___custom_binary.html#a4533c068c31247c3f3836c4b51ade7a0", null ],
+    [ "click_double", "class_face_watch___custom_binary.html#a70f20d55b52ef5b8a68b616163d0b962", null ],
+    [ "click_long", "class_face_watch___custom_binary.html#a22ba7fb6613a7f4b27827bf643ed2e4c", null ],
     [ "draw", "class_face_watch___custom_binary.html#aee537cc94752e2dd8c5e9ae764e1b967", null ],
     [ "setup", "class_face_watch___custom_binary.html#afc50a8ddb8202f21237cd46fe24b4673", null ],
     [ "day", "class_face_watch___custom_binary.html#aff87a4af52e3f0bcda444b3feda8a963", null ],

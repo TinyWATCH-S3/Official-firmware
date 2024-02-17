@@ -17,9 +17,9 @@ class tw_face
 		void set_single_navigation(Directions dir, tw_face *face);
 		// tw_face * changeFace(Directions dir);
 		void add_widget(tw_widget *widget);
-		bool widget_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool widget_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y);
 		void add_control(tw_control *control);
-		bool control_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool control_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y);
 		bool is_face_clock_face();
 
 		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
@@ -32,8 +32,9 @@ class tw_face
 		bool drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_t distance, int16_t t_pos_x, int16_t t_pos_y, int16_t last_dir_x, int16_t last_dir_y);
 		int drag_dir = -1;
 		void reset_can_swipe_flags();
-		int check_can_swipe();
+		int check_can_drag_in_dir();
 		void prevent_dragging(bool state);
+		bool is_drag_blocked();
 
 		// graphics caching
 		void reset_cache_status();
@@ -46,16 +47,17 @@ class tw_face
 		uint16_t get_control_height();
 
 		// control dragging
-		tw_control *find_draggable_control(int16_t touch_pos_x, int16_t touch_pos_y);
+		tw_control *find_draggable_control(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
 		String name = "";
 
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-		virtual bool click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
-		virtual bool click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
-		virtual bool click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+		virtual bool swipe(uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
 
@@ -73,7 +75,7 @@ class tw_face
 		bool drag_lock_y = false;
 		bool is_dragging = false;
 		bool is_cached = false;
-		bool can_swipe_dir[4] = {false, false, false, false};
+		bool can_drag_dir[4] = {false, false, false, false};
 		int16_t drag_start_x = 0;
 		int16_t drag_start_y = 0;
 		int16_t _x = 0;

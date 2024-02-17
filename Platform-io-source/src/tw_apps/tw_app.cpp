@@ -82,7 +82,7 @@ void tw_app::close(bool save)
  * @return true
  * @return false
  */
-bool tw_app::click_icon(int16_t touch_pos_x, int16_t touch_pos_y)
+bool tw_app::click_icon(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	if ((touch_pos_x >= icon_x && touch_pos_x <= icon_x + icon_width) && (touch_pos_y >= icon_y && touch_pos_y <= icon_y + icon_height))
 		return true;

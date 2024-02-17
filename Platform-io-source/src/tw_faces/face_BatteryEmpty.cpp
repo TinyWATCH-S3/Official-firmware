@@ -45,10 +45,10 @@ void FaceBatteryEmpty::draw(bool force)
 	}
 }
 
-bool FaceBatteryEmpty::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceBatteryEmpty::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool FaceBatteryEmpty::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceBatteryEmpty::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool FaceBatteryEmpty::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceBatteryEmpty::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 FaceBatteryEmpty face_batteryempty;

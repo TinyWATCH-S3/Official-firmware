@@ -12,7 +12,7 @@ class tw_widget
 
 		void create(String _name, uint _pos_x, uint _pos_y, uint _width, uint _height, uint _update_period);
 		void set_parent(tw_face *_parent);
-		bool bounds_check(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y);
 		uint get_height();
 		void draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
 

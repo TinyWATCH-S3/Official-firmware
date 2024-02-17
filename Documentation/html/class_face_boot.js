@@ -1,8 +1,8 @@
 var class_face_boot =
 [
-    [ "click", "class_face_boot.html#ad3be4299a0f2dbdc62a4a6630c3875e6", null ],
-    [ "click_double", "class_face_boot.html#a00d2c31fbb20aedf2396cf2cfddb23a3", null ],
-    [ "click_long", "class_face_boot.html#aba2bd5d39a9a70d59e6b6b9a4531a253", null ],
+    [ "click", "class_face_boot.html#a044b62f3a3f73005d33bfd01ca33e633", null ],
+    [ "click_double", "class_face_boot.html#a74e29188f513c333a63d992d4042a3f0", null ],
+    [ "click_long", "class_face_boot.html#a9cefae6efb979d6469f4a92afb18cb55", null ],
     [ "draw", "class_face_boot.html#a00abcad60b42d5b60f37f4435ac25bbf", null ],
     [ "setup", "class_face_boot.html#a81fdd1a39724a48a117ca808f427f9a4", null ],
     [ "update_wifisetup_status", "class_face_boot.html#a44a46fe2faa8de0071bdd6a0755f4fd4", null ],

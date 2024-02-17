@@ -11,8 +11,8 @@ class ControlValue : public tw_control
 		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
 		bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
-		bool buttons_check_left(int16_t touch_pos_x, int16_t touch_pos_y);
-		bool buttons_check_right(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool buttons_check_left(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool buttons_check_right(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
 		void set_data(SettingsOptionInt *sett);
 

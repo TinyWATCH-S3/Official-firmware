@@ -414,6 +414,8 @@ void Display::process_touch()
 	Directions _dir = NONE;
 	Directions swipe_dir = NONE;
 
+	uint8_t move_margin_for_drag = 5;
+
 	if (touchpad.available(settings.config.flipped))
 	{
 		tinywatch.set_cpu_frequency(current_face->get_cpu_speed(), CPU_CHANGE_HIGH);
@@ -454,7 +456,7 @@ void Display::process_touch()
 
 			last_touch = millis();
 
-			if (abs(deltaX) > 5 || abs(deltaY) > 5)
+			if ((abs(deltaX) > move_margin_for_drag || abs(deltaY) > move_margin_for_drag))
 			{
 				current_face->drag(deltaX, deltaY, moved_much_x, moved_much_y, touchpad.x, touchpad.y, true);
 				prevent_long_press = true;
@@ -485,6 +487,28 @@ void Display::process_touch()
 
 			deltaX = touchpad.x - startX;
 			deltaY = touchpad.y - startY;
+
+			uint16_t deltaX_abs = abs(deltaX);
+			uint16_t deltaY_abs = abs(deltaY);
+
+			// info_printf("drag: %d, deltaX: %d, deltaY: %d, time: %d\n", current_face->drag_dir, deltaX, deltaY, (last_touch - touchTime));
+
+			// If the current face is blocked from dragging, it's likely because of an app, so if teh distance from first touch to last is enough to suggest a swipe, pass a swipe to the current face for the app to get
+			if (current_face->is_drag_blocked() && (deltaX_abs > 25 || deltaY_abs > 25))
+			{
+				// info_println("Sending swipe");
+				// Calculate swipe dir to pass on
+				int8_t dir = -1;
+				if (deltaY_abs > deltaX_abs)
+					dir = (deltaY < 0) ? 0 : 2;
+				else
+					dir = (deltaX > 0) ? 1 : 3;
+
+				if (current_face->swipe(touchpad.x, touchpad.y, dir, deltaX, deltaY))
+				{
+					return;
+				}
+			}
 
 			// If no drag direction was selected and the delta from first touch to last is small enough to suggest a click, process a click or long click
 			if (current_face->drag_dir == -1 && (abs(deltaX) < 5 && abs(deltaY) < 5))

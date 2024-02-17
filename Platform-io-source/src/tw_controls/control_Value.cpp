@@ -100,7 +100,7 @@ bool ControlValue::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { re
 
 bool ControlValue::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool ControlValue::buttons_check_left(int16_t touch_pos_x, int16_t touch_pos_y)
+bool ControlValue::buttons_check_left(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	int max_x = 240;
@@ -121,7 +121,7 @@ bool ControlValue::buttons_check_left(int16_t touch_pos_x, int16_t touch_pos_y)
 	return (in_x && in_y);
 }
 
-bool ControlValue::buttons_check_right(int16_t touch_pos_x, int16_t touch_pos_y)
+bool ControlValue::buttons_check_right(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	int max_x = 240;

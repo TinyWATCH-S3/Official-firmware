@@ -41,10 +41,10 @@ void FaceEmpty::draw(bool force)
 	}
 }
 
-bool FaceEmpty::click(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceEmpty::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool FaceEmpty::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceEmpty::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool FaceEmpty::click_long(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceEmpty::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 FaceEmpty face_empty;

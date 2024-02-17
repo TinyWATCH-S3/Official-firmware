@@ -285,7 +285,7 @@ void FaceWatch_CustomWindows::draw(bool force)
 	}
 }
 
-bool FaceWatch_CustomWindows::click(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceWatch_CustomWindows::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
 	show_toolbars = !show_toolbars; // Turn the toolbar on and off
@@ -294,7 +294,7 @@ bool FaceWatch_CustomWindows::click(int16_t touch_pos_x, int16_t touch_pos_y)
 	return true;
 }
 
-bool FaceWatch_CustomWindows::click_double(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceWatch_CustomWindows::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	display.cycle_clock_face();
 
@@ -303,7 +303,7 @@ bool FaceWatch_CustomWindows::click_double(int16_t touch_pos_x, int16_t touch_po
 	return true;
 }
 
-bool FaceWatch_CustomWindows::click_long(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceWatch_CustomWindows::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	// info_println("LOOOONG!");
 	// TODO: Add display of watch specific settings here when the user long presses

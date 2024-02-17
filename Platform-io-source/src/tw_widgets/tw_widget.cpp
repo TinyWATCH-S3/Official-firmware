@@ -33,7 +33,7 @@ void tw_widget::create(String _name, uint _pos_x, uint _pos_y, uint _width, uint
 
 void tw_widget::set_parent(tw_face *_parent) { parent = _parent; }
 
-bool tw_widget::bounds_check(int16_t touch_pos_x, int16_t touch_pos_y)
+bool tw_widget::bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	bool in_x = (touch_pos_x >= bounds_x[0] && touch_pos_x <= bounds_x[1]);
 	bool in_y = (touch_pos_y >= bounds_y[0] && touch_pos_y <= bounds_y[1]);

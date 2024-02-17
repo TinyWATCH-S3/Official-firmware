@@ -20,7 +20,7 @@ void FaceAppList::setup()
 
 void FaceAppList::add_app(tw_app *app) { app_icons[app->name] = app; }
 
-bool FaceAppList::icon_process_clicks(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceAppList::icon_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	for (auto _app : app_icons)
 	{
@@ -110,7 +110,7 @@ void FaceAppList::draw(bool force)
 	}
 }
 
-bool FaceAppList::click(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceAppList::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	if (current_app != nullptr)
 	{
@@ -127,15 +127,36 @@ bool FaceAppList::click(int16_t touch_pos_x, int16_t touch_pos_y)
 	return false;
 }
 
-bool FaceAppList::click_double(int16_t touch_pos_x, int16_t touch_pos_y) { return false; }
+bool FaceAppList::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
-bool FaceAppList::click_long(int16_t touch_pos_x, int16_t touch_pos_y)
+bool FaceAppList::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	if (current_app != nullptr)
 	{
 		BuzzerUI({{2000, 400}});
 		close_app();
 		return true;
+	}
+	return false;
+}
+
+/**
+ * @brief Capture swipe notification to pass on to an app
+ *
+ * @param touch_pos_x Swipe start touch X pos
+ * @param touch_pos_y Swipe start touch X pos
+ * @param swipe_dir Swipe direction
+ * @param dist_x Signed swipe X distance
+ * @param dist_y Signed swipe Y distance
+ * @return true
+ * @return false
+ */
+bool FaceAppList::swipe(uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)
+{
+	if (current_app != nullptr)
+	{
+		if (current_app->swipe(touch_pos_x, touch_pos_y, swipe_dir, dist_x, dist_y))
+			return true;
 	}
 	return false;
 }

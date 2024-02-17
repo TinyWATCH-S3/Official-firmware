@@ -56,7 +56,7 @@ void tw_control::set_values(String _option1, String _option2)
 
 void tw_control::set_parent(tw_face *_parent) { parent = _parent; }
 
-bool tw_control::bounds_check(int16_t touch_pos_x, int16_t touch_pos_y)
+bool tw_control::bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	int min_x, min_y = 0;
 	if (pos_x - padding_x > 0)
@@ -96,7 +96,7 @@ void tw_control::set_scrollable(bool scroll_x, bool scroll_y)
 	can_scroll_y = scroll_y;
 }
 
-bool tw_control::can_drag(int16_t touch_pos_x, int16_t touch_pos_y)
+bool tw_control::can_drag(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	if (bounds_check(touch_pos_x, touch_pos_y))
 	{

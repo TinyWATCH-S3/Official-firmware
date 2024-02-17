@@ -1,7 +1,7 @@
 var class_control_value =
 [
-    [ "buttons_check_left", "class_control_value.html#a3a78f1f17ae54a3c9dd261ef627f5076", null ],
-    [ "buttons_check_right", "class_control_value.html#a208edd26183d5581ff74df355c7d477c", null ],
+    [ "buttons_check_left", "class_control_value.html#a4eed92eab5880e7eab009e63d043db9a", null ],
+    [ "buttons_check_right", "class_control_value.html#a660c9de8ccf2cc5df6031be3b3121d75", null ],
     [ "click", "class_control_value.html#a579f61fef3ef469addbad4d796dee0a3", null ],
     [ "click_double", "class_control_value.html#a4e6be91cb2b61eb55e5860b9676adaf8", null ],
     [ "click_long", "class_control_value.html#ab25d60a46ff1cd8b77cac4fe638ec058", null ],

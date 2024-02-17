@@ -8,9 +8,9 @@ class FaceBoot : public tw_face
 	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(int16_t touch_pos_x, int16_t touch_pos_y);
-		bool click_double(int16_t touch_pos_x, int16_t touch_pos_y);
-		bool click_long(int16_t touch_pos_x, int16_t touch_pos_y);
+		bool click(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
 		void wifi_connect_status(wifi_states status);
 		void update_wifisetup_status(String txt, uint32_t color);

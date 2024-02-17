@@ -84,5 +84,6 @@ var searchData=
   ['stop_81',['stop',['../class_web_server.html#a09e0bc35886a3088dec9e459eb99092d',1,'WebServer::stop()'],['../class_wifi_setup.html#a0a49f4ecb83b6ec896d543eee042aaf0',1,'WifiSetup::stop()']]],
   ['structure_20concepts_82',['Code Structure &amp; Concepts',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html',1,'']]],
   ['style_83',['Coding Style',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md7',1,'']]],
-  ['success_84',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]]
+  ['success_84',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]],
+  ['swipe_85',['swipe',['../class_app_empty.html#a7b996f8e082ca8b95071c3203eafba7e',1,'AppEmpty::swipe()'],['../classtw__app.html#a15a6ec10f08afab2a3cf4ea5c41524ea',1,'tw_app::swipe()'],['../class_face_app_list.html#a56e21b3c683047d02a44114a26e4f526',1,'FaceAppList::swipe()'],['../classtw__face.html#a6065ddf43a54949f24da6a662faa06b1',1,'tw_face::swipe()']]]
 ];
