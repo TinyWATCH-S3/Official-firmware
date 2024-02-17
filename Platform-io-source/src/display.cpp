@@ -464,7 +464,10 @@ void Display::process_touch()
 			else if (!prevent_long_press && last_touch - touchTime > 600)
 			{
 				// might be a long click?
-				if (current_face->click_long(touchpad.x, touchpad.y))
+				// if (current_face->click_long(touchpad.x, touchpad.y))
+
+				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_LONG);
+				if (current_face->process_touch(touch_data))
 				{
 					BuzzerUI({{2000, 400}});
 					// isTouched = false;
@@ -504,7 +507,10 @@ void Display::process_touch()
 				else
 					dir = (deltaX > 0) ? 1 : 3;
 
-				if (current_face->swipe(touchpad.x, touchpad.y, dir, deltaX, deltaY))
+				// 	if (current_face->swipe(touchpad.x, touchpad.y, dir, deltaX, deltaY))
+
+				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_SWIPE, dir, deltaX, deltaY);
+				if (current_face->process_touch(touch_data))
 				{
 					return;
 				}
@@ -523,7 +529,10 @@ void Display::process_touch()
 					dbl_touch[1] = 0;
 
 					last_was_click = false;
-					if (current_face->click_double(touchpad.x, touchpad.y))
+					// if (current_face->click_double(touchpad.x, touchpad.y))
+
+					touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_DOUBLE);
+					if (current_face->process_touch(touch_data))
 					{
 						BuzzerUI({
 							{2000, 40},
@@ -586,6 +595,9 @@ void Display::process_touch()
 	if (millis() - last_touch > 150 && last_was_click)
 	{
 		last_was_click = false;
+
+		touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_TAP);
+
 		// A click should only happen if the finger didn't drag - much
 		if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
 		{
@@ -595,7 +607,8 @@ void Display::process_touch()
 		{
 			BuzzerUI({{2000, 10}});
 		}
-		else if (current_face->click(touchpad.x, touchpad.y))
+		// else if (current_face->click(touchpad.x, touchpad.y))
+		else if (current_face->process_touch(touch_data))
 		{
 			BuzzerUI({{2000, 20}});
 		}
@@ -612,7 +625,7 @@ void Display::process_touch()
 			set_backlight(backlight_level, false);
 			info_println("Setting backlight level: " + String(backlight_level));
 		}
-		else if (!tinywatch.vbus_present() || true)
+		else if (!tinywatch.vbus_present())
 		{
 			tinywatch.go_to_sleep();
 		}

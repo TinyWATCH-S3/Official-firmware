@@ -66,10 +66,6 @@ void AppCompass::draw(bool force)
 	}
 }
 
-bool AppCompass::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool AppCompass::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
 void AppCompass::drawCompass(int x, int y, int angle)
 {
 	canvas[canvasid].setFreeFont(RobotoMono_Regular[12]);
@@ -118,5 +114,7 @@ void AppCompass::getCoord(int x, int y, int *xp, int *yp, int r, int a)
 	*xp = sx1 * r + x;
 	*yp = sy1 * r + y;
 }
+
+bool AppCompass::process_touch(touch_event_t touch_event) { return false; }
 
 AppCompass app_compass;

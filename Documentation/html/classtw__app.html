@@ -143,12 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aac3219a95c9f0b26a6f4226ba2bc9bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af52944199ec0fcedf5a0d10dd2b3cda3" id="r_af52944199ec0fcedf5a0d10dd2b3cda3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af52944199ec0fcedf5a0d10dd2b3cda3">draw_icon</a> (uint8_t <a class="el" href="#a04c670bd2957f5fa24a97d6ae06f9831">canvasid</a>, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)=0</td></tr>
 <tr class="separator:af52944199ec0fcedf5a0d10dd2b3cda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5a5e5718113ee62cbaa36bfea0f9099" id="r_ae5a5e5718113ee62cbaa36bfea0f9099"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5a5e5718113ee62cbaa36bfea0f9099">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:ae5a5e5718113ee62cbaa36bfea0f9099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9b6ac2cb42b944c79f0265277671619" id="r_ab9b6ac2cb42b944c79f0265277671619"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9b6ac2cb42b944c79f0265277671619">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:ab9b6ac2cb42b944c79f0265277671619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a6ec10f08afab2a3cf4ea5c41524ea" id="r_a15a6ec10f08afab2a3cf4ea5c41524ea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15a6ec10f08afab2a3cf4ea5c41524ea">swipe</a> (uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)</td></tr>
-<tr class="separator:a15a6ec10f08afab2a3cf4ea5c41524ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d8e2a58b7b9b742584be3735c5d99dd" id="r_a8d8e2a58b7b9b742584be3735c5d99dd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d8e2a58b7b9b742584be3735c5d99dd">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:a8d8e2a58b7b9b742584be3735c5d99dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -301,68 +297,6 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ae5a5e5718113ee62cbaa36bfea0f9099" name="ae5a5e5718113ee62cbaa36bfea0f9099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5a5e5718113ee62cbaa36bfea0f9099">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool tw_app::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_app_compass.html#ae43833db4e0db12ef0486b7cd77d8772">AppCompass</a>, <a class="el" href="class_app_empty.html#a22c0c91483e898523bb53c0513636e4a">AppEmpty</a>, and <a class="el" href="class_app_microphone.html#ac35990432fee319feb488b4bbb3d8981">AppMicrophone</a>.</p>
-
-</div>
-</div>
-<a id="ab9b6ac2cb42b944c79f0265277671619" name="ab9b6ac2cb42b944c79f0265277671619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9b6ac2cb42b944c79f0265277671619">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool tw_app::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_app_compass.html#aea45e78b1599aba9f61626edf5fc1451">AppCompass</a>, <a class="el" href="class_app_empty.html#a98a8a2b5ef556367c20ff34db5ae6ff5">AppEmpty</a>, and <a class="el" href="class_app_microphone.html#ad21ef183b6992b128641b62ec7d9931d">AppMicrophone</a>.</p>
 
 </div>
 </div>
@@ -551,6 +485,33 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="a8d8e2a58b7b9b742584be3735c5d99dd" name="a8d8e2a58b7b9b742584be3735c5d99dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d8e2a58b7b9b742584be3735c5d99dd">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool tw_app::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_app_compass.html#a2262794bd0d7f653b242c5535c6a3fa1">AppCompass</a>, <a class="el" href="class_app_empty.html#aaf725e4809aa0dd206fd151aa8b9608f">AppEmpty</a>, and <a class="el" href="class_app_microphone.html#a0537012f542d6f656a4c9ee6e2fc3a38">AppMicrophone</a>.</p>
+
+</div>
+</div>
 <a id="a5cf0211251f14dd57c0f575c4ac2ec04" name="a5cf0211251f14dd57c0f575c4ac2ec04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5cf0211251f14dd57c0f575c4ac2ec04">&#9670;&#160;</a></span>set_canvas()</h2>
 
@@ -573,52 +534,6 @@ false </dd></dl>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a15a6ec10f08afab2a3cf4ea5c41524ea" name="a15a6ec10f08afab2a3cf4ea5c41524ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a6ec10f08afab2a3cf4ea5c41524ea">&#9670;&#160;</a></span>swipe()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool tw_app::swipe </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>swipe_dir</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>dist_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>dist_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="class_app_empty.html#a7b996f8e082ca8b95071c3203eafba7e">AppEmpty</a>.</p>
 
 </div>
 </div>

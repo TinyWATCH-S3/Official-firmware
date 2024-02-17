@@ -1,13 +1,12 @@
 var class_app_microphone =
 [
-    [ "click", "class_app_microphone.html#ac35990432fee319feb488b4bbb3d8981", null ],
-    [ "click_double", "class_app_microphone.html#ad21ef183b6992b128641b62ec7d9931d", null ],
     [ "do_fft_calcs", "class_app_microphone.html#a1ae20553e83be4534241100eaa56c243", null ],
     [ "do_waveform_calcs", "class_app_microphone.html#af21c9e10dd5f781358eb28606b32c4a3", null ],
     [ "draw", "class_app_microphone.html#af062de6d4e4191d30579caa2cba9dd71", null ],
     [ "draw_icon", "class_app_microphone.html#a4f7c9b8e5e9ac7eacc8e9e228eddfd67", null ],
     [ "fill_arc", "class_app_microphone.html#a78629ec2c830bb67f5d856bc164ab8f2", null ],
     [ "pre_start", "class_app_microphone.html#a3374361517cde1ec48c3066180fefd7e", null ],
+    [ "process_touch", "class_app_microphone.html#a0537012f542d6f656a4c9ee6e2fc3a38", null ],
     [ "setup", "class_app_microphone.html#a2868dcbeec275ac0c25414d3f51af90d", null ],
     [ "amplitude", "class_app_microphone.html#a34296732c7ef9f157ffa284addc6f862", null ],
     [ "bands", "class_app_microphone.html#aa0bd025d264e71a201f8d296331ca927", null ],

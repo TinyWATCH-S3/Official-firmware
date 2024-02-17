@@ -118,15 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d2f170343bb08f3141162c93b0d77a6" id="r_a2d2f170343bb08f3141162c93b0d77a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d2f170343bb08f3141162c93b0d77a6">draw</a> (bool force)</td></tr>
 <tr class="memdesc:a2d2f170343bb08f3141162c93b0d77a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the Face.  <br /></td></tr>
 <tr class="separator:a2d2f170343bb08f3141162c93b0d77a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb8d64f0fe87289980c2c4b0996ba7d6" id="r_abb8d64f0fe87289980c2c4b0996ba7d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb8d64f0fe87289980c2c4b0996ba7d6">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:abb8d64f0fe87289980c2c4b0996ba7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f644fbac70cd917b5cacd09708efcab" id="r_a8f644fbac70cd917b5cacd09708efcab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f644fbac70cd917b5cacd09708efcab">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a8f644fbac70cd917b5cacd09708efcab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0d73c359b84260d197b7dc83ac37f4e" id="r_ab0d73c359b84260d197b7dc83ac37f4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0d73c359b84260d197b7dc83ac37f4e">click_long</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:ab0d73c359b84260d197b7dc83ac37f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56e21b3c683047d02a44114a26e4f526" id="r_a56e21b3c683047d02a44114a26e4f526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e21b3c683047d02a44114a26e4f526">swipe</a> (uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)</td></tr>
-<tr class="memdesc:a56e21b3c683047d02a44114a26e4f526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture swipe notification to pass on to an app.  <br /></td></tr>
-<tr class="separator:a56e21b3c683047d02a44114a26e4f526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d44b03dd09f2618bbc226db4ac3f4b" id="r_a16d44b03dd09f2618bbc226db4ac3f4b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16d44b03dd09f2618bbc226db4ac3f4b">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:a16d44b03dd09f2618bbc226db4ac3f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad35c3e688b0dbecfd0b52e1548c78766" id="r_ad35c3e688b0dbecfd0b52e1548c78766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad35c3e688b0dbecfd0b52e1548c78766">add_app</a> (<a class="el" href="classtw__app.html">tw_app</a> *app)</td></tr>
 <tr class="separator:ad35c3e688b0dbecfd0b52e1548c78766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5cb0a1049b3b8ecf8d30163b2fc83e5" id="r_ae5cb0a1049b3b8ecf8d30163b2fc83e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5cb0a1049b3b8ecf8d30163b2fc83e5">icon_process_clicks</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
@@ -331,99 +324,6 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="abb8d64f0fe87289980c2c4b0996ba7d6" name="abb8d64f0fe87289980c2c4b0996ba7d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb8d64f0fe87289980c2c4b0996ba7d6">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FaceAppList::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__face.html#a98993b862dd06ff35010b47be38d63e2">tw_face</a>.</p>
-
-</div>
-</div>
-<a id="a8f644fbac70cd917b5cacd09708efcab" name="a8f644fbac70cd917b5cacd09708efcab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f644fbac70cd917b5cacd09708efcab">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FaceAppList::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__face.html#a2a06705a81eb1cf7525b39c14e9ec08a">tw_face</a>.</p>
-
-</div>
-</div>
-<a id="ab0d73c359b84260d197b7dc83ac37f4e" name="ab0d73c359b84260d197b7dc83ac37f4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0d73c359b84260d197b7dc83ac37f4e">&#9670;&#160;</a></span>click_long()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FaceAppList::click_long </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__face.html#ac070ffd65caf1c502db7080c3765f827">tw_face</a>.</p>
-
-</div>
-</div>
 <a id="a3fe897b2d4d6ff06bf8c5f1407943d86" name="a3fe897b2d4d6ff06bf8c5f1407943d86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3fe897b2d4d6ff06bf8c5f1407943d86">&#9670;&#160;</a></span>close_app()</h2>
 
@@ -497,6 +397,33 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="a16d44b03dd09f2618bbc226db4ac3f4b" name="a16d44b03dd09f2618bbc226db4ac3f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d44b03dd09f2618bbc226db4ac3f4b">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceAppList::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classtw__face.html#af96d3d5dcefa346fa990cb107b34a988">tw_face</a>.</p>
+
+</div>
+</div>
 <a id="a07cffb361f5c8cae6fc1db32f195e4e4" name="a07cffb361f5c8cae6fc1db32f195e4e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07cffb361f5c8cae6fc1db32f195e4e4">&#9670;&#160;</a></span>setup()</h2>
 
@@ -521,67 +448,6 @@ false </dd></dl>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classtw__face.html#ac5a401fc14f372f82330ea72fb619fea">tw_face</a>.</p>
-
-</div>
-</div>
-<a id="a56e21b3c683047d02a44114a26e4f526" name="a56e21b3c683047d02a44114a26e4f526"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56e21b3c683047d02a44114a26e4f526">&#9670;&#160;</a></span>swipe()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FaceAppList::swipe </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int8_t</td>          <td class="paramname"><span class="paramname"><em>swipe_dir</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>dist_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>dist_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Capture swipe notification to pass on to an app. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">touch_pos_x</td><td>Swipe start touch X pos </td></tr>
-    <tr><td class="paramname">touch_pos_y</td><td>Swipe start touch X pos </td></tr>
-    <tr><td class="paramname">swipe_dir</td><td>Swipe direction </td></tr>
-    <tr><td class="paramname">dist_x</td><td>Signed swipe X distance </td></tr>
-    <tr><td class="paramname">dist_y</td><td>Signed swipe Y distance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-
-<p>Reimplemented from <a class="el" href="classtw__face.html#a6065ddf43a54949f24da6a662faa06b1">tw_face</a>.</p>
 
 </div>
 </div>

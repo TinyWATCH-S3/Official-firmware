@@ -1,12 +1,11 @@
 var class_app_compass =
 [
-    [ "click", "class_app_compass.html#ae43833db4e0db12ef0486b7cd77d8772", null ],
-    [ "click_double", "class_app_compass.html#aea45e78b1599aba9f61626edf5fc1451", null ],
     [ "draw", "class_app_compass.html#a94e74af29d8ebcc9d7de0879ed94e540", null ],
     [ "draw_icon", "class_app_compass.html#ab6a82cec74937c780c78d978891de9da", null ],
     [ "drawCompass", "class_app_compass.html#a2e1ec53ba887b0340f2441318e2979cf", null ],
     [ "getCoord", "class_app_compass.html#ad22a2ab973d0fc837d085828f21d5018", null ],
     [ "pre_start", "class_app_compass.html#a986e77e6e2d11ce4e1e749a214562680", null ],
+    [ "process_touch", "class_app_compass.html#a2262794bd0d7f653b242c5535c6a3fa1", null ],
     [ "setup", "class_app_compass.html#a47f01e5086ac3471288e7c14dded2e66", null ],
     [ "angle", "class_app_compass.html#a3579e2c96a5534b151af35752ac09292", null ],
     [ "dt", "class_app_compass.html#ad36e7d5b3194f5bf77b0b416f0b61283", null ],

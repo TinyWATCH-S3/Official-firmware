@@ -1,10 +1,8 @@
 var class_face_watch___default_analog =
 [
-    [ "click", "class_face_watch___default_analog.html#aa528f7256a043b2015f656109dcddf20", null ],
-    [ "click_double", "class_face_watch___default_analog.html#a5a6562acb195670874305a8c004b5749", null ],
-    [ "click_long", "class_face_watch___default_analog.html#ab1ca621df3e401242ae6d904862ebe00", null ],
     [ "draw", "class_face_watch___default_analog.html#a886d433ac3799b47e40117631e54585e", null ],
     [ "draw_hand", "class_face_watch___default_analog.html#ac400f3309f38db503a21962ff53daeef", null ],
+    [ "process_touch", "class_face_watch___default_analog.html#af9c3ffbbcd09041bfdb60791f2f84d30", null ],
     [ "setup", "class_face_watch___default_analog.html#a5d0ecadf04c235651b607116d9b57fc7", null ],
     [ "setup_trig", "class_face_watch___default_analog.html#a52587281880332f0e5719f5ffe227f24", null ],
     [ "cachedTrig", "class_face_watch___default_analog.html#a738d58d186c262505ec6b17becce1581", null ],

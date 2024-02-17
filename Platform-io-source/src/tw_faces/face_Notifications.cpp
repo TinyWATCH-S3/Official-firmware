@@ -77,16 +77,16 @@ void FaceNotifications::draw(bool force)
 	}
 }
 
-bool FaceNotifications::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceNotifications::process_touch(touch_event_t touch_event)
 {
-	pop_message();
-	draw(true);
-	return true;
+	if (touch_event.type == TOUCH_TAP)
+	{
+		pop_message();
+		draw(true);
+		return true;
+	}
+	return false;
 }
-
-bool FaceNotifications::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool FaceNotifications::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 void FaceNotifications::add_message(String message)
 {

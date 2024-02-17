@@ -142,59 +142,49 @@ void FaceAppList::draw(bool force)
 	}
 }
 
-bool FaceAppList::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceAppList::process_touch(touch_event_t touch_event)
 {
-	if (current_app != nullptr)
+	if (touch_event.type == TOUCH_TAP)
 	{
+		if (current_app != nullptr)
+		{
+			bool was_clicked = (current_app->process_touch(touch_event));
+			// info_printf("Clicked app %s result %d\n",current_app->name, was_clicked);
+			return (was_clicked);
+		}
 
-		bool was_clicked = (current_app->click(touch_pos_x, touch_pos_y));
-		// info_printf("Clicked app %s result %d\n",current_app->name, was_clicked);
-		return (was_clicked);
-	}
-
-	if (icon_process_clicks(touch_pos_x, touch_pos_y))
-	{
-		animate_app_in();
-		return true;
-	}
-	return false;
-}
-
-bool FaceAppList::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool FaceAppList::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	if (current_app != nullptr)
-	{
-		display.set_backlight_val_direct(0);
-		BuzzerUI({{2000, 400}});
-		while (display.get_current_backlight_val() > 0)
-			yield;
-
-		close_app();
-		return true;
-	}
-	return false;
-}
-
-/**
- * @brief Capture swipe notification to pass on to an app
- *
- * @param touch_pos_x Swipe start touch X pos
- * @param touch_pos_y Swipe start touch X pos
- * @param swipe_dir Swipe direction
- * @param dist_x Signed swipe X distance
- * @param dist_y Signed swipe Y distance
- * @return true
- * @return false
- */
-bool FaceAppList::swipe(uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)
-{
-	if (current_app != nullptr)
-	{
-		if (current_app->swipe(touch_pos_x, touch_pos_y, swipe_dir, dist_x, dist_y))
+		if (icon_process_clicks(touch_event.x, touch_event.y))
+		{
+			animate_app_in();
 			return true;
+		}
 	}
+	else if (touch_event.type == TOUCH_DOUBLE)
+	{
+		//
+	}
+	else if (touch_event.type == TOUCH_LONG)
+	{
+		if (current_app != nullptr)
+		{
+			display.set_backlight_val_direct(0);
+			BuzzerUI({{2000, 400}});
+			while (display.get_current_backlight_val() > 0)
+				yield;
+
+			close_app();
+			return true;
+		}
+	}
+	else if (touch_event.type == TOUCH_SWIPE)
+	{
+		if (current_app != nullptr)
+		{
+			if (current_app->process_touch(touch_event))
+				return true;
+		}
+	}
+
 	return false;
 }
 

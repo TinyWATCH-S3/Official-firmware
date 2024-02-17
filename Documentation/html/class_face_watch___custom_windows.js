@@ -1,14 +1,12 @@
 var class_face_watch___custom_windows =
 [
     [ "WindowsClockSettings", "struct_face_watch___custom_windows_1_1_windows_clock_settings.html", "struct_face_watch___custom_windows_1_1_windows_clock_settings" ],
-    [ "click", "class_face_watch___custom_windows.html#ab116c391cf793692466c46e14d15f7b3", null ],
-    [ "click_double", "class_face_watch___custom_windows.html#a124aacea645af359005a904843c12004", null ],
-    [ "click_long", "class_face_watch___custom_windows.html#abac2191aa054a35dabb66f401da19d3c", null ],
     [ "draw", "class_face_watch___custom_windows.html#ae9b4b5161c30d7242751168aabd606de", null ],
     [ "draw_batteryicon", "class_face_watch___custom_windows.html#aa3039289556d9e97da1e9273fe3e5cce", null ],
     [ "draw_hand", "class_face_watch___custom_windows.html#a6189c834eb35491eaf8933430fc344bb", null ],
     [ "draw_window", "class_face_watch___custom_windows.html#a98190da8e2ad05f548397ac5ab2bc9f1", null ],
     [ "draw_window_objects", "class_face_watch___custom_windows.html#aae73995896dbe14c397afed6e9872b16", null ],
+    [ "process_touch", "class_face_watch___custom_windows.html#a4ce1e3d81c64f33335194a3079692ba5", null ],
     [ "setup", "class_face_watch___custom_windows.html#a2dc7d78cc037eaf6624ad31b1e1ab5f6", null ],
     [ "setup_trig", "class_face_watch___custom_windows.html#acbe9f4c5c9589be7153cf51fc2d01cfd", null ],
     [ "bat_perc", "class_face_watch___custom_windows.html#abd52c30d8ad87b813807b12db18b579e", null ],

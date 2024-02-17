@@ -10,5 +10,6 @@ var searchData=
   ['tinywatch_7',['tinywatch',['../tinywatch_8cpp.html#a437b1c89d4217409faacb3cfe1a49a08',1,'tinywatch:&#160;tinywatch.cpp'],['../tinywatch_8h.html#a437b1c89d4217409faacb3cfe1a49a08',1,'tinywatch:&#160;tinywatch.cpp']]],
   ['tmp_5ffilename_8',['tmp_filename',['../class_activity.html#a218a8407a46e4170bb08c1ed97ba03db',1,'Activity::tmp_filename'],['../class_settings.html#a11318b2647ea7d36db2185fc652c2c8a',1,'Settings::tmp_filename']]],
   ['topic_9',['topic',['../struct_config__mqtt.html#a236e6351d75e096abff3f2f39ec58311',1,'Config_mqtt']]],
-  ['touchtime_10',['touchTime',['../display_8cpp.html#aa0b58ff066c020587b279e2ade0ccce9',1,'display.cpp']]]
+  ['touchtime_10',['touchTime',['../display_8cpp.html#aa0b58ff066c020587b279e2ade0ccce9',1,'display.cpp']]],
+  ['type_11',['type',['../structtouch__event__t.html#a69cd1df84c92983b09e6f8cee7cc6403',1,'touch_event_t']]]
 ];

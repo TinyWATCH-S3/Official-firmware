@@ -123,10 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6a82cec74937c780c78d978891de9da" id="r_ab6a82cec74937c780c78d978891de9da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6a82cec74937c780c78d978891de9da">draw_icon</a> (uint8_t <a class="el" href="classtw__app.html#a04c670bd2957f5fa24a97d6ae06f9831">canvasid</a>, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
 <tr class="memdesc:ab6a82cec74937c780c78d978891de9da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the icon that gets shown on the app menu face.  <br /></td></tr>
 <tr class="separator:ab6a82cec74937c780c78d978891de9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae43833db4e0db12ef0486b7cd77d8772" id="r_ae43833db4e0db12ef0486b7cd77d8772"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae43833db4e0db12ef0486b7cd77d8772">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:ae43833db4e0db12ef0486b7cd77d8772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea45e78b1599aba9f61626edf5fc1451" id="r_aea45e78b1599aba9f61626edf5fc1451"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea45e78b1599aba9f61626edf5fc1451">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:aea45e78b1599aba9f61626edf5fc1451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2262794bd0d7f653b242c5535c6a3fa1" id="r_a2262794bd0d7f653b242c5535c6a3fa1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2262794bd0d7f653b242c5535c6a3fa1">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:a2262794bd0d7f653b242c5535c6a3fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e1ec53ba887b0340f2441318e2979cf" id="r_a2e1ec53ba887b0340f2441318e2979cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e1ec53ba887b0340f2441318e2979cf">drawCompass</a> (int x, int y, int <a class="el" href="#a3579e2c96a5534b151af35752ac09292">angle</a>)</td></tr>
 <tr class="separator:a2e1ec53ba887b0340f2441318e2979cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad22a2ab973d0fc837d085828f21d5018" id="r_ad22a2ab973d0fc837d085828f21d5018"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad22a2ab973d0fc837d085828f21d5018">getCoord</a> (int x, int y, int *xp, int *yp, int r, int a)</td></tr>
@@ -153,8 +151,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1914aae31b736e21441c926a7045854 inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15356ac70f04a3a428fcd3a8af616cf inherit pub_methods_classtw__app" id="r_ab15356ac70f04a3a428fcd3a8af616cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__app.html#ab15356ac70f04a3a428fcd3a8af616cf">get_icon_pos</a> (uint16_t &amp;_icon_x, uint16_t &amp;_icon_y, uint16_t &amp;_icon_width, uint16_t &amp;_icon_height)</td></tr>
 <tr class="separator:ab15356ac70f04a3a428fcd3a8af616cf inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a6ec10f08afab2a3cf4ea5c41524ea inherit pub_methods_classtw__app" id="r_a15a6ec10f08afab2a3cf4ea5c41524ea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__app.html#a15a6ec10f08afab2a3cf4ea5c41524ea">swipe</a> (uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)</td></tr>
-<tr class="separator:a15a6ec10f08afab2a3cf4ea5c41524ea inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -223,68 +219,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a610cfa88a6b424609aee2246bce71722 inherit pro_attribs_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae43833db4e0db12ef0486b7cd77d8772" name="ae43833db4e0db12ef0486b7cd77d8772"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae43833db4e0db12ef0486b7cd77d8772">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AppCompass::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__app.html#ae5a5e5718113ee62cbaa36bfea0f9099">tw_app</a>.</p>
-
-</div>
-</div>
-<a id="aea45e78b1599aba9f61626edf5fc1451" name="aea45e78b1599aba9f61626edf5fc1451"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea45e78b1599aba9f61626edf5fc1451">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AppCompass::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__app.html#ab9b6ac2cb42b944c79f0265277671619">tw_app</a>.</p>
-
-</div>
-</div>
 <a id="a94e74af29d8ebcc9d7de0879ed94e540" name="a94e74af29d8ebcc9d7de0879ed94e540"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94e74af29d8ebcc9d7de0879ed94e540">&#9670;&#160;</a></span>draw()</h2>
 
@@ -458,6 +392,33 @@ Additional Inherited Members</h2></td></tr>
 <p>This is not the same as <a class="el" href="#a47f01e5086ac3471288e7c14dded2e66">setup()</a> above that only ever gets called the first time the app opens </p>
 
 <p>Implements <a class="el" href="classtw__app.html#a9210babf07943910c5324c71d0cb4575">tw_app</a>.</p>
+
+</div>
+</div>
+<a id="a2262794bd0d7f653b242c5535c6a3fa1" name="a2262794bd0d7f653b242c5535c6a3fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2262794bd0d7f653b242c5535c6a3fa1">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppCompass::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classtw__app.html#a8d8e2a58b7b9b742584be3735c5d99dd">tw_app</a>.</p>
 
 </div>
 </div>

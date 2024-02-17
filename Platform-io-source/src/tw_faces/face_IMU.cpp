@@ -91,14 +91,14 @@ void FaceIMU::draw(bool force)
 	}
 }
 
-bool FaceIMU::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceIMU::process_touch(touch_event_t touch_event)
 {
-	showingGyro = !showingGyro;
-	return true;
+	if (touch_event.type == TOUCH_TAP)
+	{
+		showingGyro = !showingGyro;
+		return true;
+	}
+	return false;
 }
-
-bool FaceIMU::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool FaceIMU::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 FaceIMU face_imu;

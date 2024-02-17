@@ -17,6 +17,9 @@ class tw_widget
 		void draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
 
 		virtual void draw(uint canvasid, uint8_t style_hint) = 0;
+
+		virtual bool process_touch(touch_event_t touch_event) { return false; }
+
 		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

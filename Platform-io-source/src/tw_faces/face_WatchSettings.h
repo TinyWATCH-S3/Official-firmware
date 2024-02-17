@@ -7,9 +7,8 @@ class FaceWatchSettings : public tw_face
 	public:
 		void setup(void);
 		void draw(bool force);
-		bool click(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y);
+
+		bool process_touch(touch_event_t touch_event);
 
 	private:
 		//

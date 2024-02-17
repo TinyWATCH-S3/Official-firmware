@@ -4,6 +4,7 @@
 #include "tw_controls/tw_control.h"
 #include "tw_widgets/tw_widget.h"
 #include "utilities/logging.h"
+#include "utilities/touch_event.h"
 #include <map>
 
 class tw_face
@@ -54,10 +55,8 @@ class tw_face
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-		virtual bool swipe(uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y) { return false; }
+
+		virtual bool process_touch(touch_event_t touch_event) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
 

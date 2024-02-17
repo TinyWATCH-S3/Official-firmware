@@ -20,6 +20,7 @@ var hierarchy =
     [ "SettingsOptionInt", "class_settings_option_int.html", null ],
     [ "SettingsOptionString", "class_settings_option_string.html", null ],
     [ "TinyWATCH", "class_tiny_w_a_t_c_h.html", null ],
+    [ "touch_event_t", "structtouch__event__t.html", null ],
     [ "TT_Time", "struct_t_t___time.html", null ],
     [ "tw_app", "classtw__app.html", [
       [ "AppCompass", "class_app_compass.html", null ],

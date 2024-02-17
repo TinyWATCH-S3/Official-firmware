@@ -18,6 +18,7 @@ var classtw__control =
     [ "get_height_stacked", "classtw__control.html#af5e22d745769f6ef9483e7a1671ce611", null ],
     [ "get_y_max", "classtw__control.html#a4d687b2b1bd72932e11099373cd13f2f", null ],
     [ "get_y_min", "classtw__control.html#af3ff3da8f6fe036da0a826d14fded5d8", null ],
+    [ "process_touch", "classtw__control.html#a85a86e7302162a84a12451c84531a5b6", null ],
     [ "set_callback", "classtw__control.html#a86c62efb52d0bda09701025bc4c285d7", null ],
     [ "set_parent", "classtw__control.html#ac39cf6b57bc14fdba5745f0876aa1ec5", null ],
     [ "set_scrollable", "classtw__control.html#a3e0422bf5201e2664bf3f2beb20627da", null ],

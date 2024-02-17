@@ -10,6 +10,7 @@ var classtw__widget =
     [ "draw", "classtw__widget.html#a6baf7012213ea3023cc8fc676fb538cf", null ],
     [ "draw", "classtw__widget.html#a26a1faf7b703bdb1aa569dc93f4d2e62", null ],
     [ "get_height", "classtw__widget.html#af517be976fc16074e1ae9e2f102fa348", null ],
+    [ "process_touch", "classtw__widget.html#afad5ee7eff1002b7e5368038743c0465", null ],
     [ "set_parent", "classtw__widget.html#a93fcf490206680ba5b8ad20134686856", null ],
     [ "bounds_x", "classtw__widget.html#abbf0c6ed88dbcbde466da308fe25280a", null ],
     [ "bounds_y", "classtw__widget.html#a7b3ace09f0b78e703cee368ff9333145", null ],

@@ -125,12 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4f7c9b8e5e9ac7eacc8e9e228eddfd67" id="r_a4f7c9b8e5e9ac7eacc8e9e228eddfd67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f7c9b8e5e9ac7eacc8e9e228eddfd67">draw_icon</a> (uint8_t <a class="el" href="classtw__app.html#a04c670bd2957f5fa24a97d6ae06f9831">canvasid</a>, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
 <tr class="memdesc:a4f7c9b8e5e9ac7eacc8e9e228eddfd67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the icon that gets shown on the app menu face.  <br /></td></tr>
 <tr class="separator:a4f7c9b8e5e9ac7eacc8e9e228eddfd67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac35990432fee319feb488b4bbb3d8981" id="r_ac35990432fee319feb488b4bbb3d8981"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac35990432fee319feb488b4bbb3d8981">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="memdesc:ac35990432fee319feb488b4bbb3d8981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Did we click on the app? If so, where?  <br /></td></tr>
-<tr class="separator:ac35990432fee319feb488b4bbb3d8981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21ef183b6992b128641b62ec7d9931d" id="r_ad21ef183b6992b128641b62ec7d9931d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad21ef183b6992b128641b62ec7d9931d">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="memdesc:ad21ef183b6992b128641b62ec7d9931d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Did we double click on the app? If so, where?  <br /></td></tr>
-<tr class="separator:ad21ef183b6992b128641b62ec7d9931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0537012f542d6f656a4c9ee6e2fc3a38" id="r_a0537012f542d6f656a4c9ee6e2fc3a38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0537012f542d6f656a4c9ee6e2fc3a38">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:a0537012f542d6f656a4c9ee6e2fc3a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae20553e83be4534241100eaa56c243" id="r_a1ae20553e83be4534241100eaa56c243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ae20553e83be4534241100eaa56c243">do_fft_calcs</a> ()</td></tr>
 <tr class="memdesc:a1ae20553e83be4534241100eaa56c243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the FFT stuff to use to display the VU meter.  <br /></td></tr>
 <tr class="separator:a1ae20553e83be4534241100eaa56c243"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,8 +157,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab1914aae31b736e21441c926a7045854 inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab15356ac70f04a3a428fcd3a8af616cf inherit pub_methods_classtw__app" id="r_ab15356ac70f04a3a428fcd3a8af616cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__app.html#ab15356ac70f04a3a428fcd3a8af616cf">get_icon_pos</a> (uint16_t &amp;_icon_x, uint16_t &amp;_icon_y, uint16_t &amp;_icon_width, uint16_t &amp;_icon_height)</td></tr>
 <tr class="separator:ab15356ac70f04a3a428fcd3a8af616cf inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a6ec10f08afab2a3cf4ea5c41524ea inherit pub_methods_classtw__app" id="r_a15a6ec10f08afab2a3cf4ea5c41524ea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__app.html#a15a6ec10f08afab2a3cf4ea5c41524ea">swipe</a> (uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y)</td></tr>
-<tr class="separator:a15a6ec10f08afab2a3cf4ea5c41524ea inherit pub_methods_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -237,92 +231,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a610cfa88a6b424609aee2246bce71722 inherit pro_attribs_classtw__app"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac35990432fee319feb488b4bbb3d8981" name="ac35990432fee319feb488b4bbb3d8981"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac35990432fee319feb488b4bbb3d8981">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AppMicrophone::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Did we click on the app? If so, where? </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">touch_pos_x</td><td></td></tr>
-    <tr><td class="paramname">touch_pos_y</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-
-<p>Reimplemented from <a class="el" href="classtw__app.html#ae5a5e5718113ee62cbaa36bfea0f9099">tw_app</a>.</p>
-
-</div>
-</div>
-<a id="ad21ef183b6992b128641b62ec7d9931d" name="ad21ef183b6992b128641b62ec7d9931d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad21ef183b6992b128641b62ec7d9931d">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool AppMicrophone::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Did we double click on the app? If so, where? </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">touch_pos_x</td><td></td></tr>
-    <tr><td class="paramname">touch_pos_y</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-
-<p>Reimplemented from <a class="el" href="classtw__app.html#ab9b6ac2cb42b944c79f0265277671619">tw_app</a>.</p>
-
-</div>
-</div>
 <a id="a1ae20553e83be4534241100eaa56c243" name="a1ae20553e83be4534241100eaa56c243"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ae20553e83be4534241100eaa56c243">&#9670;&#160;</a></span>do_fft_calcs()</h2>
 
@@ -529,6 +437,33 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="a0537012f542d6f656a4c9ee6e2fc3a38" name="a0537012f542d6f656a4c9ee6e2fc3a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0537012f542d6f656a4c9ee6e2fc3a38">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppMicrophone::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classtw__app.html#a8d8e2a58b7b9b742584be3735c5d99dd">tw_app</a>.</p>
+
+</div>
+</div>
 <a id="a2868dcbeec275ac0c25414d3f51af90d" name="a2868dcbeec275ac0c25414d3f51af90d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2868dcbeec275ac0c25414d3f51af90d">&#9670;&#160;</a></span>setup()</h2>
 
@@ -624,7 +559,7 @@ false </dd></dl>
 <div class="line">            <a class="code hl_function" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0, 128, 255),</div>
 <div class="line">            <a class="code hl_function" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0, 0, 255),</div>
 <div class="line">        }</div>
-<div class="ttc" id="adisplay_8h_html_a95882ac388a30de06881dbd1f66d2c62"><div class="ttname"><a href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a></div><div class="ttdeci">constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)</div><div class="ttdef"><b>Definition</b> display.h:18</div></div>
+<div class="ttc" id="adisplay_8h_html_a95882ac388a30de06881dbd1f66d2c62"><div class="ttname"><a href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a></div><div class="ttdeci">constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)</div><div class="ttdef"><b>Definition</b> display.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>

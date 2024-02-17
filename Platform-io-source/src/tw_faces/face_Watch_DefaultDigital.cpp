@@ -59,22 +59,21 @@ void FaceWatch_DefaultDigital::draw(bool force)
 	}
 }
 
-bool FaceWatch_DefaultDigital::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool FaceWatch_DefaultDigital::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceWatch_DefaultDigital::process_touch(touch_event_t touch_event)
 {
-	display.cycle_clock_face();
+	if (touch_event.type == TOUCH_DOUBLE)
+	{
+		display.cycle_clock_face();
+		is_dragging = false;
+		// draw(true);
+		return true;
+	}
+	else if (touch_event.type == TOUCH_LONG)
+	{
+		// TODO: Add display of watch specific settings here when the user long presses
+	}
 
-	is_dragging = false;
-	// draw(true);
-	return true;
-}
-
-bool FaceWatch_DefaultDigital::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	// info_println("LOOOONG!");
-	// TODO: Add display of watch specific settings here when the user long presses
-	return true;
+	return false;
 }
 
 FaceWatch_DefaultDigital face_watch_default_digital;

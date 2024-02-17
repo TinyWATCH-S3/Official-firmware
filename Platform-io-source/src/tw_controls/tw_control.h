@@ -35,6 +35,9 @@ class tw_control
 		virtual void draw(uint8_t canvasid) = 0;
 		virtual bool drag(int16_t drag_x, int16_t drag_y) = 0;
 		virtual void drag_end() = 0;
+
+		virtual bool process_touch(touch_event_t touch_event) { return false; }
+
 		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

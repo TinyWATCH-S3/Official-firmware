@@ -76,21 +76,21 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 	}
 }
 
-bool FaceWatch_DefaultAnalog::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool FaceWatch_DefaultAnalog::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceWatch_DefaultAnalog::process_touch(touch_event_t touch_event)
 {
-	display.cycle_clock_face();
-	is_dragging = false;
-	// draw(true);
-	return true;
-}
+	if (touch_event.type == TOUCH_DOUBLE)
+	{
+		display.cycle_clock_face();
+		is_dragging = false;
+		// draw(true);
+		return true;
+	}
+	else if (touch_event.type == TOUCH_LONG)
+	{
+		// TODO: Add display of watch specific settings here when the user long presses
+	}
 
-bool FaceWatch_DefaultAnalog::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	// info_println("LOOOONG!");
-	// TODO: Add display of watch specific settings here when the user long presses
-	return true;
+	return false;
 }
 
 // Pre calculate the trig required for the analog clock face as calculating trig on the fly is expensive on an MCU

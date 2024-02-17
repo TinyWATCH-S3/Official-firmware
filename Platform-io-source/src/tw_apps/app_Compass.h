@@ -9,8 +9,7 @@ class AppCompass : public tw_app
 		void pre_start(void);
 		void draw(bool force);
 		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
-		bool click(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool process_touch(touch_event_t touch_event);
 
 		void drawCompass(int x, int y, int angle);
 		void getCoord(int x, int y, int *xp, int *yp, int r, int a);

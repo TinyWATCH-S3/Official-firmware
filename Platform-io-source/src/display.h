@@ -15,7 +15,8 @@ enum Directions
 	NONE = 99,
 };
 
-constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)
+constexpr uint16_t
+RGB(uint8_t r, uint8_t g, uint8_t b)
 {
 	//   return ((r / 8) << 11) | ((g / 4) << 5) | (b / 8);
 	return ((r & 0xf8) << 8) | ((g & 0xfc) << 3) | (b >> 3);
@@ -24,6 +25,7 @@ constexpr uint16_t RGB(uint8_t r, uint8_t g, uint8_t b)
 #include "cst816t.h" // capacitive touch
 #include "peripherals/rtc.h"
 #include "utilities/logging.h"
+#include "utilities/touch_event.h"
 #include "web/wifi_controller.h"
 #include <TFT_eSPI.h>
 #include <Tween.h>

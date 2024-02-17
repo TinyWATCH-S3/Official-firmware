@@ -41,6 +41,7 @@ var annotated_dup =
     [ "SettingsOptionInt", "class_settings_option_int.html", "class_settings_option_int" ],
     [ "SettingsOptionString", "class_settings_option_string.html", "class_settings_option_string" ],
     [ "TinyWATCH", "class_tiny_w_a_t_c_h.html", "class_tiny_w_a_t_c_h" ],
+    [ "touch_event_t", "structtouch__event__t.html", "structtouch__event__t" ],
     [ "TT_Time", "struct_t_t___time.html", "struct_t_t___time" ],
     [ "tw_app", "classtw__app.html", "classtw__app" ],
     [ "tw_control", "classtw__control.html", "classtw__control" ],

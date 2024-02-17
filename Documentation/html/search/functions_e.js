@@ -33,6 +33,5 @@ var searchData=
   ['show_5fwatch_5ffrom_5fboot_30',['show_watch_from_boot',['../class_display.html#a1b19b352b32f4bca0ad1830df9126f4d',1,'Display']]],
   ['start_31',['start',['../class_web_server.html#aa11a807dd663199f91cc3571a22fc936',1,'WebServer::start()'],['../class_wifi_setup.html#ae556d000e7e2687e8b77a2f9c39fa129',1,'WifiSetup::start()']]],
   ['start_5fcallback_32',['start_callback',['../class_web_server.html#a26b984084ea122ca20cf70324b44aca6',1,'WebServer']]],
-  ['stop_33',['stop',['../class_web_server.html#a09e0bc35886a3088dec9e459eb99092d',1,'WebServer::stop()'],['../class_wifi_setup.html#a0a49f4ecb83b6ec896d543eee042aaf0',1,'WifiSetup::stop()']]],
-  ['swipe_34',['swipe',['../class_app_empty.html#a7b996f8e082ca8b95071c3203eafba7e',1,'AppEmpty::swipe()'],['../classtw__app.html#a15a6ec10f08afab2a3cf4ea5c41524ea',1,'tw_app::swipe()'],['../class_face_app_list.html#a56e21b3c683047d02a44114a26e4f526',1,'FaceAppList::swipe()'],['../classtw__face.html#a6065ddf43a54949f24da6a662faa06b1',1,'tw_face::swipe()']]]
+  ['stop_33',['stop',['../class_web_server.html#a09e0bc35886a3088dec9e459eb99092d',1,'WebServer::stop()'],['../class_wifi_setup.html#a0a49f4ecb83b6ec896d543eee042aaf0',1,'WifiSetup::stop()']]]
 ];

@@ -158,32 +158,19 @@ void AppMicrophone::draw(bool force)
 	canvas[canvasid].pushSprite(_x, _y);
 }
 
-/**
- * @brief Did we click on the app? If so, where?
- *
- * @param touch_pos_x
- * @param touch_pos_y
- * @return true
- * @return false
- */
-bool AppMicrophone::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool AppMicrophone::process_touch(touch_event_t touch_event)
 {
-	visual_state++;
-	if (visual_state == 4)
-		visual_state = 0;
+	if (touch_event.type == TOUCH_TAP)
+	{
+		visual_state++;
+		if (visual_state == 4)
+			visual_state = 0;
 
-	return true;
+		return true;
+	}
+
+	return false;
 }
-
-/**
- * @brief Did we double click on the app? If so, where?
- *
- * @param touch_pos_x
- * @param touch_pos_y
- * @return true
- * @return false
- */
-bool AppMicrophone::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 /**
  * @brief Calculate the FFT stuff to use to display the VU meter

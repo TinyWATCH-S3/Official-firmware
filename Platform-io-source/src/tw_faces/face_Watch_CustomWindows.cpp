@@ -285,29 +285,29 @@ void FaceWatch_CustomWindows::draw(bool force)
 	}
 }
 
-bool FaceWatch_CustomWindows::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceWatch_CustomWindows::process_touch(touch_event_t touch_event)
 {
-	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
-	show_toolbars = !show_toolbars; // Turn the toolbar on and off
-	cachedTrig = false;
-	draw(true);
-	return true;
-}
+	if (touch_event.type == TOUCH_TAP)
+	{
+		// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
+		show_toolbars = !show_toolbars; // Turn the toolbar on and off
+		cachedTrig = false;
+		draw(true);
+		return true;
+	}
+	else if (touch_event.type == TOUCH_DOUBLE)
+	{
+		display.cycle_clock_face();
+		is_dragging = false;
+		// draw(true);
+		return true;
+	}
+	else if (touch_event.type == TOUCH_LONG)
+	{
+		// TODO: Add display of watch specific settings here when the user long presses
+	}
 
-bool FaceWatch_CustomWindows::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	display.cycle_clock_face();
-
-	is_dragging = false;
-	// draw(true);
-	return true;
-}
-
-bool FaceWatch_CustomWindows::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	// info_println("LOOOONG!");
-	// TODO: Add display of watch specific settings here when the user long presses
-	return true;
+	return false;
 }
 
 FaceWatch_CustomWindows face_watch_custom_windows;

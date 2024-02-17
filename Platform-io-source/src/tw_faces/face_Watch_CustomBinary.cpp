@@ -134,33 +134,33 @@ void FaceWatch_CustomBinary::draw(bool force)
 	}
 }
 
-bool FaceWatch_CustomBinary::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool FaceWatch_CustomBinary::process_touch(touch_event_t touch_event)
 {
-	// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
-	settings.config.custom_binary.binary_clockcolour++;
-	if (settings.config.custom_binary.binary_clockcolour >= 3)
+	if (touch_event.type == TOUCH_TAP)
 	{
-		settings.config.custom_binary.binary_clockstyle = !(settings.config.custom_binary.binary_clockstyle);
-		settings.config.custom_binary.binary_clockcolour = 0;
+		// Cycle through the colour pallette, after one full cycle, switch the style (square/circle)
+		settings.config.custom_binary.binary_clockcolour++;
+		if (settings.config.custom_binary.binary_clockcolour >= 3)
+		{
+			settings.config.custom_binary.binary_clockstyle = !(settings.config.custom_binary.binary_clockstyle);
+			settings.config.custom_binary.binary_clockcolour = 0;
+		}
+		draw(true);
+		return true;
 	}
-	draw(true);
-	return true;
-}
+	else if (touch_event.type == TOUCH_DOUBLE)
+	{
+		display.cycle_clock_face();
+		is_dragging = false;
+		// draw(true);
+		return true;
+	}
+	else if (touch_event.type == TOUCH_LONG)
+	{
+		// TODO: Add display of watch specific settings here when the user long presses
+	}
 
-bool FaceWatch_CustomBinary::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	display.cycle_clock_face();
-
-	is_dragging = false;
-	// draw(true);
-	return true;
-}
-
-bool FaceWatch_CustomBinary::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	// info_println("LOOOONG!");
-	// TODO: Add display of watch specific settings here when the user long presses
-	return true;
+	return false;
 }
 
 FaceWatch_CustomBinary face_watch_custom_binary;

@@ -122,22 +122,6 @@ void FaceBoot::draw(bool force)
 	}
 }
 
-bool FaceBoot::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
-{
-	if (wifi_status == WIFI_SETUP || wifi_status == WIFI_SETUP_STEP_2)
-	{
-		wifi_status = BOOT;
-		draw(true);
-		wifiSetup.stop(false);
-		return true;
-	}
-	return false;
-}
-
-bool FaceBoot::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return true; }
-
-bool FaceBoot::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
 void FaceBoot::wifi_connect_status(wifi_states status)
 {
 	wifi_status = status;
@@ -145,6 +129,22 @@ void FaceBoot::wifi_connect_status(wifi_states status)
 	// Only force draw the screen is we are not resetting the status to 0
 	if ((int)wifi_status > 0)
 		draw(true);
+}
+
+bool FaceBoot::process_touch(touch_event_t touch_event)
+{
+	if (touch_event.type == TOUCH_TAP)
+	{
+		if (wifi_status == WIFI_SETUP || wifi_status == WIFI_SETUP_STEP_2)
+		{
+			wifi_status = BOOT;
+			draw(true);
+			wifiSetup.stop(false);
+			return true;
+		}
+	}
+
+	return false;
 }
 
 FaceBoot face_boot;

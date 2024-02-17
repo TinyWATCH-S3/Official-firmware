@@ -10,10 +10,8 @@ class FaceAppList : public tw_face
 		// Virtual
 		void setup(void);
 		void draw(bool force);
-		bool click(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y);
-		bool swipe(uint16_t touch_pos_x, uint16_t touch_pos_y, int8_t swipe_dir, int16_t dist_x, int16_t dist_y);
+
+		bool process_touch(touch_event_t touch_event);
 
 		void add_app(tw_app *app);
 		bool icon_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y);
