@@ -51,17 +51,16 @@ void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
 	}
 }
 
-bool WidgetActivityRing::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool WidgetActivityRing::process_touch(touch_event_t touch_event)
 {
-	if (bounds_check(touch_pos_x, touch_pos_y))
+	if (touch_event.type == TOUCH_TAP)
 	{
-		info_println("Show activity face");
-		return true;
+		if (bounds_check(touch_event.x, touch_event.y))
+		{
+			info_println("Show activity face");
+			return true;
+		}
 	}
 
 	return false;
 }
-
-bool WidgetActivityRing::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool WidgetActivityRing::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

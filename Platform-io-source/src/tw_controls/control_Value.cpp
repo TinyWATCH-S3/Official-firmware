@@ -44,61 +44,60 @@ bool ControlValue::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlValue::drag_end() {}
 
-bool ControlValue::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool ControlValue::process_touch(touch_event_t touch_event)
 {
-	if (millis() - next_click_update > 50)
+	if (touch_event.type == TOUCH_TAP)
 	{
-		next_click_update = millis();
-
-		if (buttons_check_left(touch_pos_x, touch_pos_y))
+		if (millis() - next_click_update > 50)
 		{
-			if (value > value_min)
-			{
-				value = constrain(value - 1, value_min, value_max);
-				// Push the visuals to the screen
-				draw(canvasid);
-				canvas[canvasid].pushSprite(0, 0);
-				// Reset the button flash
-				canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
+			next_click_update = millis();
 
-				return true;
-			}
-			else
+			if (buttons_check_left(touch_event.x, touch_event.y))
 			{
-				// Flash red
-				canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0xff, 0x00, 0x00));
-				canvas[canvasid].pushSprite(0, 0);
-				canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
-			}
-		}
-		else if (buttons_check_right(touch_pos_x, touch_pos_y))
-		{
-			if (value < value_max)
-			{
-				value = constrain(value + 1, value_min, value_max);
+				if (value > value_min)
+				{
+					value = constrain(value - 1, value_min, value_max);
+					// Push the visuals to the screen
+					draw(canvasid);
+					canvas[canvasid].pushSprite(0, 0);
+					// Reset the button flash
+					canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
 
-				draw(canvasid);
-				canvas[canvasid].pushSprite(0, 0);
-				canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
-
-				return true;
+					return true;
+				}
+				else
+				{
+					// Flash red
+					canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0xff, 0x00, 0x00));
+					canvas[canvasid].pushSprite(0, 0);
+					canvas[canvasid].drawRoundRect(button_left_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
+				}
 			}
-			else
+			else if (buttons_check_right(touch_event.x, touch_event.y))
 			{
-				// Flash red
-				canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0xff, 0x00, 0x00));
-				canvas[canvasid].pushSprite(0, 0);
-				canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
+				if (value < value_max)
+				{
+					value = constrain(value + 1, value_min, value_max);
+
+					draw(canvasid);
+					canvas[canvasid].pushSprite(0, 0);
+					canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
+
+					return true;
+				}
+				else
+				{
+					// Flash red
+					canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0xff, 0x00, 0x00));
+					canvas[canvasid].pushSprite(0, 0);
+					canvas[canvasid].drawRoundRect(button_right_x, adjusted_pos_y, height, height, 4, RGB(0x66, 0x66, 0x66));
+				}
 			}
 		}
 	}
 
 	return false;
 }
-
-bool ControlValue::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool ControlValue::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 
 bool ControlValue::buttons_check_left(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {

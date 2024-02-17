@@ -55,25 +55,16 @@ void WidgetBattery::draw(uint canvasid, uint8_t style_hint)
 	canvas[canvasid].drawString(String((int)bat_perc), pos_x, pos_y + 21);
 }
 
-bool WidgetBattery::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool WidgetBattery::process_touch(touch_event_t touch_event)
 {
-	if (bounds_check(touch_pos_x, touch_pos_y))
+	if (touch_event.type == TOUCH_TAP)
 	{
-		info_println("Battery stats? Not sure we can track any");
-		return true;
+		if (bounds_check(touch_event.x, touch_event.y))
+		{
+			info_println("Battery stats? Not sure we can track any");
+			return true;
+		}
 	}
 
 	return false;
 }
-
-bool WidgetBattery::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool WidgetBattery::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-// tft.setTextColor(ST77XX_YELLOW);
-// tft.setCursor(15, 15);
-// tft.print("BAT ");
-// tft.print(battery.get_voltage(false), 2);
-// tft.print("V ");
-// tft.print(battery.get_percent(false), 1);
-// tft.print("%");

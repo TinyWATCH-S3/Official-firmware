@@ -182,7 +182,7 @@ void tw_face::drag(int16_t drag_x, int16_t drag_y, int16_t pos_x, int16_t pos_y,
 			if (millis() - click_hold_start_timer > 500)
 			{
 				// Are we over a control?
-				if (control_process_clicks(t_pos_x, t_pos_y))
+				if (control_process_clicks(touch_event_t(t_pos_x, t_pos_y, TOUCH_TAP)))
 				{
 					// draw(true);
 					BuzzerUI({{2000, 2}});
@@ -531,11 +531,11 @@ void tw_face::add_widget(tw_widget *widget)
 	}
 }
 
-bool tw_face::widget_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool tw_face::widget_process_clicks(touch_event_t touch_event)
 {
 	for (int w = 0; w < widgets.size(); w++)
 	{
-		if (widgets[w]->click(touch_pos_x, touch_pos_y))
+		if (widgets[w]->process_touch(touch_event))
 		{
 			next_update = 0;
 			return true;
@@ -554,11 +554,11 @@ void tw_face::add_control(tw_control *control)
 	}
 }
 
-bool tw_face::control_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool tw_face::control_process_clicks(touch_event_t touch_event)
 {
 	for (int w = 0; w < controls.size(); w++)
 	{
-		if (controls[w]->click(touch_pos_x, touch_pos_y))
+		if (controls[w]->process_touch(touch_event))
 		{
 			next_update = 0;
 			return true;

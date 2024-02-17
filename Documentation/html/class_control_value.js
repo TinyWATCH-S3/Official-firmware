@@ -2,12 +2,10 @@ var class_control_value =
 [
     [ "buttons_check_left", "class_control_value.html#a4eed92eab5880e7eab009e63d043db9a", null ],
     [ "buttons_check_right", "class_control_value.html#a660c9de8ccf2cc5df6031be3b3121d75", null ],
-    [ "click", "class_control_value.html#a579f61fef3ef469addbad4d796dee0a3", null ],
-    [ "click_double", "class_control_value.html#a4e6be91cb2b61eb55e5860b9676adaf8", null ],
-    [ "click_long", "class_control_value.html#ab25d60a46ff1cd8b77cac4fe638ec058", null ],
     [ "drag", "class_control_value.html#a9a8817134a5e17aafc0417e1233787ea", null ],
     [ "drag_end", "class_control_value.html#ac8c5bdecbf97591ad2b58b3c17085c60", null ],
     [ "draw", "class_control_value.html#a2c7b77efe14792108a53a8444737282f", null ],
+    [ "process_touch", "class_control_value.html#af2847b96e79517fa5db07f2574b2513e", null ],
     [ "set_data", "class_control_value.html#a940324467f588ce3ff7d735128ebd7d0", null ],
     [ "button_left_x", "class_control_value.html#a7461d2ae9a4a2c256aa25b6c01213d34", null ],
     [ "button_right_x", "class_control_value.html#a7011ec210f9bab16102727bfac8273ae", null ],

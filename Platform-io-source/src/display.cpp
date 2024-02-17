@@ -599,11 +599,11 @@ void Display::process_touch()
 		touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_TAP);
 
 		// A click should only happen if the finger didn't drag - much
-		if (current_face->widget_process_clicks(touchpad.x, touchpad.y))
+		if (current_face->widget_process_clicks(touch_data))
 		{
 			BuzzerUI({{2000, 10}});
 		}
-		else if (current_face->control_process_clicks(touchpad.x, touchpad.y))
+		else if (current_face->control_process_clicks(touch_data))
 		{
 			BuzzerUI({{2000, 10}});
 		}

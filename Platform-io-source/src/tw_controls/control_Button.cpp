@@ -18,23 +18,22 @@ bool ControlButton::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlButton::drag_end() {}
 
-bool ControlButton::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool ControlButton::process_touch(touch_event_t touch_event)
 {
-	if (bounds_check(touch_pos_x, touch_pos_y))
+	if (touch_event.type == TOUCH_TAP)
 	{
-		canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 4, RGB(0xff, 0xff, 0xff));
-		canvas[canvasid].pushSprite(0, 0);
-		canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 4, RGB(0x66, 0x66, 0x66));
+		if (bounds_check(touch_event.x, touch_event.y))
+		{
+			canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 4, RGB(0xff, 0xff, 0xff));
+			canvas[canvasid].pushSprite(0, 0);
+			canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 4, RGB(0x66, 0x66, 0x66));
 
-		if (callbackFunction != nullptr)
-			callbackFunction();
+			if (callbackFunction != nullptr)
+				callbackFunction();
 
-		return true;
+			return true;
+		}
 	}
 
 	return false;
 }
-
-bool ControlButton::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool ControlButton::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

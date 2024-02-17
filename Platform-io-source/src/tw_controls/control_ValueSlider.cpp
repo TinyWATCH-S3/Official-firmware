@@ -71,8 +71,4 @@ bool ControlValueSlider::drag(int16_t drag_x, int16_t drag_y)
 
 void ControlValueSlider::drag_end() { selected = false; }
 
-bool ControlValueSlider::click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool ControlValueSlider::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool ControlValueSlider::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
+bool ControlValueSlider::process_touch(touch_event_t touch_event) { return false; }

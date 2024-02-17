@@ -18,9 +18,9 @@ class tw_face
 		void set_single_navigation(Directions dir, tw_face *face);
 		// tw_face * changeFace(Directions dir);
 		void add_widget(tw_widget *widget);
-		bool widget_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool widget_process_clicks(touch_event_t touch_event);
 		void add_control(tw_control *control);
-		bool control_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y);
+		bool control_process_clicks(touch_event_t touch_event);
 		bool is_face_clock_face();
 
 		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
@@ -55,7 +55,6 @@ class tw_face
 		// virtual methods
 		virtual void setup(void) = 0;
 		virtual void draw(bool force) = 0;
-
 		virtual bool process_touch(touch_event_t touch_event) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};

@@ -1,15 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_display.html#aa3261624bc8cd73d34d81ea385f04750":[2,0,18,30],
-"class_display.html#aa6e23b0987a3eb4e719e3ef7d4c03ba4":[2,0,18,36],
-"class_display.html#aa9d8dbdcf00d4a3d3d20a1c0921f0cd6":[2,0,18,0],
-"class_display.html#aac7b4e5817e0ee8190edc18de719a63e":[2,0,18,2],
-"class_display.html#ab1640ce70b9a02569be3b55d79f49bea":[2,0,18,20],
-"class_display.html#ab23340c6c8da8d6cfc875a63d6040deb":[2,0,18,26],
-"class_display.html#ac49cfd43decf1f706021c5c272c7921c":[2,0,18,5],
-"class_display.html#acd0170143d5ade9302ace985e8ea135a":[2,0,18,29],
-"class_display.html#ad4a051cab5730c70c4797534c9273032":[2,0,18,4],
-"class_display.html#ad61fa2f4c36cc779ba19615781fb429f":[2,0,18,34],
 "class_display.html#aee0f9cec1e725d521aa8f22700032143":[2,0,18,21],
 "class_display.html#af33ee9b7afad5327be79b09128374e1f":[2,0,18,27],
 "class_display.html#afc6e6719f8742d4557e0f9883dedfa7b":[2,0,18,13],
@@ -249,5 +239,15 @@ var NAVTREEINDEX1 =
 "class_settings_option_float.html#a63b06734dd59750beec7c626b37ca81f":[2,0,37,6],
 "class_settings_option_float.html#a708c3a3312e6bb09594b762893af4928":[2,0,37,2],
 "class_settings_option_float.html#a9906c196d0f0c784de2f20aec5069d53":[2,0,37,4],
-"class_settings_option_float.html#a9db8d2321a1a2b509d5afc1f70f6338f":[2,0,37,3]
+"class_settings_option_float.html#a9db8d2321a1a2b509d5afc1f70f6338f":[2,0,37,3],
+"class_settings_option_float.html#aaccf73bbfcdd996088fe6e0679b2d807":[2,0,37,0],
+"class_settings_option_float.html#ac45866017f12bfce12d4f5f89679b166":[2,0,37,1],
+"class_settings_option_float.html#aed22e85c2b830151def34a87055dd357":[2,0,37,8],
+"class_settings_option_int.html":[2,0,38],
+"class_settings_option_int.html#a1ee0846644d37d0664f2bcc8455e00a2":[2,0,38,0],
+"class_settings_option_int.html#a37498070ef5719e25fe917bd2eba025e":[2,0,38,8],
+"class_settings_option_int.html#a545e1d2e6f875d5bcb3e45ed3e1dd1f7":[2,0,38,4],
+"class_settings_option_int.html#a7fbd39a9425db40e72b5b76aa5f6115b":[2,0,38,1],
+"class_settings_option_int.html#a856b0dee22c4f4ff90e19692211da799":[2,0,38,7],
+"class_settings_option_int.html#a92f46b19925d7f9a109dc4dba00a733e":[2,0,38,6]
 };

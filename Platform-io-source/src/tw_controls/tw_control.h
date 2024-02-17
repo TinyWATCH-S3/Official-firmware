@@ -38,9 +38,6 @@ class tw_control
 
 		virtual bool process_touch(touch_event_t touch_event) { return false; }
 
-		virtual bool click(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-		virtual bool click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-		virtual bool click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
 		String name = "";
 
 	protected:

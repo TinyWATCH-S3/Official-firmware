@@ -2,7 +2,7 @@ var searchData=
 [
   ['was_5fsleeping_0',['was_sleeping',['../class_tiny_w_a_t_c_h.html#a5ffe6ca8ca904c64994037ce6f518838',1,'TinyWATCH']]],
   ['webserver_1',['WebServer',['../class_web_server.html#ad053f4e1808a3c10c7522d0dbbbc031a',1,'WebServer']]],
-  ['widget_5fprocess_5fclicks_2',['widget_process_clicks',['../classtw__face.html#a49dd855e057987d1b9b6750ef8dd6be1',1,'tw_face']]],
+  ['widget_5fprocess_5fclicks_2',['widget_process_clicks',['../classtw__face.html#aa3481ba12d4a956000b940d9d841a8eb',1,'tw_face']]],
   ['wifi_5fconnect_5fstatus_3',['wifi_connect_status',['../class_face_boot.html#a31f1399dfdb30eae0d96dc617db3c0a0',1,'FaceBoot']]],
   ['wifi_5ftask_4',['wifi_task',['../class_wifi_controller.html#a8e44acf12223458b79b474952f0aff48',1,'WifiController']]],
   ['wificontroller_5',['WifiController',['../class_wifi_controller.html#a9fbf445feca9a6544515b01b71229c90',1,'WifiController']]],

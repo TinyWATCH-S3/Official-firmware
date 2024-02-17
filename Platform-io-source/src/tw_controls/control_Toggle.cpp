@@ -66,25 +66,23 @@ bool ControlToggle::drag(int16_t drag_x, int16_t drag_y) { return false; }
 
 void ControlToggle::drag_end() {}
 
-bool ControlToggle::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool ControlToggle::process_touch(touch_event_t touch_event)
 {
-	// Did we click within the bounds of this control?
-	if (bounds_check(touch_pos_x, touch_pos_y))
+	if (touch_event.type == TOUCH_TAP)
 	{
-		// If we have bound a SettingOption to this control, fire the change method
-		if (setting_option != nullptr)
-			value = setting_option->change() ? option2 : option1;
-		// If we have assigned a callback on this control, fire it
-		if (callbackFunction != nullptr)
-			callbackFunction();
-		// Yes, we did click this control
-		// requires_redraw = true;
-		return true;
+		if (bounds_check(touch_event.x, touch_event.y))
+		{
+			// If we have bound a SettingOption to this control, fire the change method
+			if (setting_option != nullptr)
+				value = setting_option->change() ? option2 : option1;
+			// If we have assigned a callback on this control, fire it
+			if (callbackFunction != nullptr)
+				callbackFunction();
+			// Yes, we did click this control
+			// requires_redraw = true;
+			return true;
+		}
 	}
 
 	return false;
 }
-
-bool ControlToggle::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool ControlToggle::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }

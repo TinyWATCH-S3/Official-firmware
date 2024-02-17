@@ -140,12 +140,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a62d0e643a009ee6210e2cee44eec5e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b69b4c55d023a2f2357c3a64c05893" id="r_a12b69b4c55d023a2f2357c3a64c05893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12b69b4c55d023a2f2357c3a64c05893">add_widget</a> (<a class="el" href="classtw__widget.html">tw_widget</a> *widget)</td></tr>
 <tr class="separator:a12b69b4c55d023a2f2357c3a64c05893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49dd855e057987d1b9b6750ef8dd6be1" id="r_a49dd855e057987d1b9b6750ef8dd6be1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49dd855e057987d1b9b6750ef8dd6be1">widget_process_clicks</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a49dd855e057987d1b9b6750ef8dd6be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3481ba12d4a956000b940d9d841a8eb" id="r_aa3481ba12d4a956000b940d9d841a8eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3481ba12d4a956000b940d9d841a8eb">widget_process_clicks</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:aa3481ba12d4a956000b940d9d841a8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9940b0b3530fe75b64395b810f08c3d7" id="r_a9940b0b3530fe75b64395b810f08c3d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9940b0b3530fe75b64395b810f08c3d7">add_control</a> (<a class="el" href="classtw__control.html">tw_control</a> *control)</td></tr>
 <tr class="separator:a9940b0b3530fe75b64395b810f08c3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b7008aa8bb8f46f7cd896edcf50923f" id="r_a2b7008aa8bb8f46f7cd896edcf50923f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b7008aa8bb8f46f7cd896edcf50923f">control_process_clicks</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a2b7008aa8bb8f46f7cd896edcf50923f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c2b458c90c41ae2588cf1993e21449" id="r_aa8c2b458c90c41ae2588cf1993e21449"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8c2b458c90c41ae2588cf1993e21449">control_process_clicks</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:aa8c2b458c90c41ae2588cf1993e21449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af36389ae27fd78c0de22f9ab6f8e15e7" id="r_af36389ae27fd78c0de22f9ab6f8e15e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af36389ae27fd78c0de22f9ab6f8e15e7">is_face_clock_face</a> ()</td></tr>
 <tr class="separator:af36389ae27fd78c0de22f9ab6f8e15e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7d8400d64f7d59c6e1e9b7eaee12643" id="r_ae7d8400d64f7d59c6e1e9b7eaee12643"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d8400d64f7d59c6e1e9b7eaee12643">draw_children</a> (bool stacked, int16_t stacked_y_start, uint8_t style_hint=0)</td></tr>
@@ -414,8 +414,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2b7008aa8bb8f46f7cd896edcf50923f" name="a2b7008aa8bb8f46f7cd896edcf50923f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b7008aa8bb8f46f7cd896edcf50923f">&#9670;&#160;</a></span>control_process_clicks()</h2>
+<a id="aa8c2b458c90c41ae2588cf1993e21449" name="aa8c2b458c90c41ae2588cf1993e21449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c2b458c90c41ae2588cf1993e21449">&#9670;&#160;</a></span>control_process_clicks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -423,12 +423,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool tw_face::control_process_clicks </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -993,8 +989,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a49dd855e057987d1b9b6750ef8dd6be1" name="a49dd855e057987d1b9b6750ef8dd6be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49dd855e057987d1b9b6750ef8dd6be1">&#9670;&#160;</a></span>widget_process_clicks()</h2>
+<a id="aa3481ba12d4a956000b940d9d841a8eb" name="aa3481ba12d4a956000b940d9d841a8eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3481ba12d4a956000b940d9d841a8eb">&#9670;&#160;</a></span>widget_process_clicks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1002,12 +998,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool tw_face::widget_process_clicks </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

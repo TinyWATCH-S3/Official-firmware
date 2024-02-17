@@ -115,12 +115,8 @@ Inheritance diagram for WidgetESP32:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abb5b1f07f61c21f9c30ef9a1351154cd" id="r_abb5b1f07f61c21f9c30ef9a1351154cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb5b1f07f61c21f9c30ef9a1351154cd">draw</a> (uint canvasid, uint8_t style_hint=0)</td></tr>
 <tr class="separator:abb5b1f07f61c21f9c30ef9a1351154cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02921727b556f52e3754023a0ee90c26" id="r_a02921727b556f52e3754023a0ee90c26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02921727b556f52e3754023a0ee90c26">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a02921727b556f52e3754023a0ee90c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a779214846609d98801081ba4ef4439c0" id="r_a779214846609d98801081ba4ef4439c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a779214846609d98801081ba4ef4439c0">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a779214846609d98801081ba4ef4439c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96591f6ec7379c2b5411b98ba636bf30" id="r_a96591f6ec7379c2b5411b98ba636bf30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96591f6ec7379c2b5411b98ba636bf30">click_long</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a96591f6ec7379c2b5411b98ba636bf30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7586315d2f4546d8bf2786dc05ed7ee" id="r_ab7586315d2f4546d8bf2786dc05ed7ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7586315d2f4546d8bf2786dc05ed7ee">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:ab7586315d2f4546d8bf2786dc05ed7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtw__widget"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classtw__widget')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtw__widget.html">tw_widget</a></td></tr>
 <tr class="memitem:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget" id="r_a9256a8106c4e5c2f3a79df688399a1b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a9256a8106c4e5c2f3a79df688399a1b2">tw_widget</a> ()</td></tr>
 <tr class="separator:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,8 +132,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af517be976fc16074e1ae9e2f102fa348 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget" id="r_a26a1faf7b703bdb1aa569dc93f4d2e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a26a1faf7b703bdb1aa569dc93f4d2e62">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
 <tr class="separator:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad5ee7eff1002b7e5368038743c0465 inherit pub_methods_classtw__widget" id="r_afad5ee7eff1002b7e5368038743c0465"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#afad5ee7eff1002b7e5368038743c0465">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
-<tr class="separator:afad5ee7eff1002b7e5368038743c0465 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -175,99 +169,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a7b3ace09f0b78e703cee368ff9333145 inherit pro_attribs_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a02921727b556f52e3754023a0ee90c26" name="a02921727b556f52e3754023a0ee90c26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02921727b556f52e3754023a0ee90c26">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetESP32::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#ae8050207bcee2f6458e684188a85eafc">tw_widget</a>.</p>
-
-</div>
-</div>
-<a id="a779214846609d98801081ba4ef4439c0" name="a779214846609d98801081ba4ef4439c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a779214846609d98801081ba4ef4439c0">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetESP32::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#ac8437e4f5b10306d1958727288cf8000">tw_widget</a>.</p>
-
-</div>
-</div>
-<a id="a96591f6ec7379c2b5411b98ba636bf30" name="a96591f6ec7379c2b5411b98ba636bf30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96591f6ec7379c2b5411b98ba636bf30">&#9670;&#160;</a></span>click_long()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetESP32::click_long </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#a4cc8e37d1b44edd78a70dd042cc71c7f">tw_widget</a>.</p>
-
-</div>
-</div>
 <a id="abb5b1f07f61c21f9c30ef9a1351154cd" name="abb5b1f07f61c21f9c30ef9a1351154cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abb5b1f07f61c21f9c30ef9a1351154cd">&#9670;&#160;</a></span>draw()</h2>
 
@@ -296,6 +197,33 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classtw__widget.html#a6baf7012213ea3023cc8fc676fb538cf">tw_widget</a>.</p>
+
+</div>
+</div>
+<a id="ab7586315d2f4546d8bf2786dc05ed7ee" name="ab7586315d2f4546d8bf2786dc05ed7ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7586315d2f4546d8bf2786dc05ed7ee">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WidgetESP32::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classtw__widget.html#afad5ee7eff1002b7e5368038743c0465">tw_widget</a>.</p>
 
 </div>
 </div>

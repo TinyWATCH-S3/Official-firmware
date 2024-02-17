@@ -115,12 +115,8 @@ Inheritance diagram for WidgetMessage:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeb493fa7c92b41633381989ce2b0142f" id="r_aeb493fa7c92b41633381989ce2b0142f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb493fa7c92b41633381989ce2b0142f">draw</a> (uint canvasid, uint8_t style_hint=0)</td></tr>
 <tr class="separator:aeb493fa7c92b41633381989ce2b0142f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff92a069e72fafad9a1ba39775a5f6e4" id="r_aff92a069e72fafad9a1ba39775a5f6e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff92a069e72fafad9a1ba39775a5f6e4">click</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:aff92a069e72fafad9a1ba39775a5f6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55c6a069c0d33639e25c5973b411aa7a" id="r_a55c6a069c0d33639e25c5973b411aa7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55c6a069c0d33639e25c5973b411aa7a">click_double</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a55c6a069c0d33639e25c5973b411aa7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a371f424eaef1a6919fa1e6ac64c59df6" id="r_a371f424eaef1a6919fa1e6ac64c59df6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a371f424eaef1a6919fa1e6ac64c59df6">click_long</a> (uint16_t touch_pos_x, uint16_t touch_pos_y)</td></tr>
-<tr class="separator:a371f424eaef1a6919fa1e6ac64c59df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff630941ee5b9579020da46d2c8e8d2" id="r_afff630941ee5b9579020da46d2c8e8d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afff630941ee5b9579020da46d2c8e8d2">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
+<tr class="separator:afff630941ee5b9579020da46d2c8e8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtw__widget"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classtw__widget')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtw__widget.html">tw_widget</a></td></tr>
 <tr class="memitem:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget" id="r_a9256a8106c4e5c2f3a79df688399a1b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a9256a8106c4e5c2f3a79df688399a1b2">tw_widget</a> ()</td></tr>
 <tr class="separator:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,8 +132,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af517be976fc16074e1ae9e2f102fa348 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget" id="r_a26a1faf7b703bdb1aa569dc93f4d2e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a26a1faf7b703bdb1aa569dc93f4d2e62">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
 <tr class="separator:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afad5ee7eff1002b7e5368038743c0465 inherit pub_methods_classtw__widget" id="r_afad5ee7eff1002b7e5368038743c0465"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#afad5ee7eff1002b7e5368038743c0465">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
-<tr class="separator:afad5ee7eff1002b7e5368038743c0465 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -173,99 +167,6 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a7b3ace09f0b78e703cee368ff9333145 inherit pro_attribs_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aff92a069e72fafad9a1ba39775a5f6e4" name="aff92a069e72fafad9a1ba39775a5f6e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff92a069e72fafad9a1ba39775a5f6e4">&#9670;&#160;</a></span>click()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetMessage::click </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#ae8050207bcee2f6458e684188a85eafc">tw_widget</a>.</p>
-
-</div>
-</div>
-<a id="a55c6a069c0d33639e25c5973b411aa7a" name="a55c6a069c0d33639e25c5973b411aa7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55c6a069c0d33639e25c5973b411aa7a">&#9670;&#160;</a></span>click_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetMessage::click_double </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#ac8437e4f5b10306d1958727288cf8000">tw_widget</a>.</p>
-
-</div>
-</div>
-<a id="a371f424eaef1a6919fa1e6ac64c59df6" name="a371f424eaef1a6919fa1e6ac64c59df6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a371f424eaef1a6919fa1e6ac64c59df6">&#9670;&#160;</a></span>click_long()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool WidgetMessage::click_long </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_x</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>touch_pos_y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="classtw__widget.html#a4cc8e37d1b44edd78a70dd042cc71c7f">tw_widget</a>.</p>
-
-</div>
-</div>
 <a id="aeb493fa7c92b41633381989ce2b0142f" name="aeb493fa7c92b41633381989ce2b0142f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb493fa7c92b41633381989ce2b0142f">&#9670;&#160;</a></span>draw()</h2>
 
@@ -294,6 +195,33 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classtw__widget.html#a6baf7012213ea3023cc8fc676fb538cf">tw_widget</a>.</p>
+
+</div>
+</div>
+<a id="afff630941ee5b9579020da46d2c8e8d2" name="afff630941ee5b9579020da46d2c8e8d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff630941ee5b9579020da46d2c8e8d2">&#9670;&#160;</a></span>process_touch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WidgetMessage::process_touch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtouch__event__t.html">touch_event_t</a></td>          <td class="paramname"><span class="paramname"><em>touch_event</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classtw__widget.html#afad5ee7eff1002b7e5368038743c0465">tw_widget</a>.</p>
 
 </div>
 </div>

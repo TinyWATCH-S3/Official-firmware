@@ -114,14 +114,15 @@ void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 	}
 }
 
-bool WidgetOpenWeather::click(uint16_t touch_pos_x, uint16_t touch_pos_y)
+bool WidgetOpenWeather::process_touch(touch_event_t touch_event)
 {
-	stat++;
-	if (stat == 2)
-		stat = 0;
-	return true;
+	if (touch_event.type == TOUCH_TAP)
+	{
+		stat++;
+		if (stat == 2)
+			stat = 0;
+		return true;
+	}
+
+	return false;
 }
-
-bool WidgetOpenWeather::click_double(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
-
-bool WidgetOpenWeather::click_long(uint16_t touch_pos_x, uint16_t touch_pos_y) { return false; }
