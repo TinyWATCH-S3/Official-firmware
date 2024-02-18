@@ -71,9 +71,9 @@ bool AppCompass::process_touch(touch_event_t touch_event)
 		}
 		else if (running_state == RUNNING_STATE_CALIBRATE && touch_event.dir == TOUCH_SWIPE_UP)
 		{
-			settings.config.compass.hard_iron[0] = hard_iron_avg[0];
-			settings.config.compass.hard_iron[1] = hard_iron_avg[1];
-			settings.config.compass.hard_iron[2] = hard_iron_avg[2];
+			settings.config.compass.hard_iron_x = hard_iron_avg[0];
+			settings.config.compass.hard_iron_y = hard_iron_avg[1];
+			settings.config.compass.hard_iron_z = hard_iron_avg[2];
 			settings.save(true);
 			info_print(F("Compass hard iron values saved"));			
 			running_state = RUNNING_STATE_DRAW;
@@ -214,19 +214,23 @@ void AppCompass::drawCalibrate()
 	canvas[canvasid].setTextDatum(CL_DATUM);
 	canvas[canvasid].drawString("X:", display.width *.25, 210);
 	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron[0], 0), display.width *.75, 210);
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_x, 0), display.width *.75, 210);
 
 	canvas[canvasid].setTextColor(TFT_ORANGE);
 	canvas[canvasid].setTextDatum(CL_DATUM);
 	canvas[canvasid].drawString("X:", display.width *.25, 230);
 	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron[1], 0), display.width *.75, 230);
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_y, 0), display.width *.75, 230);
 
 	canvas[canvasid].setTextColor(TFT_ORANGE);
 	canvas[canvasid].setTextDatum(CL_DATUM);
 	canvas[canvasid].drawString("X:", display.width *.25, 250);
 	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron[2], 0), display.width *.75, 250);
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_z, 0), display.width *.75, 250);
+		
+	canvas[canvasid].setTextColor(TFT_WHITE);
+	canvas[canvasid].setTextDatum(CL_DATUM);
+	canvas[canvasid].drawString("/\\", 0, 260);
 }
 
 /**
@@ -237,6 +241,10 @@ void AppCompass::drawCompass(int x, int y, float angle)
 	// TFT_TRANSPARENT is a special colour with reversible 8/16 bit coding
 	// this allows it to be used in both 8 and 16 bit colour sprites.
 	canvas[canvasid].fillSprite(TFT_TRANSPARENT);
+
+	canvas[canvasid].setTextColor(TFT_WHITE);
+	canvas[canvasid].setTextDatum(CL_DATUM);
+	canvas[canvasid].drawString("\\/", 0, 20);
 
 	canvas[canvasid].drawCircle(120, 140, 30, TFT_DARKGREY);
 

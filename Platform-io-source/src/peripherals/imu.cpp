@@ -384,14 +384,14 @@ float IMU::get_yaw()
 	// Apply hard-iron calibration
 	float hi_cal[3] =
 	{
-		mag_data[0] - settings.config.compass.hard_iron[0],
-		mag_data[1] - settings.config.compass.hard_iron[1],
-		mag_data[2] - settings.config.compass.hard_iron[2]
+		mag_data[0] - settings.config.compass.hard_iron_x,
+		mag_data[1] - settings.config.compass.hard_iron_y,
+		mag_data[2] - settings.config.compass.hard_iron_z
 	};	
 	
 	// Apply soft-iron matrix
 	for (uint8_t i = 0; i < 3; i++)	
-		mag_data[i] = (settings.config.compass.soft_iron[i][0] * hi_cal[0]) + (settings.config.compass.soft_iron[i][1] * hi_cal[1]) + (settings.config.compass.soft_iron[i][2] * hi_cal[2]);
+		mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
 	
 	// Non tilt compensated compass heading
 	// DB: The orientations of the sensor means we should use atan2(y,x) instead of atan2(x,y) and it also has a -90 deg offset 

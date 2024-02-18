@@ -70,7 +70,9 @@ struct Config_app_microphone
  */
 struct Config_compass
 {
-		float hard_iron[3] = { 0, 0, 0 }; // {17.77, -30.08, 16.21};
-		float soft_iron[3][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}}; // {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}}; // 
+		// {17.77, -30.08, 16.21};
+		float hard_iron_x = 0;
+		float hard_iron_y = 0;
+		float hard_iron_z = 0;
 		float magnetic_declination = 0.0; //-1.233;
 };
