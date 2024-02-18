@@ -96,8 +96,8 @@ bool AppEmpty::process_touch(touch_event_t touch_event)
 {
 	if (touch_event.type == TOUCH_SWIPE)
 	{
-		String swipe_dir_names[4] = {"UP", "RIGHT", "DOWN", "LEFT"};
-		info_printf("swipe dir: %s at touch pos (%d,%d) distance: (%d,%d)\n", swipe_dir_names[touch_event.dir], touch_event.x, touch_event.y, touch_event.d_x, touch_event.d_y);
+		String swipe_dir_names[5] = {"UP", "RIGHT", "DOWN", "LEFT", "UNKNOWN"};
+		info_printf("swipe dir: %s at touch pos (%d,%d) distance: (%d,%d)\n", swipe_dir_names[(int)touch_event.dir], touch_event.x, touch_event.y, touch_event.d_x, touch_event.d_y);
 
 		return true;
 	}

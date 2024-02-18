@@ -509,7 +509,7 @@ void Display::process_touch()
 
 				// 	if (current_face->swipe(touchpad.x, touchpad.y, dir, deltaX, deltaY))
 
-				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_SWIPE, dir, deltaX, deltaY);
+				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_SWIPE, (TouchSwipeDirection)dir, deltaX, deltaY);
 				if (current_face->process_touch(touch_data))
 				{
 					return;

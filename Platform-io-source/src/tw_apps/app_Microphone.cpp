@@ -161,22 +161,20 @@ bool AppMicrophone::process_touch(touch_event_t touch_event)
 			visual_state = 0;
 
 		return true;
-	} 
+	}
 	else if (touch_event.type == TOUCH_SWIPE)
 	{
-		if (swipe_dir_names[touch_event.dir] == "UP")
+		if (touch_event.dir == TOUCH_SWIPE_UP)
 		{
 			sweep_size++;
 			if (sweep_size > SWEEP_MAX)
 				sweep_size = SWEEP_MAX;
-		
 		}
-		if (swipe_dir_names[touch_event.dir] == "DOWN")
+		else if (touch_event.dir == TOUCH_SWIPE_DOWN)
 		{
 			sweep_size--;
 			if (sweep_size < 1)
 				sweep_size = 1;
-		
 		}
 
 		return true;
@@ -184,10 +182,6 @@ bool AppMicrophone::process_touch(touch_event_t touch_event)
 
 	return false;
 }
-
-
-
-
 
 /**
  * @brief Calculate the FFT stuff to use to display the VU meter
@@ -255,20 +249,20 @@ void AppMicrophone::do_waveform_calcs()
 	int i = 2;
 	for (int j = 0; j < samples_read; j++)
 	{
-	    if (i >= 199)
-	        break;
+		if (i >= 199)
+			break;
 
-    	uint16_t sample_data = raw_samples[j] / 14000;
-    	if (sample_data > 128) {
-        	waveform_data[++i] = sample_data << 2;
-    	}
+		uint16_t sample_data = raw_samples[j] / 14000;
+		if (sample_data > 128)
+		{
+			waveform_data[++i] = sample_data << 2;
+		}
 	}
 
 	// Capture the end waveform state so it can be repeated at the start
 	// of the next refresh. (Looks neater)
 	waveform_data[0] = waveform_last;
 	waveform_last = waveform_data[waveform_size - 1];
-
 }
 
 AppMicrophone app_microphone;
