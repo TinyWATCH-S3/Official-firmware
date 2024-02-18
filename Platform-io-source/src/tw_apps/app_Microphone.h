@@ -15,6 +15,7 @@
 #define I2S_MIC_SERIAL_DATA GPIO_NUM_1
 #define BLOCK_SIZE 512
 #define DEG2RAD 0.0174532925
+#define SWEEP_MAX 5
 
 class AppMicrophone : public tw_app
 {
@@ -36,7 +37,9 @@ class AppMicrophone : public tw_app
 		uint8_t waveform_size = 120;
 		int16_t waveform_data[200] = {0};
 		int16_t waveform_last = 0;
-		// const int BLOCK_SIZE = 512;
+		uint8_t sweep_size = 1;
+		
+		String swipe_dir_names[4] = {"UP", "RIGHT", "DOWN", "LEFT"};
 		double vReal[BLOCK_SIZE];
 		double vImag[BLOCK_SIZE];
 		int32_t raw_samples[BLOCK_SIZE];
