@@ -1,5 +1,5 @@
 #pragma once
-
+#include "settings/settings.h"
 #include "tw_apps/tw_app.h"
 #include <arduinoFFT.h>
 #include <driver/i2s.h>
@@ -15,7 +15,7 @@
 #define I2S_MIC_SERIAL_DATA GPIO_NUM_1
 #define BLOCK_SIZE 512
 #define DEG2RAD 0.0174532925
-#define SWEEP_MAX 5
+#define SWEEP_MAX 10
 
 class AppMicrophone : public tw_app
 {
@@ -38,6 +38,12 @@ class AppMicrophone : public tw_app
 		int16_t waveform_data[200] = {0};
 		int16_t waveform_last = 0;
 		uint8_t sweep_size = 1;
+		uint8_t gain_factor = 0;
+		
+		// Text Indicators
+		uint8_t text_fader = 0;
+		bool is_texting = false;
+		String text_indicator = "";
 		
 		String swipe_dir_names[4] = {"UP", "RIGHT", "DOWN", "LEFT"};
 		double vReal[BLOCK_SIZE];

@@ -1,4 +1,4 @@
-
+#include "settings/settings.h"
 #include "tw_apps/app_Microphone.h"
 // #include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
@@ -38,6 +38,16 @@ void AppMicrophone::setup()
 		i2s_set_pin(I2S_NUM_0, &i2s_mic_pins);
 
 		info_println("setup complete");
+
+		sweep_size = settings.config.app_microphone.sweep_size;
+		gain_factor = settings.config.app_microphone.gain_factor;		
+
+		if (sweep_size == 0) //First config setting. Make sure we aren't set to zero
+		{
+			sweep_size = 1;
+			settings.config.app_microphone.sweep_size = 1;
+			settings.config.app_microphone.gain_factor = 0;
+		}
 	}
 }
 
@@ -100,8 +110,12 @@ void AppMicrophone::draw(bool force)
 	if (force || millis() - next_update > update_period)
 	{
 		next_update = millis();
-
 		canvas[canvasid].fillSprite(TFT_BLACK);
+
+		// Init text
+		canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
+		
+		canvas[canvasid].setTextDatum(BC_DATUM);
 
 		if (visual_state == 0) // Spectrum Bar
 		{
@@ -128,27 +142,45 @@ void AppMicrophone::draw(bool force)
 		else if (visual_state == 2) // Waveform
 		{
 			do_waveform_calcs();
-			for (size_t i = 1; i < waveform_size; i++)
+			for (size_t i = 0; i < waveform_size - 1; i++)
 			{
-				uint8_t y1 = map(waveform_data[i + 9], -32768, 32767, 10, display.height - 10);
-				uint8_t y2 = map(waveform_data[i + 10], -32768, 32767, 10, display.height - 10);
-				canvas[canvasid].drawWideLine((i * 2), y1, (i * 2), y2, sweep_size, colors[i / 15]);
+				uint8_t y1 = waveform_data[i];
+				uint8_t y2 = waveform_data[i + 1];
+				for (int j=0; j < sweep_size; j++)
+				{
+					canvas[canvasid].drawLine((i * 2), y1+j, (i * 2), y2+j, colors[i / 15]);
+				}
+				
 			}
 		}
 		else if (visual_state == 3) // Multi-Waveform
 		{
 			do_waveform_calcs();
-			for (size_t i = 1; i < waveform_size; i++)
+			for (size_t i = 0; i < waveform_size - 1; i++)
 			{
-				uint8_t y1 = map(waveform_data[i + 9], -32768, 32767, 10, display.height - 10);
-				uint8_t y2 = map(waveform_data[i + 10], -32768, 32767, 10, display.height - 10);
+				uint8_t y1 = waveform_data[i];
+				uint8_t y2 = waveform_data[i + 1];;
 				for (uint8_t y_offset = 0; y_offset < 8; y_offset++)
 				{
-					canvas[canvasid].drawWideLine((i * 2), (y1 - 40) + (10 * y_offset), (i * 2), (y2 - 40) + (10 * y_offset), sweep_size, colors[y_offset]);
+					for (int j=0; j < sweep_size; j++)
+					{
+						canvas[canvasid].drawLine((i * 2), (y1 - 40) + (10 * y_offset)+j, (i * 2), (y2 - 40) + (10 * y_offset)+j, colors[y_offset]);
+					}
 				}
 			}
 		}
 	}
+
+	// Do Text if needed
+	if (is_texting)
+	{
+		text_fader--;
+		canvas[canvasid].setTextColor(RGB(text_fader*4, text_fader*4, text_fader*4), RGB(0x00, 0x00, 0x00));
+		canvas[canvasid].drawString(text_indicator, display.center_x, display.height - (5 + text_fader));
+		if (text_fader <= 0)
+			is_texting = false;
+	}
+
 	canvas[canvasid].pushSprite(_x, _y);
 }
 
@@ -164,22 +196,54 @@ bool AppMicrophone::process_touch(touch_event_t touch_event)
 	}
 	else if (touch_event.type == TOUCH_SWIPE)
 	{
-		if (touch_event.dir == TOUCH_SWIPE_UP)
+		if (touch_event.dir == TOUCH_SWIPE_RIGHT)
 		{
-			sweep_size++;
-			if (sweep_size > SWEEP_MAX)
-				sweep_size = SWEEP_MAX;
+			if (sweep_size < SWEEP_MAX)
+			{
+				sweep_size++;
+				text_indicator = "Size " + String (sweep_size);
+				settings.config.app_microphone.sweep_size = sweep_size;
+				is_texting = true;
+				text_fader = 64;
+
+			}
+		}
+		else if (touch_event.dir == TOUCH_SWIPE_LEFT)
+		{
+			if (sweep_size > 1)
+			{
+				sweep_size--;
+				text_indicator = "Size " + String (sweep_size);
+				settings.config.app_microphone.sweep_size = sweep_size;
+				is_texting = true;
+				text_fader = 64;
+			}
 		}
 		else if (touch_event.dir == TOUCH_SWIPE_DOWN)
 		{
-			sweep_size--;
-			if (sweep_size < 1)
-				sweep_size = 1;
+			if (gain_factor > 0) 
+			{
+				gain_factor--;
+				text_indicator = "Gain " + String (gain_factor);
+				settings.config.app_microphone.gain_factor = gain_factor;
+				is_texting = true;
+				text_fader = 64;
+			}
 		}
-
+		else if (touch_event.dir == TOUCH_SWIPE_UP)
+		{
+			if (gain_factor < 19) 
+			{
+				gain_factor++;
+				text_indicator = "Gain " + String (gain_factor);
+				settings.config.app_microphone.gain_factor = gain_factor;
+				is_texting = true;
+				text_fader = 64;
+			}
+		}
+		settings.save(false);
 		return true;
 	}
-
 	return false;
 }
 
@@ -246,23 +310,33 @@ void AppMicrophone::do_waveform_calcs()
 	// We just want Amplitude, so this should be sufficient
 
 	uint16_t sample_data = 0;
-	int i = 2;
+	int i = 0;
+	int x_offset = 10;
+
 	for (int j = 0; j < samples_read; j++)
 	{
-		if (i >= 199)
+		if (i > waveform_size)
 			break;
-
-		uint16_t sample_data = raw_samples[j] / 14000;
-		if (sample_data > 128)
+			
+		// Gain Adjustment
+		uint16_t sample_data = raw_samples[j] / (20000 - (gain_factor * 1000));
+		if (sample_data > 0)
 		{
-			waveform_data[++i] = sample_data << 2;
+			if (x_offset == 0) {
+				waveform_data[i] = map(sample_data << 2, -32768, 32767, 10, display.height - 10);
+				i++;
+			}
+			else {
+				// Skip the first few samples as they have visually unappealing artefacts
+				x_offset--;
+			}
 		}
 	}
 
 	// Capture the end waveform state so it can be repeated at the start
 	// of the next refresh. (Looks neater)
 	waveform_data[0] = waveform_last;
-	waveform_last = waveform_data[waveform_size - 1];
+	waveform_last = waveform_data[waveform_size];
 }
 
 AppMicrophone app_microphone;
