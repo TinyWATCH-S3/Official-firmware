@@ -18,7 +18,10 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_open_weather, api_key, po
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_custom_binary, binary_clockcolour, binary_clockstyle);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, audio_ui, audio_alarm, imu_process_steps, imu_process_wrist);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_microphone, sweep_size, gain_factor);
+
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, audio_ui, audio_alarm, imu_process_steps, imu_process_wrist, app_microphone, custom_binary);
+
 
 void Settings::log_to_nvs(const char *key, const char *log)
 {

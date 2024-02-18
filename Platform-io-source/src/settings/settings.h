@@ -38,6 +38,9 @@ struct Config
 		// Binary Clock Face specific settings
 		Config_custom_binary custom_binary;
 
+		// Microphone App specific Settings
+		Config_app_microphone app_microphone;
+
 		// Display
 		uint bl_period_vbus = 60000;
 		uint bl_period_vbat = 30000;
