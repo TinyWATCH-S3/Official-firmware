@@ -2,6 +2,7 @@
 #include "activity.h"
 #include "rtc.h"
 #include "utilities/logging.h"
+#include "settings/settings.h"
 
 extern Activity activity;
 extern RTC rtc;
@@ -370,43 +371,63 @@ float IMU::get_yaw()
 {
 	if (!mag_ready)
 		return 0;
-
-	float hi_cal[3];
+	
 	float heading = 0;
 
 	/* Get a new sensor event */
 	sensors_event_t event;
 	mag.getEvent(&event);
 
-	float Pi = 3.14159;
-
 	// Put raw magnetometer readings into an array
 	float mag_data[] = {event.magnetic.x, event.magnetic.y, event.magnetic.z};
 
-	// Apply hard-iron offsets
-	for (uint8_t i = 0; i < 3; i++)
+	// Apply hard-iron calibration
+	float hi_cal[3] =
 	{
-		hi_cal[i] = mag_data[i] - hard_iron[i];
-	}
-
-	// Apply soft-iron scaling
-	for (uint8_t i = 0; i < 3; i++)
-	{
-		mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
-	}
-
+		mag_data[0] - settings.config.compass.hard_iron[0],
+		mag_data[1] - settings.config.compass.hard_iron[1],
+		mag_data[2] - settings.config.compass.hard_iron[2]
+	};	
+	
+	// Apply soft-iron matrix
+	for (uint8_t i = 0; i < 3; i++)	
+		mag_data[i] = (settings.config.compass.soft_iron[i][0] * hi_cal[0]) + (settings.config.compass.soft_iron[i][1] * hi_cal[1]) + (settings.config.compass.soft_iron[i][2] * hi_cal[2]);
+	
 	// Non tilt compensated compass heading
-	heading = (atan2(mag_data[0], mag_data[1]) * 180) / Pi;
+	// DB: The orientations of the sensor means we should use atan2(y,x) instead of atan2(x,y) and it also has a -90 deg offset 
+	heading = (atan2(mag_data[1], mag_data[0]) * (float)180) / PI - 90;
 
 	// Apply magnetic declination to convert magnetic heading
 	// to geographic heading
-	heading += mag_decl;
+	heading += settings.config.compass.magnetic_declination;
 
-	// Normalize to 0-360
-	if (heading < 0)
-		heading = 360 + heading;
+	// Normalize to 0-360, it can o below 0 too
+	if (heading < 0.0)
+		heading = 360.0 + heading;
+
+	if (heading > 360.0)
+		heading = heading - 360.0;
 
 	return heading;
+}
+
+void IMU::get_magnetic(float *x, float *y, float *z)
+{
+	if (mag_ready)
+	{
+		//	return {0,10,0};
+		sensors_event_t event;
+		mag.getEvent(&event);
+		*x = event.magnetic.x;
+		*y = event.magnetic.y;
+		*z = event.magnetic.z;
+	}
+	else
+	{		
+		*x = 0;
+		*y = 0;
+		*z = 0;
+	}
 }
 
 bool IMU::is_looking_at_face()

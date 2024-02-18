@@ -64,3 +64,13 @@ struct Config_app_microphone
 		uint8_t sweep_size = 1;
 		uint8_t gain_factor = 0;
 };
+
+/**
+ * @brief Settings required by the compass
+ */
+struct Config_compass
+{
+		float hard_iron[3] = { 0, 0, 0 }; // {17.77, -30.08, 16.21};
+		float soft_iron[3][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}}; // {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}}; // 
+		float magnetic_declination = 0.0; //-1.233;
+};
