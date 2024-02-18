@@ -58,3 +58,9 @@ struct Config_custom_binary
 		uint8_t binary_clockcolour = 0;
 		uint8_t binary_clockstyle = 0;
 };
+
+struct Config_app_microphone
+{
+		uint8_t sweep_size = 1;
+		uint8_t gain_factor = 0;
+};
