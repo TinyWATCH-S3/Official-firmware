@@ -103,7 +103,7 @@ void AppMicrophone::draw(bool force)
 
 		canvas[canvasid].fillSprite(TFT_BLACK);
 
-		if (visual_state == 0)
+		if (visual_state == 0) // Spectrum Bar
 		{
 			do_fft_calcs();
 			canvas[canvasid].drawLine(0, 140, 240, 140, TFT_WHITE);
@@ -115,7 +115,7 @@ void AppMicrophone::draw(bool force)
 				canvas[canvasid].fillRect(b * 25 + 22, 144, 20, bar, colors_dark[b]);
 			}
 		}
-		else if (visual_state == 1)
+		else if (visual_state == 1) // Spectrum Arc
 		{
 			do_fft_calcs();
 			for (int b = 0; b < 8; b++)
@@ -125,32 +125,26 @@ void AppMicrophone::draw(bool force)
 				display.fill_arc(canvasid, 120, 140, 0, constrain(bar, 1, 60), radius, radius, 8, colors[b]);
 			}
 		}
-		else if (visual_state == 2)
+		else if (visual_state == 2) // Waveform
 		{
 			do_waveform_calcs();
 			for (size_t i = 1; i < waveform_size; i++)
 			{
-				uint8_t y1 = map(waveform_data[i - 1], -32768, 32767, 10, display.height - 10);
-				uint8_t y2 = map(waveform_data[i], -32768, 32767, 10, display.height - 10);
-
-				// Option A
-				// canvas[canvasid].drawLine(1, display.height/2 , display.width, display.height/2, RGB(0x77,0x00,0x00)); // Graticule (looks a bit silly)
-				canvas[canvasid].drawLine((i * 2), y1, (i * 2), y2, colors[i / 15]);
+				uint8_t y1 = map(waveform_data[i + 9], -32768, 32767, 10, display.height - 10);
+				uint8_t y2 = map(waveform_data[i + 10], -32768, 32767, 10, display.height - 10);
+				canvas[canvasid].drawWideLine((i * 2), y1, (i * 2), y2, sweep_size, colors[i / 15]);
 			}
 		}
-		else if (visual_state == 3)
+		else if (visual_state == 3) // Multi-Waveform
 		{
 			do_waveform_calcs();
 			for (size_t i = 1; i < waveform_size; i++)
 			{
-				// Scale the Y position
-				uint8_t y1 = map(waveform_data[i - 1], -32768, 32767, 10, display.height - 10);
-				uint8_t y2 = map(waveform_data[i], -32768, 32767, 10, display.height - 10);
-
-				// Option B
+				uint8_t y1 = map(waveform_data[i + 9], -32768, 32767, 10, display.height - 10);
+				uint8_t y2 = map(waveform_data[i + 10], -32768, 32767, 10, display.height - 10);
 				for (uint8_t y_offset = 0; y_offset < 8; y_offset++)
 				{
-					canvas[canvasid].drawLine((i * 2), (y1 - 40) + (10 * y_offset), (i * 2), (y2 - 40) + (10 * y_offset), colors[y_offset]);
+					canvas[canvasid].drawWideLine((i * 2), (y1 - 40) + (10 * y_offset), (i * 2), (y2 - 40) + (10 * y_offset), sweep_size, colors[y_offset]);
 				}
 			}
 		}
@@ -167,10 +161,33 @@ bool AppMicrophone::process_touch(touch_event_t touch_event)
 			visual_state = 0;
 
 		return true;
+	} 
+	else if (touch_event.type == TOUCH_SWIPE)
+	{
+		if (swipe_dir_names[touch_event.dir] == "UP")
+		{
+			sweep_size++;
+			if (sweep_size > SWEEP_MAX)
+				sweep_size = SWEEP_MAX;
+		
+		}
+		if (swipe_dir_names[touch_event.dir] == "DOWN")
+		{
+			sweep_size--;
+			if (sweep_size < 1)
+				sweep_size = 1;
+		
+		}
+
+		return true;
 	}
 
 	return false;
 }
+
+
+
+
 
 /**
  * @brief Calculate the FFT stuff to use to display the VU meter
@@ -184,7 +201,7 @@ void AppMicrophone::do_fft_calcs()
 
 	for (uint16_t i = 0; i < BLOCK_SIZE; i++)
 	{
-		raw_samples[i] = raw_samples[i] / 10000;
+		raw_samples[i] = raw_samples[i] / 20000;
 		vReal[i] = raw_samples[i] << 2;
 		vImag[i] = 0.0; // Imaginary part must be zeroed in case of looping to avoid wrong calculations and overflows
 	}
@@ -230,18 +247,28 @@ void AppMicrophone::do_waveform_calcs()
 {
 	size_t bytes_read = 0;
 	i2s_read(I2S_NUM_0, raw_samples, sizeof(int32_t) * BLOCK_SIZE, &bytes_read, portMAX_DELAY);
+	int samples_read = bytes_read / sizeof(int32_t);
 
-	for (int i = 0; i < waveform_size; i++)
+	// We just want Amplitude, so this should be sufficient
+
+	uint16_t sample_data = 0;
+	int i = 2;
+	for (int j = 0; j < samples_read; j++)
 	{
-		// We just want Amplitude, so this should be sufficient
-		uint16_t sample_data = raw_samples[i + 2] / 10000;
-		waveform_data[i] = (sample_data) << 2;
+	    if (i >= 199)
+	        break;
+
+    	uint16_t sample_data = raw_samples[j] / 14000;
+    	if (sample_data > 128) {
+        	waveform_data[++i] = sample_data << 2;
+    	}
 	}
 
 	// Capture the end waveform state so it can be repeated at the start
 	// of the next refresh. (Looks neater)
 	waveform_data[0] = waveform_last;
 	waveform_last = waveform_data[waveform_size - 1];
+
 }
 
 AppMicrophone app_microphone;
