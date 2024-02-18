@@ -137,6 +137,7 @@ void Display::add_clock_face(tw_face *face)
 }
 
 void Display::set_current_face(tw_face *face) { current_face = face; }
+tw_face *Display::get_current_face() { return current_face; }
 
 /**
  * @brief Before we switch the current clock face to a new clock face, we need to copy over the current clock faces navigation to the new face.
@@ -464,7 +465,6 @@ void Display::process_touch()
 			else if (!prevent_long_press && last_touch - touchTime > 600)
 			{
 				// might be a long click?
-				// if (current_face->click_long(touchpad.x, touchpad.y))
 
 				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_LONG);
 				if (current_face->process_touch(touch_data))

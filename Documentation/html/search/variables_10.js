@@ -38,5 +38,7 @@ var searchData=
   ['step_5fcount_35',['step_count',['../class_i_m_u.html#ac15b1cbc934321067f1d4306312c9990',1,'IMU']]],
   ['steps_5fday_36',['steps_day',['../struct_activity___data.html#a82adda9947db86cfd0044eeb84dbad58',1,'Activity_Data']]],
   ['steps_5fyear_37',['steps_year',['../struct_activity___data.html#ae7cbe92b51bc44330d1c6ce7e4b55fd7',1,'Activity_Data']]],
-  ['success_38',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]]
+  ['success_38',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]],
+  ['sweep_5fsize_39',['sweep_size',['../class_app_microphone.html#af52f865020e2813e9d72298ddd85bb74',1,'AppMicrophone']]],
+  ['swipe_5fdir_5fnames_40',['swipe_dir_names',['../class_app_microphone.html#a76ab119f141b3425b8882115c1b25ff0',1,'AppMicrophone']]]
 ];

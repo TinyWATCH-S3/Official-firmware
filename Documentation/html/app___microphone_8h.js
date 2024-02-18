@@ -9,5 +9,6 @@ var app___microphone_8h =
     [ "I2S_MIC_SERIAL_DATA", "app___microphone_8h.html#a3be0b382b79b69929c12b827f1d0e250", null ],
     [ "SAMPLE_BUFFER_SIZE", "app___microphone_8h.html#a2712a8369bb0a8c5f4d402b68d8fdd6d", null ],
     [ "SAMPLE_RATE", "app___microphone_8h.html#a4b76a0c2859cfd819a343a780070ee2b", null ],
+    [ "SWEEP_MAX", "app___microphone_8h.html#a0ddb791c3b7ca868074bcee7e9413fe6", null ],
     [ "app_microphone", "app___microphone_8h.html#a056107b4411455f2d41f9bc59a8c5798", null ]
 ];

@@ -50,6 +50,8 @@ class tw_face
 		// control dragging
 		tw_control *find_draggable_control(uint16_t touch_pos_x, uint16_t touch_pos_y);
 
+		void update_screen();
+
 		String name = "";
 
 		// virtual methods

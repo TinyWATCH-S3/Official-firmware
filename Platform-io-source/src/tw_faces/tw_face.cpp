@@ -626,3 +626,8 @@ void tw_face::reset_cache_status()
 		_face.second->is_cached = false;
 	}
 }
+
+void tw_face::update_screen()
+{
+	canvas[canvasid].pushSprite(_x, _y);
+}

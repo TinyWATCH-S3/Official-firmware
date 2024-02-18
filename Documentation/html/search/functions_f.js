@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['touch_5fevent_5ft_0',['touch_event_t',['../structtouch__event__t.html#a1250c2157bb70264b8edda75f993ba9a',1,'touch_event_t::touch_event_t()'],['../structtouch__event__t.html#a09fb8d8b56a8c1fbb3ee46d6c10e615d',1,'touch_event_t::touch_event_t(uint16_t _x, uint16_t _y, TouchEventType _type)'],['../structtouch__event__t.html#a469f528cc6f6c17fb726f1b62d3ddc17',1,'touch_event_t::touch_event_t(uint16_t _x, uint16_t _y, TouchEventType _type, uint8_t _dir, int16_t _d_x, int16_t _d_y)']]],
+  ['touch_5fevent_5ft_0',['touch_event_t',['../structtouch__event__t.html#a1250c2157bb70264b8edda75f993ba9a',1,'touch_event_t::touch_event_t()'],['../structtouch__event__t.html#a09fb8d8b56a8c1fbb3ee46d6c10e615d',1,'touch_event_t::touch_event_t(uint16_t _x, uint16_t _y, TouchEventType _type)'],['../structtouch__event__t.html#a5e2776f2c819d93b29547557b25db93f',1,'touch_event_t::touch_event_t(uint16_t _x, uint16_t _y, TouchEventType _type, TouchSwipeDirection _dir, int16_t _d_x, int16_t _d_y)']]],
   ['touchpad_1',['touchpad',['../display_8cpp.html#a3d21a6000bc9ebdd20f8376b69d0dee7',1,'display.cpp']]],
   ['track_5fsteps_2',['track_steps',['../class_activity.html#a04271bc7ffcf8a5b07e2743f8014d74a',1,'Activity']]],
   ['tw_5fapp_3',['tw_app',['../classtw__app.html#a415b5f5015e2f10ea3c1e627d58d289f',1,'tw_app']]],

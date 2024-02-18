@@ -85,5 +85,8 @@ var searchData=
   ['stop_82',['stop',['../class_web_server.html#a09e0bc35886a3088dec9e459eb99092d',1,'WebServer::stop()'],['../class_wifi_setup.html#a0a49f4ecb83b6ec896d543eee042aaf0',1,'WifiSetup::stop()']]],
   ['structure_20concepts_83',['Code Structure &amp; Concepts',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html',1,'']]],
   ['style_84',['Coding Style',['../md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md7',1,'']]],
-  ['success_85',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]]
+  ['success_85',['success',['../struct_wifi_controller_1_1wifi__callback__item.html#a0138d8330ec10c6eff7d2b85221e6749',1,'WifiController::wifi_callback_item']]],
+  ['sweep_5fmax_86',['SWEEP_MAX',['../app___microphone_8h.html#a0ddb791c3b7ca868074bcee7e9413fe6',1,'app_Microphone.h']]],
+  ['sweep_5fsize_87',['sweep_size',['../class_app_microphone.html#af52f865020e2813e9d72298ddd85bb74',1,'AppMicrophone']]],
+  ['swipe_5fdir_5fnames_88',['swipe_dir_names',['../class_app_microphone.html#a76ab119f141b3425b8882115c1b25ff0',1,'AppMicrophone']]]
 ];

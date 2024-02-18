@@ -9,6 +9,7 @@ var class_display =
     [ "get_backlight_period", "class_display.html#a6ffb70aaa2581e3c27d3b83c2953d8f5", null ],
     [ "get_current_backlight_val", "class_display.html#a939450804c1c202b72e7315fe36014fa", null ],
     [ "get_current_display_state", "class_display.html#a806acc6b576d79de9acfaabcd4ef2da7", null ],
+    [ "get_current_face", "class_display.html#a8e2f051e8a95456f2686ebed3616eb86", null ],
     [ "init_screen", "class_display.html#a480b145aebc205f9bb3e8b14873408e4", null ],
     [ "kill_backlight_task", "class_display.html#a1f816e384298b259336037b19d11e6ff", null ],
     [ "process_touch", "class_display.html#a49cf030cfdcea4c5bfd7171017c34787", null ],

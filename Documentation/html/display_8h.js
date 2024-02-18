@@ -15,6 +15,7 @@ var display_8h =
       [ "LOADING", "display_8h.html#ac7066778400fb6bbc6ba0437606c606fa3a147bbbb7cd01dc067e6306c965769a", null ],
       [ "NORMAL", "display_8h.html#ac7066778400fb6bbc6ba0437606c606fa50d1448013c6f17125caee18aa418af7", null ]
     ] ],
+    [ "linear_lerp", "display_8h.html#a714d51331a3eb68f1a84903d773a3f9b", null ],
     [ "RGB", "display_8h.html#a95882ac388a30de06881dbd1f66d2c62", null ],
     [ "canvas", "display_8h.html#ace9174c9ba98b11c902a8888832df739", null ],
     [ "display", "display_8h.html#aa5083e8fab8ddaf62944949e251663bb", null ],

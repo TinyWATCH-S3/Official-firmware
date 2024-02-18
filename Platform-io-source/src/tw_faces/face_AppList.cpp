@@ -8,11 +8,6 @@ class tw_app;
 
 static std::map<String, tw_app *> app_icons;
 
-float naive_lerp(float a, float b, float t)
-{
-	return a + t * (b - a);
-}
-
 // Called when face is set to current
 void FaceAppList::setup()
 {
@@ -64,12 +59,12 @@ bool FaceAppList::animate_app_in()
 	{
 
 		step = constrain(step + 0.2, 0.0, 1.0);
-		anim_icon_height = (uint16_t)naive_lerp((float)anim_icon_height, 279.0, step);
-		anim_icon_width = (uint16_t)naive_lerp((float)anim_icon_width, 239.0, step);
-		anim_icon_pos_x = (uint16_t)naive_lerp((float)anim_icon_pos_x, 0.0, step);
-		anim_icon_pos_y = (uint16_t)naive_lerp((float)anim_icon_pos_y, 0.0, step);
-		anim_corner_roundness = (uint8_t)naive_lerp((float)anim_corner_roundness, 45.0, step);
-		anim_backlight = (uint8_t)naive_lerp((float)anim_backlight, 0.0, step);
+		anim_icon_height = (uint16_t)linear_lerp((float)anim_icon_height, 279.0, step);
+		anim_icon_width = (uint16_t)linear_lerp((float)anim_icon_width, 239.0, step);
+		anim_icon_pos_x = (uint16_t)linear_lerp((float)anim_icon_pos_x, 0.0, step);
+		anim_icon_pos_y = (uint16_t)linear_lerp((float)anim_icon_pos_y, 0.0, step);
+		anim_corner_roundness = (uint8_t)linear_lerp((float)anim_corner_roundness, 45.0, step);
+		anim_backlight = (uint8_t)linear_lerp((float)anim_backlight, 0.0, step);
 
 		draw(true);
 
@@ -77,10 +72,10 @@ bool FaceAppList::animate_app_in()
 	}
 	yield;
 	is_animating = false;
-	
+
 	// Drop the CPU speed back to default
 	setCpuFrequencyMhz(40);
-	
+
 	return false;
 }
 

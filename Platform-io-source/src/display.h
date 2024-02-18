@@ -22,6 +22,11 @@ RGB(uint8_t r, uint8_t g, uint8_t b)
 	return ((r & 0xf8) << 8) | ((g & 0xfc) << 3) | (b >> 3);
 }
 
+constexpr float linear_lerp(float a, float b, float t)
+{
+	return a + t * (b - a);
+}
+
 #include "cst816t.h" // capacitive touch
 #include "peripherals/rtc.h"
 #include "utilities/logging.h"
@@ -61,6 +66,8 @@ class Display
 		void cycle_clock_face();
 
 		void set_current_face(tw_face *face);
+		tw_face *get_current_face();
+
 		tw_face *set_current_clock_face(bool should_draw);
 		void show_low_battery();
 

@@ -12,6 +12,8 @@ class FaceNotifications : public tw_face
 
 		void add_message(String message);
 
+		void notify_new_message();
+
 	private:
 		String version = "1.0";
 		String message_queue[4];

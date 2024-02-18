@@ -19,6 +19,8 @@ var class_app_microphone =
     [ "should_calc", "class_app_microphone.html#a738624ce044438b9c857004760938569", null ],
     [ "shutdown_timer", "class_app_microphone.html#a4cbae7b10fe94971f52a9100cbbdaca8", null ],
     [ "signalFrequency", "class_app_microphone.html#ad6ad9359a525e9580b29ac76bf25bfb6", null ],
+    [ "sweep_size", "class_app_microphone.html#af52f865020e2813e9d72298ddd85bb74", null ],
+    [ "swipe_dir_names", "class_app_microphone.html#a76ab119f141b3425b8882115c1b25ff0", null ],
     [ "vImag", "class_app_microphone.html#ae5a03ca2a43e2dc92c2ea120310b51f1", null ],
     [ "visual_state", "class_app_microphone.html#a6ba1b1d1e6de1cfa313d5b03039e249a", null ],
     [ "vReal", "class_app_microphone.html#a64e7081438a064c5f9a5525a5ec306ec", null ],

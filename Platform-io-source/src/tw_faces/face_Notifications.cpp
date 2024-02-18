@@ -73,7 +73,7 @@ void FaceNotifications::draw(bool force)
 			}
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 
@@ -104,6 +104,10 @@ void FaceNotifications::pop_message()
 		for (uint8_t i = 1; i < 4; i++)
 			message_queue[i - 1] = message_queue[i];
 	}
+}
+
+void FaceNotifications::notify_new_message()
+{
 }
 
 FaceNotifications face_notifications;

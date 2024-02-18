@@ -30,6 +30,7 @@ var classtw__face =
     [ "set_scrollable", "classtw__face.html#a3f5fefe28b97beb02e0cd30782580778", null ],
     [ "set_single_navigation", "classtw__face.html#a62d0e643a009ee6210e2cee44eec5e3a", null ],
     [ "setup", "classtw__face.html#ac5a401fc14f372f82330ea72fb619fea", null ],
+    [ "update_screen", "classtw__face.html#a822afa51d68fe590a73c46c6f0b654e1", null ],
     [ "widget_process_clicks", "classtw__face.html#aa3481ba12d4a956000b940d9d841a8eb", null ],
     [ "_x", "classtw__face.html#aa0407f1353c697853c4ded0769c9bd7d", null ],
     [ "_y", "classtw__face.html#ad842e61841906d628e1f276954c0b8b6", null ],

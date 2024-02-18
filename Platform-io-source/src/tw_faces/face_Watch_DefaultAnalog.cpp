@@ -9,6 +9,8 @@
 #include "settings/settings.h"
 #include "tinywatch.h"
 
+#include "tw_faces/face_Notifications.h"
+
 void FaceWatch_DefaultAnalog::setup()
 {
 	if (!is_setup)
@@ -72,7 +74,7 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			draw_children(false, 0);
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 
@@ -88,6 +90,7 @@ bool FaceWatch_DefaultAnalog::process_touch(touch_event_t touch_event)
 	else if (touch_event.type == TOUCH_LONG)
 	{
 		// TODO: Add display of watch specific settings here when the user long presses
+		info_println("hello current face long press");
 	}
 
 	return false;

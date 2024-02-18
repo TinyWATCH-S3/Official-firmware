@@ -10,7 +10,7 @@ var searchData=
   ['deltax_7',['deltaX',['../display_8cpp.html#aa619bed5b36c23065f6b3c1faf8ac31d',1,'display.cpp']]],
   ['deltay_8',['deltaY',['../display_8cpp.html#a73ca8a4921ccb094005e774b883df68d',1,'display.cpp']]],
   ['device_5fname_9',['device_name',['../struct_config__mqtt.html#a041eb4589daa385e497875357289c6b0',1,'Config_mqtt']]],
-  ['dir_10',['dir',['../structtouch__event__t.html#a1a8684b7e58cad6260e60b434bb7f238',1,'touch_event_t']]],
+  ['dir_10',['dir',['../structtouch__event__t.html#ac81ff191c70385fb894f4cc70e373094',1,'touch_event_t']]],
   ['dirnames_11',['dirNames',['../display_8cpp.html#a07cc60904f286864bd64c5cd75ea3446',1,'display.cpp']]],
   ['display_12',['display',['../display_8cpp.html#aa5083e8fab8ddaf62944949e251663bb',1,'display:&#160;display.cpp'],['../display_8h.html#aa5083e8fab8ddaf62944949e251663bb',1,'display:&#160;display.cpp']]],
   ['dns_5fserver_13',['dns_server',['../class_web_server.html#a167caa34716b4c5b58f5e6e48107df77',1,'WebServer']]],
