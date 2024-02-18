@@ -91,6 +91,7 @@ bool FaceWatch_DefaultAnalog::process_touch(touch_event_t touch_event)
 	{
 		// TODO: Add display of watch specific settings here when the user long presses
 		info_println("hello current face long press");
+		return true;
 	}
 
 	return false;

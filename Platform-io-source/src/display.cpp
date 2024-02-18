@@ -465,12 +465,11 @@ void Display::process_touch()
 			else if (!prevent_long_press && last_touch - touchTime > 600)
 			{
 				// might be a long click?
-
 				touch_event_t touch_data = touch_event_t(touchpad.x, touchpad.y, TOUCH_LONG);
 				if (current_face->process_touch(touch_data))
 				{
 					BuzzerUI({{2000, 400}});
-					// isTouched = false;
+
 					last_was_click = false;
 					last_was_long = true;
 				}
