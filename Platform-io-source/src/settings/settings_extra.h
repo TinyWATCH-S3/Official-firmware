@@ -74,5 +74,8 @@ struct Config_compass
 		float hard_iron_x = 0;
 		float hard_iron_y = 0;
 		float hard_iron_z = 0;
+		float soft_iron_x = 1;
+		float soft_iron_y = 1;
+		float soft_iron_z = 1;
 		float magnetic_declination = 0.0; //-1.233;
 };

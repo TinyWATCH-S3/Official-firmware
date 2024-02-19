@@ -71,14 +71,23 @@ bool AppCompass::process_touch(touch_event_t touch_event)
 		}
 		else if (running_state == RUNNING_STATE_CALIBRATE && touch_event.dir == TOUCH_SWIPE_UP)
 		{
-			settings.config.compass.hard_iron_x = hard_iron_avg[0];
-			settings.config.compass.hard_iron_y = hard_iron_avg[1];
-			settings.config.compass.hard_iron_z = hard_iron_avg[2];
+			settings.config.compass.hard_iron_x = hard_iron_x;
+			settings.config.compass.hard_iron_y = hard_iron_y;
+			settings.config.compass.hard_iron_z = hard_iron_z;
+
+			settings.config.compass.soft_iron_x = soft_iron_x;
+			settings.config.compass.soft_iron_y = soft_iron_y;
+			settings.config.compass.soft_iron_z = soft_iron_z;
+
 			settings.save(true);
 			info_print(F("Compass hard iron values saved"));			
 			running_state = RUNNING_STATE_DRAW;
 			return true;
 		}
+	}
+	else if (touch_event.type == TOUCH_TAP)
+	{
+		resetCalibration();
 	}
 	return false;
 }
@@ -131,8 +140,8 @@ float AppCompass::moveTowardsHeading(float currentHeading, float newHeading)
 		: newHeading - 360.0 - currentHeading
 	;
 	result = abs(a) < abs(b)
-		? currentHeading + a * align_rate
-		: currentHeading + b * align_rate
+		? currentHeading + a
+		: currentHeading + b
 	;
 
 	if (result >= 360.0)
@@ -148,86 +157,107 @@ float AppCompass::moveTowardsHeading(float currentHeading, float newHeading)
  */
 void AppCompass::resetCalibration()
 {
-	for(uint8_t i=0; i < 3; i++)
-	{
-		hard_iron_avg[i] = 0;
-		hard_iron_min[i] = std::numeric_limits<float>::max();
-		hard_iron_max[i] = std::numeric_limits<float>::min();
-	}
+	mag_x_min = 6000;
+	mag_y_min = 6000;
+	mag_z_min = 6000;
+
+	mag_x_max = -6000;
+	mag_y_max = -6000;
+	mag_z_max = -6000;
+	
+	hard_iron_x = 0;
+	hard_iron_y = 0;
+	hard_iron_z = 0;
+
+	soft_iron_x = 1;
+	soft_iron_y = 1;
+	soft_iron_z = 1;
 }
 
 /**
- * 
+ * https://www.instructables.com/Tilt-Compensated-Compass/
+ * https://github.com/kriswiner/MPU6050/wiki/Simple-and-Effective-Magnetometer-Calibration
  */
 void AppCompass::drawCalibrate()
 {
-	float mag[3];
-	imu.get_magnetic(&mag[0], &mag[1], &mag[2]);
+	float mag_x;
+	float mag_y;
+	float mag_z;
 
-	if (mag[0] < hard_iron_min[0]) hard_iron_min[0] = mag[0];
-	if (mag[0] > hard_iron_max[0]) hard_iron_max[0] = mag[0];
+	imu.get_magnetic(&mag_x, &mag_y, &mag_z);
 
-	if (mag[1] < hard_iron_min[1]) hard_iron_min[1] = mag[1];
-	if (mag[1] > hard_iron_max[1]) hard_iron_max[1] = mag[1];
+	mag_x_min = min(mag_x, mag_x_min);
+	mag_y_min = min(mag_y, mag_y_min);
+	mag_z_min = min(mag_z, mag_z_min);
 
-	if (mag[2] < hard_iron_min[2]) hard_iron_min[2] = mag[2];
-	if (mag[2] > hard_iron_max[2]) hard_iron_max[2] = mag[2];
+	mag_x_max = max(mag_x, mag_x_max);
+	mag_y_max = max(mag_y, mag_y_max);
+	mag_z_max = max(mag_z, mag_z_max);
 
-	hard_iron_avg[0] = hard_iron_min[0] + ((hard_iron_max[0] - hard_iron_min[0]) / 2);
-	hard_iron_avg[1] = hard_iron_min[1] + ((hard_iron_max[1] - hard_iron_min[1]) / 2);
-	hard_iron_avg[2] = hard_iron_min[2] + ((hard_iron_max[2] - hard_iron_min[2]) / 2);
+	hard_iron_x = (mag_x_max + mag_x_min) / 2;
+	hard_iron_y = (mag_y_max + mag_y_min) / 2;
+	hard_iron_z = (mag_z_max + mag_z_min) / 2;
+
+	soft_iron_x = (mag_x_max - mag_x_min) / 2;
+	soft_iron_y = (mag_y_max - mag_y_min) / 2;
+	soft_iron_z = (mag_z_max - mag_z_min) / 2;
+ 
+	float soft_scale = (soft_iron_x + soft_iron_y + soft_iron_z) / 3;
+
+	soft_iron_x = soft_scale / soft_iron_x;
+	soft_iron_y = soft_scale / soft_iron_y;
+	soft_iron_z = soft_scale / soft_iron_z;
 
 	canvas[canvasid].fillSprite(TFT_TRANSPARENT);
-
 	canvas[canvasid].setFreeFont(RobotoMono_Regular[12]);
 	
 	canvas[canvasid].setTextColor(TFT_WHITE);
 	canvas[canvasid].setTextDatum(CC_DATUM);
-	canvas[canvasid].drawString("Calibrating", display.width / 2, 40);
-	
-	canvas[canvasid].setTextColor(TFT_ORANGE);
-	canvas[canvasid].drawString("Hard Iron", display.width / 2, 80);
-	
-	canvas[canvasid].setTextColor(TFT_RED);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("X:", display.width *.25, 110);
+	canvas[canvasid].drawString("Calibrating", display.width / 2, 10);
+		
+		
+	float right1 = display.width -  20;
+	float right2 = display.width - 100;
+	float right3 = display.width - 180;
+	float top = 20;
+		
 	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(hard_iron_avg[0], 0), display.width *.75, 110);
-
-	canvas[canvasid].setTextColor(TFT_GREEN);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("Y:", display.width *.25, 130);
-	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(hard_iron_avg[1], 0), display.width *.75, 130);
-
-	canvas[canvasid].setTextColor(TFT_BLUE);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("Z:", display.width *.25, 150);
-	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(hard_iron_avg[2], 0), display.width *.75, 150);
 
 	canvas[canvasid].setTextColor(TFT_WHITE);
-	canvas[canvasid].setTextDatum(CC_DATUM);
-	canvas[canvasid].drawString("Current", display.width / 2, 190);	
+	top += 30;	
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_x, 1), right1, top);
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_y, 1), right2, top);
+	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_z, 1), right3, top);
+	
+	canvas[canvasid].setTextColor(TFT_GREEN);
+	top += 30;
+	canvas[canvasid].drawString(String(hard_iron_x, 1), right1, top);
+	canvas[canvasid].drawString(String(hard_iron_y, 1), right2, top);
+	canvas[canvasid].drawString(String(hard_iron_z, 1), right3, top);	
 
 	canvas[canvasid].setTextColor(TFT_ORANGE);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("X:", display.width *.25, 210);
-	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_x, 0), display.width *.75, 210);
+	top += 30;
+	canvas[canvasid].drawString(String(mag_x_max, 1), right1, top);
+	canvas[canvasid].drawString(String(mag_y_max, 1), right2, top);
+	canvas[canvasid].drawString(String(mag_z_max, 1), right3, top);
 
-	canvas[canvasid].setTextColor(TFT_ORANGE);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("X:", display.width *.25, 230);
-	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_y, 0), display.width *.75, 230);
+	top += 30;
+	canvas[canvasid].drawString(String(mag_x_min, 1), right1, top);
+	canvas[canvasid].drawString(String(mag_y_min, 1), right2, top);
+	canvas[canvasid].drawString(String(mag_z_min, 1), right3, top);
+	
+	canvas[canvasid].setTextColor(TFT_WHITE);
+	top += 30;
+	canvas[canvasid].drawString(String(settings.config.compass.soft_iron_x, 2), right1, top);
+	canvas[canvasid].drawString(String(settings.config.compass.soft_iron_y, 2), right2, top);
+	canvas[canvasid].drawString(String(settings.config.compass.soft_iron_z, 2), right3, top);
+	
+	canvas[canvasid].setTextColor(TFT_GREEN);
+	top += 30;
+	canvas[canvasid].drawString(String(soft_iron_x, 2), right1, top);
+	canvas[canvasid].drawString(String(soft_iron_y, 2), right2, top);
+	canvas[canvasid].drawString(String(soft_iron_z, 2), right3, top);
 
-	canvas[canvasid].setTextColor(TFT_ORANGE);
-	canvas[canvasid].setTextDatum(CL_DATUM);
-	canvas[canvasid].drawString("X:", display.width *.25, 250);
-	canvas[canvasid].setTextDatum(CR_DATUM);
-	canvas[canvasid].drawString(String(settings.config.compass.hard_iron_z, 0), display.width *.75, 250);
-		
 	canvas[canvasid].setTextColor(TFT_WHITE);
 	canvas[canvasid].setTextDatum(CL_DATUM);
 	canvas[canvasid].drawString("/\\", 0, 260);

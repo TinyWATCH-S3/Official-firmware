@@ -379,23 +379,39 @@ float IMU::get_yaw()
 	mag.getEvent(&event);
 
 	// Put raw magnetometer readings into an array
-	float mag_data[] = {event.magnetic.x, event.magnetic.y, event.magnetic.z};
+	float mag_x = event.magnetic.x;
+	float mag_y = event.magnetic.y;
+	float mag_z = event.magnetic.z;
 
 	// Apply hard-iron calibration
-	float hi_cal[3] =
-	{
-		mag_data[0] - settings.config.compass.hard_iron_x,
-		mag_data[1] - settings.config.compass.hard_iron_y,
-		mag_data[2] - settings.config.compass.hard_iron_z
-	};	
+	mag_x -= settings.config.compass.hard_iron_x;
+	mag_y -= settings.config.compass.hard_iron_y;
+	mag_z -= settings.config.compass.hard_iron_z;
 	
-	// Apply soft-iron matrix
-	for (uint8_t i = 0; i < 3; i++)	
-		mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
+	// Apply soft-iron 
+	mag_x *= settings.config.compass.soft_iron_x;
+	mag_y *= settings.config.compass.soft_iron_y;
+	mag_z *= settings.config.compass.soft_iron_z;
+
+	// Apply soft-iron matrix. the user shouldn't need to calibrate this
+	//for (uint8_t i = 0; i < 3; i++)
+	//	mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
 	
+
+	//update();
+	//float pitch = -get_pitch() * DEG_TO_RAD;
+	//float roll = get_roll() * DEG_TO_RAD;
+
+	//float magx = -mag_data[0]; // upside down
+	//float magy =  mag_data[1];
+	//float magz = -mag_data[2]; // upside down
+
+  	// ----- Apply the standard tilt formulas
+	//mag_data[0] = magx * cos(pitch) + magy * sin(roll) * sin(pitch) - magz * cos(roll) * sin(pitch);
+	//mag_data[1] = magy * cos(roll) + magz * sin(roll);
+
 	// Non tilt compensated compass heading
-	// DB: The orientations of the sensor means we should use atan2(y,x) instead of atan2(x,y) and it also has a -90 deg offset 
-	heading = (atan2(mag_data[1], mag_data[0]) * (float)180) / PI - 90;
+	heading = atan2f(-mag_x, mag_y) * RAD_TO_DEG;
 
 	// Apply magnetic declination to convert magnetic heading
 	// to geographic heading
