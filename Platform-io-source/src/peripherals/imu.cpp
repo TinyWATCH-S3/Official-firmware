@@ -398,7 +398,7 @@ void IMU::get_magnetic(float *x, float *y, float *z, bool compensated)
 	}
 }
 
-float IMU::get_yaw()
+float IMU::get_yaw(bool tilt_compensated)
 {
 	float heading = 0;
 
@@ -408,13 +408,28 @@ float IMU::get_yaw()
 	float mag_x;
 	float mag_y;
 	float mag_z;
+	
 	get_magnetic(&mag_x, &mag_y, &mag_z);
 	mag_x = -mag_x;	// invert x because the sensor is upside down
 
-	// Non tilt compensated compass heading
-	heading = atan2f(mag_x, mag_y) * RAD_TO_DEG;
+	if (tilt_compensated)
+	{
+		update();	
+		float mag_pitch =  get_roll() * DEG_TO_RAD;
+		float mag_roll = -get_pitch() * DEG_TO_RAD;
 
-	// Apply magnetic declination to convert magnetic heading to geographic heading
+		float tilt_correct_x = mag_x * cos(mag_pitch) + mag_y * sin(mag_roll) * sin(mag_pitch) - mag_z * cos(mag_roll) * sin(mag_pitch);
+		float tilt_correct_y = mag_y * cos(mag_roll) + mag_z * sin(mag_roll);
+
+		heading = atan2f(tilt_correct_x, tilt_correct_y) * RAD_TO_DEG;
+	}
+	else
+	{
+		heading = atan2f(mag_x, mag_y) * RAD_TO_DEG;
+	}	
+
+	// Apply magnetic declination to convert magnetic heading
+	// to geographic heading
 	heading += settings.config.compass.magnetic_declination;
 
 	// Normalize to 0-360

@@ -20,7 +20,7 @@ class IMU
 		float get_gyro_z();
 		float get_pitch();
 		float get_roll();
-		float get_yaw();
+		float get_yaw(bool tilt_compensated = true);
 		void get_magnetic(float *x, float *y, float *z, bool compensated = true);
 		
 		bool is_looking_at_face();
