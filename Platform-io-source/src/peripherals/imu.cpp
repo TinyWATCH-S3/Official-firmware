@@ -367,7 +367,7 @@ float IMU::get_roll()
 	return (atan2((imu.data.accelX), sqrt(imu.data.accelY * imu.data.accelY + imu.data.accelZ * imu.data.accelZ)) * 57.3);
 }
 
-void IMU::get_magnetic(float *x, float *y, float *z, bool compensated)
+void IMU::get_magnetic(float *x, float *y, float *z, bool iron_compensated)
 {
 	if (mag_ready)
 	{
