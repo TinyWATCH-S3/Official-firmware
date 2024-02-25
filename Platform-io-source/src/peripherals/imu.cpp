@@ -384,7 +384,7 @@ void IMU::get_magnetic(float *x, float *y, float *z, bool iron_compensated)
 		*z = 0;
 	}
 
-	if (compensated)
+	if (iron_compensated)
 	{
 		// Apply hard-iron calibration
 		*x -= settings.config.compass.hard_iron_x;
@@ -398,6 +398,10 @@ void IMU::get_magnetic(float *x, float *y, float *z, bool iron_compensated)
 	}
 }
 
+/*
+	Resource used to tile correct the yaw
+	https://www.instructables.com/Tilt-Compensated-Compass/
+*/
 float IMU::get_yaw(bool tilt_compensated)
 {
 	float heading = 0;
@@ -409,14 +413,14 @@ float IMU::get_yaw(bool tilt_compensated)
 	float mag_y;
 	float mag_z;
 	
-	get_magnetic(&mag_x, &mag_y, &mag_z);
+	get_magnetic(&mag_x, &mag_y, &mag_z, true);
 	mag_x = -mag_x;	// invert x because the sensor is upside down
 
 	if (tilt_compensated)
 	{
 		update();	
-		float mag_pitch =  get_roll() * DEG_TO_RAD;
-		float mag_roll = -get_pitch() * DEG_TO_RAD;
+		float mag_pitch =  get_roll() * DEG_TO_RAD; // mag pitch uses imu roll
+		float mag_roll = -get_pitch() * DEG_TO_RAD; // mag roll uses imu pitch
 
 		float tilt_correct_x = mag_x * cos(mag_pitch) + mag_y * sin(mag_roll) * sin(mag_pitch) - mag_z * cos(mag_roll) * sin(mag_pitch);
 		float tilt_correct_y = mag_y * cos(mag_roll) + mag_z * sin(mag_roll);
@@ -432,7 +436,7 @@ float IMU::get_yaw(bool tilt_compensated)
 	// to geographic heading
 	heading += settings.config.compass.magnetic_declination;
 
-	// Normalize to 0-360
+	// Normalize to 0=<360
 	if (heading < 0.0)
 		heading = 360.0 + heading;
 
