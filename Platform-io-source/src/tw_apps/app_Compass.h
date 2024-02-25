@@ -44,8 +44,7 @@ class AppCompass : public tw_app
 		uint8_t text_W_x = 0;
 		uint8_t text_W_y = 0;
 
-		float moveTowardsHeading(float currentHeading, float newHeading);
-		void drawCompass(int x, int y, float angle);
+		void drawCompass();
 		void drawCalibrate();
 		void resetCalibration();
 

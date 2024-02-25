@@ -367,71 +367,10 @@ float IMU::get_roll()
 	return (atan2((imu.data.accelX), sqrt(imu.data.accelY * imu.data.accelY + imu.data.accelZ * imu.data.accelZ)) * 57.3);
 }
 
-float IMU::get_yaw()
-{
-	if (!mag_ready)
-		return 0;
-	
-	float heading = 0;
-
-	/* Get a new sensor event */
-	sensors_event_t event;
-	mag.getEvent(&event);
-
-	// Put raw magnetometer readings into an array
-	float mag_x = event.magnetic.x;
-	float mag_y = event.magnetic.y;
-	float mag_z = event.magnetic.z;
-
-	// Apply hard-iron calibration
-	mag_x -= settings.config.compass.hard_iron_x;
-	mag_y -= settings.config.compass.hard_iron_y;
-	mag_z -= settings.config.compass.hard_iron_z;
-	
-	// Apply soft-iron 
-	mag_x *= settings.config.compass.soft_iron_x;
-	mag_y *= settings.config.compass.soft_iron_y;
-	mag_z *= settings.config.compass.soft_iron_z;
-
-	// Apply soft-iron matrix. the user shouldn't need to calibrate this
-	//for (uint8_t i = 0; i < 3; i++)
-	//	mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
-	
-
-	//update();
-	//float pitch = -get_pitch() * DEG_TO_RAD;
-	//float roll = get_roll() * DEG_TO_RAD;
-
-	//float magx = -mag_data[0]; // upside down
-	//float magy =  mag_data[1];
-	//float magz = -mag_data[2]; // upside down
-
-  	// ----- Apply the standard tilt formulas
-	//mag_data[0] = magx * cos(pitch) + magy * sin(roll) * sin(pitch) - magz * cos(roll) * sin(pitch);
-	//mag_data[1] = magy * cos(roll) + magz * sin(roll);
-
-	// Non tilt compensated compass heading
-	heading = atan2f(-mag_x, mag_y) * RAD_TO_DEG;
-
-	// Apply magnetic declination to convert magnetic heading
-	// to geographic heading
-	heading += settings.config.compass.magnetic_declination;
-
-	// Normalize to 0-360, it can o below 0 too
-	if (heading < 0.0)
-		heading = 360.0 + heading;
-
-	if (heading > 360.0)
-		heading = heading - 360.0;
-
-	return heading;
-}
-
-void IMU::get_magnetic(float *x, float *y, float *z)
+void IMU::get_magnetic(float *x, float *y, float *z, bool compensated)
 {
 	if (mag_ready)
 	{
-		//	return {0,10,0};
 		sensors_event_t event;
 		mag.getEvent(&event);
 		*x = event.magnetic.x;
@@ -444,6 +383,48 @@ void IMU::get_magnetic(float *x, float *y, float *z)
 		*y = 0;
 		*z = 0;
 	}
+
+	if (compensated)
+	{
+		// Apply hard-iron calibration
+		*x -= settings.config.compass.hard_iron_x;
+		*y -= settings.config.compass.hard_iron_y;
+		*z -= settings.config.compass.hard_iron_z;
+		
+		// Apply soft-iron 
+		*x *= settings.config.compass.soft_iron_x;
+		*y *= settings.config.compass.soft_iron_y;
+		*z *= settings.config.compass.soft_iron_z;
+	}
+}
+
+float IMU::get_yaw()
+{
+	float heading = 0;
+
+	if (!mag_ready)
+		return heading;
+
+	float mag_x;
+	float mag_y;
+	float mag_z;
+	get_magnetic(&mag_x, &mag_y, &mag_z);
+	mag_x = -mag_x;	// invert x because the sensor is upside down
+
+	// Non tilt compensated compass heading
+	heading = atan2f(mag_x, mag_y) * RAD_TO_DEG;
+
+	// Apply magnetic declination to convert magnetic heading to geographic heading
+	heading += settings.config.compass.magnetic_declination;
+
+	// Normalize to 0-360
+	if (heading < 0.0)
+		heading = 360.0 + heading;
+
+	if (heading >= 360.0)
+		heading = heading - 360.0;
+
+	return heading;
 }
 
 bool IMU::is_looking_at_face()

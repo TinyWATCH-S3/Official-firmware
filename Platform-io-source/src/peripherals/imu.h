@@ -21,7 +21,7 @@ class IMU
 		float get_pitch();
 		float get_roll();
 		float get_yaw();
-		void get_magnetic(float *x, float *y, float *z);
+		void get_magnetic(float *x, float *y, float *z, bool compensated = true);
 		
 		bool is_looking_at_face();
 
