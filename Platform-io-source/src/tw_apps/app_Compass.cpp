@@ -363,7 +363,7 @@ void AppCompass::drawCompass()
 	canvas[canvasid].drawString("W", text_W_x, text_W_y);
 	canvas[canvasid].setTextColor(TFT_ORANGE);
 	uint8_t l = canvas[canvasid].drawString(String(heading, 0), display.center_x, 240);
-	canvas[canvasid].drawSmoothCircle(display.center_x + l - 8, 236, 3, TFT_ORANGE, TFT_BLACK);
+	canvas[canvasid].drawSmoothCircle(display.center_x + l * .5 + 7, 236, 3, TFT_ORANGE, TFT_BLACK);
 
 	uint8_t needle_N_x = display.center_x - NEEDLE_L * normal_x;
 	uint8_t needle_N_y = display.center_y - NEEDLE_L * normal_y;
