@@ -23,9 +23,14 @@ class AppCompass : public tw_app
 		#define RUNNING_STATE_DRAW 1
 		#define RUNNING_STATE_CALIBRATE 2
 		
+		#define B_BLUE RGB(10, 40, 60)
+		#define B_RED RGB(40, 20, 20)
+		#define B_GREEN RGB(20, 40, 20)
+
 		float heading = 0;
 		uint8_t running_state;
 
+		void drawUI();
 		void drawCompass();
 		void drawCalibrate();
 		void resetCalibration();
