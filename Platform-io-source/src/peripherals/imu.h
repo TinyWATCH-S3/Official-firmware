@@ -56,9 +56,6 @@ class IMU
 		float curr_yaw_read = 0;
 		float hacky_yaw = 0;
 		
-		// this should be specific to the unit and not location, so no need to save per user preferences
-		float soft_iron[3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}}; // {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}}; // 
-
 		uint32_t step_count = 0;
 		uint8_t movement_activity = 0;
 
