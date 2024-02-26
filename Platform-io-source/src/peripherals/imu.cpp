@@ -399,7 +399,7 @@ void IMU::get_magnetic(float *x, float *y, float *z, bool iron_compensated)
 }
 
 /*
-	Resource used to tile correct the yaw
+	Resource used to tilt correct the yaw
 	https://www.instructables.com/Tilt-Compensated-Compass/
 */
 float IMU::get_yaw(bool tilt_compensated)
