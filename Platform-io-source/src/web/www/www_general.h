@@ -1,41 +1,47 @@
 #pragma once
 
-// html strings to be used only from wifi_setup.cpp
-const char index_html[] PROGMEM = R"rawliteral(
-<!DOCTYPE html>
-<html data-bs-theme="%THEME%">
-    <head>
-        <title>TinyWATCH S3 | Web Settings</title>
-        %META%
-    </head>
-    <body>
-        <div class="content" style="margin-top:12px;">
-            <h2 class="center">TinyWATCH S3 | Web Settings</h2>
+// // html strings to be used only from wifi_setup.cpp
+// const char index_html[] PROGMEM = R"rawliteral(
+// <!DOCTYPE html>
+// <html data-bs-theme="%THEME%">
+//     <head>
+//         <title>TinyWATCH S3 | Web Settings</title>
+//         %META%
+//     </head>
+//     <body>
+//         <div class="content" style="margin-top:12px;">
+//             <h2 class="center">TinyWATCH S3 | Web Settings</h2>
 
-            <div class="content" style="margin:30px;">
-                <div class="row">
-                </div>
-            </div>
+//             <div class="content" style="margin:30px;">
+//                 <div class="row">
+//                 </div>
+//             </div>
 
-        %FOOTER%
+//         %FOOTER%
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    </body>
-</html>
-)rawliteral";
+//         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+//     </body>
+// </html>
+// )rawliteral";
 
 const char footer[] PROGMEM = R"rawliteral(
-    <div class="footer">TinyWATCH S3 - 2023 Unexpected Maker</div>
+		<div class="footer">
+			<span>TinyWATCH S3 - 2024 Unexpected Maker</span><br>
+			<span>Firmware Source available on <a href="https://github.com/tinywatch-s3" target="_blank">on GutHIB</a></span>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	</body>
+</html>
 )rawliteral";
 
 const char meta[] PROGMEM = R"rawliteral(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="icon" href="data:,">-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="shortcut icon" href="https://reflowmasterpro.com/assets/images/favicon.png" type="image/png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="   crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/htmx.org@1.9.10"></script>
     %CSS%
 )rawliteral";
 
@@ -122,10 +128,11 @@ const char css[] PROGMEM = R"rawliteral(
     .footer {
         position: absolute; 
         left: 0 ; right: 0; bottom: 0; 
-        height:80px;
+        height:50px;
         background-color: #005cb5;
         color: #fff;
         text-align:center;
+		padding-top:10px;
     }
     .settings_heading {
         font-size:14px;
@@ -375,10 +382,11 @@ const char css_dark[] PROGMEM = R"rawliteral(
     .footer {
         position: absolute; 
         left: 0 ; right: 0; bottom: 0; 
-        height:80px;
+        height:50px;
         background-color: #005cb5;
         color: #fff;
         text-align:center;
+		padding-top:10px;
     }
     .settings_heading {
         font-size:14px;

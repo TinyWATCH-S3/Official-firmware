@@ -6,8 +6,16 @@
 #include "settings_extra.h"
 #include "utilities/logging.h"
 #include <Preferences.h>
+#include <vector>
 
 using json = nlohmann::json;
+
+struct wifi_station
+{
+		String wifi_ssid = "";
+		String wifi_pass = "";
+		uint8_t channel = 9;
+};
 
 // Save data struct
 struct Config
@@ -18,6 +26,9 @@ struct Config
 		bool wifi_start = false;
 		String wifi_ssid = "";
 		String wifi_pass = "";
+
+		std::vector<wifi_station> wifi_options;
+
 		String mdns_name = "tinywatch";
 		bool website_darkmode = true;
 
@@ -50,7 +61,7 @@ struct Config
 
 		// Time
 		bool time_24hour = false;
-		bool time_dateformat = false;	// False - DMY, True - MDY
+		bool time_dateformat = false; // False - DMY, True - MDY
 		uint8_t clock_face_index = 0;
 
 		// Watch

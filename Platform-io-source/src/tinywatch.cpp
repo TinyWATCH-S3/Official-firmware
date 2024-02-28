@@ -55,6 +55,8 @@ void setup()
 	tinywatch.messages.clear();
 
 	Serial.begin(115200);
+	Serial.setDebugOutput(true); // sends all log_e(), log_i() messages to USB HW CDC
+	Serial.setTxTimeoutMs(0);	 // sets no timeout when trying to write to USB HW CDC
 
 	tinywatch.log_system_message("TinyWATCH S3");
 	tinywatch.log_system_message("FW " + tinywatch.version_firmware + " " + tinywatch.version_year);
