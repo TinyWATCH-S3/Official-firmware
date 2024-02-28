@@ -271,9 +271,9 @@ void Display::createFaces(bool was_sleeping)
 	face_watch_default_analog.add_widget(wWifi);
 
 	face_watch_default_digital.add_clock("Clock_Def_Digital", 1000);
-	face_watch_default_digital.add_widget(wBattery);
-	face_watch_default_digital.add_widget(wActivity);
-	face_watch_default_digital.add_widget(wWifi);
+	//face_watch_default_digital.add_widget(wBattery);
+	//face_watch_default_digital.add_widget(wActivity);
+	//face_watch_default_digital.add_widget(wWifi);
 
 	face_watch_custom_binary.add_clock("Clock_Custom_Binary", 1000);
 	face_watch_custom_binary.add_widget(wBattery);
