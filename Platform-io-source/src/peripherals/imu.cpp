@@ -2,6 +2,7 @@
 #include "activity.h"
 #include "rtc.h"
 #include "utilities/logging.h"
+#include "settings/settings.h"
 
 extern Activity activity;
 extern RTC rtc;
@@ -366,45 +367,81 @@ float IMU::get_roll()
 	return (atan2((imu.data.accelX), sqrt(imu.data.accelY * imu.data.accelY + imu.data.accelZ * imu.data.accelZ)) * 57.3);
 }
 
-float IMU::get_yaw()
+void IMU::get_magnetic(float *x, float *y, float *z, bool iron_compensated)
 {
-	if (!mag_ready)
-		return 0;
+	if (mag_ready)
+	{
+		sensors_event_t event;
+		mag.getEvent(&event);
+		*x = event.magnetic.x;
+		*y = event.magnetic.y;
+		*z = event.magnetic.z;
+	}
+	else
+	{		
+		*x = 0;
+		*y = 0;
+		*z = 0;
+	}
 
-	float hi_cal[3];
+	if (iron_compensated)
+	{
+		// Apply hard-iron calibration
+		*x -= settings.config.compass.hard_iron_x;
+		*y -= settings.config.compass.hard_iron_y;
+		*z -= settings.config.compass.hard_iron_z;
+		
+		// Apply soft-iron 
+		*x *= settings.config.compass.soft_iron_x;
+		*y *= settings.config.compass.soft_iron_y;
+		*z *= settings.config.compass.soft_iron_z;
+	}
+}
+
+/*
+	Resource used to tilt correct the yaw
+	https://www.instructables.com/Tilt-Compensated-Compass/
+*/
+float IMU::get_yaw(bool tilt_compensated)
+{
 	float heading = 0;
 
-	/* Get a new sensor event */
-	sensors_event_t event;
-	mag.getEvent(&event);
+	if (!mag_ready)
+		return heading;
 
-	float Pi = 3.14159;
+	float mag_x;
+	float mag_y;
+	float mag_z;
+	
+	get_magnetic(&mag_x, &mag_y, &mag_z, true);
+	mag_x = -mag_x;	// invert x because the sensor is upside down
 
-	// Put raw magnetometer readings into an array
-	float mag_data[] = {event.magnetic.x, event.magnetic.y, event.magnetic.z};
-
-	// Apply hard-iron offsets
-	for (uint8_t i = 0; i < 3; i++)
+	if (tilt_compensated)
 	{
-		hi_cal[i] = mag_data[i] - hard_iron[i];
-	}
+		update();	
+		float mag_pitch =  get_roll() * DEG_TO_RAD; // mag pitch uses imu roll
+		float mag_roll = -get_pitch() * DEG_TO_RAD; // mag roll uses imu pitch
 
-	// Apply soft-iron scaling
-	for (uint8_t i = 0; i < 3; i++)
+		float tilt_correct_x = mag_x * cos(mag_pitch) + mag_y * sin(mag_roll) * sin(mag_pitch) - mag_z * cos(mag_roll) * sin(mag_pitch);
+		float tilt_correct_y = mag_y * cos(mag_roll) + mag_z * sin(mag_roll);
+
+		heading = atan2f(tilt_correct_x, tilt_correct_y) * RAD_TO_DEG;
+	}
+	else
 	{
-		mag_data[i] = (soft_iron[i][0] * hi_cal[0]) + (soft_iron[i][1] * hi_cal[1]) + (soft_iron[i][2] * hi_cal[2]);
-	}
-
-	// Non tilt compensated compass heading
-	heading = (atan2(mag_data[0], mag_data[1]) * 180) / Pi;
+		heading = atan2f(mag_x, mag_y) * RAD_TO_DEG;
+	}	
 
 	// Apply magnetic declination to convert magnetic heading
 	// to geographic heading
-	heading += mag_decl;
+	heading += settings.config.compass.magnetic_declination;
 
-	// Normalize to 0-360
-	if (heading < 0)
-		heading = 360 + heading;
+	// Normalize to 0=<360
+	if (heading < 0.0)
+		heading = 360.0 + heading;
+
+	if (heading >= 360.0)
+		heading = heading - 360.0;
 
 	return heading;
 }

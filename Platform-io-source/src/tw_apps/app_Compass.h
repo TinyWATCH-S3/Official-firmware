@@ -11,28 +11,39 @@ class AppCompass : public tw_app
 		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
 		bool process_touch(touch_event_t touch_event);
 
-		void drawCompass(int x, int y, int angle);
-		void getCoord(int x, int y, int *xp, int *yp, int r, int a);
-
 	private:
-		String version = "1.0";
-		bool showingGyro = false;
+		#define BACKGROUND TFT_BLACK
+		
+		// needle values
+		#define NEEDLE_L 84 / 2 // Needle length is 84, we want radius which is 42
+		#define NEEDLE_W 12 / 2 // Needle width is 12, radius is then 6
+		#define NESW_RADIUS 60 // radius that N E S W rotate around	
+			
+		// running states
+		#define RUNNING_STATE_DRAW 1
+		#define RUNNING_STATE_CALIBRATE 2
+		
+		#define B_BLUE RGB(10, 40, 60)
+		#define B_RED RGB(40, 20, 20)
+		#define B_GREEN RGB(20, 40, 20)
 
-		int number = 0;
-		int angle = 0;
+		float heading = 0;
+		uint8_t running_state;
 
-		int lx1 = 0;
-		int ly1 = 0;
-		int lx2 = 0;
-		int ly2 = 0;
-		int lx3 = 0;
-		int ly3 = 0;
-		int lx4 = 0;
-		int ly4 = 0;
+		void drawUI();
+		void drawCompass();
+		void drawCalibrate();
+		void resetCalibration();
 
-		// Test only
-		uint16_t n = 0;
-		uint32_t dt = 0;
+		//these are needed for calibration
+
+		float mag_x_min;
+		float mag_y_min;
+		float mag_z_min;
+
+		float mag_x_max;
+		float mag_y_max;
+		float mag_z_max;
 };
 
 extern AppCompass app_compass;

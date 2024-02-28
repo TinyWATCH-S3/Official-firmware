@@ -41,6 +41,9 @@ struct Config
 		// Microphone App specific Settings
 		Config_app_microphone app_microphone;
 
+		// Compass specific settings
+		Config_compass compass;
+
 		// Display
 		uint bl_period_vbus = 60000;
 		uint bl_period_vbat = 30000;

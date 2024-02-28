@@ -20,7 +20,9 @@ class IMU
 		float get_gyro_z();
 		float get_pitch();
 		float get_roll();
-		float get_yaw();
+		float get_yaw(bool tilt_compensated = true);
+		void get_magnetic(float *x, float *y, float *z, bool iron_compensated = true);
+		
 		bool is_looking_at_face();
 
 		void set_hibernate(bool state);
@@ -53,18 +55,9 @@ class IMU
 		float prev_yaw_read = 0;
 		float curr_yaw_read = 0;
 		float hacky_yaw = 0;
-
+		
 		uint32_t step_count = 0;
 		uint8_t movement_activity = 0;
-
-		// Magnetometer Calibration
-		// Hard-iron calibration settings
-		const float hard_iron[3] = {17.77, -30.08, 16.21};
-
-		// Soft-iron calibration settings
-		const float soft_iron[3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}};
-
-		const float mag_decl = -1.233;
 
 		bool persist_step_count();
 };
