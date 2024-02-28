@@ -12,18 +12,17 @@ using json = nlohmann::json;
  */
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_mqtt, enabled, broker_ip, broker_port, username, password, device_name, topic);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_battery, perc_offset, low_perc, low_volt_warn, low_volt_cutoff);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_widget_battery, perc_offset, low_perc, low_volt_warn, low_volt_cutoff);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_open_weather, api_key, poll_frequency);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_widget_open_weather, api_key, poll_frequency);
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_custom_binary, binary_clockcolour, binary_clockstyle);
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_microphone, sweep_size, gain_factor);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_compass, hard_iron_x, hard_iron_y, hard_iron_z, soft_iron_x, soft_iron_y, soft_iron_z, magnetic_declination);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_compass, hard_iron_x, hard_iron_y, hard_iron_z, soft_iron_x, soft_iron_y, soft_iron_z, magnetic_declination);
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, audio_ui, audio_alarm, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
-
 
 void Settings::log_to_nvs(const char *key, const char *log)
 {

@@ -4,6 +4,8 @@
 #include "json_conversions.h"
 #include "settings/settingsOption.h"
 #include "settings_extra.h"
+#include "settings_apps.h"
+#include "settings_widgets.h"
 #include "utilities/logging.h"
 #include <Preferences.h>
 #include <vector>
@@ -41,10 +43,10 @@ struct Config
 		Config_mqtt mqtt;
 
 		// Battery/FG specific settings - see Struct above
-		Config_battery battery;
+		Config_widget_battery battery;
 
 		// Open Weather specific settings - see Struct above
-		Config_open_weather open_weather;
+		Config_widget_open_weather open_weather;
 
 		// Binary Clock Face specific settings
 		Config_custom_binary custom_binary;
@@ -53,7 +55,7 @@ struct Config
 		Config_app_microphone app_microphone;
 
 		// Compass specific settings
-		Config_compass compass;
+		Config_app_compass compass;
 
 		// Display
 		uint bl_period_vbus = 60000;

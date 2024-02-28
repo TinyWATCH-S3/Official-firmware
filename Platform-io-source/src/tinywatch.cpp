@@ -244,7 +244,7 @@ void setup()
 void loop()
 {
 	// Nothing gets past this...  If the battery is too low, the watch cannot operate.
-	if (tinywatch.block_update_low_battery)
+	if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
 	{
 		if (millis() - tinywatch.low_battery_update_check > 2000)
 		{
