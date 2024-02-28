@@ -39,24 +39,6 @@ struct Config
 		String city = "";
 		int16_t utc_offset = 999;
 
-		// MQTT specific settings - see Struct above
-		Config_mqtt mqtt;
-
-		// Battery/FG specific settings - see Struct above
-		Config_widget_battery battery;
-
-		// Open Weather specific settings - see Struct above
-		Config_widget_open_weather open_weather;
-
-		// Binary Clock Face specific settings
-		Config_custom_binary custom_binary;
-
-		// Microphone App specific Settings
-		Config_app_microphone app_microphone;
-
-		// Compass specific settings
-		Config_app_compass compass;
-
 		// Display
 		uint bl_period_vbus = 60000;
 		uint bl_period_vbat = 30000;
@@ -79,6 +61,36 @@ struct Config
 		bool imu_process_wrist = false;
 
 		json last_saved_data;
+
+		/*
+		 * Additional settings stucts go here
+		 */
+
+		// MQTT specific settings - see Struct above
+		Config_mqtt mqtt;
+
+		// Binary Clock Face specific settings
+		Config_custom_binary custom_binary;
+
+		/*
+		 * Widget Settings Structs
+		 */
+
+		// Battery/FG specific settings - see Struct above
+		Config_widget_battery battery;
+
+		// Open Weather specific settings - see Struct above
+		Config_widget_open_weather open_weather;
+
+		/*
+		 * App Settings Structs
+		 */
+
+		// Microphone App specific Settings
+		Config_app_microphone app_microphone;
+
+		// Compass specific settings
+		Config_app_compass compass;
 };
 
 class Settings
