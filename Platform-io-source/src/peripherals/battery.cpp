@@ -39,7 +39,7 @@ bool Battery::init()
 		info_println(F("FAILED!"));
 
 	// Set the high voltage threshold
-	maxlipo.setVALRTMax((float)4.2); // Set high voltage threshold (Volts)
+	maxlipo.setVALRTMax((float)4.1); // Set high voltage threshold (Volts) 
 
 	// Read and print the high voltage threshold
 	info_print(F("High voltage threshold is now: "));

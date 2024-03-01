@@ -10,6 +10,11 @@
 #include "tinywatch.h"
 #include "RLEBitmap.h"
 #include "bitmaps/bitmaps_watchface.h"
+#include "bitmaps/bitmaps_lcdbatt.h"
+#include "bitmaps/bitmaps_lcdwifi.h"
+#include "bitmaps/bitmaps_activity.h"
+#include "web/webserver.h"
+#include "wifi.h"
 
 void FaceWatch_DefaultDigital::setup()
 {
@@ -18,12 +23,40 @@ void FaceWatch_DefaultDigital::setup()
 		is_setup = true;
 		// Add any one time setup code here
 		// Get the bitmap information
-		get_Use_this_one_RLEBM(bitmapInfo);
-		TFTeSPIGraphicsContext context(&tft); 
+		get_digital_wide_RLEBM(digitalwideInfo);
+
+		get_batt00_RLEBM(battLCD_00);
+		get_batt20_RLEBM(battLCD_20);
+		get_batt40_RLEBM(battLCD_40);
+		get_batt60_RLEBM(battLCD_60);
+		get_batt80_RLEBM(battLCD_80);
+		get_batt100_RLEBM(battLCD_100);
+
+		get_wifi100_RLEBM(wifiLCD_100);
+		get_wifi75_RLEBM(wifiLCD_75);
+		get_wifi50_RLEBM(wifiLCD_50);
+		get_wifi25_RLEBM(wifiLCD_25);
+		get_wifi00_RLEBM(wifiLCD_00);
+
+		get_walking_RLEBM(activityLCD);
+		get_act_00_RLEBM(activitybar_00);
+		get_act_01_RLEBM(activitybar_01);
+		get_act_02_RLEBM(activitybar_02);
+		get_act_03_RLEBM(activitybar_03);
+		get_act_04_RLEBM(activitybar_04);
+		get_act_05_RLEBM(activitybar_05);
+		get_act_06_RLEBM(activitybar_06);
+		get_act_07_RLEBM(activitybar_07);
+		get_act_08_RLEBM(activitybar_08);
+		get_act_09_RLEBM(activitybar_09);
+		get_act_10_RLEBM(activitybar_10);
+		get_act_11_RLEBM(activitybar_11);
+		get_act_12_RLEBM(activitybar_12);
+		get_act_13_RLEBM(activitybar_13);
+
 	}
 }
 
-//#include <TFT_eSPI.h>
 
 void FaceWatch_DefaultDigital::draw(bool force)
 {
@@ -38,54 +71,156 @@ void FaceWatch_DefaultDigital::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
-			renderRLEBitmap(bitmapInfo, 0, 0, &canvas[canvasid]);
+			face_iswide = true;
+
+			const RLEBitmapInfo activitybar[14] = {activitybar_00, activitybar_01, activitybar_02, activitybar_03, activitybar_04, activitybar_05, activitybar_06, activitybar_07, activitybar_08, activitybar_09, activitybar_10, activitybar_11, activitybar_12, activitybar_13};
+			const RLEBitmapInfo battLCD[6] = {battLCD_00, battLCD_20, battLCD_40, battLCD_60, battLCD_80, battLCD_100};
+
+			renderRLEBitmap(digitalwideInfo, 0, 0, &canvas[canvasid]);
+
+			// Wide Positions
+			battpos_x = 36;
+			battpos_y = 148;
+			digital_yoffset = 37;
+	
+			// Activity
+			canvas[canvasid].drawRoundRect(110, 73, 90, 50, 6, TFT_BLACK);
+			renderRLEBitmap(activityLCD, 187, 95, &canvas[canvasid]);
 			
+			uint16_t day, month, year;
+			rtc.get_step_date(day, month, year);
+			uint32_t steps = imu.get_steps(day, month, year);
+			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[5]); //5 or 1 might be better
+			canvas[canvasid].setTextDatum(MR_DATUM);
+			canvas[canvasid].setTextColor(TFT_BLACK, TFT_LCD_BKG, false);
+			canvas[canvasid].drawString(String(steps), 186, 99);
+
+			// Activity Bar
+			uint8_t step_bar = (steps / 100.0) * 13;
+			if (step_bar > 13)
+				step_bar = 13;
+
+			RLEBitmapInfo step_bar_bmp;
+			step_bar_bmp = activitybar[step_bar];
+			renderRLEBitmap(step_bar_bmp, 113, 76, &canvas[canvasid]);
+
+			// Box Headers
+			canvas[canvasid].drawRoundRect(40, 73, 60, 50, 6, TFT_BLACK);
+			canvas[canvasid].setFreeFont(&Roboto_Mono_17);
+
+			if (WiFi.status() == WL_CONNECTED)
+			{
+				canvas[canvasid].drawRoundRect(40, 125, 160, 20, 10, RGB(0x00, 0x00, 0x00));
+				canvas[canvasid].setFreeFont(RobotoMono_Light[6]);
+				canvas[canvasid].setTextDatum(TC_DATUM);
+				canvas[canvasid].drawString(WiFi.localIP().toString(), 120, 129);
+
+				renderRLEBitmap(wifiLCD_100, 44, 80, &canvas[canvasid]);
+			}
+			else
+				renderRLEBitmap(wifiLCD_00, 44, 80, &canvas[canvasid]);
+
+			canvas[canvasid].setTextDatum(TL_DATUM);
+		
 			canvas[canvasid].setTextDatum(BR_DATUM); // Bottom, Right
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[7]);
 			canvas[canvasid].setTextColor(TFT_LCD_OFF, TFT_LCD_BKG, false);
-			canvas[canvasid].setCursor(time_h_xpos, time_ypos);
+			canvas[canvasid].setCursor(time_h_xpos, time_ypos + digital_yoffset);
 			canvas[canvasid].print("88");
-			canvas[canvasid].setCursor(time_m_xpos, time_ypos);
+			canvas[canvasid].setCursor(time_m_xpos, time_ypos + digital_yoffset);
 			canvas[canvasid].print("88");
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[6]);
-			canvas[canvasid].setCursor(time_s_xpos, time_ypos);
+			canvas[canvasid].setCursor(time_s_xpos, time_ypos + digital_yoffset);
 			canvas[canvasid].print("88");
 
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[7]);
 			canvas[canvasid].setTextColor(TFT_LCD_OFF, TFT_LCD_BKG, false);
-			canvas[canvasid].setCursor(time_h_xpos, time_ypos);
+			canvas[canvasid].setCursor(time_h_xpos, time_ypos + digital_yoffset);
 			if (rtc.get_hours() < 10)
 				canvas[canvasid].print("8");
 			
 			canvas[canvasid].setTextColor(TFT_BLACK, TFT_LCD_BKG, false);
-			canvas[canvasid].print(rtc.get_hours_string(false, settings.config.time_24hour));
-			canvas[canvasid].setCursor(time_m_xpos, time_ypos);
+
+			uint8_t offset_twelvehr = 0;
+
+			// We can't use the padding offset as we shouldn't see a zero, but instead a space. 
+			if (settings.config.time_24hour)
+			{
+				canvas[canvasid].setCursor(time_h_xpos, time_ypos + digital_yoffset);
+				canvas[canvasid].print(rtc.get_hours_string(true, settings.config.time_24hour));
+			}
+			else
+			{			
+				if ((rtc.get_hours() < 10) || (((rtc.get_hours()) > 12 && (rtc.get_hours() < 22))))
+				{
+					offset_twelvehr = 34;
+				}
+				canvas[canvasid].setCursor(time_h_xpos + offset_twelvehr, time_ypos + digital_yoffset);
+				canvas[canvasid].print(rtc.get_hours_string(false, settings.config.time_24hour));
+
+				// Show AM/PM
+				canvas[canvasid].setFreeFont(Clock_Digit_7SEG[5]);
+				canvas[canvasid].setCursor(time_s_xpos + 3, time_ypos + digital_yoffset - 22);
+
+				if (rtc.get_hours() > 11)
+					canvas[canvasid].print("P");
+				else
+					canvas[canvasid].print("A");
+			}
+			
+			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[7]);
+			canvas[canvasid].setCursor(time_m_xpos, time_ypos + digital_yoffset);
 			canvas[canvasid].print(rtc.get_mins_string(true));
 
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[5]);
-			canvas[canvasid].setCursor(time_s_xpos, time_ypos);
+			canvas[canvasid].setCursor(time_s_xpos, time_ypos + digital_yoffset);
 			canvas[canvasid].print(rtc.get_secs_string(true));
 
 			canvas[canvasid].setFreeFont(Clock_Digit_7SEG[6]);
 			canvas[canvasid].setTextColor(TFT_BLACK, TFT_LCD_BKG, false);
-			canvas[canvasid].setCursor(date_dm_xpos, date_dm_ypos);
+			canvas[canvasid].setCursor(date_dm_xpos, date_dm_ypos + digital_yoffset);
 			canvas[canvasid].print(String(rtc.get_day()) + "/" + String(rtc.get_month()));
 
 			canvas[canvasid].setTextColor(TFT_BLACK, TFT_LCD_BKG, false);
-			canvas[canvasid].setCursor(date_day_xpos, date_day_ypos);
+			canvas[canvasid].setCursor(date_day_xpos, date_day_ypos + digital_yoffset);
 			canvas[canvasid].print(rtc.get_day_of_week());
 
 			if(ledcolon_on) 
 			{
 				canvas[canvasid].setFreeFont(Clock_Digit_7SEG[2]);
 				canvas[canvasid].setTextColor(TFT_BLACK, TFT_LCD_BKG, false);
-				canvas[canvasid].setCursor(time_m_xpos - 5, time_ypos + 5);
+				canvas[canvasid].setCursor(time_m_xpos - 5, time_ypos + 5 + digital_yoffset);
 				canvas[canvasid].print(":");	
 				ledcolon_on = false;
 			} 
 			else 
 				ledcolon_on = true;	
 			
+			// Battery
+			float bat_pc = battery.get_percent(false);
+			float bat_cr = battery.get_rate(false);
+			float bat_vo = battery.get_voltage(false);
+
+			if (!tinywatch.vbus_present()) // Discharging
+			{
+				// Show Battery Capacity
+				if (bat_pc == 100)					{ renderRLEBitmap(battLCD_100, battpos_x, battpos_y, &canvas[canvasid]); }
+				if (bat_pc >= 80 && bat_pc < 100)	{ renderRLEBitmap(battLCD_80,  battpos_x, battpos_y, &canvas[canvasid]); }
+				if (bat_pc >= 60 && bat_pc < 80)	{ renderRLEBitmap(battLCD_60,  battpos_x, battpos_y, &canvas[canvasid]); }
+				if (bat_pc >= 40 && bat_pc < 60)	{ renderRLEBitmap(battLCD_40,  battpos_x, battpos_y, &canvas[canvasid]); }
+				if (bat_pc >= 20 && bat_pc < 40)	{ renderRLEBitmap(battLCD_20,  battpos_x, battpos_y, &canvas[canvasid]); }
+				if (bat_pc >= 0  && bat_pc < 20)	{ renderRLEBitmap(battLCD_00,  battpos_x, battpos_y, &canvas[canvasid]); }
+			}
+			else // VBUS Present, Charging
+			{
+				// Cycle Battery LCD Segments to indicate the watch is charging. (USB Connected)
+
+				RLEBitmapInfo batt_bmp;
+				batt_bmp = battLCD[(battlcd_pos - 1) % 6];
+				renderRLEBitmap(batt_bmp, battpos_x, battpos_y, &canvas[canvasid]);
+				battlcd_pos = (battlcd_pos % 6) + 1;
+			}
+
 			draw_children(false, 0);
 		}
 
@@ -106,6 +241,24 @@ bool FaceWatch_DefaultDigital::process_touch(touch_event_t touch_event)
 	else if (touch_event.type == TOUCH_LONG)
 	{
 		// TODO: Add display of watch specific settings here when the user long presses
+
+
+	}
+	else if (touch_event.type == TOUCH_TAP && touch_event.x >= 40 && touch_event.x <= 100 && touch_event.y >= 73 && touch_event.y <=123)
+	{
+			// Wifi Touch
+			//Serial.println("Wifi Touch");
+			if (!web_server.is_running())
+				web_server.start();
+
+			else
+				web_server.stop(false);
+			return true;
+
+	}
+	else if (touch_event.type == TOUCH_TAP)
+	{
+		
 	}
 
 	return false;
