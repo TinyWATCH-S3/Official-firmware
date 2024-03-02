@@ -109,7 +109,34 @@ void Battery::update_stats(bool forced)
 		// the charge/depletion rate still shows a depletion.
 		cached_percent = constrain(maxlipo.getSOC() + settings.config.battery.perc_offset, 0.0, 100.0);
 		cached_rate = maxlipo.getChangeRate();
-		next_battery_read = millis();
+		next_battery_read = millis();		
+	}
+
+	// Create a historical record of the rate of change every 5 seconds for ~ 5 minutes
+	if (millis() - next_battery_timeupdate > 5000)
+	{
+		// Only gather stats if the watch is not plugged in, and is discharging.
+		if ((tinywatch.vbus_present() == false) && (cached_rate <= 0))
+		{
+			// Fill the array every couple of seconds,
+			if (rate_historyrecords < max_historyrecords)
+			{
+				rate_history[rate_historyrecords] = cached_rate;
+				rate_historyrecords++;
+			}
+			else
+			{
+				// FIFO the Array
+				for (int x = max_historyrecords - 1; x < 0; x--)
+					rate_history[x + 1] = rate_history[x];
+
+				rate_history[rate_historyrecords] = cached_rate;
+				rate_historyrecords = max_historyrecords;
+				
+			}
+			next_battery_timeupdate = millis();
+			tinywatch.log_system_message("Records: " + String(rate_historyrecords));
+		}
 	}
 }
 
@@ -130,6 +157,31 @@ float Battery::get_percent(bool forced)
 
 	update_stats(forced);
 	return cached_percent;
+}
+
+float Battery::get_time_remaining(bool forced)
+{
+	// TODO: Implement Forced/Cached data;
+
+	float timeRemaining = 0.0;
+
+	if (rate_historyrecords > min_historyrecords) // Don't bother trying to calculate a time without a decent number of records
+	{
+		float sumratehistory = 0.0;
+		for (int x = 0; x < rate_historyrecords; x++)
+			sumratehistory += rate_history[x];
+
+		// From the average rate, calculate an estimate time remaining
+		float avgrate = sumratehistory / (float)rate_historyrecords;
+		timeRemaining = cached_percent / abs(avgrate);
+
+		tinywatch.messages.clear();
+		tinywatch.log_system_message("Records: " + String(rate_historyrecords));
+		tinywatch.log_system_message("Average Rate: " + String(avgrate));
+		tinywatch.log_system_message("Hrs Remain: " + String(timeRemaining));
+		// return timeRemaining;
+	}
+	return timeRemaining;
 }
 
 uint8_t Battery::get_alert_status()
