@@ -106,9 +106,9 @@ void FaceWatch_DefaultDigital::draw(bool force)
 					display_cyclepause = 0;
 					display_actcycle++;
 
-					uint8_t cycleoptions = 2; // exclude wifi by default, unless it's on
+					uint8_t cycleoptions = 3; // exclude wifi by default, unless it's on
 					if (WiFi.status() == WL_CONNECTED)
-						cycleoptions = 3;
+						cycleoptions = 4;
 
 					if (display_actcycle > cycleoptions)
 						display_actcycle = 0;
@@ -171,7 +171,20 @@ void FaceWatch_DefaultDigital::draw(bool force)
 
 				modetext = "CH/RATE (%)";
 			}
-			else if (display_actcycle == 3) // Wifi Strength
+			else if (display_actcycle == 3) // Battery Time Remain
+			{
+				float b_remain = battery.get_time_remaining(false);
+				canvas[canvasid].drawString(String(b_remain), 185 + pushactright, 99);
+				step_bar_bmp = activitybar[maplim(b_remain, 0, 24, 0, 13, true)];
+				
+				// Activity Window Icon
+				if (!hide_activityicon) 
+					renderRLEBitmap(activity_icons[1], 190, 100, &canvas[canvasid]);
+
+				modetext = "BAT LIFE (H)";
+
+			}
+			else if (display_actcycle == 4) // Wifi Strength
 			{
 				int32_t wifi_rssi = WiFi.RSSI();
 				canvas[canvasid].drawString(String(wifi_rssi) , 185 + pushactright, 99);
@@ -338,6 +351,7 @@ void FaceWatch_DefaultDigital::draw(bool force)
 
 		// Lets draw the screen, finally.
 		canvas[canvasid].pushSprite(_x, _y);
+		
 	}
 }
 
