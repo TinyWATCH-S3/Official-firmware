@@ -15,12 +15,14 @@ class FaceWatch_DefaultDigital : public tw_face
 	private:
 
 		void draw_battery(uint8_t battpos_x, uint8_t battpos_y, TFT_eSprite canvasid);
+		long maplim(long x, long in_min, long in_max, long out_min, long out_max, bool limit);
 
 		String version = "1.0";
 		bool ledcolon_on = false;
 		bool face_iswide = false;
 
 		RLEBitmapInfo digitalwideInfo;
+
 		RLEBitmapInfo battLCD_00;
 		RLEBitmapInfo battLCD_20;
 		RLEBitmapInfo battLCD_40;
@@ -50,9 +52,16 @@ class FaceWatch_DefaultDigital : public tw_face
 		RLEBitmapInfo activitybar_01;
 		RLEBitmapInfo activitybar_00;
 
+		RLEBitmapInfo icon_v;
+		RLEBitmapInfo icon_pcnt;
+		RLEBitmapInfo icon_db;
+
 		RLEBitmapInfo activitybar[14];
 		RLEBitmapInfo battLCD[6];
 
+		uint8_t display_actcycle = 0;
+		uint8_t display_cyclepause = 0;
+		uint8_t cycledelay_secs = 3;
 
 		uint8_t battlcd_pos = 1;
 
@@ -64,17 +73,21 @@ class FaceWatch_DefaultDigital : public tw_face
 		uint8_t time_m_xpos = 107;
 		uint8_t time_s_xpos = 174;
 
-		uint8_t date_day_xpos = 80;
-		uint8_t date_day_ypos = 127;
+		uint8_t date_day_xpos = 140;
+		uint8_t date_day_ypos = 119;
 
-		uint8_t date_dm_xpos = 140;
-		uint8_t date_dm_ypos = 127;
+		uint8_t date_dm_xpos = 199;
+		uint8_t date_dm_ypos = 119;
 
 		uint8_t digital_yoffset = 0;
 
 		uint8_t battpos_x = 0;
 		uint8_t battpos_y = 0;
 
+		uint8_t stepbarpos_x = 113;
+		uint8_t stepbarpos_y = 76;
+
+		bool hide_activityicon = true;
 
 };
 
