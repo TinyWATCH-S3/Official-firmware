@@ -105,6 +105,8 @@ void WebServer::start_callback(bool success, const String &response)
 
 		web_server.on("/web_settings_widgets.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_html, processor); });
 
+		web_server.on("/widgets_form_ow", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_form_ow, processor); });
+
 		web_server.onNotFound([](AsyncWebServerRequest *request) { request->send(404, "text/plain", "Not found"); });
 
 		web_server.on("/update_widget_ow", HTTP_POST, [](AsyncWebServerRequest *request) {
@@ -118,8 +120,10 @@ void WebServer::start_callback(bool success, const String &response)
 			AsyncWebParameter *ow_poll_frequency = request->getParam("_set_widget_ow_poll_frequency", true);
 			settings.config.open_weather.poll_frequency = String(ow_poll_frequency->value().c_str()).toInt();
 
-			Buzzer({{2000, 20}});
-			request->send(200);
+			info_println("Widget OW Save!");
+
+			Buzzer({{2000, 100}});
+			request->send(200, "text/plain", "Settings Saved!");
 		});
 
 		info_println("web_server.begin();");

@@ -29,3 +29,13 @@ struct Config_custom_binary
 		uint8_t binary_clockcolour = 0;
 		uint8_t binary_clockstyle = 0;
 };
+
+/**
+ * @brief Settings struct for Haptics support
+ */
+struct Config_haptics
+{
+		bool enabled = true;
+		bool trigger_on_alarm = true;
+		bool trigger_on_hour = true;
+};

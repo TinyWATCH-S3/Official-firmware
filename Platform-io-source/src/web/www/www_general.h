@@ -89,6 +89,18 @@ const char css[] PROGMEM = R"rawliteral(
       text-align:center;
       color: #333;
     }
+
+	.form_save.htmx-settling {
+		opacity: 100;
+	}
+
+	.form_save {
+		opacity: 0;
+		transition: opacity 2s ease-out;
+		color: #33ff33;
+		font-size: 16pt;
+	}
+
     .alt {
       background: #eee;
     }
@@ -329,6 +341,18 @@ const char css_dark[] PROGMEM = R"rawliteral(
       text-align:center;
       color: #333;
     }
+
+	.form_save.htmx-settling {
+		opacity: 100;
+	}
+
+	.form_save {
+		// opacity: 0;
+		transition: opacity 3s ease-out;
+		color: #33ff33;
+		font-size: 16pt;
+	}
+
     .alt {
       background: #333;
     }

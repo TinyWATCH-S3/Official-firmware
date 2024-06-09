@@ -69,6 +69,9 @@ struct Config
 		// MQTT specific settings - see Struct above
 		Config_mqtt mqtt;
 
+		// Haptics specific settings
+		Config_haptics haptics;
+
 		// Binary Clock Face specific settings
 		Config_custom_binary custom_binary;
 

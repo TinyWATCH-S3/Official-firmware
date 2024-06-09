@@ -13,6 +13,7 @@
 #include "peripherals/buzzer.h"
 #include "peripherals/imu.h"
 #include "peripherals/rtc.h"
+#include "peripherals/haptics.h"
 #include "tw_faces/face_Notifications.h"
 #include "web/webserver.h"
 #include "web/wifi_controller.h"
@@ -239,6 +240,8 @@ void setup()
 
 	// Start the rest of the peripherals
 	imu.init();
+	haptics.init();
+	haptics.play();
 }
 
 void loop()
