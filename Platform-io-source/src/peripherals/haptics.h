@@ -1,21 +1,28 @@
 #pragma once
 
 #include <Adafruit_DRV2605.h>
+#include <array>
+#include <vector>
+
+enum Triggers
+{
+	STARTUP,
+	ALARM,
+	HOUR,
+	EVENT
+};
 
 class Haptics
 {
 	public:
 		bool init();
-		void play();
+		void play(Triggers trigger);
 
 		bool available = false;
 
 	private:
 		Adafruit_DRV2605 drv;
-		unsigned long next_battery_read = 0;
-		float cached_voltage = 0;
-		float cached_percent = 0;
-		float cached_rate = 0;
+		std::array<std::vector<uint8_t>, 4> sounds;
 };
 
 extern Haptics haptics;

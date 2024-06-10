@@ -36,6 +36,8 @@ struct Config_custom_binary
 struct Config_haptics
 {
 		bool enabled = true;
+		bool trigger_on_boot = true;
 		bool trigger_on_alarm = true;
 		bool trigger_on_hour = true;
+		bool trigger_on_event = false;
 };

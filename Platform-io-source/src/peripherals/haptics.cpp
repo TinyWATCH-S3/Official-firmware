@@ -11,6 +11,12 @@
 #include "tinywatch.h"
 #include "utilities/logging.h"
 
+/**
+ * @brief Initialise the haptics IC if found, or fail cleanly for backward compatibility.
+ *
+ * @return true
+ * @return false
+ */
 bool Haptics::init()
 {
 	available = false;
@@ -29,20 +35,8 @@ bool Haptics::init()
 	// drv.setMode(DRV2605_MODE_INTTRIG);
 	drv.setMode(DRV2605_MODE_REALTIME);
 
-	drv.setRealtimeValue(0x40);
-	delay(200);
-	drv.setRealtimeValue(0x00);
-
-	return true;
-}
-
-void Haptics::play()
-{
-	if (!available)
-		return;
-
-	uint8_t rtp_index = 0;
-	uint8_t rtp[] = {
+	// Load all of the trigger type sounds into an array of vectors for easy playback.
+	sounds[0] = {
 		0x30, 100, 0x32, 100,
 		0x34, 100, 0x36, 100,
 		0x38, 100, 0x3A, 100,
@@ -52,16 +46,56 @@ void Haptics::play()
 		0x40, 200, 0x00, 100
 	};
 
-	while (rtp_index < sizeof(rtp) / sizeof(rtp[0]))
+	sounds[1] = {
+		0x30, 150, 0x00, 255,
+		0x30, 150, 0x00, 255,
+		0x30, 150
+	};
+
+	sounds[2] = {
+		0x40, 50
+	};
+
+	sounds[3] = {
+		0x40, 50, 0x40, 50
+	};
+
+	return true;
+}
+
+/**
+ * @brief Play a haptic sound sequence based on an ENUM trigger type, if that option it true in haptic settings
+ *
+ * @param trigger
+ */
+void Haptics::play(Triggers trigger)
+{
+	if (!available)
+		return;
+
+	if (trigger == Triggers::STARTUP && !settings.config.haptics.trigger_on_boot)
+		return;
+
+	if (trigger == Triggers::ALARM && !settings.config.haptics.trigger_on_alarm)
+		return;
+
+	if (trigger == Triggers::HOUR && !settings.config.haptics.trigger_on_hour)
+		return;
+
+	if (trigger == Triggers::EVENT && !settings.config.haptics.trigger_on_event)
+		return;
+
+	uint8_t rtp_index = 0;
+
+	rtp_index = 0;
+	while (rtp_index < sounds[(int)trigger].size())
 	{
-		drv.setRealtimeValue(rtp[rtp_index]);
-		rtp_index++;
-		delay(rtp[rtp_index]);
-		rtp_index++;
+		drv.setRealtimeValue(sounds[(int)trigger][rtp_index++]);
+		delay(sounds[(int)trigger][rtp_index++]);
 	}
 
 	drv.setRealtimeValue(0x00);
-	delay(1000);
+	delay(500);
 	rtp_index = 0;
 }
 

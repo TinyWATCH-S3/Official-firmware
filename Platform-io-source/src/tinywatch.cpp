@@ -241,7 +241,7 @@ void setup()
 	// Start the rest of the peripherals
 	imu.init();
 	haptics.init();
-	haptics.play();
+	haptics.play(Triggers::STARTUP);
 }
 
 void loop()
