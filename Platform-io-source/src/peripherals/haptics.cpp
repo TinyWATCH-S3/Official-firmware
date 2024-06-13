@@ -68,11 +68,39 @@ bool Haptics::init()
 }
 
 /**
+ * @brief Play a custom haptic sound sequence
+ *
+ * The format of the Vector sequence is {buzzer intensity, delay time, buzzer intensity, delay time...}
+ *
+ * @param vector array
+ */
+void Haptics::play(const std::vector<uint8_t> &sequence)
+{
+	if (!available)
+		return;
+
+	if (!settings.config.haptics.enabled)
+		return;
+
+	uint8_t rtp_index = 0;
+
+	while (rtp_index < sequence.size())
+	{
+		drv.setRealtimeValue(sequence[rtp_index++]);
+		delay(sequence[rtp_index++]);
+	}
+
+	drv.setRealtimeValue(0x00);
+	delay(500);
+	rtp_index = 0;
+}
+
+/**
  * @brief Play a haptic sound sequence based on an ENUM trigger type, if that option it true in haptic settings
  *
  * @param trigger
  */
-void Haptics::play(Triggers trigger)
+void Haptics::play_trigger(Triggers trigger)
 {
 	if (!available)
 		return;
@@ -97,7 +125,6 @@ void Haptics::play(Triggers trigger)
 
 	uint8_t rtp_index = 0;
 
-	rtp_index = 0;
 	while (rtp_index < sounds[(int)trigger].size())
 	{
 		drv.setRealtimeValue(sounds[(int)trigger][rtp_index++]);

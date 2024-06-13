@@ -239,11 +239,11 @@ void setup()
 		{
 			imu.process_steps(true);
 		}
-		haptics.play(Triggers::WAKE);
+		haptics.play_trigger(Triggers::WAKE);
 	}
 	else
 	{
-		haptics.play(Triggers::STARTUP);
+		haptics.play_trigger(Triggers::STARTUP);
 	}
 
 	// Start the rest of the peripherals

@@ -17,7 +17,8 @@ class Haptics
 {
 	public:
 		bool init();
-		void play(Triggers trigger);
+		void play(const std::vector<uint8_t> &sequence);
+		void play_trigger(Triggers trigger);
 
 		bool available = false;
 
