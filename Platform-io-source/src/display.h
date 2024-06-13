@@ -47,7 +47,7 @@ class Display
 {
 	public:
 		void init_screen();
-		void createFaces(bool sleeping);
+		void createFaces(bool was_sleeping);
 		void set_backlight(int level, bool force);
 		void update_current_face();
 		void process_touch();
@@ -82,6 +82,8 @@ class Display
 		const uint16_t height = 280;
 		const uint8_t center_x = 120;
 		const uint8_t center_y = 140;
+
+		bool is_finger = false;
 
 	private:
 		tw_face *current_face = nullptr;

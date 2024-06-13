@@ -35,9 +35,11 @@ void FaceEmpty::draw(bool force)
 			canvas[canvasid].drawString("Hello, World", display.center_x, display.center_y);
 
 			// End Custom Face Code
+
+			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 

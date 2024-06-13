@@ -72,8 +72,9 @@ String SettingsOptionFloat::get_str() { return String(*setting_ref); }
 bool SettingsOptionBool::change()
 {
 	*setting_ref = !*setting_ref;
+	settings.ui_forced_save = true;
 	settings.save(true);
-	// info_println("bool: "+String(*setting_ref));
+	info_println("bool: " + String(*setting_ref));
 	return *setting_ref;
 }
 

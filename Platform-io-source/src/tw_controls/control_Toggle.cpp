@@ -41,25 +41,55 @@ void ControlToggle::draw(uint8_t canvasid)
 }
 */
 
+// void ControlToggle::draw(uint8_t canvasid)
+// {
+// 	adjusted_pos_x = pos_x + offset_x;
+// 	adjusted_pos_y = pos_y + offset_y;
+
+// 	canvas[canvasid].fillRoundRect(adjusted_pos_x, adjusted_pos_y, width, height, 4, RGB(0x22, 0x22, 0x22));
+// 	canvas[canvasid].setFreeFont(RobotoMono_Light[7]);
+// 	canvas[canvasid].setTextDatum(4); // Middle, Center
+// 	canvas[canvasid].setTextColor(TFT_WHITE);
+// 	canvas[canvasid].drawString(name, adjusted_pos_x + (width / 2), adjusted_pos_y - 10);
+
+// 	if (setting_option->get())
+// 		canvas[canvasid].fillRoundRect(adjusted_pos_x + (width / 2) + 2, adjusted_pos_y + 2, width / 2 - 2, height - 4, 4, RGB(0x99, 0xFF, 0x99));
+// 	else
+// 		canvas[canvasid].fillRoundRect(adjusted_pos_x + 2, adjusted_pos_y + 2, width / 2 - 2, height - 4, 4, RGB(0x66, 0x66, 0x66));
+
+// 	canvas[canvasid].setTextColor(TFT_WHITE, RGB(0x22, 0x22, 0x22));
+// 	canvas[canvasid].setFreeFont(RobotoMono_Light[8]);
+// 	canvas[canvasid].drawString(value, adjusted_pos_x + (width / 2), adjusted_pos_y + (height / 2) - 2);
+// }
+
 void ControlToggle::draw(uint8_t canvasid)
 {
 	adjusted_pos_x = pos_x + offset_x;
 	adjusted_pos_y = pos_y + offset_y;
 
-	canvas[canvasid].fillRoundRect(adjusted_pos_x, adjusted_pos_y, width, height, 4, RGB(0x22, 0x22, 0x22));
-	canvas[canvasid].setFreeFont(RobotoMono_Light[7]);
-	canvas[canvasid].setTextDatum(4); // Middle, Center
-	canvas[canvasid].setTextColor(TFT_WHITE);
-	canvas[canvasid].drawString(name, adjusted_pos_x + (width / 2), adjusted_pos_y - 10);
+	if (should_cache && is_dirty)
+	{
+		uint16_t color = canvas[canvasid].readPixel(adjusted_pos_x, adjusted_pos_y);
+		my_sprite.fillSprite(color);
+		my_sprite.fillRoundRect(0, 14, width, height, 4, RGB(0x22, 0x22, 0x22));
+		my_sprite.setFreeFont(RobotoMono_Light[7]);
+		my_sprite.setTextDatum(TC_DATUM); // Top, Center
+		my_sprite.setTextColor(TFT_WHITE);
+		my_sprite.drawString(name, (width / 2), 0);
 
-	if (setting_option->get())
-		canvas[canvasid].fillRoundRect(adjusted_pos_x + (width / 2) + 2, adjusted_pos_y + 2, width / 2 - 2, height - 4, 4, RGB(0x99, 0xFF, 0x99));
-	else
-		canvas[canvasid].fillRoundRect(adjusted_pos_x + 2, adjusted_pos_y + 2, width / 2 - 2, height - 4, 4, RGB(0x66, 0x66, 0x66));
+		if (setting_option->get())
+			my_sprite.fillRoundRect((width / 2) + 2, 16, width / 2 - 2, height - 4, 4, RGB(0x99, 0xFF, 0x99));
+		else
+			my_sprite.fillRoundRect(2, 16, width / 2 - 2, height - 4, 4, RGB(0x66, 0x66, 0x66));
 
-	canvas[canvasid].setTextColor(TFT_WHITE, RGB(0x22, 0x22, 0x22));
-	canvas[canvasid].setFreeFont(RobotoMono_Light[8]);
-	canvas[canvasid].drawString(value, adjusted_pos_x + (width / 2), adjusted_pos_y + (height / 2) - 2);
+		my_sprite.setTextColor(TFT_WHITE, RGB(0x22, 0x22, 0x22));
+		my_sprite.setFreeFont(RobotoMono_Light[8]);
+		my_sprite.setTextDatum(MC_DATUM); // Top, Center
+		my_sprite.drawString(value, (width / 2), (height / 2) + 12);
+		is_dirty = false;
+	}
+
+	my_sprite.pushToSprite(&canvas[canvasid], adjusted_pos_x, adjusted_pos_y);
 }
 
 bool ControlToggle::drag(int16_t drag_x, int16_t drag_y) { return false; }
@@ -79,7 +109,7 @@ bool ControlToggle::process_touch(touch_event_t touch_event)
 			if (callbackFunction != nullptr)
 				callbackFunction();
 			// Yes, we did click this control
-			// requires_redraw = true;
+			is_dirty = true;
 			return true;
 		}
 	}

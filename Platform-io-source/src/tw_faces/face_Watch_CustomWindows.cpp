@@ -279,9 +279,11 @@ void FaceWatch_CustomWindows::draw(bool force)
 			// Clock Face Ends Here
 
 			draw_children(false, 0);
+
+			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 

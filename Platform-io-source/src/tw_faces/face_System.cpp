@@ -56,9 +56,11 @@ void FaceSystem::draw(bool force)
 			int diff = (int)((220 - (float)scroll_length) * scroll_pos);
 
 			canvas[canvasid].fillRect(220, 30 + (220 - scroll_length) - diff, 5, scroll_length, RGB(0x66, 0x66, 0x66));
+
+			draw_navigation(canvasid, RGB(0x77, 0x77, 0x77));
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 

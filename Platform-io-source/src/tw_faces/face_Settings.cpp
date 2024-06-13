@@ -25,7 +25,7 @@ void FaceSettings::draw(bool force)
 
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
 			canvas[canvasid].fillSprite(RGB(0x44, 0x44, 0x44));
-			canvas[canvasid].setTextColor(TFT_BLUE);
+			canvas[canvasid].setTextColor(RGB(0x44, 0x44, 0xFF));
 			canvas[canvasid].setTextDatum(4); // Middle, Center
 
 			if (can_scroll_y)
@@ -45,7 +45,7 @@ void FaceSettings::draw(bool force)
 				// 	else if (scroll_start_y < wHeight / 2)
 				// 		scroll_start_y = wHeight / 2;
 				// }
-				canvas[canvasid].drawString("EXAMPLE CONTROLS", 120, 20 + scroll_start_y);
+				canvas[canvasid].drawString(name, 120, 30 + scroll_start_y);
 				draw_children_scroll(0, scroll_start_y);
 
 				// canvas[canvasid].setViewport(0, 0, 240, 280);
@@ -59,15 +59,19 @@ void FaceSettings::draw(bool force)
 			}
 			else
 			{
-				canvas[canvasid].drawString("SETTINGS", 120, 20);
+				canvas[canvasid].drawString(name, 120, 30);
 				draw_children(false, 0);
 			}
+
+			draw_navigation(canvasid, RGB(0x77, 0x77, 0x77));
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 
 bool FaceSettings::process_touch(touch_event_t touch_event) { return false; }
 
 FaceSettings face_settings;
+FaceSettings face_settings_Audio;
+FaceSettings face_settings_Haptics;

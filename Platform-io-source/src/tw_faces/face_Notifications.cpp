@@ -71,6 +71,7 @@ void FaceNotifications::draw(bool force)
 					// info_println("scroll length "+String(scroll_length));
 				}
 			}
+			draw_navigation(canvasid, RGB(0xaa, 0xaa, 0xaa));
 		}
 
 		update_screen();

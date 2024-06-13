@@ -51,6 +51,7 @@ struct Config
 		// Watch
 		bool left_handed = true;
 		bool flipped = false;
+		bool show_nav_arrows = true;
 
 		// Sound
 		bool audio_ui = true;
@@ -59,8 +60,6 @@ struct Config
 		// IMU
 		bool imu_process_steps = true;
 		bool imu_process_wrist = false;
-
-		json last_saved_data;
 
 		/*
 		 * Additional settings stucts go here
@@ -94,6 +93,8 @@ struct Config
 
 		// Compass specific settings
 		Config_app_compass compass;
+
+		json last_saved_data;
 };
 
 class Settings
@@ -118,8 +119,19 @@ class Settings
 		SettingsOptionBool setting_time_dateformat{&config.time_dateformat};
 		SettingsOptionBool setting_left_handed{&config.left_handed};
 		SettingsOptionBool setting_flipped{&config.flipped};
+		SettingsOptionBool setting_nav_arrows{&config.show_nav_arrows};
+
 		SettingsOptionBool setting_audio_ui{&config.audio_ui};
 		SettingsOptionBool setting_audio_alarm{&config.audio_alarm};
+		// haptics
+		SettingsOptionBool setting_haptics_enabled{&config.haptics.enabled};
+		SettingsOptionBool setting_haptics_trig_boot{&config.haptics.trigger_on_boot};
+		SettingsOptionBool setting_haptics_trig_wake{&config.haptics.trigger_on_wake};
+		SettingsOptionBool setting_haptics_trig_alarm{&config.haptics.trigger_on_alarm};
+		SettingsOptionBool setting_haptics_trig_hour{&config.haptics.trigger_on_hour};
+		SettingsOptionBool setting_haptics_trig_event{&config.haptics.trigger_on_event};
+
+		bool ui_forced_save = false; //
 
 	private:
 		static constexpr const char *filename = "/settings.json";
@@ -130,7 +142,7 @@ class Settings
 		static long backupNumber(const String);
 
 		unsigned long max_time_between_saves = 60000; // every 1 min
-		unsigned long last_save_time = 0;			  //
+		unsigned long last_save_time = 0;
 
 		void log_to_nvs(const char *key, const char *log);
 		Preferences nvs;

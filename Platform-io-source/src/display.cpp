@@ -16,6 +16,7 @@ Display display;
 #include "peripherals/battery.h"
 #include "peripherals/buzzer.h"
 #include "peripherals/imu.h"
+#include "peripherals/haptics.h"
 
 // Faces Clock
 #include "tw_faces/face_Watch_DefaultAnalog.h"
@@ -150,8 +151,15 @@ tw_face *Display::set_current_clock_face(bool should_draw)
 	tw_face *new_clock_face = clock_faces[settings.config.clock_face_index];
 	if (current_face != nullptr && current_face->is_face_clock_face() && current_face != new_clock_face)
 	{
+		// update the pre-connected navigation to point to the correct face
 		for (int i = 0; i < 4; i++)
 			new_clock_face->set_single_navigation((Directions)i, current_face->navigation[i]);
+
+		// We also now need to set all of the settings faces to pint to the new clock face
+		// Remembering to pass in FALSE for the reverse nav setting option
+		face_settings_Audio.set_single_navigation(RIGHT, new_clock_face, false);
+		if (haptics.available)
+			face_settings_Haptics.set_single_navigation(RIGHT, new_clock_face, false);
 	}
 
 	current_face->reset_cache_status();
@@ -319,9 +327,27 @@ void Display::createFaces(bool was_sleeping)
 	face_system.set_scrollable(false, true);
 	face_system.set_single_navigation(UP, &face_notifications);
 
-	face_settings.add("Settings", 0, 80);
-	face_settings.set_scrollable(false, true);
+	if (haptics.available)
+	{
+		face_settings_Haptics.add("Haptics Settings", 0, 80);
+		face_settings_Haptics.set_scrollable(false, false);
+		face_settings_Haptics.set_single_navigation(RIGHT, current_clock_face, false);
+	}
+
+	face_settings_Audio.add("Audio Settings", 0, 80);
+	face_settings_Audio.set_scrollable(false, false);
+	face_settings_Audio.set_single_navigation(RIGHT, current_clock_face, false);
+
+	if (haptics.available)
+	{
+		face_settings_Audio.set_single_navigation(UP, &face_settings_Haptics);
+	}
+
+	face_settings.add("Watch Settings", 0, 80);
+	face_settings.set_scrollable(false, false);
 	face_settings.set_single_navigation(LEFT, &face_boot);
+	// face_settings.set_single_navigation(DOWN, &face_settings_Haptics);
+	face_settings.set_single_navigation(UP, &face_settings_Audio);
 
 	// face_watch is a pointer to the current clock face
 	current_clock_face->set_single_navigation(LEFT, &face_settings);
@@ -338,32 +364,79 @@ void Display::createFaces(bool was_sleeping)
 	// face_notifications.add_widget(wMessage);
 
 	ControlToggle *cToggle = new ControlToggle();
-	cToggle->create("24 Hour", "OFF", "OK", 30, 60, 80, 30);
+	cToggle->create("24 Hour", "OFF", "OK", 30, 55, 90, 30);
 	cToggle->set_data(&settings.setting_time_24hour);
 
 	ControlToggle *cToggle2 = new ControlToggle();
-	cToggle2->create("Handed", "RIGHT", "LEFT", 130, 60, 80, 30);
+	cToggle2->create("Handed", "RIGHT", "LEFT", 130, 55, 90, 30);
 	cToggle2->set_data(&settings.setting_left_handed);
 
 	ControlToggle *cToggle3 = new ControlToggle();
-	cToggle3->create("Rotation", "NORMAL", "FLIPPED", 30, 130, 80, 30);
+	cToggle3->create("Rotation", "NORMAL", "FLIPPED", 30, 125, 90, 30);
 	cToggle3->set_data(&settings.setting_flipped);
 	cToggle3->set_callback(display.update_rotation);
 
-	ControlLabel *cLabel1 = new ControlLabel();
-	cLabel1->create("AUDIO", 120, 180);
+	ControlToggle *cToggle6 = new ControlToggle();
+	cToggle6->create("Date FMT", "DMY", "MDY", 130, 125, 90, 30);
+	cToggle6->set_data(&settings.setting_time_dateformat);
+
+	ControlToggle *cToggle13 = new ControlToggle();
+	cToggle13->create("Nav Arrows", "HIDE", "SHOW", 30, 195, 90, 30);
+	cToggle13->set_data(&settings.setting_nav_arrows);
+	// cToggle13->set_callback(display.update_rotation);
+
+	// ControlLabel *cLabel1 = new ControlLabel();
+	// cLabel1->create("AUDIO", 120, 260);
 
 	ControlToggle *cToggle4 = new ControlToggle();
-	cToggle4->create("UI Sound", "OFF", "ON", 30, 210, 80, 30);
+	cToggle4->create("UI Sound", "OFF", "ON", 30, 55, 90, 30);
 	cToggle4->set_data(&settings.setting_audio_ui);
 
 	ControlToggle *cToggle5 = new ControlToggle();
-	cToggle5->create("Alarm", "OFF", "ON", 130, 210, 80, 30);
+	cToggle5->create("Alarm", "OFF", "ON", 130, 55, 90, 30);
 	cToggle5->set_data(&settings.setting_audio_alarm);
 
-	ControlToggle *cToggle6 = new ControlToggle();
-	cToggle6->create("Date Format", "DMY", "MDY", 130, 130, 80, 30);
-	cToggle6->set_data(&settings.setting_time_dateformat);
+	// ControlLabel *cLabel2 = new ControlLabel();
+	// cLabel2->create("HAPTICS", 10, 260);
+
+	// ControlButton *cSwitchFaceBack = new ControlButton();
+	// cSwitchFaceBack->create("General Settings", 30, 45, 180, 40);
+	// cSwitchFaceBack->set_target_face(&face_settings);
+
+	// Haptics controls
+	if (haptics.available)
+	{
+		ControlToggle *cToggle7 = new ControlToggle();
+		cToggle7->create("Enabled", "OFF", "ON", 30, 55, 90, 30);
+		cToggle7->set_data(&settings.setting_haptics_enabled);
+
+		ControlToggle *cToggle8 = new ControlToggle();
+		cToggle8->create("On Boot", "OFF", "ON", 130, 55, 90, 30);
+		cToggle8->set_data(&settings.setting_haptics_trig_boot);
+
+		ControlToggle *cToggle9 = new ControlToggle();
+		cToggle9->create("On Wake", "OFF", "ON", 30, 125, 90, 30);
+		cToggle9->set_data(&settings.setting_haptics_trig_wake);
+
+		ControlToggle *cToggle10 = new ControlToggle();
+		cToggle10->create("On Alarm", "OFF", "ON", 130, 125, 90, 30);
+		cToggle10->set_data(&settings.setting_haptics_trig_alarm);
+
+		ControlToggle *cToggle11 = new ControlToggle();
+		cToggle11->create("On Hour", "OFF", "ON", 30, 195, 90, 30);
+		cToggle11->set_data(&settings.setting_haptics_trig_hour);
+
+		ControlToggle *cToggle12 = new ControlToggle();
+		cToggle12->create("On Event", "OFF", "ON", 130, 195, 90, 30);
+		cToggle12->set_data(&settings.setting_haptics_trig_event);
+
+		face_settings_Haptics.add_control(cToggle7);
+		face_settings_Haptics.add_control(cToggle8);
+		face_settings_Haptics.add_control(cToggle9);
+		face_settings_Haptics.add_control(cToggle10);
+		face_settings_Haptics.add_control(cToggle11);
+		face_settings_Haptics.add_control(cToggle12);
+	}
 
 	// ControlButton * cButton1 = new ControlButton();
 	// cButton1->create("SAVE", 70, 250, 100, 40);
@@ -379,12 +452,11 @@ void Display::createFaces(bool was_sleeping)
 	face_settings.add_control(cToggle);
 	face_settings.add_control(cToggle2);
 	face_settings.add_control(cToggle3);
-	face_settings.add_control(cLabel1);
-	face_settings.add_control(cToggle4);
-	face_settings.add_control(cToggle5);
 	face_settings.add_control(cToggle6);
-	// face_settings.add_control(cValue1);
-	// face_settings.add_control(cValue2);
+	face_settings.add_control(cToggle13);
+
+	face_settings_Audio.add_control(cToggle4);
+	face_settings_Audio.add_control(cToggle5);
 }
 
 void Display::update_boot_face(wifi_states status)
@@ -589,6 +661,8 @@ void Display::process_touch()
 		// 	}
 		// }
 	}
+
+	is_finger = isTouched;
 
 	// If there was a pervious click, and the time past has been longer than what a double click would trigger, process the original single click
 	if (millis() - last_touch > 150 && last_was_click)

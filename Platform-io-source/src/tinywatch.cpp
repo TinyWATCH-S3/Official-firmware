@@ -112,6 +112,9 @@ void setup()
 	rtc.init();
 	imu.preinit(was_asleep);
 
+	// Start the haptics peripheral if present, so we can buzz on wake or start if enabled.
+	haptics.init();
+
 	if (was_asleep)
 	{
 		// Wake up the peripherals because we were sleeping!
@@ -236,12 +239,15 @@ void setup()
 		{
 			imu.process_steps(true);
 		}
+		haptics.play(Triggers::WAKE);
+	}
+	else
+	{
+		haptics.play(Triggers::STARTUP);
 	}
 
 	// Start the rest of the peripherals
 	imu.init();
-	haptics.init();
-	haptics.play(Triggers::STARTUP);
 }
 
 void loop()

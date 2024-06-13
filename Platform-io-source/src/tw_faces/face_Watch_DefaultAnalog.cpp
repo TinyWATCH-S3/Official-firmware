@@ -72,6 +72,8 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			canvas[canvasid].fillCircle(center_x, center_y, 6, 0);
 
 			draw_children(false, 0);
+
+			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
 		}
 
 		update_screen();

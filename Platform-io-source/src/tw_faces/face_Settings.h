@@ -15,3 +15,5 @@ class FaceSettings : public tw_face
 };
 
 extern FaceSettings face_settings;
+extern FaceSettings face_settings_Audio;
+extern FaceSettings face_settings_Haptics;

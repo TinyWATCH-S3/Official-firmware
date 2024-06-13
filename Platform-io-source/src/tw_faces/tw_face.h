@@ -5,6 +5,7 @@
 #include "tw_widgets/tw_widget.h"
 #include "utilities/logging.h"
 #include "utilities/touch_event.h"
+#include "settings/settings.h"
 #include <map>
 
 class tw_face
@@ -15,7 +16,7 @@ class tw_face
 		void add_clock(String _name, uint16_t _update_period, uint32_t req_cpu_speed);
 		void add_clock(String _name, uint _update_period);
 		void set_navigation(tw_face *l, tw_face *r, tw_face *u, tw_face *d);
-		void set_single_navigation(Directions dir, tw_face *face);
+		void set_single_navigation(Directions dir, tw_face *face, bool reverse = true);
 		// tw_face * changeFace(Directions dir);
 		void add_widget(tw_widget *widget);
 		bool widget_process_clicks(touch_event_t touch_event);
@@ -60,6 +61,7 @@ class tw_face
 		virtual bool process_touch(touch_event_t touch_event) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
+		void draw_navigation(uint8_t canvasid, uint32_t color);
 
 	protected:
 		bool is_setup = false;

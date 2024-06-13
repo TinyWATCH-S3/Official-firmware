@@ -18,8 +18,15 @@ void tw_control::create(String _name, String _option1, String _option2, uint _po
 	width = _width;
 	height = _height;
 
-	// my_sprite.setSwapBytes(true);
-	// my_sprite.createSprite(width, height);
+	// We need to re-calculate the height of the control to also include any name printed above or value printed below the control
+
+	if (name.length() > 0)
+		extra_height += 14;
+
+	my_sprite.setSwapBytes(true);
+	my_sprite.createSprite(width, height + extra_height);
+	should_cache = true;
+	is_dirty = true;
 }
 
 void tw_control::create(String _name, uint _pos_x, uint _pos_y, uint _width, uint _height)
@@ -32,6 +39,11 @@ void tw_control::create(String _name, uint _pos_x, uint _pos_y, uint _width, uin
 	pos_y = _pos_y;
 	width = _width;
 	height = _height;
+
+	my_sprite.setSwapBytes(true);
+	my_sprite.createSprite(width, height);
+	should_cache = true;
+	is_dirty = true;
 }
 
 void tw_control::create(String _name, uint _pos_x, uint _pos_y)
@@ -58,23 +70,30 @@ void tw_control::set_parent(tw_face *_parent) { parent = _parent; }
 
 bool tw_control::bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
-	int min_x, min_y = 0;
+	int min_x = 0;
+	int min_y = 0;
+	int extra_y_padding_for_name = (name.length() > 0) ? 20 : 0;
+	int extra_y_padding_for_value = (value.length() > 0) ? 20 : 0;
+
 	if (pos_x - padding_x > 0)
 		min_x = pos_x - padding_x;
-	if ((int)pos_y - padding_y > 0)
-		min_y = (int)pos_y - padding_y;
+	if ((int)pos_y - padding_y - extra_y_padding_for_name > 0)
+		min_y = (int)pos_y - padding_y - extra_y_padding_for_name;
 
 	bool in_x = (touch_pos_x >= min_x && touch_pos_x <= pos_x + width + padding_x);
-	bool in_y = (touch_pos_y >= min_y + offset_y && touch_pos_y <= pos_y + height + padding_y + offset_y);
+	bool in_y = (touch_pos_y >= min_y + offset_y && touch_pos_y <= pos_y + height + padding_y + offset_y + extra_y_padding_for_value);
 
 	// info_println(String(in_x)+" - "+String(in_y)+" ("+String(touch_pos_x)+","+String(touch_pos_y)+") in ("+String(min_x)+","+String(min_y)+")-("+String(pos_x + width + padding_x)+","+String(pos_y + height + padding_y)+")");
 
 	return (in_x && in_y);
 }
 
-int16_t tw_control::get_y_min() { return pos_y; }
+int16_t tw_control::get_y_min() { return pos_y - padding_y - (name.length() > 0 ? 14 : 0); }
 
-int16_t tw_control::get_y_max() { return pos_y + height + padding_y; }
+int16_t tw_control::get_y_max()
+{
+	return pos_y + height + padding_y;
+}
 
 void tw_control::draw_scroll(uint canvasid, uint16_t off_x, uint16_t off_y)
 {

@@ -60,6 +60,10 @@ bool Haptics::init()
 		0x40, 50, 0x40, 50
 	};
 
+	sounds[4] = {
+		0x50, 50
+	};
+
 	return true;
 }
 
@@ -73,6 +77,9 @@ void Haptics::play(Triggers trigger)
 	if (!available)
 		return;
 
+	if (!settings.config.haptics.enabled)
+		return;
+
 	if (trigger == Triggers::STARTUP && !settings.config.haptics.trigger_on_boot)
 		return;
 
@@ -83,6 +90,9 @@ void Haptics::play(Triggers trigger)
 		return;
 
 	if (trigger == Triggers::EVENT && !settings.config.haptics.trigger_on_event)
+		return;
+
+	if (trigger == Triggers::WAKE && !settings.config.haptics.trigger_on_wake)
 		return;
 
 	uint8_t rtp_index = 0;

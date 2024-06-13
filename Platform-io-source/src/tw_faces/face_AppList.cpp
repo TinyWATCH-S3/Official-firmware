@@ -137,7 +137,9 @@ void FaceAppList::draw(bool force)
 			canvas[canvasid].drawRoundRect(anim_icon_pos_x, anim_icon_pos_y, anim_icon_width, anim_icon_height, anim_corner_roundness, TFT_WHITE);
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+
+		update_screen();
 	}
 }
 

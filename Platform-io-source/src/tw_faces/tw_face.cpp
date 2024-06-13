@@ -499,12 +499,16 @@ void tw_face::set_navigation(tw_face *u, tw_face *r, tw_face *d, tw_face *l)
 	navigation[3] = l;
 }
 
-void tw_face::set_single_navigation(Directions dir, tw_face *face)
+void tw_face::set_single_navigation(Directions dir, tw_face *face, bool reverse)
 {
 	navigation[(int)dir] = face;
-	int alt_dir = ((int)dir - 2) & 3; // This is like doing modulo 4 - says Michael H - I dont believe him
-	if (face != nullptr)
-		face->navigation[(int)alt_dir] = this;
+	// If reverse is true, we set the nav back on the target face to this face
+	if (reverse)
+	{
+		int alt_dir = ((int)dir - 2) & 3; // This is like doing modulo 4 - says Michael H - I dont believe him
+		if (face != nullptr)
+			face->navigation[(int)alt_dir] = this;
+	}
 }
 
 // tw_face * tw_face::changeFace(Directions dir)
@@ -630,4 +634,29 @@ void tw_face::reset_cache_status()
 void tw_face::update_screen()
 {
 	canvas[canvasid].pushSprite(_x, _y);
+}
+
+void tw_face::draw_navigation(uint8_t _canvasid, uint32_t color)
+{
+	if (!display.is_finger || !settings.config.show_nav_arrows)
+		return;
+
+	uint8_t triangle_radius = 7;
+	if (navigation[DOWN] != nullptr)
+	{
+		canvas[_canvasid].fillTriangle(display.center_x, 5, display.center_x - 5, 15, display.center_x + 5, 15, color);
+	}
+	if (navigation[UP] != nullptr)
+	{
+		canvas[_canvasid].fillTriangle(display.center_x, 275, display.center_x - 5, 265, display.center_x + 5, 265, color);
+	}
+	if (navigation[LEFT] != nullptr)
+	{
+		canvas[_canvasid].fillTriangle(5, display.center_y, 15, display.center_y - 5, 15, display.center_y + 5, color);
+	}
+
+	if (navigation[RIGHT] != nullptr)
+	{
+		canvas[_canvasid].fillTriangle(235, display.center_y, 225, display.center_y - 5, 225, display.center_y + 5, color);
+	}
 }

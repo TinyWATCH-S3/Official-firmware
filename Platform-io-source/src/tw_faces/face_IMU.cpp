@@ -85,9 +85,11 @@ void FaceIMU::draw(bool force)
 			{
 				widgets[w]->draw(canvasid, 0);
 			}
+
+			draw_navigation(canvasid, RGB(0x55, 0x55, 0x55));
 		}
 
-		canvas[canvasid].pushSprite(_x, _y);
+		update_screen();
 	}
 }
 

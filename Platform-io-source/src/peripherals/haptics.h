@@ -9,7 +9,8 @@ enum Triggers
 	STARTUP,
 	ALARM,
 	HOUR,
-	EVENT
+	EVENT,
+	WAKE
 };
 
 class Haptics
@@ -22,7 +23,7 @@ class Haptics
 
 	private:
 		Adafruit_DRV2605 drv;
-		std::array<std::vector<uint8_t>, 4> sounds;
+		std::array<std::vector<uint8_t>, 5> sounds;
 };
 
 extern Haptics haptics;

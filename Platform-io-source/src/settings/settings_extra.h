@@ -40,4 +40,5 @@ struct Config_haptics
 		bool trigger_on_alarm = true;
 		bool trigger_on_hour = true;
 		bool trigger_on_event = false;
+		bool trigger_on_wake = false;
 };

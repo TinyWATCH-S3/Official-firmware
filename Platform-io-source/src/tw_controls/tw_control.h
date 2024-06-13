@@ -42,9 +42,6 @@ class tw_control
 
 	protected:
 		tw_face *parent = nullptr;
-
-		// TFT_eSprite my_sprite = TFT_eSprite(&tft);
-
 		CallbackFunction callbackFunction;
 
 		String value = "";
@@ -59,8 +56,6 @@ class tw_control
 		uint padding_x = 20;
 		uint padding_y = 20;
 
-		bool requires_redraw = true;
-
 		bool can_scroll_x = false;
 		bool can_scroll_y = false;
 		uint scroll_x = 0;
@@ -70,6 +65,12 @@ class tw_control
 		int16_t offset_y = 0;
 		int16_t adjusted_pos_x = 0;
 		int16_t adjusted_pos_y = 0;
+
+		// Caching of controls to allow for faster screen drawing
+		bool is_dirty = true;
+		bool should_cache = false;
+		int extra_height = 0;
+		TFT_eSprite my_sprite = TFT_eSprite(&tft);
 
 	private:
 		//
