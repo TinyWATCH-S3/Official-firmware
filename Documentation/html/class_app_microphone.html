@@ -170,6 +170,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac2e9642935dcb3b81c6ad6496a20dfba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af52f865020e2813e9d72298ddd85bb74" id="r_af52f865020e2813e9d72298ddd85bb74"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af52f865020e2813e9d72298ddd85bb74">sweep_size</a> = 1</td></tr>
 <tr class="separator:af52f865020e2813e9d72298ddd85bb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6e98d48f6dacaa90ca92d606d806c2" id="r_a0f6e98d48f6dacaa90ca92d606d806c2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f6e98d48f6dacaa90ca92d606d806c2">gain_factor</a> = 0</td></tr>
+<tr class="separator:a0f6e98d48f6dacaa90ca92d606d806c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b3d1cd3c2661e4352c38b4b261f568a" id="r_a2b3d1cd3c2661e4352c38b4b261f568a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b3d1cd3c2661e4352c38b4b261f568a">text_fader</a> = 0</td></tr>
+<tr class="separator:a2b3d1cd3c2661e4352c38b4b261f568a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47a70c88fcad37c20da8e8da72f2506" id="r_af47a70c88fcad37c20da8e8da72f2506"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af47a70c88fcad37c20da8e8da72f2506">is_texting</a> = false</td></tr>
+<tr class="separator:af47a70c88fcad37c20da8e8da72f2506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addda673c4db0d611b26f2bd3688a5c48" id="r_addda673c4db0d611b26f2bd3688a5c48"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addda673c4db0d611b26f2bd3688a5c48">text_indicator</a> = &quot;&quot;</td></tr>
+<tr class="separator:addda673c4db0d611b26f2bd3688a5c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ab119f141b3425b8882115c1b25ff0" id="r_a76ab119f141b3425b8882115c1b25ff0"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76ab119f141b3425b8882115c1b25ff0">swipe_dir_names</a> [4] = {&quot;UP&quot;, &quot;RIGHT&quot;, &quot;DOWN&quot;, &quot;LEFT&quot;}</td></tr>
 <tr class="separator:a76ab119f141b3425b8882115c1b25ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64e7081438a064c5f9a5525a5ec306ec" id="r_a64e7081438a064c5f9a5525a5ec306ec"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64e7081438a064c5f9a5525a5ec306ec">vReal</a> [<a class="el" href="app___microphone_8h.html#ad51ded0bbd705f02f73fc60c0b721ced">BLOCK_SIZE</a>]</td></tr>
@@ -622,6 +630,28 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a0f6e98d48f6dacaa90ca92d606d806c2" name="a0f6e98d48f6dacaa90ca92d606d806c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6e98d48f6dacaa90ca92d606d806c2">&#9670;&#160;</a></span>gain_factor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t AppMicrophone::gain_factor = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8e0f9808c9257b6bce4def881cea62ac" name="a8e0f9808c9257b6bce4def881cea62ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e0f9808c9257b6bce4def881cea62ac">&#9670;&#160;</a></span>I2S_PORT</h2>
 
@@ -633,6 +663,28 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const i2s_port_t AppMicrophone::I2S_PORT = I2S_NUM_0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af47a70c88fcad37c20da8e8da72f2506" name="af47a70c88fcad37c20da8e8da72f2506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47a70c88fcad37c20da8e8da72f2506">&#9670;&#160;</a></span>is_texting</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppMicrophone::is_texting = false</td>
         </tr>
       </table>
   </td>
@@ -787,6 +839,50 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">String AppMicrophone::swipe_dir_names[4] = {&quot;UP&quot;, &quot;RIGHT&quot;, &quot;DOWN&quot;, &quot;LEFT&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b3d1cd3c2661e4352c38b4b261f568a" name="a2b3d1cd3c2661e4352c38b4b261f568a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3d1cd3c2661e4352c38b4b261f568a">&#9670;&#160;</a></span>text_fader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t AppMicrophone::text_fader = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="addda673c4db0d611b26f2bd3688a5c48" name="addda673c4db0d611b26f2bd3688a5c48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addda673c4db0d611b26f2bd3688a5c48">&#9670;&#160;</a></span>text_indicator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String AppMicrophone::text_indicator = &quot;&quot;</td>
         </tr>
       </table>
   </td>

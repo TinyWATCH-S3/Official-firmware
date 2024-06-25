@@ -56,6 +56,7 @@ struct Config
 		// Sound
 		bool audio_ui = true;
 		bool audio_alarm = true;
+		bool audio_on_hour = false;
 
 		// IMU
 		bool imu_process_steps = true;
@@ -123,6 +124,8 @@ class Settings
 
 		SettingsOptionBool setting_audio_ui{&config.audio_ui};
 		SettingsOptionBool setting_audio_alarm{&config.audio_alarm};
+		SettingsOptionBool setting_audio_on_hour{&config.audio_on_hour};
+
 		// haptics
 		SettingsOptionBool setting_haptics_enabled{&config.haptics.enabled};
 		SettingsOptionBool setting_haptics_trig_boot{&config.haptics.trigger_on_boot};

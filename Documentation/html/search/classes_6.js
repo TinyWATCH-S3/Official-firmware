@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rtc_0',['RTC',['../class_r_t_c.html',1,'']]]
+  ['imu_0',['IMU',['../class_i_m_u.html',1,'']]]
 ];

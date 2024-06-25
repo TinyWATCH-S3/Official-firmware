@@ -26,7 +26,10 @@ var classtw__control =
     [ "can_scroll_x", "classtw__control.html#afe4fb6fb8beb34f76e98dcff6980ea75", null ],
     [ "can_scroll_y", "classtw__control.html#ad7666727e24e480111e12317df3e0db4", null ],
     [ "canvasid", "classtw__control.html#a8e30add1d313d3debd64dbe6fbf24bbe", null ],
+    [ "extra_height", "classtw__control.html#a0c3b69229aefff8633b56e765cf583f4", null ],
     [ "height", "classtw__control.html#aa956a65e35e7c37c996e3241c578242e", null ],
+    [ "is_dirty", "classtw__control.html#a8c25031cdb4cd9ebd96299fa3aa8c83a", null ],
+    [ "my_sprite", "classtw__control.html#a37c4bb7f18e5503b0480799ea1e73e50", null ],
     [ "name", "classtw__control.html#afb4e579aac10eb0681adea2afb85e1a2", null ],
     [ "offset_x", "classtw__control.html#a2bac811da9de1d6e647f6ecb802fd9f4", null ],
     [ "offset_y", "classtw__control.html#ab6049b218ec56da1cdaa11aecdace054", null ],
@@ -37,9 +40,9 @@ var classtw__control =
     [ "parent", "classtw__control.html#a30820a179da2c2be53f4adfc5475bd9a", null ],
     [ "pos_x", "classtw__control.html#afc0c1d7868750017f1f8e8cdddcd78ae", null ],
     [ "pos_y", "classtw__control.html#af1b9483190dca055ce37a28df43b3e4a", null ],
-    [ "requires_redraw", "classtw__control.html#a4d91050ea99b4c0ae51c2596b7b01d62", null ],
     [ "scroll_x", "classtw__control.html#af5152d03c48c5121ef3517dd96e1c18b", null ],
     [ "scroll_y", "classtw__control.html#a4afe73b8ce0719545ae13a1b5166eae1", null ],
+    [ "should_cache", "classtw__control.html#ae8c7ac759e74545f56925f5aeb5f76aa", null ],
     [ "value", "classtw__control.html#a41871f50ad83775e6e0aa9735ff087f0", null ],
     [ "width", "classtw__control.html#ab8763edae3ea1cbaa438d86180b16292", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['boot_0',['BOOT',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221aee429d2b18e984f9be3d8a35ab58f77f',1,'wifi_common.h']]]
+  ['alarm_0',['ALARM',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3ac4212312865bd8ac6810b9651d9e80df',1,'haptics.h']]]
 ];

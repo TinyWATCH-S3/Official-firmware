@@ -16,10 +16,19 @@ var class_settings =
     [ "max_time_between_saves", "class_settings.html#ae9cfa0afc12575661b57f107fca803e6", null ],
     [ "nvs", "class_settings.html#ab1656c5e0b8259976be7cfd2d720459d", null ],
     [ "setting_audio_alarm", "class_settings.html#a7b75bfb359b1533477accd5e65601f60", null ],
+    [ "setting_audio_on_hour", "class_settings.html#a7b06db15a01da9758da6e7eedd692ad2", null ],
     [ "setting_audio_ui", "class_settings.html#a07f3193633d813269b3495255dc63125", null ],
     [ "setting_flipped", "class_settings.html#a1207215c27f2d0beb3b23115e0001463", null ],
+    [ "setting_haptics_enabled", "class_settings.html#a43427ee636d6d26811373a2cff595192", null ],
+    [ "setting_haptics_trig_alarm", "class_settings.html#ab44397a44cbf69bf152e935efcbee0e0", null ],
+    [ "setting_haptics_trig_boot", "class_settings.html#a9c8baefa625522dc89fd73a89f37ebbc", null ],
+    [ "setting_haptics_trig_event", "class_settings.html#a86d2b2aab653f1121c491b8561f270cf", null ],
+    [ "setting_haptics_trig_hour", "class_settings.html#ab3b637fbc9c0b4c5b4c49760a9ce4d5d", null ],
+    [ "setting_haptics_trig_wake", "class_settings.html#ab27aa33bfb2e90aff917c7fd116f90d6", null ],
     [ "setting_left_handed", "class_settings.html#ae7292aa2bf29892b83474e794f4d8764", null ],
+    [ "setting_nav_arrows", "class_settings.html#aaf120d605881586eb6300bb1efbb2394", null ],
     [ "setting_time_24hour", "class_settings.html#aa42da92c05be487651de3a57ba3a53b0", null ],
     [ "setting_time_dateformat", "class_settings.html#ab8a0fdb8c98a2f7738995106b522f17d", null ],
-    [ "setting_wifi_start", "class_settings.html#a509f772f09ffc6fff7979da55a31a39e", null ]
+    [ "setting_wifi_start", "class_settings.html#a509f772f09ffc6fff7979da55a31a39e", null ],
+    [ "ui_forced_save", "class_settings.html#ae2fc8f423e48dd7d0c62018b3d27ed8b", null ]
 ];

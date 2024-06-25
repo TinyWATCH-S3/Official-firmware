@@ -1,5 +1,6 @@
 var settings_8h =
 [
+    [ "wifi_station", "structwifi__station.html", "structwifi__station" ],
     [ "Config", "struct_config.html", "struct_config" ],
     [ "Settings", "class_settings.html", "class_settings" ],
     [ "json", "settings_8h.html#ab701e3ac61a85b337ec5c1abaad6742d", null ],

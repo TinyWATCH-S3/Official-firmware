@@ -128,8 +128,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acc55327d10a0bd87b1942b2d30295af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35abf4c589abb5f162cb6578a90848b6" id="r_a35abf4c589abb5f162cb6578a90848b6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35abf4c589abb5f162cb6578a90848b6">get_roll</a> ()</td></tr>
 <tr class="separator:a35abf4c589abb5f162cb6578a90848b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad98004c7e643ff5378a1082e3cc01d79" id="r_ad98004c7e643ff5378a1082e3cc01d79"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad98004c7e643ff5378a1082e3cc01d79">get_yaw</a> ()</td></tr>
-<tr class="separator:ad98004c7e643ff5378a1082e3cc01d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ceb8b1481e90871f4129ce073a0542" id="r_a01ceb8b1481e90871f4129ce073a0542"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01ceb8b1481e90871f4129ce073a0542">get_yaw</a> (bool tilt_compensated=true)</td></tr>
+<tr class="separator:a01ceb8b1481e90871f4129ce073a0542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9da7687533b0f1158dd7cc34fa4481" id="r_afa9da7687533b0f1158dd7cc34fa4481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9da7687533b0f1158dd7cc34fa4481">get_magnetic</a> (float *x, float *y, float *z, bool iron_compensated=true)</td></tr>
+<tr class="separator:afa9da7687533b0f1158dd7cc34fa4481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad28c34e8c92393814a5b318ce2400b6" id="r_aad28c34e8c92393814a5b318ce2400b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad28c34e8c92393814a5b318ce2400b6">is_looking_at_face</a> ()</td></tr>
 <tr class="separator:aad28c34e8c92393814a5b318ce2400b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8284b0593f749a491fd90b51d6602d88" id="r_a8284b0593f749a491fd90b51d6602d88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8284b0593f749a491fd90b51d6602d88">set_hibernate</a> (bool state)</td></tr>
@@ -185,12 +187,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac15b1cbc934321067f1d4306312c9990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b21e9b83326b62a4b1b8a0ae92cfc50" id="r_a2b21e9b83326b62a4b1b8a0ae92cfc50"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b21e9b83326b62a4b1b8a0ae92cfc50">movement_activity</a> = 0</td></tr>
 <tr class="separator:a2b21e9b83326b62a4b1b8a0ae92cfc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b426e8f4e6364d948a94848edc056a6" id="r_a6b426e8f4e6364d948a94848edc056a6"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b426e8f4e6364d948a94848edc056a6">hard_iron</a> [3] = {17.77, -30.08, 16.21}</td></tr>
-<tr class="separator:a6b426e8f4e6364d948a94848edc056a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388b51b2e42ba587cb6f23a39633b404" id="r_a388b51b2e42ba587cb6f23a39633b404"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a388b51b2e42ba587cb6f23a39633b404">soft_iron</a> [3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}}</td></tr>
-<tr class="separator:a388b51b2e42ba587cb6f23a39633b404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d0e91d37f0eb267bde18df5826148a" id="r_ac3d0e91d37f0eb267bde18df5826148a"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3d0e91d37f0eb267bde18df5826148a">mag_decl</a> = -1.233</td></tr>
-<tr class="separator:ac3d0e91d37f0eb267bde18df5826148a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="afe377e5424d4d78c445e17e7fbfd34da" name="afe377e5424d4d78c445e17e7fbfd34da"></a>
@@ -295,6 +291,37 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="afa9da7687533b0f1158dd7cc34fa4481" name="afa9da7687533b0f1158dd7cc34fa4481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9da7687533b0f1158dd7cc34fa4481">&#9670;&#160;</a></span>get_magnetic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IMU::get_magnetic </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>z</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>iron_compensated</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a84727fe4d55b62e92ae77f83c9cf5322" name="a84727fe4d55b62e92ae77f83c9cf5322"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84727fe4d55b62e92ae77f83c9cf5322">&#9670;&#160;</a></span>get_movement_activity()</h2>
 
@@ -389,8 +416,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad98004c7e643ff5378a1082e3cc01d79" name="ad98004c7e643ff5378a1082e3cc01d79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad98004c7e643ff5378a1082e3cc01d79">&#9670;&#160;</a></span>get_yaw()</h2>
+<a id="a01ceb8b1481e90871f4129ce073a0542" name="a01ceb8b1481e90871f4129ce073a0542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ceb8b1481e90871f4129ce073a0542">&#9670;&#160;</a></span>get_yaw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +425,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">float IMU::get_yaw </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>tilt_compensated</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -646,28 +673,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6b426e8f4e6364d948a94848edc056a6" name="a6b426e8f4e6364d948a94848edc056a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b426e8f4e6364d948a94848edc056a6">&#9670;&#160;</a></span>hard_iron</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float IMU::hard_iron[3] = {17.77, -30.08, 16.21}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ab9e85b331f528c45f076db30a7b8dffc" name="ab9e85b331f528c45f076db30a7b8dffc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9e85b331f528c45f076db30a7b8dffc">&#9670;&#160;</a></span>i2cAddress</h2>
 
@@ -762,28 +767,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac3d0e91d37f0eb267bde18df5826148a" name="ac3d0e91d37f0eb267bde18df5826148a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3d0e91d37f0eb267bde18df5826148a">&#9670;&#160;</a></span>mag_decl</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float IMU::mag_decl = -1.233</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aa47dfb8aea00c0540ab9421d3ed9e669" name="aa47dfb8aea00c0540ab9421d3ed9e669"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa47dfb8aea00c0540ab9421d3ed9e669">&#9670;&#160;</a></span>mag_ready</h2>
 
@@ -853,28 +836,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float IMU::prev_yaw_read = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a388b51b2e42ba587cb6f23a39633b404" name="a388b51b2e42ba587cb6f23a39633b404"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a388b51b2e42ba587cb6f23a39633b404">&#9670;&#160;</a></span>soft_iron</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const float IMU::soft_iron[3][3] = {{1.003, 0.008, -0.001}, {0.008, 1.004, 0.000}, {-0.001, -0.000, 0.994}}</td>
         </tr>
       </table>
   </td>

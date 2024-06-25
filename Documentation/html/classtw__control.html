@@ -194,8 +194,6 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a0260033322fb08209ad94550f26a66ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad185794a64b94983b686c1c089c6892e" id="r_ad185794a64b94983b686c1c089c6892e"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad185794a64b94983b686c1c089c6892e">padding_y</a> = 20</td></tr>
 <tr class="separator:ad185794a64b94983b686c1c089c6892e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d91050ea99b4c0ae51c2596b7b01d62" id="r_a4d91050ea99b4c0ae51c2596b7b01d62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d91050ea99b4c0ae51c2596b7b01d62">requires_redraw</a> = true</td></tr>
-<tr class="separator:a4d91050ea99b4c0ae51c2596b7b01d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4fb6fb8beb34f76e98dcff6980ea75" id="r_afe4fb6fb8beb34f76e98dcff6980ea75"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe4fb6fb8beb34f76e98dcff6980ea75">can_scroll_x</a> = false</td></tr>
 <tr class="separator:afe4fb6fb8beb34f76e98dcff6980ea75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7666727e24e480111e12317df3e0db4" id="r_ad7666727e24e480111e12317df3e0db4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7666727e24e480111e12317df3e0db4">can_scroll_y</a> = false</td></tr>
@@ -212,6 +210,14 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af5167536ebe22c59a18fe5d0f51f5f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31fdedb63ecbcf5dac266e7262e5c5ae" id="r_a31fdedb63ecbcf5dac266e7262e5c5ae"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31fdedb63ecbcf5dac266e7262e5c5ae">adjusted_pos_y</a> = 0</td></tr>
 <tr class="separator:a31fdedb63ecbcf5dac266e7262e5c5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c25031cdb4cd9ebd96299fa3aa8c83a" id="r_a8c25031cdb4cd9ebd96299fa3aa8c83a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c25031cdb4cd9ebd96299fa3aa8c83a">is_dirty</a> = true</td></tr>
+<tr class="separator:a8c25031cdb4cd9ebd96299fa3aa8c83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8c7ac759e74545f56925f5aeb5f76aa" id="r_ae8c7ac759e74545f56925f5aeb5f76aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8c7ac759e74545f56925f5aeb5f76aa">should_cache</a> = false</td></tr>
+<tr class="separator:ae8c7ac759e74545f56925f5aeb5f76aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c3b69229aefff8633b56e765cf583f4" id="r_a0c3b69229aefff8633b56e765cf583f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c3b69229aefff8633b56e765cf583f4">extra_height</a> = 0</td></tr>
+<tr class="separator:a0c3b69229aefff8633b56e765cf583f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c4bb7f18e5503b0480799ea1e73e50" id="r_a37c4bb7f18e5503b0480799ea1e73e50"><td class="memItemLeft" align="right" valign="top">TFT_eSprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37c4bb7f18e5503b0480799ea1e73e50">my_sprite</a> = TFT_eSprite(&amp;<a class="el" href="tw__control_8h.html#ac5d2dc3534f30f704fd7529ad0f89ff1">tft</a>)</td></tr>
+<tr class="separator:a37c4bb7f18e5503b0480799ea1e73e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa5866ceadd9ee0a7b62dab42eb0c4d26" name="aa5866ceadd9ee0a7b62dab42eb0c4d26"></a>
@@ -820,6 +826,28 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0c3b69229aefff8633b56e765cf583f4" name="a0c3b69229aefff8633b56e765cf583f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3b69229aefff8633b56e765cf583f4">&#9670;&#160;</a></span>extra_height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tw_control::extra_height = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa956a65e35e7c37c996e3241c578242e" name="aa956a65e35e7c37c996e3241c578242e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa956a65e35e7c37c996e3241c578242e">&#9670;&#160;</a></span>height</h2>
 
@@ -831,6 +859,50 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">uint tw_control::height = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c25031cdb4cd9ebd96299fa3aa8c83a" name="a8c25031cdb4cd9ebd96299fa3aa8c83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c25031cdb4cd9ebd96299fa3aa8c83a">&#9670;&#160;</a></span>is_dirty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tw_control::is_dirty = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37c4bb7f18e5503b0480799ea1e73e50" name="a37c4bb7f18e5503b0480799ea1e73e50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37c4bb7f18e5503b0480799ea1e73e50">&#9670;&#160;</a></span>my_sprite</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TFT_eSprite tw_control::my_sprite = TFT_eSprite(&amp;<a class="el" href="tw__control_8h.html#ac5d2dc3534f30f704fd7529ad0f89ff1">tft</a>)</td>
         </tr>
       </table>
   </td>
@@ -1054,28 +1126,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a4d91050ea99b4c0ae51c2596b7b01d62" name="a4d91050ea99b4c0ae51c2596b7b01d62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d91050ea99b4c0ae51c2596b7b01d62">&#9670;&#160;</a></span>requires_redraw</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool tw_control::requires_redraw = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="af5152d03c48c5121ef3517dd96e1c18b" name="af5152d03c48c5121ef3517dd96e1c18b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5152d03c48c5121ef3517dd96e1c18b">&#9670;&#160;</a></span>scroll_x</h2>
 
@@ -1109,6 +1159,28 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">uint tw_control::scroll_y = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8c7ac759e74545f56925f5aeb5f76aa" name="ae8c7ac759e74545f56925f5aeb5f76aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c7ac759e74545f56925f5aeb5f76aa">&#9670;&#160;</a></span>should_cache</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tw_control::should_cache = false</td>
         </tr>
       </table>
   </td>

@@ -94,6 +94,7 @@ $(function(){initNavTree('class_face_watch___default_digital.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_face_watch___default_digital-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FaceWatch_DefaultDigital Class Reference</div></div>
@@ -130,8 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2879c119587b2a89971de112cc18b7d5 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71e89c44b92c94a9993a925724794f27 inherit pub_methods_classtw__face" id="r_a71e89c44b92c94a9993a925724794f27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#a71e89c44b92c94a9993a925724794f27">set_navigation</a> (<a class="el" href="classtw__face.html">tw_face</a> *l, <a class="el" href="classtw__face.html">tw_face</a> *r, <a class="el" href="classtw__face.html">tw_face</a> *u, <a class="el" href="classtw__face.html">tw_face</a> *d)</td></tr>
 <tr class="separator:a71e89c44b92c94a9993a925724794f27 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62d0e643a009ee6210e2cee44eec5e3a inherit pub_methods_classtw__face" id="r_a62d0e643a009ee6210e2cee44eec5e3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#a62d0e643a009ee6210e2cee44eec5e3a">set_single_navigation</a> (<a class="el" href="display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir, <a class="el" href="classtw__face.html">tw_face</a> *face)</td></tr>
-<tr class="separator:a62d0e643a009ee6210e2cee44eec5e3a inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5426c3bd696c9e258b35184f3b25acc2 inherit pub_methods_classtw__face" id="r_a5426c3bd696c9e258b35184f3b25acc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#a5426c3bd696c9e258b35184f3b25acc2">set_single_navigation</a> (<a class="el" href="display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir, <a class="el" href="classtw__face.html">tw_face</a> *face, bool reverse=true)</td></tr>
+<tr class="separator:a5426c3bd696c9e258b35184f3b25acc2 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b69b4c55d023a2f2357c3a64c05893 inherit pub_methods_classtw__face" id="r_a12b69b4c55d023a2f2357c3a64c05893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#a12b69b4c55d023a2f2357c3a64c05893">add_widget</a> (<a class="el" href="classtw__widget.html">tw_widget</a> *widget)</td></tr>
 <tr class="separator:a12b69b4c55d023a2f2357c3a64c05893 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3481ba12d4a956000b940d9d841a8eb inherit pub_methods_classtw__face" id="r_aa3481ba12d4a956000b940d9d841a8eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#aa3481ba12d4a956000b940d9d841a8eb">widget_process_clicks</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
@@ -183,11 +184,128 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab109a0610f0e20092b6ff62dc905f357 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a822afa51d68fe590a73c46c6f0b654e1 inherit pub_methods_classtw__face" id="r_a822afa51d68fe590a73c46c6f0b654e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#a822afa51d68fe590a73c46c6f0b654e1">update_screen</a> ()</td></tr>
 <tr class="separator:a822afa51d68fe590a73c46c6f0b654e1 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda7f7f2174903c61665f5966d83a420 inherit pub_methods_classtw__face" id="r_abda7f7f2174903c61665f5966d83a420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__face.html#abda7f7f2174903c61665f5966d83a420">draw_navigation</a> (uint8_t <a class="el" href="classtw__face.html#a2d6d1c8c3cf3cf1deb42bad6e2d01cb3">canvasid</a>, uint32_t color)</td></tr>
+<tr class="separator:abda7f7f2174903c61665f5966d83a420 inherit pub_methods_classtw__face"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a38b47306095293104a15e2c9b7d317b2" id="r_a38b47306095293104a15e2c9b7d317b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38b47306095293104a15e2c9b7d317b2">draw_battery</a> (uint8_t <a class="el" href="#a6811656c8b8ba13cabd1a91a3a0bbf76">battpos_x</a>, uint8_t <a class="el" href="#a9e29bf29890b48cbf795d23a9abae176">battpos_y</a>, TFT_eSprite <a class="el" href="classtw__face.html#a2d6d1c8c3cf3cf1deb42bad6e2d01cb3">canvasid</a>)</td></tr>
+<tr class="separator:a38b47306095293104a15e2c9b7d317b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79cfda263c10a3fbf2779d64f37cebec" id="r_a79cfda263c10a3fbf2779d64f37cebec"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79cfda263c10a3fbf2779d64f37cebec">maplim</a> (long x, long in_min, long in_max, long out_min, long out_max, bool limit)</td></tr>
+<tr class="separator:a79cfda263c10a3fbf2779d64f37cebec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a035c30041c9f4c298f20160f85e360f5" id="r_a035c30041c9f4c298f20160f85e360f5"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a035c30041c9f4c298f20160f85e360f5">version</a> = &quot;1.0&quot;</td></tr>
 <tr class="separator:a035c30041c9f4c298f20160f85e360f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f26faf1035fcba319371ed8a63e6e5" id="r_a51f26faf1035fcba319371ed8a63e6e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51f26faf1035fcba319371ed8a63e6e5">ledcolon_on</a> = false</td></tr>
+<tr class="separator:a51f26faf1035fcba319371ed8a63e6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a855828a217901d0d248887ae492ff506" id="r_a855828a217901d0d248887ae492ff506"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a855828a217901d0d248887ae492ff506">face_iswide</a> = false</td></tr>
+<tr class="separator:a855828a217901d0d248887ae492ff506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06eb6df5730f0a202500748ca40294e9" id="r_a06eb6df5730f0a202500748ca40294e9"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06eb6df5730f0a202500748ca40294e9">digitalwideInfo</a></td></tr>
+<tr class="separator:a06eb6df5730f0a202500748ca40294e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c0beaa062cddff02bc17037f29be2d" id="r_a49c0beaa062cddff02bc17037f29be2d"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49c0beaa062cddff02bc17037f29be2d">battLCD_00</a></td></tr>
+<tr class="separator:a49c0beaa062cddff02bc17037f29be2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786b6d670f5e4cfd38ae1304862c345e" id="r_a786b6d670f5e4cfd38ae1304862c345e"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a786b6d670f5e4cfd38ae1304862c345e">battLCD_20</a></td></tr>
+<tr class="separator:a786b6d670f5e4cfd38ae1304862c345e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af89a43a7773b84b33c2698a168d4c4d5" id="r_af89a43a7773b84b33c2698a168d4c4d5"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af89a43a7773b84b33c2698a168d4c4d5">battLCD_40</a></td></tr>
+<tr class="separator:af89a43a7773b84b33c2698a168d4c4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cc2b5da881af2371a869894a7beb7e" id="r_ad8cc2b5da881af2371a869894a7beb7e"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8cc2b5da881af2371a869894a7beb7e">battLCD_60</a></td></tr>
+<tr class="separator:ad8cc2b5da881af2371a869894a7beb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b250a1bb2d37e24ada98388137b9a86" id="r_a3b250a1bb2d37e24ada98388137b9a86"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b250a1bb2d37e24ada98388137b9a86">battLCD_80</a></td></tr>
+<tr class="separator:a3b250a1bb2d37e24ada98388137b9a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72eb56c3377b9f17959e58ef2ba3874e" id="r_a72eb56c3377b9f17959e58ef2ba3874e"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72eb56c3377b9f17959e58ef2ba3874e">battLCD_100</a></td></tr>
+<tr class="separator:a72eb56c3377b9f17959e58ef2ba3874e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ceb14c835a5f290e1ce232eb1eb19a" id="r_ae3ceb14c835a5f290e1ce232eb1eb19a"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3ceb14c835a5f290e1ce232eb1eb19a">wifiLCD_00</a></td></tr>
+<tr class="separator:ae3ceb14c835a5f290e1ce232eb1eb19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeefa6833c35829496e6cb040d4242a0" id="r_afeefa6833c35829496e6cb040d4242a0"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afeefa6833c35829496e6cb040d4242a0">wifiLCD_25</a></td></tr>
+<tr class="separator:afeefa6833c35829496e6cb040d4242a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff1f631c7505e0af7e882b33d1cf6e6" id="r_aaff1f631c7505e0af7e882b33d1cf6e6"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaff1f631c7505e0af7e882b33d1cf6e6">wifiLCD_50</a></td></tr>
+<tr class="separator:aaff1f631c7505e0af7e882b33d1cf6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3c05a62bbf87e05867335753f3fa0a" id="r_a7b3c05a62bbf87e05867335753f3fa0a"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3c05a62bbf87e05867335753f3fa0a">wifiLCD_75</a></td></tr>
+<tr class="separator:a7b3c05a62bbf87e05867335753f3fa0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2709f8b084abd9dc2c92232aebdd32c" id="r_af2709f8b084abd9dc2c92232aebdd32c"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2709f8b084abd9dc2c92232aebdd32c">wifiLCD_100</a></td></tr>
+<tr class="separator:af2709f8b084abd9dc2c92232aebdd32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f51cbbb26eb88a39269ee3acf3283a2" id="r_a8f51cbbb26eb88a39269ee3acf3283a2"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f51cbbb26eb88a39269ee3acf3283a2">activityLCD</a></td></tr>
+<tr class="separator:a8f51cbbb26eb88a39269ee3acf3283a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e094105c9f69015f68c78f925511fe6" id="r_a9e094105c9f69015f68c78f925511fe6"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e094105c9f69015f68c78f925511fe6">activitybar_13</a></td></tr>
+<tr class="separator:a9e094105c9f69015f68c78f925511fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f52ac4266db62335fe3d56ba4a28f43" id="r_a5f52ac4266db62335fe3d56ba4a28f43"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f52ac4266db62335fe3d56ba4a28f43">activitybar_12</a></td></tr>
+<tr class="separator:a5f52ac4266db62335fe3d56ba4a28f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12aa5882d21159257f65229c3c12909c" id="r_a12aa5882d21159257f65229c3c12909c"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12aa5882d21159257f65229c3c12909c">activitybar_11</a></td></tr>
+<tr class="separator:a12aa5882d21159257f65229c3c12909c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad9d99138a930a6d063bdedf804d616" id="r_a8ad9d99138a930a6d063bdedf804d616"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ad9d99138a930a6d063bdedf804d616">activitybar_10</a></td></tr>
+<tr class="separator:a8ad9d99138a930a6d063bdedf804d616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf95efb0b6d02abe60a7ecf167fc080d" id="r_abf95efb0b6d02abe60a7ecf167fc080d"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf95efb0b6d02abe60a7ecf167fc080d">activitybar_09</a></td></tr>
+<tr class="separator:abf95efb0b6d02abe60a7ecf167fc080d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f33e088572e46d20d0ca9b67042ccfe" id="r_a0f33e088572e46d20d0ca9b67042ccfe"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f33e088572e46d20d0ca9b67042ccfe">activitybar_08</a></td></tr>
+<tr class="separator:a0f33e088572e46d20d0ca9b67042ccfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d86fd904ea983097ce96e685c44bba" id="r_a98d86fd904ea983097ce96e685c44bba"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98d86fd904ea983097ce96e685c44bba">activitybar_07</a></td></tr>
+<tr class="separator:a98d86fd904ea983097ce96e685c44bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2cb98a53c23b5d8d07936fbdd67c14c" id="r_ab2cb98a53c23b5d8d07936fbdd67c14c"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2cb98a53c23b5d8d07936fbdd67c14c">activitybar_06</a></td></tr>
+<tr class="separator:ab2cb98a53c23b5d8d07936fbdd67c14c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d007a2b45c1022c524d5b8f441b4e7" id="r_a15d007a2b45c1022c524d5b8f441b4e7"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15d007a2b45c1022c524d5b8f441b4e7">activitybar_05</a></td></tr>
+<tr class="separator:a15d007a2b45c1022c524d5b8f441b4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb6ed9c40cc1eb79104e1fd6f1da503" id="r_a3fb6ed9c40cc1eb79104e1fd6f1da503"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb6ed9c40cc1eb79104e1fd6f1da503">activitybar_04</a></td></tr>
+<tr class="separator:a3fb6ed9c40cc1eb79104e1fd6f1da503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aee0bf1908deb4e45fcdf7c4cd27187" id="r_a2aee0bf1908deb4e45fcdf7c4cd27187"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aee0bf1908deb4e45fcdf7c4cd27187">activitybar_03</a></td></tr>
+<tr class="separator:a2aee0bf1908deb4e45fcdf7c4cd27187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8a022c0c295269ee10b87edb6700ec8" id="r_ae8a022c0c295269ee10b87edb6700ec8"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8a022c0c295269ee10b87edb6700ec8">activitybar_02</a></td></tr>
+<tr class="separator:ae8a022c0c295269ee10b87edb6700ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ab81af15350a500f30d00e6a5fd734" id="r_a77ab81af15350a500f30d00e6a5fd734"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77ab81af15350a500f30d00e6a5fd734">activitybar_01</a></td></tr>
+<tr class="separator:a77ab81af15350a500f30d00e6a5fd734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10ee0268dd55bdb3410038460328f9e" id="r_ab10ee0268dd55bdb3410038460328f9e"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab10ee0268dd55bdb3410038460328f9e">activitybar_00</a></td></tr>
+<tr class="separator:ab10ee0268dd55bdb3410038460328f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae780eca5c1456507a813e6014393aebe" id="r_ae780eca5c1456507a813e6014393aebe"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae780eca5c1456507a813e6014393aebe">icon_v</a></td></tr>
+<tr class="separator:ae780eca5c1456507a813e6014393aebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095df21e53c19df9a4db33635c22a40d" id="r_a095df21e53c19df9a4db33635c22a40d"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095df21e53c19df9a4db33635c22a40d">icon_pcnt</a></td></tr>
+<tr class="separator:a095df21e53c19df9a4db33635c22a40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13025cef56c3db629a8172a92f0f7e1" id="r_ab13025cef56c3db629a8172a92f0f7e1"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab13025cef56c3db629a8172a92f0f7e1">icon_db</a></td></tr>
+<tr class="separator:ab13025cef56c3db629a8172a92f0f7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1c7e1e8f9358cf6202a07b1074de774" id="r_ab1c7e1e8f9358cf6202a07b1074de774"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1c7e1e8f9358cf6202a07b1074de774">activitybar</a> [14]</td></tr>
+<tr class="separator:ab1c7e1e8f9358cf6202a07b1074de774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7348dd9cb81274b9d835491124bb9b76" id="r_a7348dd9cb81274b9d835491124bb9b76"><td class="memItemLeft" align="right" valign="top">RLEBitmapInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7348dd9cb81274b9d835491124bb9b76">battLCD</a> [6]</td></tr>
+<tr class="separator:a7348dd9cb81274b9d835491124bb9b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c1341fc07d14ff4b2365de63dcad6d1" id="r_a1c1341fc07d14ff4b2365de63dcad6d1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c1341fc07d14ff4b2365de63dcad6d1">display_actcycle</a> = 0</td></tr>
+<tr class="separator:a1c1341fc07d14ff4b2365de63dcad6d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9248dbea2a873c8eced3e3fbd6ac92c5" id="r_a9248dbea2a873c8eced3e3fbd6ac92c5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9248dbea2a873c8eced3e3fbd6ac92c5">display_cyclepause</a> = 0</td></tr>
+<tr class="separator:a9248dbea2a873c8eced3e3fbd6ac92c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7dadfb0a524cbb0089f9de8821c495" id="r_a7e7dadfb0a524cbb0089f9de8821c495"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e7dadfb0a524cbb0089f9de8821c495">cycledelay_secs</a> = 3</td></tr>
+<tr class="separator:a7e7dadfb0a524cbb0089f9de8821c495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf7a284fbe3c8b1473dc2cfc9d8b8588" id="r_abf7a284fbe3c8b1473dc2cfc9d8b8588"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf7a284fbe3c8b1473dc2cfc9d8b8588">battlcd_pos</a> = 1</td></tr>
+<tr class="separator:abf7a284fbe3c8b1473dc2cfc9d8b8588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7021c7cff94aaedf735686094d8d193" id="r_af7021c7cff94aaedf735686094d8d193"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7021c7cff94aaedf735686094d8d193">TFT_LCD_BKG</a> = <a class="el" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0xD3, 0xDC, 0xDB)</td></tr>
+<tr class="separator:af7021c7cff94aaedf735686094d8d193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dca58cbf442eb4fd97246e09d1f5fd9" id="r_a1dca58cbf442eb4fd97246e09d1f5fd9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dca58cbf442eb4fd97246e09d1f5fd9">TFT_LCD_OFF</a> = <a class="el" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0xC3, 0xCC, 0xCB)</td></tr>
+<tr class="separator:a1dca58cbf442eb4fd97246e09d1f5fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e66294a006174d6a295caed1103509" id="r_af5e66294a006174d6a295caed1103509"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5e66294a006174d6a295caed1103509">time_ypos</a> = 180</td></tr>
+<tr class="separator:af5e66294a006174d6a295caed1103509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c34e339a60ecf58d838ccec997d1d2" id="r_ab2c34e339a60ecf58d838ccec997d1d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2c34e339a60ecf58d838ccec997d1d2">time_h_xpos</a> = 35</td></tr>
+<tr class="separator:ab2c34e339a60ecf58d838ccec997d1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafca2d29e34a66919463828e9068cf29" id="r_aafca2d29e34a66919463828e9068cf29"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafca2d29e34a66919463828e9068cf29">time_m_xpos</a> = 107</td></tr>
+<tr class="separator:aafca2d29e34a66919463828e9068cf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcac7c893ac0c58d6759d1f37c66131b" id="r_adcac7c893ac0c58d6759d1f37c66131b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcac7c893ac0c58d6759d1f37c66131b">time_s_xpos</a> = 174</td></tr>
+<tr class="separator:adcac7c893ac0c58d6759d1f37c66131b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a313f419a516f549241120f63a07b3232" id="r_a313f419a516f549241120f63a07b3232"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a313f419a516f549241120f63a07b3232">date_day_xpos</a> = 140</td></tr>
+<tr class="separator:a313f419a516f549241120f63a07b3232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b5198b7b3a41e92019043ef2ea8fd5" id="r_ad3b5198b7b3a41e92019043ef2ea8fd5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3b5198b7b3a41e92019043ef2ea8fd5">date_day_ypos</a> = 119</td></tr>
+<tr class="separator:ad3b5198b7b3a41e92019043ef2ea8fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b6942181ca5002b9091a0d0ec803614" id="r_a8b6942181ca5002b9091a0d0ec803614"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b6942181ca5002b9091a0d0ec803614">date_dm_xpos</a> = 199</td></tr>
+<tr class="separator:a8b6942181ca5002b9091a0d0ec803614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a221aaa55c2e5b2f4a29bc789a90dc726" id="r_a221aaa55c2e5b2f4a29bc789a90dc726"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a221aaa55c2e5b2f4a29bc789a90dc726">date_dm_ypos</a> = 119</td></tr>
+<tr class="separator:a221aaa55c2e5b2f4a29bc789a90dc726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8746eff965ffbd1ce4bed17404916e83" id="r_a8746eff965ffbd1ce4bed17404916e83"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8746eff965ffbd1ce4bed17404916e83">digital_yoffset</a> = 0</td></tr>
+<tr class="separator:a8746eff965ffbd1ce4bed17404916e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6811656c8b8ba13cabd1a91a3a0bbf76" id="r_a6811656c8b8ba13cabd1a91a3a0bbf76"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6811656c8b8ba13cabd1a91a3a0bbf76">battpos_x</a> = 0</td></tr>
+<tr class="separator:a6811656c8b8ba13cabd1a91a3a0bbf76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e29bf29890b48cbf795d23a9abae176" id="r_a9e29bf29890b48cbf795d23a9abae176"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e29bf29890b48cbf795d23a9abae176">battpos_y</a> = 0</td></tr>
+<tr class="separator:a9e29bf29890b48cbf795d23a9abae176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2cd16f4d98bec1c664ec84429114c86" id="r_ab2cd16f4d98bec1c664ec84429114c86"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2cd16f4d98bec1c664ec84429114c86">stepbarpos_x</a> = 113</td></tr>
+<tr class="separator:ab2cd16f4d98bec1c664ec84429114c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c62afa099586c0ac1930486b41684c6" id="r_a1c62afa099586c0ac1930486b41684c6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c62afa099586c0ac1930486b41684c6">stepbarpos_y</a> = 76</td></tr>
+<tr class="separator:a1c62afa099586c0ac1930486b41684c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de3e06b592b8fe13e53cfe783909079" id="r_a8de3e06b592b8fe13e53cfe783909079"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8de3e06b592b8fe13e53cfe783909079">hide_activityicon</a> = true</td></tr>
+<tr class="separator:a8de3e06b592b8fe13e53cfe783909079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -290,6 +408,89 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a38b47306095293104a15e2c9b7d317b2" name="a38b47306095293104a15e2c9b7d317b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b47306095293104a15e2c9b7d317b2">&#9670;&#160;</a></span>draw_battery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceWatch_DefaultDigital::draw_battery </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>battpos_x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>battpos_y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TFT_eSprite</td>          <td class="paramname"><span class="paramname"><em>canvasid</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79cfda263c10a3fbf2779d64f37cebec" name="a79cfda263c10a3fbf2779d64f37cebec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79cfda263c10a3fbf2779d64f37cebec">&#9670;&#160;</a></span>maplim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long FaceWatch_DefaultDigital::maplim </td>
+          <td>(</td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>in_min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>in_max</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>out_min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>out_max</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>limit</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9097b3304b02f558d375193d2d9bf16a" name="a9097b3304b02f558d375193d2d9bf16a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9097b3304b02f558d375193d2d9bf16a">&#9670;&#160;</a></span>process_touch()</h2>
 
@@ -345,6 +546,1084 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab1c7e1e8f9358cf6202a07b1074de774" name="ab1c7e1e8f9358cf6202a07b1074de774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1c7e1e8f9358cf6202a07b1074de774">&#9670;&#160;</a></span>activitybar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar[14]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab10ee0268dd55bdb3410038460328f9e" name="ab10ee0268dd55bdb3410038460328f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10ee0268dd55bdb3410038460328f9e">&#9670;&#160;</a></span>activitybar_00</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_00</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77ab81af15350a500f30d00e6a5fd734" name="a77ab81af15350a500f30d00e6a5fd734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ab81af15350a500f30d00e6a5fd734">&#9670;&#160;</a></span>activitybar_01</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_01</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae8a022c0c295269ee10b87edb6700ec8" name="ae8a022c0c295269ee10b87edb6700ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a022c0c295269ee10b87edb6700ec8">&#9670;&#160;</a></span>activitybar_02</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_02</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2aee0bf1908deb4e45fcdf7c4cd27187" name="a2aee0bf1908deb4e45fcdf7c4cd27187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aee0bf1908deb4e45fcdf7c4cd27187">&#9670;&#160;</a></span>activitybar_03</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_03</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fb6ed9c40cc1eb79104e1fd6f1da503" name="a3fb6ed9c40cc1eb79104e1fd6f1da503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb6ed9c40cc1eb79104e1fd6f1da503">&#9670;&#160;</a></span>activitybar_04</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_04</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15d007a2b45c1022c524d5b8f441b4e7" name="a15d007a2b45c1022c524d5b8f441b4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15d007a2b45c1022c524d5b8f441b4e7">&#9670;&#160;</a></span>activitybar_05</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_05</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2cb98a53c23b5d8d07936fbdd67c14c" name="ab2cb98a53c23b5d8d07936fbdd67c14c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2cb98a53c23b5d8d07936fbdd67c14c">&#9670;&#160;</a></span>activitybar_06</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_06</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98d86fd904ea983097ce96e685c44bba" name="a98d86fd904ea983097ce96e685c44bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d86fd904ea983097ce96e685c44bba">&#9670;&#160;</a></span>activitybar_07</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_07</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f33e088572e46d20d0ca9b67042ccfe" name="a0f33e088572e46d20d0ca9b67042ccfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f33e088572e46d20d0ca9b67042ccfe">&#9670;&#160;</a></span>activitybar_08</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_08</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf95efb0b6d02abe60a7ecf167fc080d" name="abf95efb0b6d02abe60a7ecf167fc080d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf95efb0b6d02abe60a7ecf167fc080d">&#9670;&#160;</a></span>activitybar_09</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_09</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ad9d99138a930a6d063bdedf804d616" name="a8ad9d99138a930a6d063bdedf804d616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad9d99138a930a6d063bdedf804d616">&#9670;&#160;</a></span>activitybar_10</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12aa5882d21159257f65229c3c12909c" name="a12aa5882d21159257f65229c3c12909c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12aa5882d21159257f65229c3c12909c">&#9670;&#160;</a></span>activitybar_11</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_11</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5f52ac4266db62335fe3d56ba4a28f43" name="a5f52ac4266db62335fe3d56ba4a28f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f52ac4266db62335fe3d56ba4a28f43">&#9670;&#160;</a></span>activitybar_12</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_12</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e094105c9f69015f68c78f925511fe6" name="a9e094105c9f69015f68c78f925511fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e094105c9f69015f68c78f925511fe6">&#9670;&#160;</a></span>activitybar_13</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activitybar_13</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f51cbbb26eb88a39269ee3acf3283a2" name="a8f51cbbb26eb88a39269ee3acf3283a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f51cbbb26eb88a39269ee3acf3283a2">&#9670;&#160;</a></span>activityLCD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::activityLCD</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7348dd9cb81274b9d835491124bb9b76" name="a7348dd9cb81274b9d835491124bb9b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7348dd9cb81274b9d835491124bb9b76">&#9670;&#160;</a></span>battLCD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD[6]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49c0beaa062cddff02bc17037f29be2d" name="a49c0beaa062cddff02bc17037f29be2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c0beaa062cddff02bc17037f29be2d">&#9670;&#160;</a></span>battLCD_00</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_00</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a72eb56c3377b9f17959e58ef2ba3874e" name="a72eb56c3377b9f17959e58ef2ba3874e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72eb56c3377b9f17959e58ef2ba3874e">&#9670;&#160;</a></span>battLCD_100</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a786b6d670f5e4cfd38ae1304862c345e" name="a786b6d670f5e4cfd38ae1304862c345e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786b6d670f5e4cfd38ae1304862c345e">&#9670;&#160;</a></span>battLCD_20</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_20</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af89a43a7773b84b33c2698a168d4c4d5" name="af89a43a7773b84b33c2698a168d4c4d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af89a43a7773b84b33c2698a168d4c4d5">&#9670;&#160;</a></span>battLCD_40</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_40</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8cc2b5da881af2371a869894a7beb7e" name="ad8cc2b5da881af2371a869894a7beb7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8cc2b5da881af2371a869894a7beb7e">&#9670;&#160;</a></span>battLCD_60</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_60</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b250a1bb2d37e24ada98388137b9a86" name="a3b250a1bb2d37e24ada98388137b9a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b250a1bb2d37e24ada98388137b9a86">&#9670;&#160;</a></span>battLCD_80</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::battLCD_80</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf7a284fbe3c8b1473dc2cfc9d8b8588" name="abf7a284fbe3c8b1473dc2cfc9d8b8588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7a284fbe3c8b1473dc2cfc9d8b8588">&#9670;&#160;</a></span>battlcd_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::battlcd_pos = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6811656c8b8ba13cabd1a91a3a0bbf76" name="a6811656c8b8ba13cabd1a91a3a0bbf76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6811656c8b8ba13cabd1a91a3a0bbf76">&#9670;&#160;</a></span>battpos_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::battpos_x = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e29bf29890b48cbf795d23a9abae176" name="a9e29bf29890b48cbf795d23a9abae176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e29bf29890b48cbf795d23a9abae176">&#9670;&#160;</a></span>battpos_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::battpos_y = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e7dadfb0a524cbb0089f9de8821c495" name="a7e7dadfb0a524cbb0089f9de8821c495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e7dadfb0a524cbb0089f9de8821c495">&#9670;&#160;</a></span>cycledelay_secs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::cycledelay_secs = 3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a313f419a516f549241120f63a07b3232" name="a313f419a516f549241120f63a07b3232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a313f419a516f549241120f63a07b3232">&#9670;&#160;</a></span>date_day_xpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::date_day_xpos = 140</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3b5198b7b3a41e92019043ef2ea8fd5" name="ad3b5198b7b3a41e92019043ef2ea8fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b5198b7b3a41e92019043ef2ea8fd5">&#9670;&#160;</a></span>date_day_ypos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::date_day_ypos = 119</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b6942181ca5002b9091a0d0ec803614" name="a8b6942181ca5002b9091a0d0ec803614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b6942181ca5002b9091a0d0ec803614">&#9670;&#160;</a></span>date_dm_xpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::date_dm_xpos = 199</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a221aaa55c2e5b2f4a29bc789a90dc726" name="a221aaa55c2e5b2f4a29bc789a90dc726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221aaa55c2e5b2f4a29bc789a90dc726">&#9670;&#160;</a></span>date_dm_ypos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::date_dm_ypos = 119</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8746eff965ffbd1ce4bed17404916e83" name="a8746eff965ffbd1ce4bed17404916e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8746eff965ffbd1ce4bed17404916e83">&#9670;&#160;</a></span>digital_yoffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::digital_yoffset = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06eb6df5730f0a202500748ca40294e9" name="a06eb6df5730f0a202500748ca40294e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06eb6df5730f0a202500748ca40294e9">&#9670;&#160;</a></span>digitalwideInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::digitalwideInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c1341fc07d14ff4b2365de63dcad6d1" name="a1c1341fc07d14ff4b2365de63dcad6d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1341fc07d14ff4b2365de63dcad6d1">&#9670;&#160;</a></span>display_actcycle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::display_actcycle = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9248dbea2a873c8eced3e3fbd6ac92c5" name="a9248dbea2a873c8eced3e3fbd6ac92c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9248dbea2a873c8eced3e3fbd6ac92c5">&#9670;&#160;</a></span>display_cyclepause</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::display_cyclepause = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a855828a217901d0d248887ae492ff506" name="a855828a217901d0d248887ae492ff506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a855828a217901d0d248887ae492ff506">&#9670;&#160;</a></span>face_iswide</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceWatch_DefaultDigital::face_iswide = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8de3e06b592b8fe13e53cfe783909079" name="a8de3e06b592b8fe13e53cfe783909079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de3e06b592b8fe13e53cfe783909079">&#9670;&#160;</a></span>hide_activityicon</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceWatch_DefaultDigital::hide_activityicon = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab13025cef56c3db629a8172a92f0f7e1" name="ab13025cef56c3db629a8172a92f0f7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab13025cef56c3db629a8172a92f0f7e1">&#9670;&#160;</a></span>icon_db</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::icon_db</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a095df21e53c19df9a4db33635c22a40d" name="a095df21e53c19df9a4db33635c22a40d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095df21e53c19df9a4db33635c22a40d">&#9670;&#160;</a></span>icon_pcnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::icon_pcnt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae780eca5c1456507a813e6014393aebe" name="ae780eca5c1456507a813e6014393aebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae780eca5c1456507a813e6014393aebe">&#9670;&#160;</a></span>icon_v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::icon_v</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f26faf1035fcba319371ed8a63e6e5" name="a51f26faf1035fcba319371ed8a63e6e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f26faf1035fcba319371ed8a63e6e5">&#9670;&#160;</a></span>ledcolon_on</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceWatch_DefaultDigital::ledcolon_on = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2cd16f4d98bec1c664ec84429114c86" name="ab2cd16f4d98bec1c664ec84429114c86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2cd16f4d98bec1c664ec84429114c86">&#9670;&#160;</a></span>stepbarpos_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::stepbarpos_x = 113</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c62afa099586c0ac1930486b41684c6" name="a1c62afa099586c0ac1930486b41684c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c62afa099586c0ac1930486b41684c6">&#9670;&#160;</a></span>stepbarpos_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::stepbarpos_y = 76</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7021c7cff94aaedf735686094d8d193" name="af7021c7cff94aaedf735686094d8d193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7021c7cff94aaedf735686094d8d193">&#9670;&#160;</a></span>TFT_LCD_BKG</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t FaceWatch_DefaultDigital::TFT_LCD_BKG = <a class="el" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0xD3, 0xDC, 0xDB)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1dca58cbf442eb4fd97246e09d1f5fd9" name="a1dca58cbf442eb4fd97246e09d1f5fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dca58cbf442eb4fd97246e09d1f5fd9">&#9670;&#160;</a></span>TFT_LCD_OFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t FaceWatch_DefaultDigital::TFT_LCD_OFF = <a class="el" href="display_8h.html#a95882ac388a30de06881dbd1f66d2c62">RGB</a>(0xC3, 0xCC, 0xCB)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2c34e339a60ecf58d838ccec997d1d2" name="ab2c34e339a60ecf58d838ccec997d1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c34e339a60ecf58d838ccec997d1d2">&#9670;&#160;</a></span>time_h_xpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::time_h_xpos = 35</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafca2d29e34a66919463828e9068cf29" name="aafca2d29e34a66919463828e9068cf29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafca2d29e34a66919463828e9068cf29">&#9670;&#160;</a></span>time_m_xpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::time_m_xpos = 107</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcac7c893ac0c58d6759d1f37c66131b" name="adcac7c893ac0c58d6759d1f37c66131b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcac7c893ac0c58d6759d1f37c66131b">&#9670;&#160;</a></span>time_s_xpos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::time_s_xpos = 174</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5e66294a006174d6a295caed1103509" name="af5e66294a006174d6a295caed1103509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5e66294a006174d6a295caed1103509">&#9670;&#160;</a></span>time_ypos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t FaceWatch_DefaultDigital::time_ypos = 180</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a035c30041c9f4c298f20160f85e360f5" name="a035c30041c9f4c298f20160f85e360f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a035c30041c9f4c298f20160f85e360f5">&#9670;&#160;</a></span>version</h2>
 
@@ -356,6 +1635,116 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">String FaceWatch_DefaultDigital::version = &quot;1.0&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3ceb14c835a5f290e1ce232eb1eb19a" name="ae3ceb14c835a5f290e1ce232eb1eb19a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3ceb14c835a5f290e1ce232eb1eb19a">&#9670;&#160;</a></span>wifiLCD_00</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::wifiLCD_00</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2709f8b084abd9dc2c92232aebdd32c" name="af2709f8b084abd9dc2c92232aebdd32c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2709f8b084abd9dc2c92232aebdd32c">&#9670;&#160;</a></span>wifiLCD_100</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::wifiLCD_100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afeefa6833c35829496e6cb040d4242a0" name="afeefa6833c35829496e6cb040d4242a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeefa6833c35829496e6cb040d4242a0">&#9670;&#160;</a></span>wifiLCD_25</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::wifiLCD_25</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaff1f631c7505e0af7e882b33d1cf6e6" name="aaff1f631c7505e0af7e882b33d1cf6e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff1f631c7505e0af7e882b33d1cf6e6">&#9670;&#160;</a></span>wifiLCD_50</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::wifiLCD_50</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b3c05a62bbf87e05867335753f3fa0a" name="a7b3c05a62bbf87e05867335753f3fa0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3c05a62bbf87e05867335753f3fa0a">&#9670;&#160;</a></span>wifiLCD_75</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLEBitmapInfo FaceWatch_DefaultDigital::wifiLCD_75</td>
         </tr>
       </table>
   </td>

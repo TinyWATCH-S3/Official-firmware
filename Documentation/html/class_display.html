@@ -108,9 +108,9 @@ $(function(){initNavTree('class_display.html',''); initResizable(); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a480b145aebc205f9bb3e8b14873408e4" id="r_a480b145aebc205f9bb3e8b14873408e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a480b145aebc205f9bb3e8b14873408e4">init_screen</a> ()</td></tr>
 <tr class="separator:a480b145aebc205f9bb3e8b14873408e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac7b4e5817e0ee8190edc18de719a63e" id="r_aac7b4e5817e0ee8190edc18de719a63e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac7b4e5817e0ee8190edc18de719a63e">createFaces</a> (bool sleeping)</td></tr>
-<tr class="memdesc:aac7b4e5817e0ee8190edc18de719a63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the entry point that creates all of the faces and widgets and controls, and hooks them all together. All face to face navigation is also setup here.  <br /></td></tr>
-<tr class="separator:aac7b4e5817e0ee8190edc18de719a63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2663cc77cddfdd9c592bdb4c723e3515" id="r_a2663cc77cddfdd9c592bdb4c723e3515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2663cc77cddfdd9c592bdb4c723e3515">createFaces</a> (bool was_sleeping)</td></tr>
+<tr class="memdesc:a2663cc77cddfdd9c592bdb4c723e3515"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the entry point that creates all of the faces and widgets and controls, and hooks them all together. All face to face navigation is also setup here.  <br /></td></tr>
+<tr class="separator:a2663cc77cddfdd9c592bdb4c723e3515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d5d8f799968b5d07d86d85b37156d70" id="r_a9d5d8f799968b5d07d86d85b37156d70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d5d8f799968b5d07d86d85b37156d70">set_backlight</a> (int level, bool force)</td></tr>
 <tr class="separator:a9d5d8f799968b5d07d86d85b37156d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee0f9cec1e725d521aa8f22700032143" id="r_aee0f9cec1e725d521aa8f22700032143"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0f9cec1e725d521aa8f22700032143">update_current_face</a> ()</td></tr>
@@ -177,6 +177,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af33ee9b7afad5327be79b09128374e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a351b3d7c13b5affef336430dc9267214" id="r_a351b3d7c13b5affef336430dc9267214"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a351b3d7c13b5affef336430dc9267214">center_y</a> = 140</td></tr>
 <tr class="separator:a351b3d7c13b5affef336430dc9267214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470f5e82793ca5c7502d1ae919c9cc62" id="r_a470f5e82793ca5c7502d1ae919c9cc62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a470f5e82793ca5c7502d1ae919c9cc62">is_finger</a> = false</td></tr>
+<tr class="separator:a470f5e82793ca5c7502d1ae919c9cc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -243,8 +245,8 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="aac7b4e5817e0ee8190edc18de719a63e" name="aac7b4e5817e0ee8190edc18de719a63e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac7b4e5817e0ee8190edc18de719a63e">&#9670;&#160;</a></span>createFaces()</h2>
+<a id="a2663cc77cddfdd9c592bdb4c723e3515" name="a2663cc77cddfdd9c592bdb4c723e3515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2663cc77cddfdd9c592bdb4c723e3515">&#9670;&#160;</a></span>createFaces()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -913,6 +915,20 @@ false </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname">const uint16_t Display::height = 280</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a470f5e82793ca5c7502d1ae919c9cc62" name="a470f5e82793ca5c7502d1ae919c9cc62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470f5e82793ca5c7502d1ae919c9cc62">&#9670;&#160;</a></span>is_finger</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Display::is_finger = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -2,7 +2,7 @@ var class_display =
 [
     [ "add_clock_face", "class_display.html#aa9d8dbdcf00d4a3d3d20a1c0921f0cd6", null ],
     [ "adjust_backlight", "class_display.html#afd9e13e082264906930ddb4a5336310a", null ],
-    [ "createFaces", "class_display.html#aac7b4e5817e0ee8190edc18de719a63e", null ],
+    [ "createFaces", "class_display.html#a2663cc77cddfdd9c592bdb4c723e3515", null ],
     [ "cycle_clock_face", "class_display.html#a26781a764df27fb57439de75b65c6cc8", null ],
     [ "fill_arc", "class_display.html#ad4a051cab5730c70c4797534c9273032", null ],
     [ "force_save", "class_display.html#ac49cfd43decf1f706021c5c272c7921c", null ],
@@ -33,6 +33,7 @@ var class_display =
     [ "current_display_state", "class_display.html#acd0170143d5ade9302ace985e8ea135a", null ],
     [ "current_face", "class_display.html#aa3261624bc8cd73d34d81ea385f04750", null ],
     [ "height", "class_display.html#a202b766060c68a78b77dfad3a843853a", null ],
+    [ "is_finger", "class_display.html#a470f5e82793ca5c7502d1ae919c9cc62", null ],
     [ "last_backlight", "class_display.html#a6750a83619ceebd90eddde941ff80cef", null ],
     [ "loading_screen_rotation", "class_display.html#a448408d6156e28b5ff72e7e1acee9f13", null ],
     [ "next_loading_rotation", "class_display.html#ad61fa2f4c36cc779ba19615781fb429f", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imu_0',['IMU',['../class_i_m_u.html',1,'']]]
+  ['haptics_0',['Haptics',['../class_haptics.html',1,'']]]
 ];

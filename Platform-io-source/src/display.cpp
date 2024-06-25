@@ -363,6 +363,10 @@ void Display::createFaces(bool was_sleeping)
 	// wMessage->create("Message", 0, 0, 200, 50, 1000);
 	// face_notifications.add_widget(wMessage);
 
+	/*
+	 * Watch/General Settings Controls
+	 */
+
 	ControlToggle *cToggle = new ControlToggle();
 	cToggle->create("24 Hour", "OFF", "OK", 30, 55, 90, 30);
 	cToggle->set_data(&settings.setting_time_24hour);
@@ -383,11 +387,16 @@ void Display::createFaces(bool was_sleeping)
 	ControlToggle *cToggle13 = new ControlToggle();
 	cToggle13->create("Nav Arrows", "HIDE", "SHOW", 30, 195, 90, 30);
 	cToggle13->set_data(&settings.setting_nav_arrows);
-	// cToggle13->set_callback(display.update_rotation);
 
-	// ControlLabel *cLabel1 = new ControlLabel();
-	// cLabel1->create("AUDIO", 120, 260);
+	face_settings.add_control(cToggle);
+	face_settings.add_control(cToggle2);
+	face_settings.add_control(cToggle3);
+	face_settings.add_control(cToggle6);
+	face_settings.add_control(cToggle13);
 
+	/*
+	 * Audio Settings Controls
+	 */
 	ControlToggle *cToggle4 = new ControlToggle();
 	cToggle4->create("UI Sound", "OFF", "ON", 30, 55, 90, 30);
 	cToggle4->set_data(&settings.setting_audio_ui);
@@ -396,14 +405,20 @@ void Display::createFaces(bool was_sleeping)
 	cToggle5->create("Alarm", "OFF", "ON", 130, 55, 90, 30);
 	cToggle5->set_data(&settings.setting_audio_alarm);
 
-	// ControlLabel *cLabel2 = new ControlLabel();
-	// cLabel2->create("HAPTICS", 10, 260);
+	ControlToggle *cToggle14 = new ControlToggle();
+	cToggle14->create("Beep Hour", "OFF", "ON", 30, 125, 90, 30);
+	cToggle14->set_data(&settings.setting_audio_on_hour);
 
-	// ControlButton *cSwitchFaceBack = new ControlButton();
-	// cSwitchFaceBack->create("General Settings", 30, 45, 180, 40);
-	// cSwitchFaceBack->set_target_face(&face_settings);
+	face_settings_Audio.add_control(cToggle4);
+	face_settings_Audio.add_control(cToggle5);
+	face_settings_Audio.add_control(cToggle14);
 
-	// Haptics controls
+	// ControlLabel *cLabel1 = new ControlLabel();
+	// cLabel1->create("AUDIO", 120, 260);
+
+	/*
+	 * Haptics Settings Controls
+	 */
 	if (haptics.available)
 	{
 		ControlToggle *cToggle7 = new ControlToggle();
@@ -430,6 +445,9 @@ void Display::createFaces(bool was_sleeping)
 		cToggle12->create("On Event", "OFF", "ON", 130, 195, 90, 30);
 		cToggle12->set_data(&settings.setting_haptics_trig_event);
 
+		// ControlLabel *cLabel2 = new ControlLabel();
+		// cLabel2->create("HAPTICS", 10, 260);
+
 		face_settings_Haptics.add_control(cToggle7);
 		face_settings_Haptics.add_control(cToggle8);
 		face_settings_Haptics.add_control(cToggle9);
@@ -449,14 +467,9 @@ void Display::createFaces(bool was_sleeping)
 	// cValue2->create("Slide Value", "", "", 120, 340, 200, 50);
 	// cValue2->set_scrollable(true, false);
 
-	face_settings.add_control(cToggle);
-	face_settings.add_control(cToggle2);
-	face_settings.add_control(cToggle3);
-	face_settings.add_control(cToggle6);
-	face_settings.add_control(cToggle13);
-
-	face_settings_Audio.add_control(cToggle4);
-	face_settings_Audio.add_control(cToggle5);
+	// ControlButton *cSwitchFaceBack = new ControlButton();
+	// cSwitchFaceBack->create("General Settings", 30, 45, 180, 40);
+	// cSwitchFaceBack->set_target_face(&face_settings);
 }
 
 void Display::update_boot_face(wifi_states status)

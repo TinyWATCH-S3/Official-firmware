@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_0',['RIGHT',['../display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5aec8379af7490bb9eaaf579cf17876f38',1,'display.h']]]
+  ['hour_0',['HOUR',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3a79aab2da0ce6d416b78895cf20661b35',1,'haptics.h']]]
 ];

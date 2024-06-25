@@ -136,8 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2879c119587b2a89971de112cc18b7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71e89c44b92c94a9993a925724794f27" id="r_a71e89c44b92c94a9993a925724794f27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71e89c44b92c94a9993a925724794f27">set_navigation</a> (<a class="el" href="classtw__face.html">tw_face</a> *l, <a class="el" href="classtw__face.html">tw_face</a> *r, <a class="el" href="classtw__face.html">tw_face</a> *u, <a class="el" href="classtw__face.html">tw_face</a> *d)</td></tr>
 <tr class="separator:a71e89c44b92c94a9993a925724794f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62d0e643a009ee6210e2cee44eec5e3a" id="r_a62d0e643a009ee6210e2cee44eec5e3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62d0e643a009ee6210e2cee44eec5e3a">set_single_navigation</a> (<a class="el" href="display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir, <a class="el" href="classtw__face.html">tw_face</a> *face)</td></tr>
-<tr class="separator:a62d0e643a009ee6210e2cee44eec5e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5426c3bd696c9e258b35184f3b25acc2" id="r_a5426c3bd696c9e258b35184f3b25acc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5426c3bd696c9e258b35184f3b25acc2">set_single_navigation</a> (<a class="el" href="display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5">Directions</a> dir, <a class="el" href="classtw__face.html">tw_face</a> *face, bool reverse=true)</td></tr>
+<tr class="separator:a5426c3bd696c9e258b35184f3b25acc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b69b4c55d023a2f2357c3a64c05893" id="r_a12b69b4c55d023a2f2357c3a64c05893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12b69b4c55d023a2f2357c3a64c05893">add_widget</a> (<a class="el" href="classtw__widget.html">tw_widget</a> *widget)</td></tr>
 <tr class="separator:a12b69b4c55d023a2f2357c3a64c05893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3481ba12d4a956000b940d9d841a8eb" id="r_aa3481ba12d4a956000b940d9d841a8eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3481ba12d4a956000b940d9d841a8eb">widget_process_clicks</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
@@ -195,6 +195,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae9a6cbb84c29adcd16c63475d5a026e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af96d3d5dcefa346fa990cb107b34a988" id="r_af96d3d5dcefa346fa990cb107b34a988"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af96d3d5dcefa346fa990cb107b34a988">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
 <tr class="separator:af96d3d5dcefa346fa990cb107b34a988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda7f7f2174903c61665f5966d83a420" id="r_abda7f7f2174903c61665f5966d83a420"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abda7f7f2174903c61665f5966d83a420">draw_navigation</a> (uint8_t <a class="el" href="#a2d6d1c8c3cf3cf1deb42bad6e2d01cb3">canvasid</a>, uint32_t color)</td></tr>
+<tr class="separator:abda7f7f2174903c61665f5966d83a420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -669,6 +671,27 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="abda7f7f2174903c61665f5966d83a420" name="abda7f7f2174903c61665f5966d83a420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda7f7f2174903c61665f5966d83a420">&#9670;&#160;</a></span>draw_navigation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tw_face::draw_navigation </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>canvasid</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab109a0610f0e20092b6ff62dc905f357" name="ab109a0610f0e20092b6ff62dc905f357"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab109a0610f0e20092b6ff62dc905f357">&#9670;&#160;</a></span>find_draggable_control()</h2>
 
@@ -943,8 +966,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a62d0e643a009ee6210e2cee44eec5e3a" name="a62d0e643a009ee6210e2cee44eec5e3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62d0e643a009ee6210e2cee44eec5e3a">&#9670;&#160;</a></span>set_single_navigation()</h2>
+<a id="a5426c3bd696c9e258b35184f3b25acc2" name="a5426c3bd696c9e258b35184f3b25acc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5426c3bd696c9e258b35184f3b25acc2">&#9670;&#160;</a></span>set_single_navigation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -957,7 +980,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtw__face.html">tw_face</a> *</td>          <td class="paramname"><span class="paramname"><em>face</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="classtw__face.html">tw_face</a> *</td>          <td class="paramname"><span class="paramname"><em>face</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>reverse</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

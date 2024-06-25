@@ -125,6 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1cc90c2c3d0da7b73bfbf21d054334f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa329a7aa923893e173b8e85ba1a165a8" id="r_aa329a7aa923893e173b8e85ba1a165a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa329a7aa923893e173b8e85ba1a165a8">is_high</a> ()</td></tr>
 <tr class="separator:aa329a7aa923893e173b8e85ba1a165a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43679d935f131ffaea5cda89b756760e" id="r_a43679d935f131ffaea5cda89b756760e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43679d935f131ffaea5cda89b756760e">get_time_remaining</a> (bool forced)</td></tr>
+<tr class="separator:a43679d935f131ffaea5cda89b756760e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -143,6 +145,16 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab30e0dbefc7b59c8964ad255d29f5b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae46d60be1e1a600b5df8f69d71b7ad7a" id="r_ae46d60be1e1a600b5df8f69d71b7ad7a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae46d60be1e1a600b5df8f69d71b7ad7a">cached_rate</a> = 0</td></tr>
 <tr class="separator:ae46d60be1e1a600b5df8f69d71b7ad7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6979014efded56af52c0e1c106c6cbc" id="r_aa6979014efded56af52c0e1c106c6cbc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6979014efded56af52c0e1c106c6cbc">max_historyrecords</a> = 128</td></tr>
+<tr class="separator:aa6979014efded56af52c0e1c106c6cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b18afde650c23c0ef207405325e92c" id="r_ac3b18afde650c23c0ef207405325e92c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3b18afde650c23c0ef207405325e92c">min_historyrecords</a> = 16</td></tr>
+<tr class="separator:ac3b18afde650c23c0ef207405325e92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9" id="r_a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9">rate_history</a> [128]</td></tr>
+<tr class="separator:a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4705150d42b0d543bc30c90d52355a13" id="r_a4705150d42b0d543bc30c90d52355a13"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4705150d42b0d543bc30c90d52355a13">rate_historyrecords</a> = 0</td></tr>
+<tr class="separator:a4705150d42b0d543bc30c90d52355a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33e58446ac61ceca0481de49a2675033" id="r_a33e58446ac61ceca0481de49a2675033"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33e58446ac61ceca0481de49a2675033">next_battery_timeupdate</a> = 0</td></tr>
+<tr class="separator:a33e58446ac61ceca0481de49a2675033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0c3aac494aa0aecc3f7bbbba2c50fb45" name="a0c3aac494aa0aecc3f7bbbba2c50fb45"></a>
@@ -204,6 +216,23 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float Battery::get_rate </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>forced</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43679d935f131ffaea5cda89b756760e" name="a43679d935f131ffaea5cda89b756760e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43679d935f131ffaea5cda89b756760e">&#9670;&#160;</a></span>get_time_remaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Battery::get_time_remaining </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>forced</em></span></td><td>)</td>
           <td></td>
@@ -411,6 +440,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa6979014efded56af52c0e1c106c6cbc" name="aa6979014efded56af52c0e1c106c6cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6979014efded56af52c0e1c106c6cbc">&#9670;&#160;</a></span>max_historyrecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Battery::max_historyrecords = 128</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae1b8df5681abe3fdb5a9ad6511954c65" name="ae1b8df5681abe3fdb5a9ad6511954c65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae1b8df5681abe3fdb5a9ad6511954c65">&#9670;&#160;</a></span>maxlipo</h2>
 
@@ -433,6 +484,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac3b18afde650c23c0ef207405325e92c" name="ac3b18afde650c23c0ef207405325e92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3b18afde650c23c0ef207405325e92c">&#9670;&#160;</a></span>min_historyrecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Battery::min_historyrecords = 16</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3b0dd7d4f3d6eba4238a8ece2eab136b" name="a3b0dd7d4f3d6eba4238a8ece2eab136b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b0dd7d4f3d6eba4238a8ece2eab136b">&#9670;&#160;</a></span>next_battery_read</h2>
 
@@ -444,6 +517,72 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">unsigned long Battery::next_battery_read = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33e58446ac61ceca0481de49a2675033" name="a33e58446ac61ceca0481de49a2675033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33e58446ac61ceca0481de49a2675033">&#9670;&#160;</a></span>next_battery_timeupdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long Battery::next_battery_timeupdate = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9" name="a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a7e2fb5f73fa8bdb4a1e9bb7630f4a9">&#9670;&#160;</a></span>rate_history</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Battery::rate_history[128]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4705150d42b0d543bc30c90d52355a13" name="a4705150d42b0d543bc30c90d52355a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4705150d42b0d543bc30c90d52355a13">&#9670;&#160;</a></span>rate_historyrecords</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Battery::rate_historyrecords = 0</td>
         </tr>
       </table>
   </td>

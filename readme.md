@@ -14,7 +14,7 @@ There are some obvious missing large ticket items, like WiFi web server-based us
 Some of the code is more complex than I'd like and naughtily shares state/functionality across classes, like the face swiping and navigation system, but it does work well.
 
 # Documentation
-There are some early [markdown docs](/Documentation/tw_docs.md) in the `/Documentation` folder, though not all of it has been kept up to date with the constant changes in code as I got closer to a first public release, but it's a starting point.
+There are some early [doxygen](/documentation.html) in the `/Documentation` folder, though not all of it has been kept up to date with the constant changes in code and new frameworks being added or existing ones refactored, but it's a good start.
 
 Not all of the code is documented right now. There is a lot of work still to be done and I'd like to eventually move to Sphinx for documentation for the project.
 

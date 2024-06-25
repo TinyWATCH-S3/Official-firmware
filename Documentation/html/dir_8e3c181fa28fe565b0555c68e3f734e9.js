@@ -1,6 +1,7 @@
 var dir_8e3c181fa28fe565b0555c68e3f734e9 =
 [
     [ "Clock_Digits.h", "_clock___digits_8h.html", "_clock___digits_8h" ],
+    [ "Dialog_Fonts.h", "_dialog___fonts_8h.html", "_dialog___fonts_8h" ],
     [ "Roboto_Light20.h", "_roboto___light20_8h.html", "_roboto___light20_8h" ],
     [ "Roboto_Medium26.h", "_roboto___medium26_8h.html", "_roboto___medium26_8h" ],
     [ "Roboto_Regular18.h", "_roboto___regular18_8h.html", "_roboto___regular18_8h" ],
