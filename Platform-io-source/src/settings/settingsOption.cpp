@@ -5,8 +5,19 @@
  * Classes are provided for Int, Bool, Float and String
  */
 
-#include "settings/settingsOption.h"
 #include "settings/settings.h"
+#include "settings/settingsOption.h"
+
+void SettingsOptionBase::register_option(int grp)
+{
+	// The settings_groups are nor created yet as this is called before the Settings() constructor is called
+	// So we add them as needed here, and then we'll initialise the missing data in the Settings() constructor later
+	if (settings.settings_groups.size() < grp + 1)
+		settings.settings_groups.push_back({});
+
+	// Now we know the group is there we can add this control to it
+	settings.settings_groups[grp].groups.push_back(this);
+}
 
 //
 // INT
@@ -66,13 +77,13 @@ String SettingsOptionInt::generate_html(uint16_t index)
 	return html;
 }
 
-void SettingsOptionInt::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionInt::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }
 
 //
 // INT RANGE
@@ -133,13 +144,13 @@ String SettingsOptionIntRange::generate_html(uint16_t index)
 	return html;
 }
 
-void SettingsOptionIntRange::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionIntRange::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }
 
 //
 // INT VECTOR
@@ -209,13 +220,13 @@ String SettingsOptionIntVector::generate_html(uint16_t index)
 	return html;
 }
 
-void SettingsOptionIntVector::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionIntVector::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }
 
 //
 // FLOAT
@@ -262,13 +273,13 @@ String SettingsOptionFloat::generate_html(uint16_t index)
 	return "<div><span>SettingsOptionFloat for " + fieldname + "</span></div>";
 }
 
-void SettingsOptionFloat::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionFloat::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }
 
 //
 // BOOL
@@ -329,13 +340,13 @@ String SettingsOptionBool::generate_html(uint16_t index)
 	return html;
 }
 
-void SettingsOptionBool::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionBool::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }
 
 //
 // STRING
@@ -379,10 +390,10 @@ String SettingsOptionString::generate_html(uint16_t index)
 	return html;
 }
 
-void SettingsOptionString::register_option(int grp)
-{
-	if (settings.setting_groups.size() < grp + 1)
-		settings.setting_groups.push_back({});
+// void SettingsOptionString::register_option(int grp)
+// {
+// 	if (settings.settings_groups[grp].groups.size() < grp + 1)
+// 		settings.settings_groups[grp].groups.push_back({});
 
-	settings.setting_groups[grp].push_back(this);
-}
+// 	settings.settings_groups[grp].groups.push_back(this);
+// }

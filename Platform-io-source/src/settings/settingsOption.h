@@ -43,6 +43,8 @@ class SettingsOptionBase
 			output[i] = '\0'; // Null-terminate the output string
 		}
 
+		void register_option(int grp);
+
 		String fieldname = "";
 		int group = -1;
 		bool data_is_vector = false;
@@ -68,7 +70,6 @@ class SettingsOptionInt : public SettingsOptionBase
 		int get();
 		String get_str();
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 
 	private:
 		int *setting_ref = nullptr;
@@ -97,7 +98,6 @@ class SettingsOptionIntRange : public SettingsOptionBase
 		int get();
 		String get_str();
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 
 	private:
 		int *setting_ref = nullptr;
@@ -128,7 +128,6 @@ class SettingsOptionIntVector : public SettingsOptionBase
 		int get(int index);
 		String get_str(int index);
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 		uint8_t vector_size();
 
 	private:
@@ -161,7 +160,6 @@ class SettingsOptionFloat : public SettingsOptionBase
 		float get();
 		String get_str();
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 
 	private:
 		float *setting_ref = nullptr;
@@ -194,7 +192,6 @@ class SettingsOptionBool : public SettingsOptionBase
 		String get_op1();
 		String get_op2();
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 
 	private:
 		bool *setting_ref = nullptr;
@@ -222,7 +219,6 @@ class SettingsOptionString : public SettingsOptionBase
 		bool update(String *val);
 		String get();
 		String generate_html(uint16_t index);
-		void register_option(int grp);
 
 	private:
 		String *setting_ref = nullptr;

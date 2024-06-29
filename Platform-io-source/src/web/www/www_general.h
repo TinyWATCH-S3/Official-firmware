@@ -155,6 +155,12 @@ const char css[] PROGMEM = R"rawliteral(
         padding:3px 10px 3px 10px;
         border-radius: 5px 5px 0px 0px;
     }
+
+	.settings_info {
+		font-size:13px;
+		color:#bbb;
+		text-align: center;
+	}
     
     .settings_frame {
         border:1px #005cb5 solid;
@@ -426,6 +432,12 @@ const char css_dark[] PROGMEM = R"rawliteral(
         padding:3px 10px 3px 10px;
         border-radius: 5px 5px 0px 0px;
     }
+
+	.settings_info {
+		font-size:13px;
+		color:#bbb;
+		text-align: center;
+	}
     
     .settings_frame {
         border:1px #005cb5 solid;

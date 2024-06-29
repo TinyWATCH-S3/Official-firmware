@@ -5,7 +5,7 @@ var searchData=
   ['rate_5fhistoryrecords_2',['rate_historyrecords',['../class_battery.html#a4705150d42b0d543bc30c90d52355a13',1,'Battery']]],
   ['raw_5fsamples_3',['raw_samples',['../class_app_microphone.html#a379b3892e37f9d0bec4bb37c115b8d26',1,'AppMicrophone']]],
   ['readme_2emd_4',['readme.md',['../readme_8md.html',1,'']]],
-  ['register_5foption_5',['register_option',['../class_settings_option_int.html#a4f422e41d6ef7646a598d1d05f3d57e1',1,'SettingsOptionInt::register_option()'],['../class_settings_option_int_range.html#afe1f93a50f566d8a3fd30f6abbab46f4',1,'SettingsOptionIntRange::register_option()'],['../class_settings_option_int_vector.html#ad03832daf1a653a42ba74262fdb7a2f6',1,'SettingsOptionIntVector::register_option()'],['../class_settings_option_float.html#ad62fb2743cc62e42d12423999f2c06f7',1,'SettingsOptionFloat::register_option()'],['../class_settings_option_bool.html#a277a52a0062f4ef051cf7848559a105f',1,'SettingsOptionBool::register_option()'],['../class_settings_option_string.html#af0de495a540c48ade272bff54d6175bc',1,'SettingsOptionString::register_option()']]],
+  ['register_5foption_5',['register_option',['../class_settings_option_base.html#a7de6803f7bffa93036830a4c6f74154c',1,'SettingsOptionBase']]],
   ['required_5fcpu_5fspeed_6',['required_cpu_speed',['../classtw__app.html#a77f9e65c0d5514ea4ed8f0a00e2b2db9',1,'tw_app::required_cpu_speed'],['../classtw__face.html#a138dc7f9a514ab0e6c0b9d4b1f3f87f7',1,'tw_face::required_cpu_speed']]],
   ['requiresntp_7',['requiresNTP',['../class_r_t_c.html#a548196e3f9cdf99fd05a46cc521846f6',1,'RTC']]],
   ['reset_5fcache_5fstatus_8',['reset_cache_status',['../classtw__face.html#aaed17741f1b6c8d092880010e7f1c5d9',1,'tw_face']]],

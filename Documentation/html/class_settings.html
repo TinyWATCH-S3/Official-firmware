@@ -140,10 +140,8 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4ca1d960902db935f5a7ec3db599b53c" id="r_a4ca1d960902db935f5a7ec3db599b53c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_config.html">Config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ca1d960902db935f5a7ec3db599b53c">config</a></td></tr>
 <tr class="separator:a4ca1d960902db935f5a7ec3db599b53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dcf514f11131f816f90949f56c8f172" id="r_a4dcf514f11131f816f90949f56c8f172"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_settings_option_base.html">SettingsOptionBase</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dcf514f11131f816f90949f56c8f172">setting_groups</a></td></tr>
-<tr class="separator:a4dcf514f11131f816f90949f56c8f172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a269360c6aee2d4eb50b9a8edb4a6a1ba" id="r_a269360c6aee2d4eb50b9a8edb4a6a1ba"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsetting__group.html">setting_group</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a269360c6aee2d4eb50b9a8edb4a6a1ba">setting_groups_name</a></td></tr>
-<tr class="separator:a269360c6aee2d4eb50b9a8edb4a6a1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81c3d2d2d731e95248d32bd8d6b3c7a" id="r_ae81c3d2d2d731e95248d32bd8d6b3c7a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsetting__group.html">setting_group</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae81c3d2d2d731e95248d32bd8d6b3c7a">settings_groups</a></td></tr>
+<tr class="separator:ae81c3d2d2d731e95248d32bd8d6b3c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a509f772f09ffc6fff7979da55a31a39e" id="r_a509f772f09ffc6fff7979da55a31a39e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509f772f09ffc6fff7979da55a31a39e">setting_wifi_start</a> {&amp;config.wifi_start, 0, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a509f772f09ffc6fff7979da55a31a39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa42da92c05be487651de3a57ba3a53b0" id="r_aa42da92c05be487651de3a57ba3a53b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa42da92c05be487651de3a57ba3a53b0">setting_time_24hour</a> {&amp;config.time_24hour, 0, &quot;Time Mode&quot;, &quot;12H&quot;, &quot;24H&quot;}</td></tr>
@@ -910,34 +908,6 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a4dcf514f11131f816f90949f56c8f172" name="a4dcf514f11131f816f90949f56c8f172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dcf514f11131f816f90949f56c8f172">&#9670;&#160;</a></span>setting_groups</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="class_settings_option_base.html">SettingsOptionBase</a> *&gt; &gt; Settings::setting_groups</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a269360c6aee2d4eb50b9a8edb4a6a1ba" name="a269360c6aee2d4eb50b9a8edb4a6a1ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a269360c6aee2d4eb50b9a8edb4a6a1ba">&#9670;&#160;</a></span>setting_groups_name</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structsetting__group.html">setting_group</a>&gt; Settings::setting_groups_name</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a43427ee636d6d26811373a2cff595192" name="a43427ee636d6d26811373a2cff595192"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43427ee636d6d26811373a2cff595192">&#9670;&#160;</a></span>setting_haptics_enabled</h2>
 
@@ -1100,6 +1070,20 @@ false </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_start {&amp;config.wifi_start, 0, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae81c3d2d2d731e95248d32bd8d6b3c7a" name="ae81c3d2d2d731e95248d32bd8d6b3c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae81c3d2d2d731e95248d32bd8d6b3c7a">&#9670;&#160;</a></span>settings_groups</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structsetting__group.html">setting_group</a>&gt; Settings::settings_groups</td>
         </tr>
       </table>
 </div><div class="memdoc">

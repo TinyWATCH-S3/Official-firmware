@@ -9,7 +9,6 @@ var class_settings_option_bool =
     [ "get_op2", "class_settings_option_bool.html#a82e9692005ab5c8dd6882bbc001f7f07", null ],
     [ "get_str", "class_settings_option_bool.html#a828f8ada2f3850d277807b79d44bbf41", null ],
     [ "getType", "class_settings_option_bool.html#aa575fd89a1def087173f020c89aa223f", null ],
-    [ "register_option", "class_settings_option_bool.html#a277a52a0062f4ef051cf7848559a105f", null ],
     [ "update", "class_settings_option_bool.html#a96a67b7625beab7195bc2ee99b3dabeb", null ],
     [ "option1", "class_settings_option_bool.html#a655f7723c2483396879e55c5b880840d", null ],
     [ "option2", "class_settings_option_bool.html#a42b7211bd2582c8ad64711325b2f4145", null ],

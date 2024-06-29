@@ -2,7 +2,7 @@ var searchData=
 [
   ['gain_5ffactor_0',['gain_factor',['../struct_config__app__microphone.html#afbc893b461dbf68e1b6582cec1aa60a8',1,'Config_app_microphone::gain_factor'],['../class_app_microphone.html#a0f6e98d48f6dacaa90ca92d606d806c2',1,'AppMicrophone::gain_factor']]],
   ['generate_5fhtml_1',['generate_html',['../class_settings_option_base.html#a901944d39fbf92ae85bf0ea331475d2f',1,'SettingsOptionBase::generate_html()'],['../class_settings_option_int.html#a076cc95d2a2d5beacde098f473c31a74',1,'SettingsOptionInt::generate_html()'],['../class_settings_option_int_range.html#a852688bc78b2866bbddab186d2185cc6',1,'SettingsOptionIntRange::generate_html()'],['../class_settings_option_int_vector.html#a12da2eb0bbdd540fc7435bfd2b8d377f',1,'SettingsOptionIntVector::generate_html()'],['../class_settings_option_float.html#aabe7e13b80f2a912feb9a2ad0df52815',1,'SettingsOptionFloat::generate_html()'],['../class_settings_option_bool.html#a9ce51dc4df3e4ebc6709c2265908b5ae',1,'SettingsOptionBool::generate_html()'],['../class_settings_option_string.html#a950c835b2626933a5ea828d09ad8320d',1,'SettingsOptionString::generate_html()']]],
-  ['generate_5fsettings_5fhtml_2',['generate_settings_html',['../class_web_server.html#aef644f39962a4c4b9e7a66a1fcfd975a',1,'WebServer']]],
+  ['generate_5fsettings_5fhtml_2',['generate_settings_html',['../class_web_server.html#aa1df31282139b9b1ae5a25e9f70361e9',1,'WebServer']]],
   ['get_3',['get',['../class_settings_option_int.html#a953c4eccbc5089485c0a79b6d47b28c2',1,'SettingsOptionInt::get()'],['../class_settings_option_int_range.html#ade4cac7d6f97709b1e9e469d118c06ce',1,'SettingsOptionIntRange::get()'],['../class_settings_option_int_vector.html#a2c978ae188ce70fadd1137382afdfb68',1,'SettingsOptionIntVector::get()'],['../class_settings_option_float.html#a708c3a3312e6bb09594b762893af4928',1,'SettingsOptionFloat::get()'],['../class_settings_option_bool.html#a7ebcb377ddec6654b6f5b667490c3007',1,'SettingsOptionBool::get()'],['../class_settings_option_string.html#a58d4ae6317a71cddfd6ad0f576f00e84',1,'SettingsOptionString::get()']]],
   ['get_5faccel_5fx_4',['get_accel_x',['../class_i_m_u.html#afe377e5424d4d78c445e17e7fbfd34da',1,'IMU']]],
   ['get_5faccel_5fy_5',['get_accel_y',['../class_i_m_u.html#aacb32471da72093df4a9a5a1d5961ec9',1,'IMU']]],
@@ -95,5 +95,6 @@ var searchData=
   ['go_5fto_5fsleep_92',['go_to_sleep',['../class_tiny_w_a_t_c_h.html#af40eb68ae6d6d22a5e5dd0295268df4f',1,'TinyWATCH']]],
   ['gradient_5fbright_93',['gradient_bright',['../class_control_value_slider.html#a76615a1295cb9f70acc32a933d0454fd',1,'ControlValueSlider']]],
   ['gradient_5fdark_94',['gradient_dark',['../class_control_value_slider.html#a1e60aaa9981f380b76cad205c0e60996',1,'ControlValueSlider']]],
-  ['group_95',['group',['../class_settings_option_base.html#a335cc7f0b285f6c8d2267ed38fa6296e',1,'SettingsOptionBase']]]
+  ['group_95',['group',['../class_settings_option_base.html#a335cc7f0b285f6c8d2267ed38fa6296e',1,'SettingsOptionBase']]],
+  ['groups_96',['groups',['../structsetting__group.html#abeda1774d2260f715d031406af84d4b6',1,'setting_group']]]
 ];

@@ -6,7 +6,6 @@ var class_settings_option_float =
     [ "get", "class_settings_option_float.html#a708c3a3312e6bb09594b762893af4928", null ],
     [ "get_str", "class_settings_option_float.html#a9db8d2321a1a2b509d5afc1f70f6338f", null ],
     [ "getType", "class_settings_option_float.html#a11d7d490587b658eb28b50bed48dfbc5", null ],
-    [ "register_option", "class_settings_option_float.html#ad62fb2743cc62e42d12423999f2c06f7", null ],
     [ "update", "class_settings_option_float.html#ab63c84486ad73883395e50768e07b6fb", null ],
     [ "setting_ref", "class_settings_option_float.html#a9906c196d0f0c784de2f20aec5069d53", null ],
     [ "value_max", "class_settings_option_float.html#a3615787f57683af0cae8a37e9d53732c", null ],

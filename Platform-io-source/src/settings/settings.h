@@ -113,10 +113,16 @@ enum SettingType
 struct setting_group
 {
 		String name = "";
-		// std::vector<std::vector<SettingsOptionBase *>> setting_groups;
+		String description = "";
+		std::vector<SettingsOptionBase *> groups = {};
 		SettingType type = SettingType::CONTROL;
 
-		setting_group(String nm, SettingType t) : name(nm), type(t){};
+		void setup(String nm, SettingType t, String d = "")
+		{
+			name = nm;
+			type = t;
+			description = d;
+		};
 };
 
 class Settings
@@ -124,19 +130,22 @@ class Settings
 
 	public:
 		Config config;
-
-		std::vector<std::vector<SettingsOptionBase *>> setting_groups;
-		std::vector<setting_group> setting_groups_name;
+		std::vector<setting_group> settings_groups;
 
 		Settings()
 		{
 			// Setup settings groups
-			setting_groups_name.push_back(setting_group("General Watch Settings", SettingType::CONTROL));
-			setting_groups_name.push_back(setting_group("Audio Settings", SettingType::CONTROL));
-			setting_groups_name.push_back(setting_group("Haptics Settings", SettingType::CONTROL));
-			setting_groups_name.push_back(setting_group("Display Settings", SettingType::CONTROL));
-			setting_groups_name.push_back(setting_group("Open Weather Settings", SettingType::WIDGET));
-			setting_groups_name.push_back(setting_group("MQTT Settings", SettingType::WIDGET));
+			settings_groups[0].setup("General Watch Settings", SettingType::CONTROL);
+
+			settings_groups[1].setup("Audio Settings", SettingType::CONTROL);
+
+			settings_groups[2].setup("Haptics Settings", SettingType::CONTROL, "Haptics are only available in TinyWATCH revision P7 and later.");
+
+			settings_groups[3].setup("Display Settings", SettingType::CONTROL, "Your watch has 3 steps of brightness, based on the duration at each step. Step 1 is the highest brightest and step 3 is the lowest.<br>At each duration interval, the brightness will reduce to the next step.<br>This is to conserve battery capacity as the backlight draws more current the brighter it is.<br>Touching the screen will automatically set the display back to step 1.");
+
+			settings_groups[4].setup("Open Weather Settings", SettingType::WIDGET, "Add your Open Weather API key here to be able to see your current weather details on your watch face.");
+
+			settings_groups[5].setup("MQTT Settings", SettingType::WIDGET);
 		}
 
 		bool load();

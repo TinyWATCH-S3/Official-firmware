@@ -29,10 +29,10 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, w
 // void Settings::init()
 // {
 // 	// Setup settings groups
-// 	setting_groups_name[0] = "General Watch Settings";
-// 	setting_groups_name[1] = "Audio Settings";
-// 	setting_groups_name[2] = "Haptics Settings";
-// 	setting_groups_name[3] = "Display Settings";
+// 	settings_groups[0] = "General Watch Settings";
+// 	settings_groups[1] = "Audio Settings";
+// 	settings_groups[2] = "Haptics Settings";
+// 	settings_groups[3] = "Display Settings";
 // }
 
 void Settings::log_to_nvs(const char *key, const char *log)

@@ -104,19 +104,23 @@ $(function(){initNavTree('structsetting__group.html',''); initResizable(); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92a308be0959b7ec45bdac08b6a1e96a" id="r_a92a308be0959b7ec45bdac08b6a1e96a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92a308be0959b7ec45bdac08b6a1e96a">setting_group</a> (String nm, <a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338">SettingType</a> t)</td></tr>
-<tr class="separator:a92a308be0959b7ec45bdac08b6a1e96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2da5dc2b76a3d2005cf03ff4ecba984e" id="r_a2da5dc2b76a3d2005cf03ff4ecba984e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2da5dc2b76a3d2005cf03ff4ecba984e">setup</a> (String nm, <a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338">SettingType</a> t, String d=&quot;&quot;)</td></tr>
+<tr class="separator:a2da5dc2b76a3d2005cf03ff4ecba984e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af1bbb1af58942e6c804f829f55a5b87c" id="r_af1bbb1af58942e6c804f829f55a5b87c"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1bbb1af58942e6c804f829f55a5b87c">name</a> = &quot;&quot;</td></tr>
 <tr class="separator:af1bbb1af58942e6c804f829f55a5b87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f6c0e34852b5b2a8425db347c49f11" id="r_ae2f6c0e34852b5b2a8425db347c49f11"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2f6c0e34852b5b2a8425db347c49f11">description</a> = &quot;&quot;</td></tr>
+<tr class="separator:ae2f6c0e34852b5b2a8425db347c49f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeda1774d2260f715d031406af84d4b6" id="r_abeda1774d2260f715d031406af84d4b6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_settings_option_base.html">SettingsOptionBase</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeda1774d2260f715d031406af84d4b6">groups</a> = {}</td></tr>
+<tr class="separator:abeda1774d2260f715d031406af84d4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71cf8563a5fd3b6a8c13ae4ac3e34053" id="r_a71cf8563a5fd3b6a8c13ae4ac3e34053"><td class="memItemLeft" align="right" valign="top"><a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338">SettingType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71cf8563a5fd3b6a8c13ae4ac3e34053">type</a> = <a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08">SettingType::CONTROL</a></td></tr>
 <tr class="separator:a71cf8563a5fd3b6a8c13ae4ac3e34053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a92a308be0959b7ec45bdac08b6a1e96a" name="a92a308be0959b7ec45bdac08b6a1e96a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a308be0959b7ec45bdac08b6a1e96a">&#9670;&#160;</a></span>setting_group()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2da5dc2b76a3d2005cf03ff4ecba984e" name="a2da5dc2b76a3d2005cf03ff4ecba984e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2da5dc2b76a3d2005cf03ff4ecba984e">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,14 +129,19 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">setting_group::setting_group </td>
+          <td class="memname">void setting_group::setup </td>
           <td>(</td>
           <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>nm</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338">SettingType</a></td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="settings_8h.html#a8dfa1a122b59a38c38cc2824be723338">SettingType</a></td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String</td>          <td class="paramname"><span class="paramname"><em>d</em><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -145,6 +154,34 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae2f6c0e34852b5b2a8425db347c49f11" name="ae2f6c0e34852b5b2a8425db347c49f11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f6c0e34852b5b2a8425db347c49f11">&#9670;&#160;</a></span>description</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String setting_group::description = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abeda1774d2260f715d031406af84d4b6" name="abeda1774d2260f715d031406af84d4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeda1774d2260f715d031406af84d4b6">&#9670;&#160;</a></span>groups</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_settings_option_base.html">SettingsOptionBase</a> *&gt; setting_group::groups = {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af1bbb1af58942e6c804f829f55a5b87c" name="af1bbb1af58942e6c804f829f55a5b87c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1bbb1af58942e6c804f829f55a5b87c">&#9670;&#160;</a></span>name</h2>
 

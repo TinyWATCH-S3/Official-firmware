@@ -13,6 +13,7 @@ var class_settings_option_base =
     [ "convert_for_form_id", "class_settings_option_base.html#ac8d2058a1d40ddf9c37cedaf2f4c0f24", null ],
     [ "generate_html", "class_settings_option_base.html#a901944d39fbf92ae85bf0ea331475d2f", null ],
     [ "getType", "class_settings_option_base.html#a9473522a8c5e59b7b6da4006b32a3346", null ],
+    [ "register_option", "class_settings_option_base.html#a7de6803f7bffa93036830a4c6f74154c", null ],
     [ "data_is_vector", "class_settings_option_base.html#a019e12d5ce83fb8c0ab3a5199c202f45", null ],
     [ "fieldname", "class_settings_option_base.html#a5a3173ab72ada7e89a6b5fa563e9dc47", null ],
     [ "group", "class_settings_option_base.html#a335cc7f0b285f6c8d2267ed38fa6296e", null ]

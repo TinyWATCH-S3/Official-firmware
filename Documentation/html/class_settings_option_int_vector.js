@@ -6,7 +6,6 @@ var class_settings_option_int_vector =
     [ "get", "class_settings_option_int_vector.html#a2c978ae188ce70fadd1137382afdfb68", null ],
     [ "get_str", "class_settings_option_int_vector.html#a7288275dd89ea16d429b12a35d091483", null ],
     [ "getType", "class_settings_option_int_vector.html#af91e5699d04e74bc2a37184801ef42e2", null ],
-    [ "register_option", "class_settings_option_int_vector.html#ad03832daf1a653a42ba74262fdb7a2f6", null ],
     [ "update", "class_settings_option_int_vector.html#a4809e78f62abc489dee2e72aadf27600", null ],
     [ "vector_size", "class_settings_option_int_vector.html#a9ee24d2d0ef3e761c54b561849fd5694", null ],
     [ "setting_ref", "class_settings_option_int_vector.html#ab6062a99843dd85db080739c424b1b5b", null ],

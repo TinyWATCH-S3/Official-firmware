@@ -60,9 +60,9 @@ String WebServer::processor(const String &var)
 	else if (var == "SETTING_OPTIONS")
 	{
 		String html = "";
-		for (size_t i = 0; i < settings.setting_groups.size(); i++)
+		for (size_t i = 0; i < settings.settings_groups.size(); i++)
 		{
-			if (settings.setting_groups_name[i].type == SettingType::CONTROL)
+			if (settings.settings_groups[i].type == SettingType::CONTROL)
 				html += generate_settings_html(i);
 		}
 
@@ -71,9 +71,9 @@ String WebServer::processor(const String &var)
 	else if (var == "WIDGET_OPTIONS")
 	{
 		String html = "";
-		for (size_t i = 0; i < settings.setting_groups.size(); i++)
+		for (size_t i = 0; i < settings.settings_groups.size(); i++)
 		{
-			if (settings.setting_groups_name[i].type == SettingType::WIDGET)
+			if (settings.settings_groups[i].type == SettingType::WIDGET)
 				html += generate_settings_html(i);
 		}
 
@@ -83,22 +83,34 @@ String WebServer::processor(const String &var)
 	return "";
 }
 
-String WebServer::generate_settings_html(int group)
+String WebServer::generate_settings_html(int group_id)
 {
-	if (settings.setting_groups_name[group].name.indexOf("Haptics") != -1 && haptics.available == false)
+	auto &group_name = settings.settings_groups[group_id]; // Cache the current group
+
+	if (group_name.name.indexOf("Haptics") != -1 && haptics.available == false)
 		return "";
 
-	String html = "\n<div id='settings_group_" + String(group) + "'>\n";
-	html += "	<span class='settings_heading'>" + settings.setting_groups_name[group].name + "</span>\n";
-	html += "	<div class='settings_frame' id='group_" + String(group) + "' style='margin-bottom:15px; padding-bottom:5px;'>\n";
-	html += "		<form hx-post='/update_settings_group' hx-target='#settings_group_" + String(group) + "' >\n";
-	html += "			<input type='hidden' name='group_id' id='group_id' value='" + String(group) + "'>\n";
+	String group_id_str = String(group_id);
+
+	String html = "\n<div id='settings_group_" + group_id_str + "'>\n";
+	html += "	<span class='settings_heading'>" + group_name.name + "</span>\n";
+	html += "	<div class='settings_frame' id='group_" + group_id_str + "' style='margin-bottom:15px; padding-bottom:5px;'>\n";
+
+	if (group_name.description != "")
+	{
+		html += "		<div class='center w-100 mt-1 mb-2'>\n";
+		html += "			<span class='settings_info'>" + group_name.description + "</span>\n";
+		html += "		</div>\n";
+	}
+
+	html += "		<form hx-post='/update_settings_group' hx-target='#settings_group_" + group_id_str + "' >\n";
+	html += "			<input type='hidden' name='group_id' id='group_id' value='" + group_id_str + "'>\n";
 	html += "			<div class ='row'>\n";
 
-	for (size_t i = 0; i < settings.setting_groups[group].size(); ++i)
+	for (size_t i = 0; i < group_name.groups.size(); ++i)
 	{
 		html += "				<div class='col-6'>\n";
-		html += settings.setting_groups[group][i]->generate_html(i);
+		html += group_name.groups[i]->generate_html(i);
 		html += "				</div>\n";
 	}
 	html += "			</div>\n";
@@ -127,7 +139,7 @@ SettingsOptionBase *WebServer::get_obj_from_id(String id)
 	int group = firstPart.substring(0, commaIndex).toInt();
 	int index = firstPart.substring(commaIndex + 1).toInt();
 
-	return (settings.setting_groups[group][index]);
+	return (settings.settings_groups[group].groups[index]);
 }
 
 void WebServer::start()
@@ -204,11 +216,11 @@ void WebServer::start_callback(bool success, const String &response)
 				info_printf("** Save Settings for Group ID: %s\n", String(_group->value().c_str()));
 				uint8_t group_id = String(_group->value().c_str()).toInt();
 
-				auto &group = settings.setting_groups[group_id]; // Cache the current group
+				auto &group = settings.settings_groups[group_id]; // Cache the current group
 
-				for (size_t i = 0; i < group.size(); ++i)
+				for (size_t i = 0; i < group.groups.size(); ++i)
 				{
-					auto *setting = group[i]; // Cache the current setting
+					auto *setting = group.groups[i]; // Cache the current setting
 
 					String fn = setting->fieldname;
 					fn.replace(" ", "_");

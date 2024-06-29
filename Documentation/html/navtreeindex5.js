@@ -1,11 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md8":[1,1],
-"md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md9":[1,2],
-"pages.html":[],
-"rtc_8cpp.html":[3,0,1,2,8],
-"rtc_8cpp.html#a1950b74d251f4d30c82a0a0efef490ef":[3,0,1,2,8,3],
-"rtc_8cpp.html#a6a111b83a9cd857fcdf09e1726a0fbba":[3,0,1,2,8,0],
 "rtc_8cpp.html#a6bd950625db0f240acc63a9cb41873f6":[3,0,1,2,8,4],
 "rtc_8cpp.html#abcb4cacf52bf654a9d5adbbde8893b0d":[3,0,1,2,8,1],
 "rtc_8cpp.html#aeab314524096f5423acf1fe3905b2acf":[3,0,1,2,8,2],
@@ -160,9 +154,11 @@ var NAVTREEINDEX5 =
 "structscan__responder.html#ab39852ca93449396e041f57250463680":[2,0,38,3],
 "structscan__responder.html#af111328493eb0fe0dbd8fdb1f6122748":[2,0,38,4],
 "structsetting__group.html":[2,0,39],
-"structsetting__group.html#a71cf8563a5fd3b6a8c13ae4ac3e34053":[2,0,39,2],
-"structsetting__group.html#a92a308be0959b7ec45bdac08b6a1e96a":[2,0,39,0],
-"structsetting__group.html#af1bbb1af58942e6c804f829f55a5b87c":[2,0,39,1],
+"structsetting__group.html#a2da5dc2b76a3d2005cf03ff4ecba984e":[2,0,39,0],
+"structsetting__group.html#a71cf8563a5fd3b6a8c13ae4ac3e34053":[2,0,39,4],
+"structsetting__group.html#abeda1774d2260f715d031406af84d4b6":[2,0,39,2],
+"structsetting__group.html#ae2f6c0e34852b5b2a8425db347c49f11":[2,0,39,1],
+"structsetting__group.html#af1bbb1af58942e6c804f829f55a5b87c":[2,0,39,3],
 "structtouch__event__t.html":[2,0,49],
 "structtouch__event__t.html#a09fb8d8b56a8c1fbb3ee46d6c10e615d":[2,0,49,1],
 "structtouch__event__t.html#a0cfde48f724ab8bef9ee6e3488833aa5":[2,0,49,7],
@@ -249,5 +245,9 @@ var NAVTREEINDEX5 =
 "widget___wifi_8cpp.html":[3,0,1,7,12],
 "widget___wifi_8h.html":[3,0,1,7,13],
 "wifi__common_8h.html":[3,0,1,9,3],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0]
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d":[3,0,1,9,3,0,9],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a201ddba77586e039f043f8fe91701890":[3,0,1,9,3,0,2],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a3a6cb56aa4c3e8356e4044424001bc91":[3,0,1,9,3,0,6]
 };

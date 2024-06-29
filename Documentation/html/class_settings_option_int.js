@@ -6,7 +6,6 @@ var class_settings_option_int =
     [ "get", "class_settings_option_int.html#a953c4eccbc5089485c0a79b6d47b28c2", null ],
     [ "get_str", "class_settings_option_int.html#ac8255a7b67a09b6e61d21f5c043e33b9", null ],
     [ "getType", "class_settings_option_int.html#a40da43c28e11f2a2ebc3d7fd21d326cb", null ],
-    [ "register_option", "class_settings_option_int.html#a4f422e41d6ef7646a598d1d05f3d57e1", null ],
     [ "update", "class_settings_option_int.html#a2787285ef69ddb872b3ec68fc4ace910", null ],
     [ "setting_ref", "class_settings_option_int.html#a545e1d2e6f875d5bcb3e45ed3e1dd1f7", null ],
     [ "value_max", "class_settings_option_int.html#ae572c460c560a32e7d8fd5eb7138bbbc", null ],
