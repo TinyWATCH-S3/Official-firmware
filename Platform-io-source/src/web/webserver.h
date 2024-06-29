@@ -5,6 +5,7 @@
 #include <ESPmDNS.h>
 #include <HTTPClient.h>
 #include <WiFi.h>
+#include "settings/settings.h"
 
 class WebServer
 {
@@ -19,6 +20,10 @@ class WebServer
 		bool is_running();
 
 		static String processor(const String &var);
+
+		static String generate_settings_html(int group);
+
+		SettingsOptionBase *get_obj_from_id(String id);
 
 	private:
 		bool _running = false;

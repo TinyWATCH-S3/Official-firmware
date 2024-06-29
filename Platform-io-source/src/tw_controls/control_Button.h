@@ -1,3 +1,5 @@
+#pragma once
+
 #include "settings/settingsOption.h"
 #include "tw_controls/tw_control.h"
 

@@ -35,6 +35,7 @@ var searchData=
   ['arrow_5fright_5fx_32',['arrow_right_x',['../class_control_value_slider.html#aa30350ea8e4af70c5cdb4643a50e3b88',1,'ControlValueSlider']]],
   ['audio_5falarm_33',['audio_alarm',['../struct_config.html#aa811fa8a4f958fe255c04368233f36ca',1,'Config']]],
   ['audio_5fon_5fhour_34',['audio_on_hour',['../struct_config.html#ae699be522d4d24ff2c2565bfa473bab2',1,'Config']]],
-  ['audio_5fui_35',['audio_ui',['../struct_config.html#ab96058cff80a87107bd72619f96261ed',1,'Config']]],
-  ['available_36',['available',['../class_haptics.html#a50b0d5ce3a211694ea52c7a1d8bdf3da',1,'Haptics']]]
+  ['audio_5ftest_35',['audio_test',['../struct_config.html#a909d84456bda4a13c0ab16d35c653e8c',1,'Config']]],
+  ['audio_5fui_36',['audio_ui',['../struct_config.html#ab96058cff80a87107bd72619f96261ed',1,'Config']]],
+  ['available_37',['available',['../class_haptics.html#a50b0d5ce3a211694ea52c7a1d8bdf3da',1,'Haptics']]]
 ];

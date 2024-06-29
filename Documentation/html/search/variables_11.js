@@ -24,6 +24,7 @@ var searchData=
   ['trigger_5fon_5fboot_21',['trigger_on_boot',['../struct_config__haptics.html#ad04d23b8f4f28d13405b3ea281cb8b94',1,'Config_haptics']]],
   ['trigger_5fon_5fevent_22',['trigger_on_event',['../struct_config__haptics.html#a08f8c04482e065a3903ed6d9ff06456d',1,'Config_haptics']]],
   ['trigger_5fon_5fhour_23',['trigger_on_hour',['../struct_config__haptics.html#a0f0ff03d5769cdc8355df75bda9d356d',1,'Config_haptics']]],
-  ['trigger_5fon_5fwake_24',['trigger_on_wake',['../struct_config__haptics.html#a01fe5490e61f96a6cc26499a889b03e9',1,'Config_haptics']]],
-  ['type_25',['type',['../structtouch__event__t.html#a69cd1df84c92983b09e6f8cee7cc6403',1,'touch_event_t']]]
+  ['trigger_5fon_5flongpress_24',['trigger_on_longpress',['../struct_config__haptics.html#af0f14f023c6019a24bb5c0532db7dc59',1,'Config_haptics']]],
+  ['trigger_5fon_5fwake_25',['trigger_on_wake',['../struct_config__haptics.html#a01fe5490e61f96a6cc26499a889b03e9',1,'Config_haptics']]],
+  ['type_26',['type',['../structsetting__group.html#a71cf8563a5fd3b6a8c13ae4ac3e34053',1,'setting_group::type'],['../structtouch__event__t.html#a69cd1df84c92983b09e6f8cee7cc6403',1,'touch_event_t::type']]]
 ];

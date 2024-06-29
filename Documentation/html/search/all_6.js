@@ -59,11 +59,13 @@ var searchData=
   ['facewatchsettings_56',['FaceWatchSettings',['../class_face_watch_settings.html',1,'']]],
   ['fft_57',['FFT',['../class_app_microphone.html#a089191cfbf8f22da5b22fcf8b581656b',1,'AppMicrophone']]],
   ['fg_5fint_58',['FG_INT',['../battery_8cpp.html#a697016cc25b82087cb0eb8259480cf7c',1,'battery.cpp']]],
-  ['filename_59',['filename',['../class_activity.html#afb1f89c6bbcd9be475e267615e8ab6fa',1,'Activity::filename'],['../class_settings.html#adb8b7aff516eea8ae61ea171321ec857',1,'Settings::filename']]],
-  ['fill_5farc_60',['fill_arc',['../class_display.html#ad4a051cab5730c70c4797534c9273032',1,'Display::fill_arc()'],['../class_app_microphone.html#a78629ec2c830bb67f5d856bc164ab8f2',1,'AppMicrophone::fill_arc()']]],
-  ['find_5fdraggable_5fcontrol_61',['find_draggable_control',['../classtw__face.html#ab109a0610f0e20092b6ff62dc905f357',1,'tw_face']]],
-  ['first_5ftime_62',['first_time',['../struct_config.html#a099a67b516ac62f95fa2f49483721310',1,'Config']]],
-  ['flipped_63',['flipped',['../struct_config.html#a81edb463c86272b52b8fd5b1c535e226',1,'Config']]],
-  ['force_5fsave_64',['force_save',['../class_display.html#ac49cfd43decf1f706021c5c272c7921c',1,'Display']]],
-  ['freq_65',['freq',['../struct_buzzer_note.html#a257480a10e3d30cffeb1955c42cb4a57',1,'BuzzerNote']]]
+  ['fieldname_59',['fieldname',['../class_settings_option_base.html#a5a3173ab72ada7e89a6b5fa563e9dc47',1,'SettingsOptionBase']]],
+  ['filename_60',['filename',['../class_activity.html#afb1f89c6bbcd9be475e267615e8ab6fa',1,'Activity::filename'],['../class_settings.html#adb8b7aff516eea8ae61ea171321ec857',1,'Settings::filename']]],
+  ['fill_5farc_61',['fill_arc',['../class_display.html#ad4a051cab5730c70c4797534c9273032',1,'Display::fill_arc()'],['../class_app_microphone.html#a78629ec2c830bb67f5d856bc164ab8f2',1,'AppMicrophone::fill_arc()']]],
+  ['find_5fdraggable_5fcontrol_62',['find_draggable_control',['../classtw__face.html#ab109a0610f0e20092b6ff62dc905f357',1,'tw_face']]],
+  ['first_5ftime_63',['first_time',['../struct_config.html#a099a67b516ac62f95fa2f49483721310',1,'Config']]],
+  ['flipped_64',['flipped',['../struct_config.html#a81edb463c86272b52b8fd5b1c535e226',1,'Config']]],
+  ['float_65',['FLOAT',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbabb10d60268d140f7dc36ba0ff409b32a',1,'SettingsOptionBase']]],
+  ['force_5fsave_66',['force_save',['../class_display.html#ac49cfd43decf1f706021c5c272c7921c',1,'Display']]],
+  ['freq_67',['freq',['../struct_buzzer_note.html#a257480a10e3d30cffeb1955c42cb4a57',1,'BuzzerNote']]]
 ];

@@ -367,94 +367,114 @@ void Display::createFaces(bool was_sleeping)
 	 * Watch/General Settings Controls
 	 */
 
-	ControlToggle *cToggle = new ControlToggle();
-	cToggle->create("24 Hour", "OFF", "OK", 30, 55, 90, 30);
-	cToggle->set_data(&settings.setting_time_24hour);
-
-	ControlToggle *cToggle2 = new ControlToggle();
-	cToggle2->create("Handed", "RIGHT", "LEFT", 130, 55, 90, 30);
-	cToggle2->set_data(&settings.setting_left_handed);
-
-	ControlToggle *cToggle3 = new ControlToggle();
-	cToggle3->create("Rotation", "NORMAL", "FLIPPED", 30, 125, 90, 30);
-	cToggle3->set_data(&settings.setting_flipped);
-	cToggle3->set_callback(display.update_rotation);
-
-	ControlToggle *cToggle6 = new ControlToggle();
-	cToggle6->create("Date FMT", "DMY", "MDY", 130, 125, 90, 30);
-	cToggle6->set_data(&settings.setting_time_dateformat);
-
-	ControlToggle *cToggle13 = new ControlToggle();
-	cToggle13->create("Nav Arrows", "HIDE", "SHOW", 30, 195, 90, 30);
-	cToggle13->set_data(&settings.setting_nav_arrows);
-
-	face_settings.add_control(cToggle);
-	face_settings.add_control(cToggle2);
-	face_settings.add_control(cToggle3);
-	face_settings.add_control(cToggle6);
-	face_settings.add_control(cToggle13);
+	face_settings.add_setting_bool(&settings.setting_time_24hour, 30, 55, 90, 30);
+	face_settings.add_setting_bool(&settings.setting_left_handed, 130, 55, 90, 30);
+	face_settings.add_setting_bool(&settings.setting_flipped, 30, 125, 90, 30, display.update_rotation);
+	face_settings.add_setting_bool(&settings.setting_time_dateformat, 130, 125, 90, 30);
+	face_settings.add_setting_bool(&settings.setting_nav_arrows, 30, 195, 90, 30);
 
 	/*
 	 * Audio Settings Controls
 	 */
-	ControlToggle *cToggle4 = new ControlToggle();
-	cToggle4->create("UI Sound", "OFF", "ON", 30, 55, 90, 30);
-	cToggle4->set_data(&settings.setting_audio_ui);
 
-	ControlToggle *cToggle5 = new ControlToggle();
-	cToggle5->create("Alarm", "OFF", "ON", 130, 55, 90, 30);
-	cToggle5->set_data(&settings.setting_audio_alarm);
-
-	ControlToggle *cToggle14 = new ControlToggle();
-	cToggle14->create("Beep Hour", "OFF", "ON", 30, 125, 90, 30);
-	cToggle14->set_data(&settings.setting_audio_on_hour);
-
-	face_settings_Audio.add_control(cToggle4);
-	face_settings_Audio.add_control(cToggle5);
-	face_settings_Audio.add_control(cToggle14);
-
-	// ControlLabel *cLabel1 = new ControlLabel();
-	// cLabel1->create("AUDIO", 120, 260);
+	face_settings_Audio.add_setting_bool(&settings.setting_audio_ui, 30, 55, 90, 30);
+	face_settings_Audio.add_setting_bool(&settings.setting_audio_alarm, 130, 55, 90, 30);
+	face_settings_Audio.add_setting_bool(&settings.setting_audio_on_hour, 30, 125, 90, 30);
 
 	/*
 	 * Haptics Settings Controls
 	 */
 	if (haptics.available)
 	{
-		ControlToggle *cToggle7 = new ControlToggle();
-		cToggle7->create("Enabled", "OFF", "ON", 30, 55, 90, 30);
-		cToggle7->set_data(&settings.setting_haptics_enabled);
-
-		ControlToggle *cToggle8 = new ControlToggle();
-		cToggle8->create("On Boot", "OFF", "ON", 130, 55, 90, 30);
-		cToggle8->set_data(&settings.setting_haptics_trig_boot);
-
-		ControlToggle *cToggle9 = new ControlToggle();
-		cToggle9->create("On Wake", "OFF", "ON", 30, 125, 90, 30);
-		cToggle9->set_data(&settings.setting_haptics_trig_wake);
-
-		ControlToggle *cToggle10 = new ControlToggle();
-		cToggle10->create("On Alarm", "OFF", "ON", 130, 125, 90, 30);
-		cToggle10->set_data(&settings.setting_haptics_trig_alarm);
-
-		ControlToggle *cToggle11 = new ControlToggle();
-		cToggle11->create("On Hour", "OFF", "ON", 30, 195, 90, 30);
-		cToggle11->set_data(&settings.setting_haptics_trig_hour);
-
-		ControlToggle *cToggle12 = new ControlToggle();
-		cToggle12->create("On Event", "OFF", "ON", 130, 195, 90, 30);
-		cToggle12->set_data(&settings.setting_haptics_trig_event);
-
-		// ControlLabel *cLabel2 = new ControlLabel();
-		// cLabel2->create("HAPTICS", 10, 260);
-
-		face_settings_Haptics.add_control(cToggle7);
-		face_settings_Haptics.add_control(cToggle8);
-		face_settings_Haptics.add_control(cToggle9);
-		face_settings_Haptics.add_control(cToggle10);
-		face_settings_Haptics.add_control(cToggle11);
-		face_settings_Haptics.add_control(cToggle12);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_enabled, 30, 50, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_boot, 130, 50, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_wake, 30, 115, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_alarm, 130, 115, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_hour, 30, 180, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_event, 130, 180, 90, 30);
+		face_settings_Haptics.add_setting_bool(&settings.setting_haptics_trig_longpress, 30, 245, 90, 30);
 	}
+
+	// ControlToggle *cToggle = new ControlToggle();
+	// cToggle->create("24 Hour", "OFF", "OK", 30, 55, 90, 30);
+	// cToggle->set_data(&settings.setting_time_24hour);
+
+	// ControlToggle *cToggle2 = new ControlToggle();
+	// cToggle2->create("Handed", "RIGHT", "LEFT", 130, 55, 90, 30);
+	// cToggle2->set_data(&settings.setting_left_handed);
+
+	// ControlToggle *cToggle3 = new ControlToggle();
+	// cToggle3->create("Rotation", "NORMAL", "FLIPPED", 30, 125, 90, 30);
+	// cToggle3->set_data(&settings.setting_flipped);
+	// cToggle3->set_callback(display.update_rotation);
+
+	// ControlToggle *cToggle6 = new ControlToggle();
+	// cToggle6->create("Date FMT", "DMY", "MDY", 130, 125, 90, 30);
+	// cToggle6->set_data(&settings.setting_time_dateformat);
+
+	// ControlToggle *cToggle13 = new ControlToggle();
+	// cToggle13->create("Nav Arrows", "HIDE", "SHOW", 30, 195, 90, 30);
+	// cToggle13->set_data(&settings.setting_nav_arrows);
+
+	// // face_settings.add_control(cToggle);
+	// face_settings.add_control(cToggle2);
+	// face_settings.add_control(cToggle3);
+	// face_settings.add_control(cToggle6);
+	// face_settings.add_control(cToggle13);
+
+	// ControlToggle *cToggle4 = new ControlToggle();
+	// cToggle4->create("UI Sound", "OFF", "ON", 30, 55, 90, 30);
+	// cToggle4->set_data(&settings.setting_audio_ui);
+
+	// ControlToggle *cToggle5 = new ControlToggle();
+	// cToggle5->create("Alarm", "OFF", "ON", 130, 55, 90, 30);
+	// cToggle5->set_data(&settings.setting_audio_alarm);
+
+	// ControlToggle *cToggle14 = new ControlToggle();
+	// cToggle14->create("Beep Hour", "OFF", "ON", 30, 125, 90, 30);
+	// cToggle14->set_data(&settings.setting_audio_on_hour);
+
+	// face_settings_Audio.add_control(cToggle4);
+	// face_settings_Audio.add_control(cToggle5);
+	// face_settings_Audio.add_control(cToggle14);
+
+	// ControlLabel *cLabel1 = new ControlLabel();
+	// cLabel1->create("AUDIO", 120, 260);
+
+	// ControlToggle *cToggle7 = new ControlToggle();
+	// cToggle7->create("Enabled", "OFF", "ON", 30, 55, 90, 30);
+	// cToggle7->set_data(&settings.setting_haptics_enabled);
+
+	// ControlToggle *cToggle8 = new ControlToggle();
+	// cToggle8->create("On Boot", "OFF", "ON", 130, 55, 90, 30);
+	// cToggle8->set_data(&settings.setting_haptics_trig_boot);
+
+	// ControlToggle *cToggle9 = new ControlToggle();
+	// cToggle9->create("On Wake", "OFF", "ON", 30, 125, 90, 30);
+	// cToggle9->set_data(&settings.setting_haptics_trig_wake);
+
+	// ControlToggle *cToggle10 = new ControlToggle();
+	// cToggle10->create("On Alarm", "OFF", "ON", 130, 125, 90, 30);
+	// cToggle10->set_data(&settings.setting_haptics_trig_alarm);
+
+	// ControlToggle *cToggle11 = new ControlToggle();
+	// cToggle11->create("On Hour", "OFF", "ON", 30, 195, 90, 30);
+	// cToggle11->set_data(&settings.setting_haptics_trig_hour);
+
+	// ControlToggle *cToggle12 = new ControlToggle();
+	// cToggle12->create("On Event", "OFF", "ON", 130, 195, 90, 30);
+	// cToggle12->set_data(&settings.setting_haptics_trig_event);
+
+	// ControlLabel *cLabel2 = new ControlLabel();
+	// cLabel2->create("HAPTICS", 10, 260);
+
+	// face_settings_Haptics.add_control(cToggle7);
+	// face_settings_Haptics.add_control(cToggle8);
+	// face_settings_Haptics.add_control(cToggle9);
+	// face_settings_Haptics.add_control(cToggle10);
+	// face_settings_Haptics.add_control(cToggle11);
+	// face_settings_Haptics.add_control(cToggle12);
+	// }
 
 	// ControlButton * cButton1 = new ControlButton();
 	// cButton1->create("SAVE", 70, 250, 100, 40);
@@ -721,7 +741,7 @@ void Display::process_touch()
 uint Display::get_backlight_period()
 {
 	// Is 5V present even though we think we are on battery power?
-	return tinywatch.vbus_present() ? settings.config.bl_period_vbus : settings.config.bl_period_vbat;
+	return tinywatch.vbus_present() ? (settings.config.bl_period_vbus[last_backlight] * 1000) : (settings.config.bl_period_vbat[last_backlight] * 1000);
 }
 
 void Display::set_backlight(int level, bool force)
@@ -729,7 +749,7 @@ void Display::set_backlight(int level, bool force)
 	if (last_backlight != level || force)
 	{
 		last_backlight = level;
-		backlight_target_val = tinywatch.vbus_present() ? backlight_settings_vbus[level] : backlight_settings_vbat[level];
+		backlight_target_val = tinywatch.vbus_present() ? settings.config.bl_level_vbus[level] : settings.config.bl_level_vbat[level];
 	}
 }
 

@@ -6,8 +6,9 @@ var searchData=
   ['add_5fclock_5fface_3',['add_clock_face',['../class_display.html#aa9d8dbdcf00d4a3d3d20a1c0921f0cd6',1,'Display']]],
   ['add_5fcontrol_4',['add_control',['../classtw__face.html#a9940b0b3530fe75b64395b810f08c3d7',1,'tw_face']]],
   ['add_5fmessage_5',['add_message',['../class_face_notifications.html#a7d185c79ef4ea7a3f066af0de464d5fb',1,'FaceNotifications::add_message()'],['../class_face_system.html#a28b583e12bc5b1035cd89a78b564b15b',1,'FaceSystem::add_message()']]],
-  ['add_5fto_5fqueue_6',['add_to_queue',['../class_wifi_controller.html#aaa9c13a60adf61b89f4b76c04a552ff4',1,'WifiController']]],
-  ['add_5fwidget_7',['add_widget',['../classtw__face.html#a12b69b4c55d023a2f2357c3a64c05893',1,'tw_face']]],
-  ['adjust_5fbacklight_8',['adjust_backlight',['../class_display.html#afd9e13e082264906930ddb4a5336310a',1,'Display']]],
-  ['animate_5fapp_5fin_9',['animate_app_in',['../class_face_app_list.html#a461c6ddfc9532689166a3f7fdd3d6439',1,'FaceAppList']]]
+  ['add_5fsetting_5fbool_6',['add_setting_bool',['../classtw__face.html#a2b72e13108f5c13c7ef64b353dc9f190',1,'tw_face']]],
+  ['add_5fto_5fqueue_7',['add_to_queue',['../class_wifi_controller.html#aaa9c13a60adf61b89f4b76c04a552ff4',1,'WifiController']]],
+  ['add_5fwidget_8',['add_widget',['../classtw__face.html#a12b69b4c55d023a2f2357c3a64c05893',1,'tw_face']]],
+  ['adjust_5fbacklight_9',['adjust_backlight',['../class_display.html#afd9e13e082264906930ddb4a5336310a',1,'Display']]],
+  ['animate_5fapp_5fin_10',['animate_app_in',['../class_face_app_list.html#a461c6ddfc9532689166a3f7fdd3d6439',1,'FaceAppList']]]
 ];

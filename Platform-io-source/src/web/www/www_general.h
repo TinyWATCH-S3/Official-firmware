@@ -293,6 +293,11 @@ const char css[] PROGMEM = R"rawliteral(
         to   { background: default; }
     }
 
+	.flash_post {
+		font-size:16px;
+		transition: background-color 0.5s ease-out;
+	}
+
 </style>
 )rawliteral";
 
@@ -549,6 +554,12 @@ const char css_dark[] PROGMEM = R"rawliteral(
         from { background: red; }
         to   { background: default; }
     }
+
+	.flash_post {
+		// background-color: green;
+		font-size:16px;
+		transition: background-color 0.5s ease-out;
+	}
 
 </style>
 )rawliteral";

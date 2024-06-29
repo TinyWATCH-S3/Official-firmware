@@ -1,3 +1,4 @@
+#pragma once
 #include "tw_controls/tw_control.h"
 
 class ControlLabel : public tw_control

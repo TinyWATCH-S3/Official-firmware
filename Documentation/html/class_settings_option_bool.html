@@ -101,26 +101,80 @@ $(function(){initNavTree('class_settings_option_bool.html',''); initResizable();
 <div class="contents">
 
 <p><code>#include &lt;settingsOption.h&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SettingsOptionBool:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_settings_option_bool.png" usemap="#SettingsOptionBool_map" alt=""/>
+  <map id="SettingsOptionBool_map" name="SettingsOptionBool_map">
+<area href="class_settings_option_base.html" alt="SettingsOptionBase" shape="rect" coords="0,0,121,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a780cd3cafcca45aac91f5bc470bdb1b2" id="r_a780cd3cafcca45aac91f5bc470bdb1b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a780cd3cafcca45aac91f5bc470bdb1b2">SettingsOptionBool</a> (bool *val)</td></tr>
-<tr class="separator:a780cd3cafcca45aac91f5bc470bdb1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fae8a84ea0314d6af7c2e38f889d5ef" id="r_a6fae8a84ea0314d6af7c2e38f889d5ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fae8a84ea0314d6af7c2e38f889d5ef">SettingsOptionBool</a> (bool *val, int _group, const String &amp;_fn, const String &amp;_op1, const String &amp;_op2)</td></tr>
+<tr class="separator:a6fae8a84ea0314d6af7c2e38f889d5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa575fd89a1def087173f020c89aa223f" id="r_aa575fd89a1def087173f020c89aa223f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfb">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa575fd89a1def087173f020c89aa223f">getType</a> () const override</td></tr>
+<tr class="separator:aa575fd89a1def087173f020c89aa223f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc530a61661b28b28607b8a22104269e" id="r_acc530a61661b28b28607b8a22104269e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc530a61661b28b28607b8a22104269e">change</a> ()</td></tr>
 <tr class="separator:acc530a61661b28b28607b8a22104269e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a67b7625beab7195bc2ee99b3dabeb" id="r_a96a67b7625beab7195bc2ee99b3dabeb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96a67b7625beab7195bc2ee99b3dabeb">update</a> (bool val)</td></tr>
+<tr class="separator:a96a67b7625beab7195bc2ee99b3dabeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ebcb377ddec6654b6f5b667490c3007" id="r_a7ebcb377ddec6654b6f5b667490c3007"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ebcb377ddec6654b6f5b667490c3007">get</a> ()</td></tr>
 <tr class="separator:a7ebcb377ddec6654b6f5b667490c3007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828f8ada2f3850d277807b79d44bbf41" id="r_a828f8ada2f3850d277807b79d44bbf41"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a828f8ada2f3850d277807b79d44bbf41">get_str</a> ()</td></tr>
 <tr class="separator:a828f8ada2f3850d277807b79d44bbf41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417e5e79835f291806ba30b3c99cab42" id="r_a417e5e79835f291806ba30b3c99cab42"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a417e5e79835f291806ba30b3c99cab42">get_fn</a> ()</td></tr>
+<tr class="separator:a417e5e79835f291806ba30b3c99cab42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5460e9f499edcfbb8a8245d9e432a72a" id="r_a5460e9f499edcfbb8a8245d9e432a72a"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5460e9f499edcfbb8a8245d9e432a72a">get_op1</a> ()</td></tr>
+<tr class="separator:a5460e9f499edcfbb8a8245d9e432a72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82e9692005ab5c8dd6882bbc001f7f07" id="r_a82e9692005ab5c8dd6882bbc001f7f07"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82e9692005ab5c8dd6882bbc001f7f07">get_op2</a> ()</td></tr>
+<tr class="separator:a82e9692005ab5c8dd6882bbc001f7f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce51dc4df3e4ebc6709c2265908b5ae" id="r_a9ce51dc4df3e4ebc6709c2265908b5ae"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ce51dc4df3e4ebc6709c2265908b5ae">generate_html</a> (uint16_t index)</td></tr>
+<tr class="separator:a9ce51dc4df3e4ebc6709c2265908b5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277a52a0062f4ef051cf7848559a105f" id="r_a277a52a0062f4ef051cf7848559a105f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a277a52a0062f4ef051cf7848559a105f">register_option</a> (int grp)</td></tr>
+<tr class="separator:a277a52a0062f4ef051cf7848559a105f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_settings_option_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_settings_option_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_settings_option_base.html">SettingsOptionBase</a></td></tr>
+<tr class="memitem:a27cc914ad9b2dba28734bb11c7ebdbca inherit pub_methods_class_settings_option_base" id="r_a27cc914ad9b2dba28734bb11c7ebdbca"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#a27cc914ad9b2dba28734bb11c7ebdbca">~SettingsOptionBase</a> ()=default</td></tr>
+<tr class="separator:a27cc914ad9b2dba28734bb11c7ebdbca inherit pub_methods_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d2058a1d40ddf9c37cedaf2f4c0f24 inherit pub_methods_class_settings_option_base" id="r_ac8d2058a1d40ddf9c37cedaf2f4c0f24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#ac8d2058a1d40ddf9c37cedaf2f4c0f24">convert_for_form_id</a> (const char *input, char *output)</td></tr>
+<tr class="separator:ac8d2058a1d40ddf9c37cedaf2f4c0f24 inherit pub_methods_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a26d43b7c0006c12cee869765d70db071" id="r_a26d43b7c0006c12cee869765d70db071"><td class="memItemLeft" align="right" valign="top">bool *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26d43b7c0006c12cee869765d70db071">setting_ref</a> = nullptr</td></tr>
 <tr class="separator:a26d43b7c0006c12cee869765d70db071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a655f7723c2483396879e55c5b880840d" id="r_a655f7723c2483396879e55c5b880840d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a655f7723c2483396879e55c5b880840d">option1</a> = &quot;&quot;</td></tr>
+<tr class="separator:a655f7723c2483396879e55c5b880840d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b7211bd2582c8ad64711325b2f4145" id="r_a42b7211bd2582c8ad64711325b2f4145"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42b7211bd2582c8ad64711325b2f4145">option2</a> = &quot;&quot;</td></tr>
+<tr class="separator:a42b7211bd2582c8ad64711325b2f4145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_class_settings_option_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_class_settings_option_base')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_settings_option_base.html">SettingsOptionBase</a></td></tr>
+<tr class="memitem:afcee479e2f42469d06910a9b14681bfb inherit pub_types_class_settings_option_base" id="r_afcee479e2f42469d06910a9b14681bfb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfb">Type</a> { <br />
+&#160;&#160;<a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbae68e14cf95f127f50dff436876d3c4a6">BASE</a>
+, <a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbab1743b70c928c3f8da2ebdecfb8c7138">INT</a>
+, <a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaff2163606a559f7abaa47819e7ce7eef">BOOL</a>
+, <a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbabb10d60268d140f7dc36ba0ff409b32a">FLOAT</a>
+, <br />
+&#160;&#160;<a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaf3e41b6d2cca90986e803bd8c1e1d1b4">STRING</a>
+, <a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79">INT_VECTOR</a>
+<br />
+ }</td></tr>
+<tr class="separator:afcee479e2f42469d06910a9b14681bfb inherit pub_types_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_class_settings_option_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_settings_option_base')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_settings_option_base.html">SettingsOptionBase</a></td></tr>
+<tr class="memitem:a5a3173ab72ada7e89a6b5fa563e9dc47 inherit pub_attribs_class_settings_option_base" id="r_a5a3173ab72ada7e89a6b5fa563e9dc47"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#a5a3173ab72ada7e89a6b5fa563e9dc47">fieldname</a> = &quot;&quot;</td></tr>
+<tr class="separator:a5a3173ab72ada7e89a6b5fa563e9dc47 inherit pub_attribs_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a335cc7f0b285f6c8d2267ed38fa6296e inherit pub_attribs_class_settings_option_base" id="r_a335cc7f0b285f6c8d2267ed38fa6296e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#a335cc7f0b285f6c8d2267ed38fa6296e">group</a> = -1</td></tr>
+<tr class="separator:a335cc7f0b285f6c8d2267ed38fa6296e inherit pub_attribs_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019e12d5ce83fb8c0ab3a5199c202f45 inherit pub_attribs_class_settings_option_base" id="r_a019e12d5ce83fb8c0ab3a5199c202f45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings_option_base.html#a019e12d5ce83fb8c0ab3a5199c202f45">data_is_vector</a> = false</td></tr>
+<tr class="separator:a019e12d5ce83fb8c0ab3a5199c202f45 inherit pub_attribs_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a780cd3cafcca45aac91f5bc470bdb1b2" name="a780cd3cafcca45aac91f5bc470bdb1b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a780cd3cafcca45aac91f5bc470bdb1b2">&#9670;&#160;</a></span>SettingsOptionBool()</h2>
+<a id="a6fae8a84ea0314d6af7c2e38f889d5ef" name="a6fae8a84ea0314d6af7c2e38f889d5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fae8a84ea0314d6af7c2e38f889d5ef">&#9670;&#160;</a></span>SettingsOptionBool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,8 +185,27 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">SettingsOptionBool::SettingsOptionBool </td>
           <td>(</td>
-          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>_group</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>_fn</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>_op1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>_op2</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -162,6 +235,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a9ce51dc4df3e4ebc6709c2265908b5ae" name="a9ce51dc4df3e4ebc6709c2265908b5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce51dc4df3e4ebc6709c2265908b5ae">&#9670;&#160;</a></span>generate_html()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::generate_html </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_settings_option_base.html#a901944d39fbf92ae85bf0ea331475d2f">SettingsOptionBase</a>.</p>
+
+</div>
+</div>
 <a id="a7ebcb377ddec6654b6f5b667490c3007" name="a7ebcb377ddec6654b6f5b667490c3007"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ebcb377ddec6654b6f5b667490c3007">&#9670;&#160;</a></span>get()</h2>
 
@@ -170,6 +270,57 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool SettingsOptionBool::get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a417e5e79835f291806ba30b3c99cab42" name="a417e5e79835f291806ba30b3c99cab42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a417e5e79835f291806ba30b3c99cab42">&#9670;&#160;</a></span>get_fn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::get_fn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5460e9f499edcfbb8a8245d9e432a72a" name="a5460e9f499edcfbb8a8245d9e432a72a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5460e9f499edcfbb8a8245d9e432a72a">&#9670;&#160;</a></span>get_op1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::get_op1 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82e9692005ab5c8dd6882bbc001f7f07" name="a82e9692005ab5c8dd6882bbc001f7f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e9692005ab5c8dd6882bbc001f7f07">&#9670;&#160;</a></span>get_op2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::get_op2 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -196,7 +347,112 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aa575fd89a1def087173f020c89aa223f" name="aa575fd89a1def087173f020c89aa223f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa575fd89a1def087173f020c89aa223f">&#9670;&#160;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfb">Type</a> SettingsOptionBool::getType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_settings_option_base.html#a9473522a8c5e59b7b6da4006b32a3346">SettingsOptionBase</a>.</p>
+
+</div>
+</div>
+<a id="a277a52a0062f4ef051cf7848559a105f" name="a277a52a0062f4ef051cf7848559a105f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277a52a0062f4ef051cf7848559a105f">&#9670;&#160;</a></span>register_option()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SettingsOptionBool::register_option </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>grp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96a67b7625beab7195bc2ee99b3dabeb" name="a96a67b7625beab7195bc2ee99b3dabeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a67b7625beab7195bc2ee99b3dabeb">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SettingsOptionBool::update </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a655f7723c2483396879e55c5b880840d" name="a655f7723c2483396879e55c5b880840d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a655f7723c2483396879e55c5b880840d">&#9670;&#160;</a></span>option1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::option1 = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42b7211bd2582c8ad64711325b2f4145" name="a42b7211bd2582c8ad64711325b2f4145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b7211bd2582c8ad64711325b2f4145">&#9670;&#160;</a></span>option2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String SettingsOptionBool::option2 = &quot;&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a26d43b7c0006c12cee869765d70db071" name="a26d43b7c0006c12cee869765d70db071"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26d43b7c0006c12cee869765d70db071">&#9670;&#160;</a></span>setting_ref</h2>
 

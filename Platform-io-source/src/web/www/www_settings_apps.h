@@ -1,6 +1,5 @@
 #pragma once
 
-// html strings to be used only from wifi_setup.cpp
 const char index_settings_apps_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html data-bs-theme="%THEME%">
@@ -22,7 +21,7 @@ const char index_settings_apps_html[] PROGMEM = R"rawliteral(
 				</div>
 			</div>
 
-			<div class="content" style="margin:30px;">
+			<div class="content">
 				<div class="row">
 				</div>
 			</div>

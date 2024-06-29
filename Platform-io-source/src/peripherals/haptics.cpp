@@ -33,7 +33,7 @@ bool Haptics::init()
 
 	// drv.selectLibrary(1);
 	// drv.setMode(DRV2605_MODE_INTTRIG);
-	drv.setMode(DRV2605_MODE_REALTIME);
+	drv.setMode(0x64);
 
 	// Load all of the trigger type sounds into an array of vectors for easy playback.
 	sounds[0] = {
@@ -64,7 +64,16 @@ bool Haptics::init()
 		0x50, 50
 	};
 
+	sounds[5] = {
+		0x3A, 120
+	};
+
 	return true;
+}
+
+void Haptics::go_standby()
+{
+	drv.setMode(0x64);
 }
 
 /**
@@ -82,17 +91,27 @@ void Haptics::play(const std::vector<uint8_t> &sequence)
 	if (!settings.config.haptics.enabled)
 		return;
 
+	drv.setMode(DRV2605_MODE_REALTIME);
+
 	uint8_t rtp_index = 0;
+	unsigned long millis_now = millis();
 
 	while (rtp_index < sequence.size())
 	{
 		drv.setRealtimeValue(sequence[rtp_index++]);
+		// millis_now = millis();
+		// while (millis() - millis_now < sequence[rtp_index])
+		// {
+
+		// }
 		delay(sequence[rtp_index++]);
 	}
 
 	drv.setRealtimeValue(0x00);
-	delay(500);
+	delay(100);
 	rtp_index = 0;
+
+	go_standby();
 }
 
 /**
@@ -102,6 +121,8 @@ void Haptics::play(const std::vector<uint8_t> &sequence)
  */
 void Haptics::play_trigger(Triggers trigger)
 {
+	info_printf("trying trigger %d\n", (int)trigger);
+
 	if (!available)
 		return;
 
@@ -123,6 +144,13 @@ void Haptics::play_trigger(Triggers trigger)
 	if (trigger == Triggers::WAKE && !settings.config.haptics.trigger_on_wake)
 		return;
 
+	if (trigger == Triggers::LONGPRESS && !settings.config.haptics.trigger_on_longpress)
+		return;
+
+	info_printf("Playing trigger %d\n", (int)trigger);
+
+	drv.setMode(DRV2605_MODE_REALTIME);
+
 	uint8_t rtp_index = 0;
 
 	while (rtp_index < sounds[(int)trigger].size())
@@ -134,6 +162,8 @@ void Haptics::play_trigger(Triggers trigger)
 	drv.setRealtimeValue(0x00);
 	delay(500);
 	rtp_index = 0;
+
+	go_standby();
 }
 
 Haptics haptics;

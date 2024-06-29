@@ -12,7 +12,7 @@ using json = nlohmann::json;
  */
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_mqtt, enabled, broker_ip, broker_port, username, password, device_name, topic);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_haptics, enabled, trigger_on_boot, trigger_on_alarm, trigger_on_hour, trigger_on_event, trigger_on_wake);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_haptics, enabled, trigger_on_boot, trigger_on_alarm, trigger_on_hour, trigger_on_event, trigger_on_wake, trigger_on_longpress);
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_widget_battery, perc_offset, low_perc, low_volt_warn, low_volt_cutoff);
 
@@ -24,7 +24,16 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_microphone, sweep_siz
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_compass, hard_iron_x, hard_iron_y, hard_iron_z, soft_iron_x, soft_iron_y, soft_iron_z, magnetic_declination);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, haptics, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, show_nav_arrows, audio_ui, audio_alarm, audio_on_hour, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, haptics, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, bl_level_vbus, bl_level_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, show_nav_arrows, audio_ui, audio_alarm, audio_on_hour, audio_test, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
+
+// void Settings::init()
+// {
+// 	// Setup settings groups
+// 	setting_groups_name[0] = "General Watch Settings";
+// 	setting_groups_name[1] = "Audio Settings";
+// 	setting_groups_name[2] = "Haptics Settings";
+// 	setting_groups_name[3] = "Display Settings";
+// }
 
 void Settings::log_to_nvs(const char *key, const char *log)
 {

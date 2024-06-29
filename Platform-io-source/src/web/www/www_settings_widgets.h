@@ -23,14 +23,18 @@ const char index_settings_widgets_html[] PROGMEM = R"rawliteral(
 
 			<div class="content">
 
-				<div hx-get="/widgets_form_ow" hx-trigger="load">
-				</div>
+
 
 			</div>
 
 		%FOOTER%
 
 )rawliteral";
+
+/*
+				<div hx-get="/widgets_form_ow" hx-trigger="load">
+				</div>
+*/
 
 const char index_settings_widgets_form_ow[] PROGMEM = R"rawliteral(
 

@@ -1,10 +1,12 @@
 var classtw__face =
 [
+    [ "CallbackFunction", "classtw__face.html#a44c1f0004598fe748ed0e0b83c902cd3", null ],
     [ "add", "classtw__face.html#ac0db8ecb1b318cb67f3f55f3768e558c", null ],
     [ "add", "classtw__face.html#af39f9019c43aad1a0bea58b4b627dba1", null ],
     [ "add_clock", "classtw__face.html#a2879c119587b2a89971de112cc18b7d5", null ],
     [ "add_clock", "classtw__face.html#a6da80e6dcce52fb1799d4e2010f6242a", null ],
     [ "add_control", "classtw__face.html#a9940b0b3530fe75b64395b810f08c3d7", null ],
+    [ "add_setting_bool", "classtw__face.html#a2b72e13108f5c13c7ef64b353dc9f190", null ],
     [ "add_widget", "classtw__face.html#a12b69b4c55d023a2f2357c3a64c05893", null ],
     [ "check_can_drag_in_dir", "classtw__face.html#af8cea071acc43cdd4c9d5c722eb398d3", null ],
     [ "control_process_clicks", "classtw__face.html#aa8c2b458c90c41ae2588cf1993e21449", null ],

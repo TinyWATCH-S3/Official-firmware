@@ -22,9 +22,10 @@ var searchData=
   ['log_5fsystem_5fmessage_19',['log_system_message',['../class_tiny_w_a_t_c_h.html#aa7d0c5282f91c98b88fb52af50ec204d',1,'TinyWATCH']]],
   ['log_5fto_5fnvs_20',['log_to_nvs',['../class_settings.html#a77482d4930cb4f700856c02ccc528785',1,'Settings']]],
   ['logging_2eh_21',['logging.h',['../logging_8h.html',1,'']]],
-  ['loop_22',['loop',['../class_wifi_controller.html#a3bb9053e0aa89406a3ebf44ab6339b75',1,'WifiController::loop()'],['../tinywatch_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;tinywatch.cpp']]],
-  ['low_5fbattery_5fupdate_5fcheck_23',['low_battery_update_check',['../class_tiny_w_a_t_c_h.html#af3f1a673303ccb81a7ea8e304fd3b304',1,'TinyWATCH']]],
-  ['low_5fperc_24',['low_perc',['../struct_config__widget__battery.html#ad7d6f61471a23c41494fa44fc61f16d1',1,'Config_widget_battery']]],
-  ['low_5fvolt_5fcutoff_25',['low_volt_cutoff',['../struct_config__widget__battery.html#a004ee41b3f10fd1f943b90f110b3f6d8',1,'Config_widget_battery']]],
-  ['low_5fvolt_5fwarn_26',['low_volt_warn',['../struct_config__widget__battery.html#a47948ea50a2d5fc02329ea5895ec134a',1,'Config_widget_battery']]]
+  ['longpress_22',['LONGPRESS',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3a9419b85bc5535a8df3ddf821c06b7d29',1,'haptics.h']]],
+  ['loop_23',['loop',['../class_wifi_controller.html#a3bb9053e0aa89406a3ebf44ab6339b75',1,'WifiController::loop()'],['../tinywatch_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;tinywatch.cpp']]],
+  ['low_5fbattery_5fupdate_5fcheck_24',['low_battery_update_check',['../class_tiny_w_a_t_c_h.html#af3f1a673303ccb81a7ea8e304fd3b304',1,'TinyWATCH']]],
+  ['low_5fperc_25',['low_perc',['../struct_config__widget__battery.html#ad7d6f61471a23c41494fa44fc61f16d1',1,'Config_widget_battery']]],
+  ['low_5fvolt_5fcutoff_26',['low_volt_cutoff',['../struct_config__widget__battery.html#a004ee41b3f10fd1f943b90f110b3f6d8',1,'Config_widget_battery']]],
+  ['low_5fvolt_5fwarn_27',['low_volt_warn',['../struct_config__widget__battery.html#a47948ea50a2d5fc02329ea5895ec134a',1,'Config_widget_battery']]]
 ];

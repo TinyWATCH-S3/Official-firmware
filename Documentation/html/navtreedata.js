@@ -40,6 +40,8 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -62,10 +64,11 @@ var NAVTREEINDEX =
 [
 "_clock___digits_8h.html",
 "class_control_value_slider.html#a3291e929cd847f8f7ed0c3b6a15e35b6",
-"class_haptics.html#a2d1ae4a817c7a3e94c68d3e2a22289bd",
-"classtw__app.html#a5cf0211251f14dd57c0f575c4ac2ec04",
-"face___settings_8cpp.html#a360548d6d098134f42cf2f17fb081dfb",
-"struct_config__haptics.html"
+"class_haptics.html#a8e0fd25b8ef5bdf10c17a135249c3b5b",
+"class_widget_open_weather.html#ac08b20e012d1ea886abbbbf7887c7a9c",
+"display_8cpp.html#a447e60ef303c8ebabbefd7602eff3d28",
+"settings_8h.html#a19276c778f3034b94881cf1f8614dbb2",
+"www__settings__apps_8h.html#afdacf915473fced7654cd3be09e992fc"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

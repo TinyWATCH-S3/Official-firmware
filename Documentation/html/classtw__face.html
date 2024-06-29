@@ -96,6 +96,7 @@ $(function(){initNavTree('classtw__face.html',''); initResizable(); });
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="classtw__face-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tw_face Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -144,6 +145,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa3481ba12d4a956000b940d9d841a8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9940b0b3530fe75b64395b810f08c3d7" id="r_a9940b0b3530fe75b64395b810f08c3d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9940b0b3530fe75b64395b810f08c3d7">add_control</a> (<a class="el" href="classtw__control.html">tw_control</a> *control)</td></tr>
 <tr class="separator:a9940b0b3530fe75b64395b810f08c3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b72e13108f5c13c7ef64b353dc9f190" id="r_a2b72e13108f5c13c7ef64b353dc9f190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b72e13108f5c13c7ef64b353dc9f190">add_setting_bool</a> (<a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> *sett, uint _pos_x, uint _pos_y, uint _width, uint _height, <a class="el" href="#a44c1f0004598fe748ed0e0b83c902cd3">CallbackFunction</a> callback=nullptr)</td></tr>
+<tr class="separator:a2b72e13108f5c13c7ef64b353dc9f190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c2b458c90c41ae2588cf1993e21449" id="r_aa8c2b458c90c41ae2588cf1993e21449"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8c2b458c90c41ae2588cf1993e21449">control_process_clicks</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
 <tr class="separator:aa8c2b458c90c41ae2588cf1993e21449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af36389ae27fd78c0de22f9ab6f8e15e7" id="r_af36389ae27fd78c0de22f9ab6f8e15e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af36389ae27fd78c0de22f9ab6f8e15e7">is_face_clock_face</a> ()</td></tr>
@@ -271,7 +274,35 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a4c4bf1f0010ed676c9cea26a446610a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07bec342ccee2dd1cc42fe9b11facee0" id="r_a07bec342ccee2dd1cc42fe9b11facee0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classtw__control.html">tw_control</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07bec342ccee2dd1cc42fe9b11facee0">controls</a></td></tr>
 <tr class="separator:a07bec342ccee2dd1cc42fe9b11facee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a44c1f0004598fe748ed0e0b83c902cd3" id="r_a44c1f0004598fe748ed0e0b83c902cd3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44c1f0004598fe748ed0e0b83c902cd3">CallbackFunction</a> = void (*)()</td></tr>
+<tr class="separator:a44c1f0004598fe748ed0e0b83c902cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a44c1f0004598fe748ed0e0b83c902cd3" name="a44c1f0004598fe748ed0e0b83c902cd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c1f0004598fe748ed0e0b83c902cd3">&#9670;&#160;</a></span>CallbackFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a44c1f0004598fe748ed0e0b83c902cd3">tw_face::CallbackFunction</a> = void (*)()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac0db8ecb1b318cb67f3f55f3768e558c" name="ac0db8ecb1b318cb67f3f55f3768e558c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0db8ecb1b318cb67f3f55f3768e558c">&#9670;&#160;</a></span>add() <span class="overload">[1/2]</span></h2>
@@ -378,6 +409,47 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtw__control.html">tw_control</a> *</td>          <td class="paramname"><span class="paramname"><em>control</em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b72e13108f5c13c7ef64b353dc9f190" name="a2b72e13108f5c13c7ef64b353dc9f190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b72e13108f5c13c7ef64b353dc9f190">&#9670;&#160;</a></span>add_setting_bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tw_face::add_setting_bool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> *</td>          <td class="paramname"><span class="paramname"><em>sett</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>_pos_x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>_pos_y</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>_width</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>_height</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a44c1f0004598fe748ed0e0b83c902cd3">CallbackFunction</a></td>          <td class="paramname"><span class="paramname"><em>callback</em><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

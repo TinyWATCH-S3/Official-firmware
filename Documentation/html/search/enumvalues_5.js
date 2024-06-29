@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hour_0',['HOUR',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3a79aab2da0ce6d416b78895cf20661b35',1,'haptics.h']]]
+  ['float_0',['FLOAT',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbabb10d60268d140f7dc36ba0ff409b32a',1,'SettingsOptionBase']]]
 ];

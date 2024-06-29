@@ -25,8 +25,6 @@ var class_display =
     [ "update_current_face", "class_display.html#aee0f9cec1e725d521aa8f22700032143", null ],
     [ "backlight_current_val", "class_display.html#a1d98b673935a1137bb4065d07928b01f", null ],
     [ "backlight_level", "class_display.html#a12d67c53beb8071d173920ac951c66db", null ],
-    [ "backlight_settings_vbat", "class_display.html#a595a7c6ec647390bd24ff8901d5d1640", null ],
-    [ "backlight_settings_vbus", "class_display.html#a3941c647918f2d5265717fc6feab567a", null ],
     [ "backlight_target_val", "class_display.html#ab23340c6c8da8d6cfc875a63d6040deb", null ],
     [ "center_x", "class_display.html#af33ee9b7afad5327be79b09128374e1f", null ],
     [ "center_y", "class_display.html#a351b3d7c13b5affef336430dc9267214", null ],

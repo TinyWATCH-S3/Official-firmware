@@ -156,6 +156,7 @@ bool FaceAppList::process_touch(touch_event_t touch_event)
 
 		if (icon_process_clicks(touch_event.x, touch_event.y))
 		{
+			haptics.play_trigger(Triggers::EVENT);
 			animate_app_in();
 			return true;
 		}
@@ -169,6 +170,7 @@ bool FaceAppList::process_touch(touch_event_t touch_event)
 		if (current_app != nullptr)
 		{
 			display.set_backlight_val_direct(0);
+			haptics.play_trigger(Triggers::LONGPRESS);
 			BuzzerUI({{2000, 400}});
 			while (display.get_current_backlight_val() > 0)
 				yield;

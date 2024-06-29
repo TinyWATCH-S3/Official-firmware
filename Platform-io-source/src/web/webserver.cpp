@@ -1,5 +1,6 @@
 #include "web/webserver.h"
 #include "peripherals/buzzer.h"
+#include "peripherals/haptics.h"
 #include "settings/settings.h"
 #include "tinywatch.h"
 #include "web/wifi_controller.h"
@@ -56,7 +57,77 @@ String WebServer::processor(const String &var)
 		return String(settings.config.open_weather.poll_frequency);
 	}
 
+	else if (var == "SETTING_OPTIONS")
+	{
+		String html = "";
+		for (size_t i = 0; i < settings.setting_groups.size(); i++)
+		{
+			if (settings.setting_groups_name[i].type == SettingType::CONTROL)
+				html += generate_settings_html(i);
+		}
+
+		return html;
+	}
+	else if (var == "SETTING_WIDGETS")
+	{
+		String html = "";
+		for (size_t i = 0; i < settings.setting_groups.size(); i++)
+		{
+			if (settings.setting_groups_name[i].type == SettingType::WIDGET)
+				html += generate_settings_html(i);
+		}
+
+		return html;
+	}
+
 	return "";
+}
+
+String WebServer::generate_settings_html(int group)
+{
+	if (settings.setting_groups_name[group].name.indexOf("Haptics") != -1 && haptics.available == false)
+		return "";
+
+	String html = "\n<div id='settings_group_" + String(group) + "'>\n";
+	html += "	<span class='settings_heading'>" + settings.setting_groups_name[group].name + "</span>\n";
+	html += "	<div class='settings_frame' id='group_" + String(group) + "' style='margin-bottom:15px; padding-bottom:5px;'>\n";
+	html += "		<form hx-post='/update_settings_group' hx-target='#settings_group_" + String(group) + "' >\n";
+	html += "			<input type='hidden' name='group_id' id='group_id' value='" + String(group) + "'>\n";
+	html += "			<div class ='row'>\n";
+
+	for (size_t i = 0; i < settings.setting_groups[group].size(); ++i)
+	{
+		html += "				<div class='col-6'>\n";
+		html += settings.setting_groups[group][i]->generate_html(i);
+		html += "				</div>\n";
+	}
+	html += "			</div>\n";
+
+	html += "			<div class ='row'>\n";
+	html += "				<div class='col-12 right align-middle' style='height:36px;'>\n";
+	html += "					<span class='flash-span me-2' style='display:none; color:green;'>Settings Updated!</span>\n";
+	html += "					<button type='submit' class='btn btn-sm btn-success m-1' style='width:100px;'>Update</button>\n";
+	html += "				</div>\n";
+	html += "			</div>\n";
+	html += "		</form>\n";
+	html += "	</div>\n";
+	html += "</div>\n";
+
+	return html;
+}
+
+SettingsOptionBase *WebServer::get_obj_from_id(String id)
+{
+	// Split the string at "__"
+	int pos = id.indexOf("__");
+	String firstPart = id.substring(0, pos);
+
+	// Split the first part at ","
+	int commaIndex = firstPart.indexOf(",");
+	int group = firstPart.substring(0, commaIndex).toInt();
+	int index = firstPart.substring(commaIndex + 1).toInt();
+
+	return (settings.setting_groups[group][index]);
 }
 
 void WebServer::start()
@@ -125,6 +196,168 @@ void WebServer::start_callback(bool success, const String &response)
 			Buzzer({{2000, 100}});
 			request->send(200, "text/plain", "Settings Saved!");
 		});
+
+		web_server.on("/update_settings_group", HTTP_POST, [](AsyncWebServerRequest *request) {
+			if (request->hasParam("group_id", true))
+			{
+				AsyncWebParameter *_group = request->getParam("group_id", true);
+				info_printf("** Save Settings for Group ID: %s\n", String(_group->value().c_str()));
+				uint8_t group_id = String(_group->value().c_str()).toInt();
+
+				auto &group = settings.setting_groups[group_id]; // Cache the current group
+
+				for (size_t i = 0; i < group.size(); ++i)
+				{
+					auto *setting = group[i]; // Cache the current setting
+
+					String fn = setting->fieldname;
+					fn.replace(" ", "_");
+					fn.toLowerCase();
+					fn.replace("_(sec)", "");
+					fn.replace("_(%%)", "");
+
+					if (setting->getType() == SettingsOptionBase::INT_VECTOR)
+					{
+						SettingsOptionIntVector *intPtr = static_cast<SettingsOptionIntVector *>(setting);
+						for (size_t v = 0; v < intPtr->vector_size(); v++)
+						{
+							String fn_indexed = String(group_id) + "," + String(i) + "__" + fn + "_" + String(v);
+
+							info_printf("Looking for id: %s - ", fn_indexed.c_str());
+
+							if (request->hasParam(fn_indexed, true))
+							{
+								info_print("Found - ");
+								AsyncWebParameter *_param = request->getParam(fn_indexed, true);
+								int data = String(_param->value().c_str()).toInt();
+
+								info_printf("Web data: %d, class data %d, change? %s\n", data, intPtr->get(v), (intPtr->update(v, data) ? "YES" : "no"));
+								intPtr->update(v, data);
+							}
+						}
+					}
+					else
+					{
+						String fn_indexed = String(group_id) + "," + String(i) + "__" + fn;
+
+						info_printf("Looking for id: %s - ", fn_indexed.c_str());
+
+						if (request->hasParam(fn_indexed, true))
+						{
+							AsyncWebParameter *_param = request->getParam(fn_indexed, true);
+
+							if (setting->getType() == SettingsOptionBase::BOOL)
+							{
+								bool data = (String(_param->value().c_str()) == "1");
+								SettingsOptionBool *intPtr = static_cast<SettingsOptionBool *>(setting);
+
+								info_printf("Web data (new): %s, class data (current): %s - ", (data ? "T" : "F"), (intPtr->get() ? "T" : "F"));
+								bool updated = intPtr->update(data);
+								info_printf("Now: %s - changed? %s\n", (intPtr->get() ? "T" : "F"), (updated ? "YES" : "no"));
+							}
+							else if (setting->getType() == SettingsOptionBase::FLOAT)
+							{
+								float data = String(_param->value().c_str()).toFloat();
+								SettingsOptionFloat *intPtr = static_cast<SettingsOptionFloat *>(setting);
+								info_printf("Web data: %f, class data %f - ", data, intPtr->get());
+								bool updated = intPtr->update(data);
+								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+							}
+							else if (setting->getType() == SettingsOptionBase::STRING)
+							{
+								String data = String(_param->value().c_str());
+								SettingsOptionString *intPtr = static_cast<SettingsOptionString *>(setting);
+								info_printf("Web data: %s, class data %s - ", data, intPtr->get());
+								bool updated = intPtr->update(&data);
+								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+							}
+							else if (setting->getType() == SettingsOptionBase::INT)
+							{
+								int data = String(_param->value().c_str()).toInt();
+								SettingsOptionInt *intPtr = static_cast<SettingsOptionInt *>(setting);
+								info_printf("Web data: %d, class data %d - ", data, intPtr->get());
+								bool updated = intPtr->update(data);
+								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+							}
+							// info_printf("Data: %s\n", String(_param->value().c_str()));
+							// 	settings.config.look_ahead = String(_set_reflow_lookahead->value().c_str()).toInt();
+						}
+						else
+						{
+							info_println("...");
+						}
+					}
+				}
+
+				Buzzer({{2000, 20}});
+				request->send_P(200, "text/html", generate_settings_html(group_id).c_str(), processor);
+			}
+			else
+			{
+				request->send_P(200, "text/html", "<div class='container'><h2>ERROR POSTING DATA</h2><div>", processor);
+			}
+		});
+
+		// web_server.on("/update_settings_watch", HTTP_POST, [](AsyncWebServerRequest *request) {
+		// 	for (size_t g = 0; g < settings.setting_groups.size(); g++)
+		// 	{
+		// 		auto &group = settings.setting_groups[g]; // Cache the current group
+		// 		for (size_t i = 0; i < group.size(); ++i)
+		// 		{
+		// 			auto *setting = group[i]; // Cache the current setting
+
+		// 			String fn = setting->fieldname;
+		// 			fn.replace(" ", "_");
+		// 			fn.toLowerCase();
+		// 			fn.replace("_(sec)", "");
+		// 			fn.replace("_(%%)", "");
+
+		// 			if (setting->getType() != SettingsOptionBase::INT_VECTOR)
+		// 			{
+		// 				fn = String(g) + "," + String(i) + "__" + fn;
+
+		// 				info_printf("Looking for id: %s - ", fn.c_str());
+
+		// 				if (request->hasParam(fn, true))
+		// 				{
+		// 					info_print("Found - ");
+		// 					AsyncWebParameter *_param = request->getParam(fn, true);
+		// 					info_printf("Data: %s\n", String(_param->value().c_str()));
+		// 					// 	settings.config.look_ahead = String(_set_reflow_lookahead->value().c_str()).toInt();
+		// 				}
+		// 				else
+		// 				{
+		// 					info_println("...");
+		// 				}
+		// 			}
+		// 			else
+		// 			{
+		// 				SettingsOptionIntVector *intPtr = static_cast<SettingsOptionIntVector *>(setting);
+		// 				for (size_t v = 0; v < intPtr->vector_size(); v++)
+		// 				{
+		// 					String fn_indexed = String(g) + "," + String(i) + "__" + fn + "_" + String(v);
+
+		// 					info_printf("Looking for id: %s - ", fn_indexed.c_str());
+
+		// 					if (request->hasParam(fn_indexed, true))
+		// 					{
+		// 						info_print("Found - ");
+		// 						AsyncWebParameter *_param = request->getParam(fn_indexed, true);
+		// 						info_printf("Data: %s\n", String(_param->value().c_str()));
+		// 						// 	settings.config.look_ahead = String(_set_reflow_lookahead->value().c_str()).toInt();
+		// 					}
+		// 					else
+		// 					{
+		// 						info_println("...");
+		// 					}
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+
+		// 	Buzzer({{2000, 20}});
+		// 	request->send(200, "text/plain", "Settings Saved!");
+		// });
 
 		info_println("web_server.begin();");
 		web_server.begin();

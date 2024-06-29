@@ -95,6 +95,7 @@ $(function(){initNavTree('settings_8h.html',''); initResizable(); });
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">settings.h File Reference</div></div>
 </div><!--header-->
@@ -108,12 +109,15 @@ $(function(){initNavTree('settings_8h.html',''); initResizable(); });
 <code>#include &quot;<a class="el" href="logging_8h.html">utilities/logging.h</a>&quot;</code><br />
 <code>#include &lt;Preferences.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structwifi__station.html">wifi_station</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_config.html">Config</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsetting__group.html">setting_group</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_settings.html">Settings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,6 +126,13 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d" id="r_ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
 <tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a8dfa1a122b59a38c38cc2824be723338" id="r_a8dfa1a122b59a38c38cc2824be723338"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfa1a122b59a38c38cc2824be723338">SettingType</a> { <a class="el" href="#a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08">CONTROL</a>
+, <a class="el" href="#a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab">WIDGET</a>
+ }</td></tr>
+<tr class="separator:a8dfa1a122b59a38c38cc2824be723338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -140,6 +151,25 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a8dfa1a122b59a38c38cc2824be723338" name="a8dfa1a122b59a38c38cc2824be723338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfa1a122b59a38c38cc2824be723338">&#9670;&#160;</a></span>SettingType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a8dfa1a122b59a38c38cc2824be723338">SettingType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08" name="a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08"></a>CONTROL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab" name="a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab"></a>WIDGET&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>

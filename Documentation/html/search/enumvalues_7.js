@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['none_0',['NONE',['../display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'display.h']]],
-  ['normal_1',['NORMAL',['../display_8h.html#ac7066778400fb6bbc6ba0437606c606fa50d1448013c6f17125caee18aa418af7',1,'display.h']]]
+  ['int_0',['INT',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbab1743b70c928c3f8da2ebdecfb8c7138',1,'SettingsOptionBase']]],
+  ['int_5fvector_1',['INT_VECTOR',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79',1,'SettingsOptionBase']]]
 ];

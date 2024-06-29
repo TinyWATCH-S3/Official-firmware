@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['wake_0',['WAKE',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3a669539d1110f789cf3e282be447c3e77',1,'haptics.h']]],
-  ['wifi_5fconnected_1',['WIFI_CONNECTED',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a7dff20e13d4cccaafe8f5976194ca3c3',1,'wifi_common.h']]],
-  ['wifi_5fconnecting_2',['WIFI_CONNECTING',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221adb2d951879fa890b05f5a7ced70683c2',1,'wifi_common.h']]],
-  ['wifi_5fdisconnected_3',['WIFI_DISCONNECTED',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221ad5eea4330187ea7e6e389f00a75172dd',1,'wifi_common.h']]],
-  ['wifi_5fdone_4',['WIFI_DONE',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a5263ba2668480d3330c11cf3e6057654',1,'wifi_common.h']]],
-  ['wifi_5ferror_5',['WIFI_ERROR',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a4f5a601f990dda41daaf08c491abda5c',1,'wifi_common.h']]],
-  ['wifi_5ferror_5fnossid_6',['WIFI_ERROR_NOSSID',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d',1,'wifi_common.h']]],
-  ['wifi_5fget_5ftime_7',['WIFI_GET_TIME',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a3a6cb56aa4c3e8356e4044424001bc91',1,'wifi_common.h']]],
-  ['wifi_5freset_8',['WIFI_RESET',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc',1,'wifi_common.h']]],
-  ['wifi_5fsetup_9',['WIFI_SETUP',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a730b5a71bcc95c60eb6c966810980846',1,'wifi_common.h']]],
-  ['wifi_5fsetup_5fstep_5f2_10',['WIFI_SETUP_STEP_2',['../wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a201ddba77586e039f043f8fe91701890',1,'wifi_common.h']]]
+  ['touch_5fdouble_0',['TOUCH_DOUBLE',['../touch__event_8h.html#af9360ba7e12726eabae0c635d317ee6aa7b6963a7bd2364941396b049143b29fa',1,'touch_event.h']]],
+  ['touch_5flong_1',['TOUCH_LONG',['../touch__event_8h.html#af9360ba7e12726eabae0c635d317ee6aa2fbc3e6df8e97753ac5836f36ea60d47',1,'touch_event.h']]],
+  ['touch_5fswipe_2',['TOUCH_SWIPE',['../touch__event_8h.html#af9360ba7e12726eabae0c635d317ee6aaca0591cc10446b87310fafdf81279e90',1,'touch_event.h']]],
+  ['touch_5fswipe_5fdown_3',['TOUCH_SWIPE_DOWN',['../touch__event_8h.html#aad47db93cc79e12270b256da6430151aa5fe47657a814dafea2cdc71729b3a83c',1,'touch_event.h']]],
+  ['touch_5fswipe_5fleft_4',['TOUCH_SWIPE_LEFT',['../touch__event_8h.html#aad47db93cc79e12270b256da6430151aab3961688dcb131db7af96cfc2b640c21',1,'touch_event.h']]],
+  ['touch_5fswipe_5fright_5',['TOUCH_SWIPE_RIGHT',['../touch__event_8h.html#aad47db93cc79e12270b256da6430151aada60d0b6cf38c2082eee17bf5cd3b095',1,'touch_event.h']]],
+  ['touch_5fswipe_5funknown_6',['TOUCH_SWIPE_UNKNOWN',['../touch__event_8h.html#aad47db93cc79e12270b256da6430151aa7826a5366942bd3a3bd260a7c99b01d0',1,'touch_event.h']]],
+  ['touch_5fswipe_5fup_7',['TOUCH_SWIPE_UP',['../touch__event_8h.html#aad47db93cc79e12270b256da6430151aad41e3e1dc0101676c6bb3f340f7505ed',1,'touch_event.h']]],
+  ['touch_5ftap_8',['TOUCH_TAP',['../touch__event_8h.html#af9360ba7e12726eabae0c635d317ee6aa45b408db65d03ea7bc9ba92cc8c3abed',1,'touch_event.h']]],
+  ['touch_5funknown_9',['TOUCH_UNKNOWN',['../touch__event_8h.html#af9360ba7e12726eabae0c635d317ee6aa1294ab501d6761aee9e38e482bcdc49a',1,'touch_event.h']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../classtw__app.html#a7739cca09259b216fbb2ff8b39136208',1,'tw_app::name'],['../classtw__control.html#afb4e579aac10eb0681adea2afb85e1a2',1,'tw_control::name'],['../classtw__face.html#ae9b7f7fde655ad5bfee9a4345f9ede3e',1,'tw_face::name'],['../classtw__widget.html#a2cc08490e648fb07fce3320b5e30bf32',1,'tw_widget::name']]],
+  ['name_0',['name',['../structsetting__group.html#af1bbb1af58942e6c804f829f55a5b87c',1,'setting_group::name'],['../classtw__app.html#a7739cca09259b216fbb2ff8b39136208',1,'tw_app::name'],['../classtw__control.html#afb4e579aac10eb0681adea2afb85e1a2',1,'tw_control::name'],['../classtw__face.html#ae9b7f7fde655ad5bfee9a4345f9ede3e',1,'tw_face::name'],['../classtw__widget.html#a2cc08490e648fb07fce3320b5e30bf32',1,'tw_widget::name']]],
   ['navigation_1',['navigation',['../classtw__face.html#ace76516e9533191a6b638c8991fc0393',1,'tw_face']]],
   ['next_5fbattery_5fread_2',['next_battery_read',['../class_battery.html#a3b0dd7d4f3d6eba4238a8ece2eab136b',1,'Battery']]],
   ['next_5fbattery_5ftimeupdate_3',['next_battery_timeupdate',['../class_battery.html#a33e58446ac61ceca0481de49a2675033',1,'Battery']]],

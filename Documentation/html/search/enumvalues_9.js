@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['startup_0',['STARTUP',['../haptics_8h.html#a6f83ae632a44b46e60e151cb0a0be7c3a56f275913421aac16b5efff541f5dfc4',1,'haptics.h']]]
+  ['none_0',['NONE',['../display_8h.html#a04f362029ec2a624fbcb7a30b20ff5f5ac157bdf0b85a40d2619cbc8bc1ae5fe2',1,'display.h']]],
+  ['normal_1',['NORMAL',['../display_8h.html#ac7066778400fb6bbc6ba0437606c606fa50d1448013c6f17125caee18aa418af7',1,'display.h']]]
 ];

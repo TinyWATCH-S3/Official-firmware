@@ -253,35 +253,35 @@ void setup()
 void loop()
 {
 	// Nothing gets past this...  If the battery is too low, the watch cannot operate.
-	if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
-	{
-		if (millis() - tinywatch.low_battery_update_check > 2000)
-		{
-			tinywatch.low_battery_update_check = millis();
+	// if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
+	// {
+	// 	if (millis() - tinywatch.low_battery_update_check > 2000)
+	// 	{
+	// 		tinywatch.low_battery_update_check = millis();
 
-			display.show_low_battery();
-			display.set_backlight(2, true);
+	// 		display.show_low_battery();
+	// 		display.set_backlight(2, true);
 
-			if (tinywatch.vbus_present())
-			{
-				// User has plugged in the USB, so the battery is charging...
-				tinywatch.block_update_low_battery = false;
-				display.show_watch_from_boot();
-				return;
-			}
-			else
-			{
-				float bat_volt = battery.get_voltage(true);
-				if (bat_volt > 2.0 && bat_volt < settings.config.battery.low_volt_cutoff)
-				{
-					// battery is too low, so shutting down the watch power, but we need to make sure
-					// it's not low because it's not initialised yet on wake from sleep or boot
-					digitalWrite(PWR_SHUTDOWN, HIGH);
-				}
-			}
-		}
-		return;
-	}
+	// 		if (tinywatch.vbus_present())
+	// 		{
+	// 			// User has plugged in the USB, so the battery is charging...
+	// 			tinywatch.block_update_low_battery = false;
+	// 			display.show_watch_from_boot();
+	// 			return;
+	// 		}
+	// 		else
+	// 		{
+	// 			float bat_volt = battery.get_voltage(true);
+	// 			if (bat_volt > 2.0 && bat_volt < settings.config.battery.low_volt_cutoff)
+	// 			{
+	// 				// battery is too low, so shutting down the watch power, but we need to make sure
+	// 				// it's not low because it's not initialised yet on wake from sleep or boot
+	// 				digitalWrite(PWR_SHUTDOWN, HIGH);
+	// 			}
+	// 		}
+	// 	}
+	// 	return;
+	// }
 
 	// Process non sleeping battery low state every 5 seconds
 	if (!tinywatch.vbus_present())
@@ -435,7 +435,7 @@ void TinyWATCH::go_to_sleep()
 bool TinyWATCH::vbus_present()
 {
 	bool vbus = digitalRead(VBUS_SENSE);
-	// info_println("vbus "+String(vbus));
+	// info_println("vbus " + String(vbus));
 	return (vbus);
 }
 

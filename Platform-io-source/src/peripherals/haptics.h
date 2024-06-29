@@ -10,13 +10,15 @@ enum Triggers
 	ALARM,
 	HOUR,
 	EVENT,
-	WAKE
+	WAKE,
+	LONGPRESS
 };
 
 class Haptics
 {
 	public:
 		bool init();
+		void go_standby();
 		void play(const std::vector<uint8_t> &sequence);
 		void play_trigger(Triggers trigger);
 
@@ -24,7 +26,7 @@ class Haptics
 
 	private:
 		Adafruit_DRV2605 drv;
-		std::array<std::vector<uint8_t>, 5> sounds;
+		std::array<std::vector<uint8_t>, 6> sounds;
 };
 
 extern Haptics haptics;

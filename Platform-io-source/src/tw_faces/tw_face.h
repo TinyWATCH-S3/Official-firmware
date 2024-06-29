@@ -8,8 +8,17 @@
 #include "settings/settings.h"
 #include <map>
 
+// Controls
+#include "tw_controls/control_Button.h"
+#include "tw_controls/control_Label.h"
+#include "tw_controls/control_Toggle.h"
+#include "tw_controls/control_Value.h"
+#include "tw_controls/control_ValueSlider.h"
+
 class tw_face
 {
+		using CallbackFunction = void (*)();
+
 	public:
 		void add(String _name, uint16_t _update_period, uint32_t req_cpu_speed);
 		void add(String _name, uint _update_period);
@@ -21,6 +30,7 @@ class tw_face
 		void add_widget(tw_widget *widget);
 		bool widget_process_clicks(touch_event_t touch_event);
 		void add_control(tw_control *control);
+		void add_setting_bool(SettingsOptionBool *sett, uint _pos_x, uint _pos_y, uint _width, uint _height, CallbackFunction callback = nullptr);
 		bool control_process_clicks(touch_event_t touch_event);
 		bool is_face_clock_face();
 

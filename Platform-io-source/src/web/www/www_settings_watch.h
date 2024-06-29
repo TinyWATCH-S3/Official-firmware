@@ -1,6 +1,5 @@
 #pragma once
 
-// html strings to be used only from wifi_setup.cpp
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html data-bs-theme="%THEME%">
@@ -22,11 +21,33 @@ const char index_html[] PROGMEM = R"rawliteral(
 				</div>
 			</div>
 
-			<div class="content" style="margin:30px;">
-				<div class="row">
-				</div>
+			<div class="content">
+				
+				%SETTING_OPTIONS%
+
 			</div>
 
 		%FOOTER%
+
+		<script>
+			document.addEventListener('htmx:afterSwap', function(evt) {
+				// Ensure the target container is one of the form containers
+				if (evt.detail.target.id.startsWith("settings_group_")) {
+					var flashSpan = evt.detail.target.querySelector('.flash-span');
+					if (flashSpan) {
+						flashSpan.style.display = 'inline';
+						flashSpan.classList.add('flash_post');
+						setTimeout(function() {
+							flashSpan.classList.remove('flash_post');
+							flashSpan.style.display = 'none';
+						}, 1000); // Adjust the duration as needed
+					}
+				}
+			});
+		</script>
+
+)rawliteral";
+
+const char settings_group_0_description[] PROGMEM = R"rawliteral(
 
 )rawliteral";

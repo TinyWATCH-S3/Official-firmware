@@ -558,6 +558,16 @@ void tw_face::add_control(tw_control *control)
 	}
 }
 
+void tw_face::add_setting_bool(SettingsOptionBool *sett, uint _pos_x, uint _pos_y, uint _width, uint _height, CallbackFunction callback)
+{
+	ControlToggle *control = new ControlToggle();
+	control->create(sett->get_fn(), sett->get_op1(), sett->get_op2(), _pos_x, _pos_y, _width, _height);
+	control->set_data(sett);
+	if (callback != nullptr)
+		control->set_callback(callback);
+	add_control(control);
+}
+
 bool tw_face::control_process_clicks(touch_event_t touch_event)
 {
 	for (int w = 0; w < controls.size(); w++)

@@ -108,6 +108,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d1ae4a817c7a3e94c68d3e2a22289bd" id="r_a2d1ae4a817c7a3e94c68d3e2a22289bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d1ae4a817c7a3e94c68d3e2a22289bd">init</a> ()</td></tr>
 <tr class="memdesc:a2d1ae4a817c7a3e94c68d3e2a22289bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Haptic peripheral for <a class="el" href="class_tiny_w_a_t_c_h.html">TinyWATCH</a> P7 and later.  <br /></td></tr>
 <tr class="separator:a2d1ae4a817c7a3e94c68d3e2a22289bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c457bbc84a394b2f9026d159bc08a9d" id="r_a4c457bbc84a394b2f9026d159bc08a9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c457bbc84a394b2f9026d159bc08a9d">go_standby</a> ()</td></tr>
+<tr class="separator:a4c457bbc84a394b2f9026d159bc08a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c1f6b97552dc679b07ab0414c26dbcf" id="r_a1c1f6b97552dc679b07ab0414c26dbcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c1f6b97552dc679b07ab0414c26dbcf">play</a> (const std::vector&lt; uint8_t &gt; &amp;sequence)</td></tr>
 <tr class="memdesc:a1c1f6b97552dc679b07ab0414c26dbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play a custom haptic sound sequence.  <br /></td></tr>
 <tr class="separator:a1c1f6b97552dc679b07ab0414c26dbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,10 +126,27 @@ Public Attributes</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a24155f3bf1c72ec8fbd784fbea7f5430" id="r_a24155f3bf1c72ec8fbd784fbea7f5430"><td class="memItemLeft" align="right" valign="top">Adafruit_DRV2605&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24155f3bf1c72ec8fbd784fbea7f5430">drv</a></td></tr>
 <tr class="separator:a24155f3bf1c72ec8fbd784fbea7f5430"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a168bc4323a220762af53a02039d359cc" id="r_a168bc4323a220762af53a02039d359cc"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::vector&lt; uint8_t &gt;, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a168bc4323a220762af53a02039d359cc">sounds</a></td></tr>
-<tr class="separator:a168bc4323a220762af53a02039d359cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b5f7fa15d2fb02c85bc3731c409a13" id="r_ad1b5f7fa15d2fb02c85bc3731c409a13"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::vector&lt; uint8_t &gt;, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1b5f7fa15d2fb02c85bc3731c409a13">sounds</a></td></tr>
+<tr class="separator:ad1b5f7fa15d2fb02c85bc3731c409a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c457bbc84a394b2f9026d159bc08a9d" name="a4c457bbc84a394b2f9026d159bc08a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c457bbc84a394b2f9026d159bc08a9d">&#9670;&#160;</a></span>go_standby()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Haptics::go_standby </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2d1ae4a817c7a3e94c68d3e2a22289bd" name="a2d1ae4a817c7a3e94c68d3e2a22289bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d1ae4a817c7a3e94c68d3e2a22289bd">&#9670;&#160;</a></span>init()</h2>
 
@@ -240,8 +259,8 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a168bc4323a220762af53a02039d359cc" name="a168bc4323a220762af53a02039d359cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a168bc4323a220762af53a02039d359cc">&#9670;&#160;</a></span>sounds</h2>
+<a id="ad1b5f7fa15d2fb02c85bc3731c409a13" name="ad1b5f7fa15d2fb02c85bc3731c409a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b5f7fa15d2fb02c85bc3731c409a13">&#9670;&#160;</a></span>sounds</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +269,7 @@ false </dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt;std::vector&lt;uint8_t&gt;, 5&gt; Haptics::sounds</td>
+          <td class="memname">std::array&lt;std::vector&lt;uint8_t&gt;, 6&gt; Haptics::sounds</td>
         </tr>
       </table>
   </td>

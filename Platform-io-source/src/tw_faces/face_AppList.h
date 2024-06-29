@@ -2,6 +2,7 @@
 
 #include "tw_apps/tw_app.h"
 #include "tw_faces/tw_face.h"
+#include "peripherals/haptics.h"
 #include <map>
 
 class FaceAppList : public tw_face

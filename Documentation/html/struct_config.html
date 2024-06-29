@@ -125,10 +125,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3db24df2412a86e25506fc58eb71d948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c1d36660530f571613a4eecff662bb" id="r_a42c1d36660530f571613a4eecff662bb"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42c1d36660530f571613a4eecff662bb">utc_offset</a> = 999</td></tr>
 <tr class="separator:a42c1d36660530f571613a4eecff662bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1894e37758074791cd77b604d5177701" id="r_a1894e37758074791cd77b604d5177701"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1894e37758074791cd77b604d5177701">bl_period_vbus</a> = 60000</td></tr>
-<tr class="separator:a1894e37758074791cd77b604d5177701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8abd4ef60721bba163ea232b783fc25" id="r_ad8abd4ef60721bba163ea232b783fc25"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8abd4ef60721bba163ea232b783fc25">bl_period_vbat</a> = 30000</td></tr>
-<tr class="separator:ad8abd4ef60721bba163ea232b783fc25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9409fc20c81e90eb62ca63fb8ff13c7" id="r_ae9409fc20c81e90eb62ca63fb8ff13c7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9409fc20c81e90eb62ca63fb8ff13c7">bl_period_vbus</a> = {120, 120, 120}</td></tr>
+<tr class="separator:ae9409fc20c81e90eb62ca63fb8ff13c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0abd667189c6d898547736f7e8ebdf33" id="r_a0abd667189c6d898547736f7e8ebdf33"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0abd667189c6d898547736f7e8ebdf33">bl_period_vbat</a> = {30, 45, 60}</td></tr>
+<tr class="separator:a0abd667189c6d898547736f7e8ebdf33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affd9c829c68e4e8d1c976a3fa14e6d35" id="r_affd9c829c68e4e8d1c976a3fa14e6d35"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affd9c829c68e4e8d1c976a3fa14e6d35">bl_level_vbus</a> = {100, 80, 60}</td></tr>
+<tr class="separator:affd9c829c68e4e8d1c976a3fa14e6d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220b8356fc50ed78e5b580f9916a210a" id="r_a220b8356fc50ed78e5b580f9916a210a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a220b8356fc50ed78e5b580f9916a210a">bl_level_vbat</a> = {100, 60, 30}</td></tr>
+<tr class="separator:a220b8356fc50ed78e5b580f9916a210a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b5857809cb30257039307e7aea8a7fc" id="r_a5b5857809cb30257039307e7aea8a7fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b5857809cb30257039307e7aea8a7fc">time_24hour</a> = false</td></tr>
 <tr class="separator:a5b5857809cb30257039307e7aea8a7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8489a73fc9d48a23b00dd5a8e7db4eb1" id="r_a8489a73fc9d48a23b00dd5a8e7db4eb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8489a73fc9d48a23b00dd5a8e7db4eb1">time_dateformat</a> = false</td></tr>
@@ -147,6 +151,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aa811fa8a4f958fe255c04368233f36ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae699be522d4d24ff2c2565bfa473bab2" id="r_ae699be522d4d24ff2c2565bfa473bab2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae699be522d4d24ff2c2565bfa473bab2">audio_on_hour</a> = false</td></tr>
 <tr class="separator:ae699be522d4d24ff2c2565bfa473bab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909d84456bda4a13c0ab16d35c653e8c" id="r_a909d84456bda4a13c0ab16d35c653e8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a909d84456bda4a13c0ab16d35c653e8c">audio_test</a> = false</td></tr>
+<tr class="separator:a909d84456bda4a13c0ab16d35c653e8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab4a104ef4fb114fd16043977d73235" id="r_a7ab4a104ef4fb114fd16043977d73235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ab4a104ef4fb114fd16043977d73235">imu_process_steps</a> = true</td></tr>
 <tr class="separator:a7ab4a104ef4fb114fd16043977d73235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33bf57aa0d6f7b9b03982e5c2695e5be" id="r_a33bf57aa0d6f7b9b03982e5c2695e5be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33bf57aa0d6f7b9b03982e5c2695e5be">imu_process_wrist</a> = false</td></tr>
@@ -211,6 +217,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a909d84456bda4a13c0ab16d35c653e8c" name="a909d84456bda4a13c0ab16d35c653e8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a909d84456bda4a13c0ab16d35c653e8c">&#9670;&#160;</a></span>audio_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Config::audio_test = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab96058cff80a87107bd72619f96261ed" name="ab96058cff80a87107bd72619f96261ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab96058cff80a87107bd72619f96261ed">&#9670;&#160;</a></span>audio_ui</h2>
 
@@ -239,28 +259,56 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8abd4ef60721bba163ea232b783fc25" name="ad8abd4ef60721bba163ea232b783fc25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8abd4ef60721bba163ea232b783fc25">&#9670;&#160;</a></span>bl_period_vbat</h2>
+<a id="a220b8356fc50ed78e5b580f9916a210a" name="a220b8356fc50ed78e5b580f9916a210a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220b8356fc50ed78e5b580f9916a210a">&#9670;&#160;</a></span>bl_level_vbat</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint Config::bl_period_vbat = 30000</td>
+          <td class="memname">std::vector&lt;int&gt; Config::bl_level_vbat = {100, 60, 30}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1894e37758074791cd77b604d5177701" name="a1894e37758074791cd77b604d5177701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1894e37758074791cd77b604d5177701">&#9670;&#160;</a></span>bl_period_vbus</h2>
+<a id="affd9c829c68e4e8d1c976a3fa14e6d35" name="affd9c829c68e4e8d1c976a3fa14e6d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affd9c829c68e4e8d1c976a3fa14e6d35">&#9670;&#160;</a></span>bl_level_vbus</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint Config::bl_period_vbus = 60000</td>
+          <td class="memname">std::vector&lt;int&gt; Config::bl_level_vbus = {100, 80, 60}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0abd667189c6d898547736f7e8ebdf33" name="a0abd667189c6d898547736f7e8ebdf33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0abd667189c6d898547736f7e8ebdf33">&#9670;&#160;</a></span>bl_period_vbat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; Config::bl_period_vbat = {30, 45, 60}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9409fc20c81e90eb62ca63fb8ff13c7" name="ae9409fc20c81e90eb62ca63fb8ff13c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9409fc20c81e90eb62ca63fb8ff13c7">&#9670;&#160;</a></span>bl_period_vbus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; Config::bl_period_vbus = {120, 120, 120}</td>
         </tr>
       </table>
 </div><div class="memdoc">

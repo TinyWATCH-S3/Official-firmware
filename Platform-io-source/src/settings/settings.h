@@ -9,6 +9,7 @@
 #include "utilities/logging.h"
 #include <Preferences.h>
 #include <vector>
+#include <map>
 
 using json = nlohmann::json;
 
@@ -40,8 +41,11 @@ struct Config
 		int16_t utc_offset = 999;
 
 		// Display
-		uint bl_period_vbus = 60000;
-		uint bl_period_vbat = 30000;
+		std::vector<int> bl_period_vbus = {120, 120, 120}; // Seconds
+		std::vector<int> bl_period_vbat = {30, 45, 60};	   // Seconds
+
+		std::vector<int> bl_level_vbus = {100, 80, 60}; // percentage (0-100)
+		std::vector<int> bl_level_vbat = {100, 60, 30}; // percentage (0-100)
 
 		// Time
 		bool time_24hour = false;
@@ -57,6 +61,7 @@ struct Config
 		bool audio_ui = true;
 		bool audio_alarm = true;
 		bool audio_on_hour = false;
+		bool audio_test = false;
 
 		// IMU
 		bool imu_process_steps = true;
@@ -98,11 +103,40 @@ struct Config
 		json last_saved_data;
 };
 
+enum SettingType
+{
+	CONTROL,
+	WIDGET
+};
+
+struct setting_group
+{
+		String name = "";
+		// std::vector<std::vector<SettingsOptionBase *>> setting_groups;
+		SettingType type = SettingType::CONTROL;
+
+		setting_group(String nm, SettingType t) : name(nm), type(t){};
+};
+
 class Settings
 {
 
 	public:
 		Config config;
+
+		std::vector<std::vector<SettingsOptionBase *>> setting_groups;
+		std::vector<setting_group> setting_groups_name;
+
+		Settings()
+		{
+			// Setup settings groups
+			setting_groups_name.push_back(setting_group("General Watch Settings", SettingType::CONTROL));
+			setting_groups_name.push_back(setting_group("Audio Settings", SettingType::CONTROL));
+			setting_groups_name.push_back(setting_group("Haptics Settings", SettingType::CONTROL));
+			setting_groups_name.push_back(setting_group("Display Settings", SettingType::CONTROL));
+			setting_groups_name.push_back(setting_group("Open Weather Settings", SettingType::WIDGET));
+		}
+
 		bool load();
 		bool save(bool force);
 		bool backup();
@@ -115,24 +149,34 @@ class Settings
 		String get_save_status();
 
 		// Add any SettingsOption values here for any settings you want to bind with a tw_Control
-		SettingsOptionBool setting_wifi_start{&config.wifi_start};
-		SettingsOptionBool setting_time_24hour{&config.time_24hour};
-		SettingsOptionBool setting_time_dateformat{&config.time_dateformat};
-		SettingsOptionBool setting_left_handed{&config.left_handed};
-		SettingsOptionBool setting_flipped{&config.flipped};
-		SettingsOptionBool setting_nav_arrows{&config.show_nav_arrows};
+		SettingsOptionBool setting_wifi_start{&config.wifi_start, 0, "Auto WiFi", "NO", "YES"};
+		SettingsOptionBool setting_time_24hour{&config.time_24hour, 0, "Time Mode", "12H", "24H"};
+		SettingsOptionBool setting_time_dateformat{&config.time_dateformat, 0, "Date FMT", "DMY", "MDY"};
+		SettingsOptionBool setting_left_handed{&config.left_handed, 0, "Handed", "LEFT", "RIGHT"};
+		SettingsOptionBool setting_flipped{&config.flipped, 0, "Flipped", "NO", "YES"};
+		SettingsOptionBool setting_nav_arrows{&config.show_nav_arrows, 0, "Nav Arrows", "HIDE", "SHOW"};
 
-		SettingsOptionBool setting_audio_ui{&config.audio_ui};
-		SettingsOptionBool setting_audio_alarm{&config.audio_alarm};
-		SettingsOptionBool setting_audio_on_hour{&config.audio_on_hour};
+		SettingsOptionBool setting_audio_ui{&config.audio_ui, 1, "UI Sound", "NO", "YES"};
+		SettingsOptionBool setting_audio_alarm{&config.audio_alarm, 1, "Alarm Sound", "NO", "YES"};
+		SettingsOptionBool setting_audio_on_hour{&config.audio_on_hour, 1, "Beep Hour", "NO", "YES"};
 
 		// haptics
-		SettingsOptionBool setting_haptics_enabled{&config.haptics.enabled};
-		SettingsOptionBool setting_haptics_trig_boot{&config.haptics.trigger_on_boot};
-		SettingsOptionBool setting_haptics_trig_wake{&config.haptics.trigger_on_wake};
-		SettingsOptionBool setting_haptics_trig_alarm{&config.haptics.trigger_on_alarm};
-		SettingsOptionBool setting_haptics_trig_hour{&config.haptics.trigger_on_hour};
-		SettingsOptionBool setting_haptics_trig_event{&config.haptics.trigger_on_event};
+		SettingsOptionBool setting_haptics_enabled{&config.haptics.enabled, 2, "Enabled", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_boot{&config.haptics.trigger_on_boot, 2, "On Boot", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_wake{&config.haptics.trigger_on_wake, 2, "On Wake", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_alarm{&config.haptics.trigger_on_alarm, 2, "On Alarm", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_hour{&config.haptics.trigger_on_hour, 2, "On Hour", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_event{&config.haptics.trigger_on_event, 2, "On Event", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_longpress{&config.haptics.trigger_on_longpress, 2, "LongPress", "NO", "YES"};
+
+		// Display
+		SettingsOptionIntVector setting_bl_level_vbus{&config.bl_level_vbus, 0, 100, 10, false, 3, "Backlight brightness on USB (%%)"};		// need %% to have it not be PARSED by the string processor :(
+		SettingsOptionIntVector setting_bl_level_vbat{&config.bl_level_vbat, 0, 100, 10, false, 3, "Backlight brightness on Battery (%%)"}; // need %% to have it not be PARSED by the string processor :(
+		SettingsOptionIntVector setting_bl_period_vbus{&config.bl_period_vbus, 0, 600, 1, false, 3, "Backlight duration on USB (Sec)"};
+		SettingsOptionIntVector setting_bl_period_vbat{&config.bl_period_vbat, 0, 600, 1, false, 3, "Backlight duration on Battery (Sec)"};
+
+
+		// Open Weather 
 
 		bool ui_forced_save = false; //
 
