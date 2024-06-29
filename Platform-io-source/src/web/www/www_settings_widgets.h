@@ -14,16 +14,16 @@ const char index_settings_widgets_html[] PROGMEM = R"rawliteral(
 			<div class="content" style="margin:30px;">
 				<div class="row">
 					<div class='col-3'>&nbsp;</div>
-					<div class='col-2 center p-2'><a href='/index.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>WATCH</button></a></div>
-					<div class='col-2 center p-2'><button class='btn btn-sm btn-primary' style='width:130px;'>WIDGETS</button></div>
-					<div class='col-2 center p-2'><a href='/web_settings_apps.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>APPS</button></a></div>
+					<div class='col-2 center'><a href='/index.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>WATCH</button></a></div>
+					<div class='col-2 center'><button class='btn btn-sm btn-primary' style='width:130px;'>WIDGETS</button></div>
+					<div class='col-2 center'><a href='/web_settings_apps.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>APPS</button></a></div>
 					<div class='col-3'>&nbsp;</div>
 				</div>
 			</div>
 
 			<div class="content">
 
-
+				%WIDGET_OPTIONS%
 
 			</div>
 

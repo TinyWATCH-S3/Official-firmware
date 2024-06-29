@@ -24,6 +24,7 @@ var hierarchy =
       [ "SettingsOptionBool", "class_settings_option_bool.html", null ],
       [ "SettingsOptionFloat", "class_settings_option_float.html", null ],
       [ "SettingsOptionInt", "class_settings_option_int.html", null ],
+      [ "SettingsOptionIntRange", "class_settings_option_int_range.html", null ],
       [ "SettingsOptionIntVector", "class_settings_option_int_vector.html", null ],
       [ "SettingsOptionString", "class_settings_option_string.html", null ]
     ] ],

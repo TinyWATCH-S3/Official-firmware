@@ -20,7 +20,8 @@ class SettingsOptionBase
 			BOOL,
 			FLOAT,
 			STRING,
-			INT_VECTOR
+			INT_VECTOR,
+			INT_RANGE
 		};
 
 		virtual Type getType() const
@@ -50,7 +51,7 @@ class SettingsOptionBase
 class SettingsOptionInt : public SettingsOptionBase
 {
 	public:
-		SettingsOptionInt(int *val, int val_min, int val_max, int val_step, bool wrap, int _group, const String &_fn) : setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap)
+		SettingsOptionInt(int *val, int val_min, int val_max, bool wrap, int _group, const String &_fn) : setting_ref(val), value_min(val_min), value_max(val_max), value_wrap(wrap)
 		{
 			group = _group;
 			fieldname = _fn;
@@ -60,6 +61,35 @@ class SettingsOptionInt : public SettingsOptionBase
 		Type getType() const override
 		{
 			return INT;
+		}
+
+		int change(int dir);
+		bool update(int val);
+		int get();
+		String get_str();
+		String generate_html(uint16_t index);
+		void register_option(int grp);
+
+	private:
+		int *setting_ref = nullptr;
+		int value_min = 0;
+		int value_max = 0;
+		bool value_wrap = false;
+};
+
+class SettingsOptionIntRange : public SettingsOptionBase
+{
+	public:
+		SettingsOptionIntRange(int *val, int val_min, int val_max, int val_step, bool wrap, int _group, const String &_fn) : setting_ref(val), value_min(val_min), value_max(val_max), value_step(val_step), value_wrap(wrap)
+		{
+			group = _group;
+			fieldname = _fn;
+			register_option(_group);
+		}
+
+		Type getType() const override
+		{
+			return INT_RANGE;
 		}
 
 		int change(int dir);

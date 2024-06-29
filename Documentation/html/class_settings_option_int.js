@@ -1,6 +1,6 @@
 var class_settings_option_int =
 [
-    [ "SettingsOptionInt", "class_settings_option_int.html#abf89455d55546a6b7bc524933deaa018", null ],
+    [ "SettingsOptionInt", "class_settings_option_int.html#a8d1f9309aea1619b8aaab540d79236b5", null ],
     [ "change", "class_settings_option_int.html#a7fbd39a9425db40e72b5b76aa5f6115b", null ],
     [ "generate_html", "class_settings_option_int.html#a076cc95d2a2d5beacde098f473c31a74", null ],
     [ "get", "class_settings_option_int.html#a953c4eccbc5089485c0a79b6d47b28c2", null ],
@@ -11,6 +11,5 @@ var class_settings_option_int =
     [ "setting_ref", "class_settings_option_int.html#a545e1d2e6f875d5bcb3e45ed3e1dd1f7", null ],
     [ "value_max", "class_settings_option_int.html#ae572c460c560a32e7d8fd5eb7138bbbc", null ],
     [ "value_min", "class_settings_option_int.html#a92f46b19925d7f9a109dc4dba00a733e", null ],
-    [ "value_step", "class_settings_option_int.html#a856b0dee22c4f4ff90e19692211da799", null ],
     [ "value_wrap", "class_settings_option_int.html#a37498070ef5719e25fe917bd2eba025e", null ]
 ];

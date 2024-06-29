@@ -5,6 +5,6 @@ var struct_config__mqtt =
     [ "device_name", "struct_config__mqtt.html#a041eb4589daa385e497875357289c6b0", null ],
     [ "enabled", "struct_config__mqtt.html#aa5e019f121091decbcc1a2dde4812746", null ],
     [ "password", "struct_config__mqtt.html#a18b51efe683e422cf540ca6ff5c88cb1", null ],
-    [ "topic", "struct_config__mqtt.html#a236e6351d75e096abff3f2f39ec58311", null ],
+    [ "topic_listen", "struct_config__mqtt.html#a6176d6200d470abce04913e7b67f4d88", null ],
     [ "username", "struct_config__mqtt.html#a55567c71e966a889409bfde1316fad33", null ]
 ];

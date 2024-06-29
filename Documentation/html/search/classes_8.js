@@ -7,6 +7,7 @@ var searchData=
   ['settingsoptionbool_4',['SettingsOptionBool',['../class_settings_option_bool.html',1,'']]],
   ['settingsoptionfloat_5',['SettingsOptionFloat',['../class_settings_option_float.html',1,'']]],
   ['settingsoptionint_6',['SettingsOptionInt',['../class_settings_option_int.html',1,'']]],
-  ['settingsoptionintvector_7',['SettingsOptionIntVector',['../class_settings_option_int_vector.html',1,'']]],
-  ['settingsoptionstring_8',['SettingsOptionString',['../class_settings_option_string.html',1,'']]]
+  ['settingsoptionintrange_7',['SettingsOptionIntRange',['../class_settings_option_int_range.html',1,'']]],
+  ['settingsoptionintvector_8',['SettingsOptionIntVector',['../class_settings_option_int_vector.html',1,'']]],
+  ['settingsoptionstring_9',['SettingsOptionString',['../class_settings_option_string.html',1,'']]]
 ];

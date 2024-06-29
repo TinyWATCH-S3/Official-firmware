@@ -7,7 +7,8 @@ var settings_8h =
     [ "json", "settings_8h.html#ab701e3ac61a85b337ec5c1abaad6742d", null ],
     [ "SettingType", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338", [
       [ "CONTROL", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08", null ],
-      [ "WIDGET", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab", null ]
+      [ "WIDGET", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab", null ],
+      [ "MQTT", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a3d9883e35c082e84541192595e9b7419", null ]
     ] ],
     [ "settings", "settings_8h.html#a19276c778f3034b94881cf1f8614dbb2", null ]
 ];

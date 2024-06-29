@@ -68,7 +68,7 @@ String WebServer::processor(const String &var)
 
 		return html;
 	}
-	else if (var == "SETTING_WIDGETS")
+	else if (var == "WIDGET_OPTIONS")
 	{
 		String html = "";
 		for (size_t i = 0; i < settings.setting_groups.size(); i++)
@@ -214,6 +214,7 @@ void WebServer::start_callback(bool success, const String &response)
 					fn.replace(" ", "_");
 					fn.toLowerCase();
 					fn.replace("_(sec)", "");
+					fn.replace("_(min)", "");
 					fn.replace("_(%%)", "");
 
 					if (setting->getType() == SettingsOptionBase::INT_VECTOR)
@@ -279,12 +280,16 @@ void WebServer::start_callback(bool success, const String &response)
 								bool updated = intPtr->update(data);
 								info_printf("changed? %s\n", (updated ? "YES" : "no"));
 							}
+							else if (setting->getType() == SettingsOptionBase::INT_RANGE)
+							{
+								int data = String(_param->value().c_str()).toInt();
+								SettingsOptionIntRange *intPtr = static_cast<SettingsOptionIntRange *>(setting);
+								info_printf("Web data: %d, class data %d - ", data, intPtr->get());
+								bool updated = intPtr->update(data);
+								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+							}
 							// info_printf("Data: %s\n", String(_param->value().c_str()));
 							// 	settings.config.look_ahead = String(_set_reflow_lookahead->value().c_str()).toInt();
-						}
-						else
-						{
-							info_println("...");
 						}
 					}
 				}

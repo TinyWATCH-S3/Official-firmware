@@ -6,7 +6,8 @@ var class_settings_option_base =
       [ "BOOL", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaff2163606a559f7abaa47819e7ce7eef", null ],
       [ "FLOAT", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbabb10d60268d140f7dc36ba0ff409b32a", null ],
       [ "STRING", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaf3e41b6d2cca90986e803bd8c1e1d1b4", null ],
-      [ "INT_VECTOR", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79", null ]
+      [ "INT_VECTOR", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79", null ],
+      [ "INT_RANGE", "class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaf97f9deeaece314160ebe7926aa2e903", null ]
     ] ],
     [ "~SettingsOptionBase", "class_settings_option_base.html#a27cc914ad9b2dba28734bb11c7ebdbca", null ],
     [ "convert_for_form_id", "class_settings_option_base.html#ac8d2058a1d40ddf9c37cedaf2f4c0f24", null ],

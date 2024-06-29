@@ -24,5 +24,12 @@ var searchData=
   ['moved_5fy_21',['moved_y',['../display_8cpp.html#a04635b916c5f541c33d0d4d7b911e65f',1,'display.cpp']]],
   ['movement_5factivity_22',['movement_activity',['../class_i_m_u.html#a2b21e9b83326b62a4b1b8a0ae92cfc50',1,'IMU']]],
   ['mqtt_23',['mqtt',['../struct_config.html#ad1c996a549e246a1b7140a8f5dee8652',1,'Config']]],
-  ['my_5fsprite_24',['my_sprite',['../classtw__control.html#a37c4bb7f18e5503b0480799ea1e73e50',1,'tw_control']]]
+  ['mqtt_5fbroker_5fip_24',['mqtt_broker_ip',['../class_settings.html#a8a78770cf0b69be969be6050082b33b9',1,'Settings']]],
+  ['mqtt_5fbroker_5fport_25',['mqtt_broker_port',['../class_settings.html#a7ad4f2b31a9a92bc9b395b0e88cc8c8d',1,'Settings']]],
+  ['mqtt_5fdevice_5fname_26',['mqtt_device_name',['../class_settings.html#a17028de661d6e3c04447f02789387a9d',1,'Settings']]],
+  ['mqtt_5fenabled_27',['mqtt_enabled',['../class_settings.html#a91a244bceb0f573e6686e7efcaddcf39',1,'Settings']]],
+  ['mqtt_5fpassword_28',['mqtt_password',['../class_settings.html#ae89341bd4a3ebe9b048582730115c9f6',1,'Settings']]],
+  ['mqtt_5ftopic_5flisten_29',['mqtt_topic_listen',['../class_settings.html#a8cda991eaa47ec4182fa90822cb315ea',1,'Settings']]],
+  ['mqtt_5fusername_30',['mqtt_username',['../class_settings.html#aa0a9b95ffda2d4ad7a59e2e105517177',1,'Settings']]],
+  ['my_5fsprite_31',['my_sprite',['../classtw__control.html#a37c4bb7f18e5503b0480799ea1e73e50',1,'tw_control']]]
 ];

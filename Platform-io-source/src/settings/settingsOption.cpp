@@ -14,7 +14,7 @@
 int SettingsOptionInt::change(int dir)
 {
 	int current = *setting_ref;
-	current += (dir * value_step);
+	current += dir;
 	if (value_wrap)
 	{
 		if (current > value_max)
@@ -50,10 +50,90 @@ String SettingsOptionInt::get_str() { return String(*setting_ref); }
 
 String SettingsOptionInt::generate_html(uint16_t index)
 {
-	return "<div><span>SettingsOptionInt for " + fieldname + "</span></div>";
+	String fn = fieldname;
+	fn.replace(" ", "_");
+	fn.toLowerCase();
+	fn.replace("_(sec)", "");
+	fn.replace("_(min)", "");
+	fn.replace("_(%%)", "");
+	fn = String(group) + "," + String(index) + "__" + fn;
+
+	String html = "					<div class='input-group input-group-sm'>\n";
+	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
+	html += "						<input type='number' min='" + String(value_min) + "' max='" + String(value_max) + "' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' required>\n";
+	html += "					</div>";
+
+	return html;
 }
 
 void SettingsOptionInt::register_option(int grp)
+{
+	if (settings.setting_groups.size() < grp + 1)
+		settings.setting_groups.push_back({});
+
+	settings.setting_groups[grp].push_back(this);
+}
+
+//
+// INT RANGE
+//
+int SettingsOptionIntRange::change(int dir)
+{
+	int current = *setting_ref;
+	current += (dir * value_step);
+	if (value_wrap)
+	{
+		if (current > value_max)
+			current = value_min;
+		else if (current < value_min)
+			current = value_max;
+	}
+	else
+	{
+		current = constrain(current, value_min, value_max);
+	}
+
+	*setting_ref = current;
+	settings.save(true);
+	// info_println("int: "+String(*setting_ref));
+	return *setting_ref;
+}
+
+bool SettingsOptionIntRange::update(int val)
+{
+	if (*setting_ref == val)
+		return false;
+
+	*setting_ref = val;
+	settings.save(false);
+
+	return true;
+}
+
+int SettingsOptionIntRange::get() { return constrain(*setting_ref, value_min, value_max); }
+
+String SettingsOptionIntRange::get_str() { return String(constrain(*setting_ref, value_min, value_max)); }
+
+String SettingsOptionIntRange::generate_html(uint16_t index)
+{
+	String fn = fieldname;
+	fn.replace(" ", "_");
+	fn.toLowerCase();
+	fn.replace("_(sec)", "");
+	fn.replace("_(min)", "");
+	fn.replace("_(%%)", "");
+	fn = String(group) + "," + String(index) + "__" + fn;
+
+	String html = "					<div class='input-group input-group-sm flex-nowrap mt-1'>\n";
+	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
+	html += "						<input type='range' min='" + String(value_min) + "' max='" + String(value_max) + "' step='" + String(value_step) + "' class='form-range form-range-sm ms-2 me-2 mt-2' id='" + fn + "' name='" + fn + "' value='" + get_str() + "' required oninput='document.getElementById(\"" + fn + "range\").innerHTML = this.value;'>\n";
+	html += "						<span class='input-group-text' id='" + fn + "range'>" + get_str() + "</span>\n";
+	html += "					</div>\n";
+
+	return html;
+}
+
+void SettingsOptionIntRange::register_option(int grp)
 {
 	if (settings.setting_groups.size() < grp + 1)
 		settings.setting_groups.push_back({});
@@ -82,7 +162,7 @@ int SettingsOptionIntVector::change(int index, int dir)
 
 	(*setting_ref)[index] = current;
 	settings.save(true);
-	// info_println("int: "+String(*setting_ref));
+
 	return (*setting_ref)[index];
 }
 
@@ -105,22 +185,13 @@ String SettingsOptionIntVector::get_str(int index) { return String((*setting_ref
 
 String SettingsOptionIntVector::generate_html(uint16_t index)
 {
-	// return "<div><span>SettingsOptionIntVector for " + String(fieldname) + "</span></div>";
-
-	// char *form_element_id = "";
-	// convert_for_form_id(fieldname, form_element_id);
-
-	// info_printf("fieldname: %s\nelement_id: %s\n\n", fieldname, form_element_id);
-
 	String fn = fieldname;
 	fn.replace(" ", "_");
 	fn.toLowerCase();
 	fn.replace("_(sec)", "");
+	fn.replace("_(min)", "");
 	fn.replace("_(%%)", "");
-	// fn = "_set_" + String(index) + "_" + fn;
 	fn = String(group) + "," + String(index) + "__" + fn;
-
-	// info_printf("fieldname: %s\nelement_id: %s\n\n", fieldname, fn);
 
 	String html = "					<div class='input-group input-group-sm mb-1'>\n";
 	html += "						<div class='row g-2'>\n";
@@ -128,14 +199,12 @@ String SettingsOptionIntVector::generate_html(uint16_t index)
 	for (size_t i = 0; i < (*setting_ref).size(); i++)
 	{
 		html += "								<div class='col-sm-4 form-floating'>\n";
-		html += "									<input type='number' class='form-control form-control-sm' id='" + fn + "_" + String(i) + "' name='" + fn + "_" + String(i) + "'value='" + String(get(i)) + "' min='" + String(value_min) + "' max='" + String(value_max) + "' required onchange='' />\n";
+		html += "									<input type='number' class='form-control form-control-sm' id='" + fn + "_" + String(i) + "' name='" + fn + "_" + String(i) + "' value='" + String(get(i)) + "' min='" + String(value_min) + "' max='" + String(value_max) + "' required onchange='' />\n";
 		html += "									<label class='ms-1' for='" + fn + "_" + String(i) + "'>Step " + String(i + 1) + "</label>\n";
 		html += "								</div>\n";
 	}
 	html += "							</div>\n";
 	html += "						</div>\n";
-
-	// info_println(html);
 
 	return html;
 }
@@ -237,7 +306,9 @@ String SettingsOptionBool::generate_html(uint16_t index)
 	String fn = fieldname;
 	fn.replace(" ", "_");
 	fn.toLowerCase();
-	// fn = "_set_" + String(index) + "_" + fn;
+	fn.replace("_(sec)", "");
+	fn.replace("_(min)", "");
+	fn.replace("_(%%)", "");
 	fn = String(group) + "," + String(index) + "__" + fn;
 
 	String html = "					<div class='input-group input-group-sm'>\n";
@@ -255,21 +326,8 @@ String SettingsOptionBool::generate_html(uint16_t index)
 	html += "						</select>\n";
 	html += "					</div>\n";
 
-	// return "<div><span>SettingsOptionBool for " +
-	//    fieldname + "</span></div>";
-
 	return html;
 }
-
-/*
-	<div class='input-group input-group-sm mb-1'>
-		<span class='input-group-text' id='inputGroup-sizing-sm'>Enabled</span>
-		<select class='form-select form-select-sm' id='_set_widget_ow_enable' name='_set_widget_ow_enable'  onchange='set_input_states();'>
-			<option value='1' %SET_WID_OW_ENABLE_YES%>YES</option>
-			<option value='0' %SET_WID_OW_ENABLE_NO%>NO</option>
-		</select>
-	</div>
-*/
 
 void SettingsOptionBool::register_option(int grp)
 {
@@ -293,7 +351,7 @@ bool SettingsOptionString::update(String *val)
 	if (*setting_ref == *val)
 		return false;
 
-	setting_ref = val;
+	*setting_ref = *val;
 	settings.save(false);
 
 	return true;
@@ -303,7 +361,22 @@ String SettingsOptionString::get() { return *setting_ref; }
 
 String SettingsOptionString::generate_html(uint16_t index)
 {
-	return "<div><span>SettingsOptionString for " + fieldname + "</span></div>";
+	// return "<div><span>SettingsOptionString for " + fieldname + "</span></div>";
+
+	String fn = fieldname;
+	fn.replace(" ", "_");
+	fn.toLowerCase();
+	fn.replace("_(sec)", "");
+	fn.replace("_(min)", "");
+	fn.replace("_(%%)", "");
+	fn = String(group) + "," + String(index) + "__" + fn;
+
+	String html = "					<div class='input-group input-group-sm'>\n";
+	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
+	html += "						<input type='text' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' required>\n";
+	html += "					</div>\n";
+
+	return html;
 }
 
 void SettingsOptionString::register_option(int grp)

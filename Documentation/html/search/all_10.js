@@ -12,7 +12,7 @@ var searchData=
   ['pgm_5fget_5ffar_5faddress_9',['pgm_get_far_address',['../bitmaps__watchface_8h.html#a6a3cf9c387d0b6e52219a6a6f7140a76',1,'bitmaps_watchface.h']]],
   ['play_10',['play',['../class_haptics.html#a1c1f6b97552dc679b07ab0414c26dbcf',1,'Haptics']]],
   ['play_5ftrigger_11',['play_trigger',['../class_haptics.html#a8e0fd25b8ef5bdf10c17a135249c3b5b',1,'Haptics']]],
-  ['poll_5ffrequency_12',['poll_frequency',['../struct_config__widget__open__weather.html#a74c52d5a28248d7063c71874fe3fdf3d',1,'Config_widget_open_weather']]],
+  ['poll_5ffrequency_12',['poll_frequency',['../struct_config__widget__open__weather.html#ab0a949419950c45d18fea241d7285a76',1,'Config_widget_open_weather']]],
   ['pop_5fmessage_13',['pop_message',['../class_face_notifications.html#a26b1b8a9a8787d201a7137538f15ac42',1,'FaceNotifications']]],
   ['pos_5fhours_14',['pos_hours',['../class_face_watch___custom_windows.html#af02bb86e764411037b84eb463f25354e',1,'FaceWatch_CustomWindows::pos_hours'],['../class_face_watch___default_analog.html#adf2f5d1695f2646f99c1c195cd6cca62',1,'FaceWatch_DefaultAnalog::pos_hours']]],
   ['pos_5fhours_5frlo_15',['pos_hours_rlo',['../class_face_watch___custom_windows.html#a4d4e8678389263bee847db4bc3b2479e',1,'FaceWatch_CustomWindows']]],

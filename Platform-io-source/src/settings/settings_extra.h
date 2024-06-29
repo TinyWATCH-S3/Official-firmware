@@ -17,7 +17,7 @@ struct Config_mqtt
 		String username = "";
 		String password = "";
 		String device_name = "TinyWATCH";
-		String topic = "tinywatch";
+		String topic_listen = "tinywatch";
 };
 
 /**

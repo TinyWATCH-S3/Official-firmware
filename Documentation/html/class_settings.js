@@ -15,6 +15,13 @@ var class_settings =
     [ "config", "class_settings.html#a4ca1d960902db935f5a7ec3db599b53c", null ],
     [ "last_save_time", "class_settings.html#a142b93e70d4701aec73d790d0636003c", null ],
     [ "max_time_between_saves", "class_settings.html#ae9cfa0afc12575661b57f107fca803e6", null ],
+    [ "mqtt_broker_ip", "class_settings.html#a8a78770cf0b69be969be6050082b33b9", null ],
+    [ "mqtt_broker_port", "class_settings.html#a7ad4f2b31a9a92bc9b395b0e88cc8c8d", null ],
+    [ "mqtt_device_name", "class_settings.html#a17028de661d6e3c04447f02789387a9d", null ],
+    [ "mqtt_enabled", "class_settings.html#a91a244bceb0f573e6686e7efcaddcf39", null ],
+    [ "mqtt_password", "class_settings.html#ae89341bd4a3ebe9b048582730115c9f6", null ],
+    [ "mqtt_topic_listen", "class_settings.html#a8cda991eaa47ec4182fa90822cb315ea", null ],
+    [ "mqtt_username", "class_settings.html#aa0a9b95ffda2d4ad7a59e2e105517177", null ],
     [ "nvs", "class_settings.html#ab1656c5e0b8259976be7cfd2d720459d", null ],
     [ "setting_audio_alarm", "class_settings.html#a7b75bfb359b1533477accd5e65601f60", null ],
     [ "setting_audio_on_hour", "class_settings.html#a7b06db15a01da9758da6e7eedd692ad2", null ],
@@ -38,5 +45,8 @@ var class_settings =
     [ "setting_time_24hour", "class_settings.html#aa42da92c05be487651de3a57ba3a53b0", null ],
     [ "setting_time_dateformat", "class_settings.html#ab8a0fdb8c98a2f7738995106b522f17d", null ],
     [ "setting_wifi_start", "class_settings.html#a509f772f09ffc6fff7979da55a31a39e", null ],
-    [ "ui_forced_save", "class_settings.html#ae2fc8f423e48dd7d0c62018b3d27ed8b", null ]
+    [ "ui_forced_save", "class_settings.html#ae2fc8f423e48dd7d0c62018b3d27ed8b", null ],
+    [ "widget_ow_apikey", "class_settings.html#a4e9ff3aafa4fe8c0effc301873408d5b", null ],
+    [ "widget_ow_enabled", "class_settings.html#a9f6887ecb811c3f2bfb6d9928c23690f", null ],
+    [ "widget_ow_poll_interval", "class_settings.html#a65a2a1d4de2c9392e83233b7fe89bbcb", null ]
 ];

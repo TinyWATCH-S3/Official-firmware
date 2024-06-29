@@ -6,7 +6,7 @@ var searchData=
   ['pass_3',['pass',['../class_wifi_setup.html#a8c2cff3d823467e8c50e593d6380e34d',1,'WifiSetup']]],
   ['password_4',['password',['../struct_config__mqtt.html#a18b51efe683e422cf540ca6ff5c88cb1',1,'Config_mqtt']]],
   ['perc_5foffset_5',['perc_offset',['../struct_config__widget__battery.html#a0dc47de0103494dce57a9405e4db120c',1,'Config_widget_battery']]],
-  ['poll_5ffrequency_6',['poll_frequency',['../struct_config__widget__open__weather.html#a74c52d5a28248d7063c71874fe3fdf3d',1,'Config_widget_open_weather']]],
+  ['poll_5ffrequency_6',['poll_frequency',['../struct_config__widget__open__weather.html#ab0a949419950c45d18fea241d7285a76',1,'Config_widget_open_weather']]],
   ['pos_5fhours_7',['pos_hours',['../class_face_watch___custom_windows.html#af02bb86e764411037b84eb463f25354e',1,'FaceWatch_CustomWindows::pos_hours'],['../class_face_watch___default_analog.html#adf2f5d1695f2646f99c1c195cd6cca62',1,'FaceWatch_DefaultAnalog::pos_hours']]],
   ['pos_5fhours_5frlo_8',['pos_hours_rlo',['../class_face_watch___custom_windows.html#a4d4e8678389263bee847db4bc3b2479e',1,'FaceWatch_CustomWindows']]],
   ['pos_5fhours_5frro_9',['pos_hours_rro',['../class_face_watch___custom_windows.html#a178a331baf5c576d2c0f88449f1b4240',1,'FaceWatch_CustomWindows']]],

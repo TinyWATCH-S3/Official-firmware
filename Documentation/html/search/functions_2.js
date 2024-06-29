@@ -1,7 +1,7 @@
 var searchData=
 [
   ['can_5fdrag_0',['can_drag',['../classtw__control.html#aa3fc23052c65d981862bbcecc847ea10',1,'tw_control']]],
-  ['change_1',['change',['../class_settings_option_int.html#a7fbd39a9425db40e72b5b76aa5f6115b',1,'SettingsOptionInt::change()'],['../class_settings_option_int_vector.html#a18195bbadff7506d4c77e5633445566a',1,'SettingsOptionIntVector::change()'],['../class_settings_option_float.html#ac45866017f12bfce12d4f5f89679b166',1,'SettingsOptionFloat::change()'],['../class_settings_option_bool.html#acc530a61661b28b28607b8a22104269e',1,'SettingsOptionBool::change()'],['../class_settings_option_string.html#a636661d1526c162679c9a846611b58b5',1,'SettingsOptionString::change()']]],
+  ['change_1',['change',['../class_settings_option_int.html#a7fbd39a9425db40e72b5b76aa5f6115b',1,'SettingsOptionInt::change()'],['../class_settings_option_int_range.html#ad878113b5c3ff126615bf17a48ce2fbf',1,'SettingsOptionIntRange::change()'],['../class_settings_option_int_vector.html#a18195bbadff7506d4c77e5633445566a',1,'SettingsOptionIntVector::change()'],['../class_settings_option_float.html#ac45866017f12bfce12d4f5f89679b166',1,'SettingsOptionFloat::change()'],['../class_settings_option_bool.html#acc530a61661b28b28607b8a22104269e',1,'SettingsOptionBool::change()'],['../class_settings_option_string.html#a636661d1526c162679c9a846611b58b5',1,'SettingsOptionString::change()']]],
   ['check_5fcan_5fdrag_5fin_5fdir_2',['check_can_drag_in_dir',['../classtw__face.html#af8cea071acc43cdd4c9d5c722eb398d3',1,'tw_face']]],
   ['check_5finterrupt_3',['check_interrupt',['../class_r_t_c.html#a6f545dc205dc7efda261842c752eabb1',1,'RTC']]],
   ['clear_5falert_5fstatus_4',['clear_alert_status',['../class_battery.html#a0c3aac494aa0aecc3f7bbbba2c50fb45',1,'Battery']]],

@@ -45,6 +45,7 @@ var annotated_dup =
     [ "SettingsOptionBool", "class_settings_option_bool.html", "class_settings_option_bool" ],
     [ "SettingsOptionFloat", "class_settings_option_float.html", "class_settings_option_float" ],
     [ "SettingsOptionInt", "class_settings_option_int.html", "class_settings_option_int" ],
+    [ "SettingsOptionIntRange", "class_settings_option_int_range.html", "class_settings_option_int_range" ],
     [ "SettingsOptionIntVector", "class_settings_option_int_vector.html", "class_settings_option_int_vector" ],
     [ "SettingsOptionString", "class_settings_option_string.html", "class_settings_option_string" ],
     [ "TinyWATCH", "class_tiny_w_a_t_c_h.html", "class_tiny_w_a_t_c_h" ],
