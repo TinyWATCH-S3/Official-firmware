@@ -188,8 +188,6 @@ void WebServer::start_callback(bool success, const String &response)
 
 		web_server.on("/web_settings_widgets.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_html, processor); });
 
-		web_server.on("/widgets_form_ow", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_form_ow, processor); });
-
 		web_server.onNotFound([](AsyncWebServerRequest *request) { request->send(404, "text/plain", "Not found"); });
 
 		web_server.on("/update_widget_ow", HTTP_POST, [](AsyncWebServerRequest *request) {

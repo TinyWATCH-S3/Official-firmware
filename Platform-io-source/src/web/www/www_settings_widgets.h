@@ -29,61 +29,21 @@ const char index_settings_widgets_html[] PROGMEM = R"rawliteral(
 
 		%FOOTER%
 
-)rawliteral";
-
-/*
-				<div hx-get="/widgets_form_ow" hx-trigger="load">
-				</div>
-*/
-
-const char index_settings_widgets_form_ow[] PROGMEM = R"rawliteral(
-
-	<form hx-post="/update_widget_ow" hx-swap="innerHTML settle:1s" hx-target="#widget_ow_form_result">
-
-		<div class="container">
-
-			<span class="settings_heading">Open Weather</span>
-			<div class="settings_frame" style="margin-bottom:5px; padding-bottom:5px;">
-
-				<div class="row">
-					<div class="col-6">
-
-						<div class="input-group input-group-sm mb-1">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Enabled</span>
-							<select class="form-select form-select-sm" id="_set_widget_ow_enable" name="_set_widget_ow_enable"  onchange="set_input_states();">
-								<option value="1" %SET_WID_OW_ENABLE_YES%>YES</option>
-								<option value="0" %SET_WID_OW_ENABLE_NO%>NO</option>
-							</select>
-						</div>
-						
-					</div>
-					<div class="col-6">
-
-						<div class="input-group input-group-sm mb-1">
-							<span class="input-group-text" id="inputGroup-sizing-sm">API KEY</span>
-							<input type="text" class="form-control form-control-sm" name="_set_widget_ow_api_key" id="_set_widget_ow_api_key" value="%SET_WID_OW_API_KEY%" required onchange="" />
-						</div>
-
-					</div>
-				</div>
-				<div class="row">
-
-					<div class="col-6">
-
-						<div class="input-group input-group-sm mb-1 flex-nowrap">
-							<span class="input-group-text" id="inputGroup-sizing-sm">Poll Frequency</span>
-							<input type="number" class="form-control form-control-sm" name="_set_widget_ow_poll_frequency" id="_set_widget_ow_poll_frequency" value="%SET_WID_OW_POLL_FREQ%" required onchange="" />
-						</div>
-
-					</div>
-
-					<div class="col-6 form_save text-end" id="widget_ow_form_result">
-						<button type="submit" class="btn btn-sm btn-primary">UPDATE</button>
-					</div>
-						
-				</div>
-			</div>
-		</div>
-	</form>
+		<script>
+			document.addEventListener('htmx:afterSwap', function(evt) {
+				// Ensure the target container is one of the form containers
+				if (evt.detail.target.id.startsWith("settings_group_")) {
+					var flashSpan = evt.detail.target.querySelector('.flash-span');
+					if (flashSpan) {
+						flashSpan.style.display = 'inline';
+						flashSpan.classList.add('flash_post');
+						setTimeout(function() {
+							flashSpan.classList.remove('flash_post');
+							flashSpan.style.display = 'none';
+						}, 1000); // Adjust the duration as needed
+					}
+				}
+			});
+		</script>
 
 )rawliteral";
