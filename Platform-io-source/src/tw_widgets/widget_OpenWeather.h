@@ -27,6 +27,7 @@ class WidgetOpenWeather : public tw_widget
 		int16_t _humidity = 0;
 		String _icon_name = "";
 		String _icon_desc = "";
+		String _weather_desc = "";
 		uint8_t stat = 0;
 
 		std::map<String, const uint16_t *> ow_icons;

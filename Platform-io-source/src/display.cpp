@@ -42,7 +42,7 @@ Display display;
 #include "tw_widgets/widget_ESP32.h"
 #include "tw_widgets/widget_Message.h"
 #include "tw_widgets/widget_Wifi.h"
-// #include "tw_widgets/widget_OpenWeather.h"
+#include "tw_widgets/widget_OpenWeather.h"
 
 // Controls
 #include "tw_controls/control_Button.h"
@@ -262,6 +262,10 @@ void Display::createFaces(bool was_sleeping)
 	WidgetActivityRing *wActivity = new WidgetActivityRing();
 	wActivity->create("Activity", 40, 218, 40, 40, 1000);
 
+	WidgetOpenWeather *wWeather = new WidgetOpenWeather();
+	wWeather->create("Weather", 172, 180, 90, 90, 5000);
+	// face_watch.add_widget(wWeather);
+
 	// Used to show the current CPU frequency on a watch face
 	// WidgetESP32 * wESP32 = new WidgetESP32();
 	// wESP32->create("ESP32", 50, 5, 32, 24, 500);
@@ -277,6 +281,7 @@ void Display::createFaces(bool was_sleeping)
 	face_watch_default_analog.add_widget(wBattery);
 	face_watch_default_analog.add_widget(wActivity);
 	face_watch_default_analog.add_widget(wWifi);
+	face_watch_default_analog.add_widget(wWeather);
 
 	face_watch_default_digital.add_clock("Clock_Def_Digital", 1000);
 	// face_watch_default_digital.add_widget(wBattery);

@@ -8,6 +8,6 @@ var settings_8cpp =
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a2a9a9bbd2df6b17a84bfa72dd336877a", null ],
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#ac0813fcaf6fdc8a3c2ba1a40ce685d24", null ],
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#ac5816d9f4f00bfa170b06ce32ee3a9c9", null ],
-    [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#af4a6d28c36cbeaaa4715ac47df04cf73", null ],
+    [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a1ec01be28217864976843d77d7655f16", null ],
     [ "settings", "settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2", null ]
 ];

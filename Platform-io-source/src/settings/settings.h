@@ -210,7 +210,7 @@ class Settings
 		static const int max_backups = 10;
 		static long backupNumber(const String);
 
-		unsigned long max_time_between_saves = 60000; // every 1 min
+		unsigned long max_time_between_saves = 30000; // every 30 seconds
 		unsigned long last_save_time = 0;
 
 		void log_to_nvs(const char *key, const char *log);

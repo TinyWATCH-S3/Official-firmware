@@ -2,6 +2,10 @@
 #include "bitmaps/bitmaps_ow.h"
 #include "settings/settings.h"
 #include "web/wifi_controller.h"
+#include "fonts/Clock_Digits.h"
+#include "fonts/RobotoMono_Light_All.h"
+#include "fonts/RobotoMono_Regular_All.h"
+#include "fonts/Roboto_Regular18.h"
 
 using json = nlohmann::json;
 
@@ -52,6 +56,7 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 		{
 			_temp = (uint16_t)(main.value("temp", 0));
 			_humidity = (uint16_t)(main.value("humidity", 0));
+			info_printf("Temp: %d, Humidity: %d\n", _temp, _humidity);
 		}
 
 		json weather = data["weather"];
@@ -59,7 +64,9 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 		{
 			_icon_name = weather[0]["icon"];
 			_icon_desc = weather[0]["description"];
-			info_println(_icon_name + " - " + _icon_desc);
+			_weather_desc = weather[0]["main"];
+			_weather_desc.toUpperCase();
+			info_println(_icon_name + " - " + _icon_desc + "(" + _weather_desc + ")");
 		}
 	}
 	catch (json::exception &e)
@@ -72,9 +79,16 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 
 void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 {
-	if (millis() - next_update > settings.config.open_weather.poll_frequency || next_update == 0)
+	// we want the poll_frequency to be (mins in millis, so mins * 60 * 1000)
+	if (millis() - next_update > (settings.config.open_weather.poll_frequency * 60000) || next_update == 0)
 	{
 		next_update = millis();
+
+		if (settings.config.open_weather.api_key.isEmpty() || !settings.config.open_weather.enabled)
+		{
+			// No OW key assigned, or widget not enabled, so dont display anything and exit.
+			return;
+		}
 
 		if (!icons_loaded)
 		{
@@ -82,35 +96,49 @@ void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 			load_icons();
 		}
 
-		if (settings.config.open_weather.api_key.isEmpty())
-		{
-			// No OW key assigned, so dont display anything and exit.
-			return;
-		}
-
 		// Let's see if we can get the data from openweather.org
 		String url = build_server_path();
 		if (!url.isEmpty())
 		{
-			wifi_controller.add_to_queue(url, [](bool success, const String &response) { ow_widget.process_weather_data(success, response); });
+			wifi_controller.add_to_queue(url, [this](bool success, const String &response) { this->process_weather_data(success, response); });
 		}
 	}
 
 	// Only show the widget visuals is the temp has been set (> -999)
 	if (_temp > 0)
 	{
-		canvas[canvasid].fillRoundRect(pos_x, pos_y, width, height, 8, 0);
-		canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 8, RGB(0x44, 0x44, 0x44));
-		canvas[canvasid].setTextColor(RGB(0xAA, 0xAA, 0xCC));
+		if (false)
+		{
+			canvas[canvasid].fillRoundRect(pos_x, pos_y, width, height, 8, 0);
+			canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 8, RGB(0x44, 0x44, 0x44));
+			canvas[canvasid].setTextColor(RGB(0xAA, 0xAA, 0xCC));
 
-		if (ow_icons.count(_icon_name) > 0)
-			canvas[canvasid].pushImage(pos_x + (width / 2 - 36), pos_y + 2, 72, 72, ow_icons[_icon_name]);
+			if (ow_icons.count(_icon_name) > 0)
+				canvas[canvasid].pushImage(pos_x + (width / 2 - 36), pos_y + 2, 72, 72, ow_icons[_icon_name]);
 
-		canvas[canvasid].setTextDatum(4); // Middle, Center
-		if (stat == 0)
-			canvas[canvasid].drawString(String(_temp) + "C", pos_x + (width / 2), pos_y + (height)-16);
-		else if (stat == 1)
-			canvas[canvasid].drawString(String(_humidity) + "%", pos_x + (width / 2), pos_y + (height)-16);
+			canvas[canvasid].setTextDatum(4); // Middle, Center
+			if (stat == 0)
+				canvas[canvasid].drawString(String(_temp) + "C", pos_x + (width / 2), pos_y + (height)-16);
+			else if (stat == 1)
+				canvas[canvasid].drawString(String(_humidity) + "%", pos_x + (width / 2), pos_y + (height)-16);
+		}
+		else
+		{
+			int center_y = 131;
+			canvas[canvasid].setTextDatum(TR_DATUM);
+			canvas[canvasid].setFreeFont(RobotoMono_Regular[13]);
+			canvas[canvasid].setTextColor(RGB(0x15, 0x15, 0x15), RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].drawString(_weather_desc.substring(0, 6), display.center_x - 10, center_y - 43);
+			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
+			canvas[canvasid].drawString(String(_humidity) + "%", display.center_x - 10, center_y - 21);
+			canvas[canvasid].setFreeFont(&Roboto_Regular18);
+			canvas[canvasid].setTextColor(RGB(0x00, 0x45, 0xaa), RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].drawString(String(_temp) + "C", display.center_x - 10, center_y + 8);
+		}
+	}
+	else
+	{
+		// info_printf("DRAW - Temp: %d, Humidity: %d\n", _temp, _humidity);
 	}
 }
 
@@ -126,3 +154,5 @@ bool WidgetOpenWeather::process_touch(touch_event_t touch_event)
 
 	return false;
 }
+
+WidgetOpenWeather ow_widget;

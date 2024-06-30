@@ -10,6 +10,7 @@ var class_widget_open_weather =
     [ "_icon_desc", "class_widget_open_weather.html#a3ace13083a80530548a823f9a93d2230", null ],
     [ "_icon_name", "class_widget_open_weather.html#aef8bacdd08f8cd1a00a0b7f80666dfe2", null ],
     [ "_temp", "class_widget_open_weather.html#a5b9de60e8e6edfbad8dc88df67194e83", null ],
+    [ "_weather_desc", "class_widget_open_weather.html#a1723151311e8afdbaa03e31a5fc952d6", null ],
     [ "icons_loaded", "class_widget_open_weather.html#a321bcf6eefc774f9569791a4d140b4fb", null ],
     [ "next_update", "class_widget_open_weather.html#a87784c33a5bfd2e790a6f6744b3bcb64", null ],
     [ "ow_icons", "class_widget_open_weather.html#a613462263599f2c0a6753439544e149e", null ],

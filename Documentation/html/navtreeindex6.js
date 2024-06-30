@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a201ddba77586e039f043f8fe91701890":[3,0,1,9,3,0,2],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a3a6cb56aa4c3e8356e4044424001bc91":[3,0,1,9,3,0,6],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a4f5a601f990dda41daaf08c491abda5c":[3,0,1,9,3,0,8],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a5263ba2668480d3330c11cf3e6057654":[3,0,1,9,3,0,7],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a730b5a71bcc95c60eb6c966810980846":[3,0,1,9,3,0,1],
@@ -25,5 +27,5 @@ var NAVTREEINDEX6 =
 "www__settings__watch_8h.html":[3,0,1,9,0,2],
 "www__settings__watch_8h.html#a0636a7ee7da25093b870ac94f55f2e2b":[3,0,1,9,0,2,0],
 "www__settings__widgets_8h.html":[3,0,1,9,0,3],
-"www__settings__widgets_8h.html#ac110d334392c956a153e2289eebc725f":[3,0,1,9,0,3,0]
+"www__settings__widgets_8h.html#a6886194a6e6788f13864f284bd7beb88":[3,0,1,9,0,3,0]
 };

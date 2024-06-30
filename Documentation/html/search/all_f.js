@@ -13,6 +13,6 @@ var searchData=
   ['overview_10',['Project Overview',['../index.html#autotoc_md10',1,'']]],
   ['overview_2emd_11',['overview.md',['../overview_8md.html',1,'']]],
   ['ow_5ficons_12',['ow_icons',['../class_widget_open_weather.html#a613462263599f2c0a6753439544e149e',1,'WidgetOpenWeather']]],
-  ['ow_5fwidget_13',['ow_widget',['../widget___open_weather_8h.html#a440c748ee82af45ecd29475d19378ea9',1,'widget_OpenWeather.h']]],
+  ['ow_5fwidget_13',['ow_widget',['../widget___open_weather_8cpp.html#a440c748ee82af45ecd29475d19378ea9',1,'ow_widget:&#160;widget_OpenWeather.cpp'],['../widget___open_weather_8h.html#a440c748ee82af45ecd29475d19378ea9',1,'ow_widget:&#160;widget_OpenWeather.cpp']]],
   ['owner_14',['owner',['../classtw__app.html#af0a4b68423257bdeaa3c8ea77635a48f',1,'tw_app']]]
 ];

@@ -39,23 +39,6 @@ String WebServer::processor(const String &var)
 			return String(css);
 		}
 	}
-	// WIDGETS
-	else if (var == "SET_WID_OW_ENABLE_YES")
-	{
-		return (settings.config.open_weather.enabled ? "selected" : "");
-	}
-	else if (var == "SET_WID_OW_ENABLE_NO")
-	{
-		return (settings.config.open_weather.enabled ? "" : "selected");
-	}
-	else if (var == "SET_WID_OW_API_KEY")
-	{
-		return String(settings.config.open_weather.api_key);
-	}
-	else if (var == "SET_WID_OW_POLL_FREQ")
-	{
-		return String(settings.config.open_weather.poll_frequency);
-	}
 
 	else if (var == "SETTING_OPTIONS")
 	{
@@ -190,22 +173,22 @@ void WebServer::start_callback(bool success, const String &response)
 
 		web_server.onNotFound([](AsyncWebServerRequest *request) { request->send(404, "text/plain", "Not found"); });
 
-		web_server.on("/update_widget_ow", HTTP_POST, [](AsyncWebServerRequest *request) {
-			AsyncWebParameter *ow_enable = request->getParam("_set_widget_ow_enable", true);
-			settings.config.open_weather.enabled = (String(ow_enable->value().c_str()) == "1");
+		// web_server.on("/update_widget_ow", HTTP_POST, [](AsyncWebServerRequest *request) {
+		// 	AsyncWebParameter *ow_enable = request->getParam("_set_widget_ow_enable", true);
+		// 	settings.config.open_weather.enabled = (String(ow_enable->value().c_str()) == "1");
 
-			AsyncWebParameter *ow_api_key = request->getParam("_set_widget_ow_api_key", true);
-			settings.config.open_weather.api_key = String(ow_api_key->value().c_str());
-			settings.config.open_weather.api_key.trim();
+		// 	AsyncWebParameter *ow_api_key = request->getParam("_set_widget_ow_api_key", true);
+		// 	settings.config.open_weather.api_key = String(ow_api_key->value().c_str());
+		// 	settings.config.open_weather.api_key.trim();
 
-			AsyncWebParameter *ow_poll_frequency = request->getParam("_set_widget_ow_poll_frequency", true);
-			settings.config.open_weather.poll_frequency = String(ow_poll_frequency->value().c_str()).toInt();
+		// 	AsyncWebParameter *ow_poll_frequency = request->getParam("_set_widget_ow_poll_frequency", true);
+		// 	settings.config.open_weather.poll_frequency = String(ow_poll_frequency->value().c_str()).toInt();
 
-			info_println("Widget OW Save!");
+		// 	info_println("Widget OW Save!");
 
-			Buzzer({{2000, 100}});
-			request->send(200, "text/plain", "Settings Saved!");
-		});
+		// 	Buzzer({{2000, 100}});
+		// 	request->send(200, "text/plain", "Settings Saved!");
+		// });
 
 		web_server.on("/update_settings_group", HTTP_POST, [](AsyncWebServerRequest *request) {
 			if (request->hasParam("group_id", true))

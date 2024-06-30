@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"rtc_8cpp.html#a6a111b83a9cd857fcdf09e1726a0fbba":[3,0,1,2,8,0],
 "rtc_8cpp.html#a6bd950625db0f240acc63a9cb41873f6":[3,0,1,2,8,4],
 "rtc_8cpp.html#abcb4cacf52bf654a9d5adbbde8893b0d":[3,0,1,2,8,1],
 "rtc_8cpp.html#aeab314524096f5423acf1fe3905b2acf":[3,0,1,2,8,2],
@@ -8,6 +9,7 @@ var NAVTREEINDEX5 =
 "rtc_8h.html#afa7e240c7456eaf5ef27ee8be3a23bd4":[3,0,1,2,9,2],
 "settings_8cpp.html":[3,0,1,3,0],
 "settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2":[3,0,1,3,0,9],
+"settings_8cpp.html#a1ec01be28217864976843d77d7655f16":[3,0,1,3,0,8],
 "settings_8cpp.html#a2a9a9bbd2df6b17a84bfa72dd336877a":[3,0,1,3,0,5],
 "settings_8cpp.html#a4db085ceb431a59fbdc28a8cdb1262de":[3,0,1,3,0,1],
 "settings_8cpp.html#a708e8194bbe2ececd850e82f6a52391f":[3,0,1,3,0,4],
@@ -16,7 +18,6 @@ var NAVTREEINDEX5 =
 "settings_8cpp.html#ac0813fcaf6fdc8a3c2ba1a40ce685d24":[3,0,1,3,0,6],
 "settings_8cpp.html#ac5816d9f4f00bfa170b06ce32ee3a9c9":[3,0,1,3,0,7],
 "settings_8cpp.html#ae806cbca279f16fde746aa6f0dd673f8":[3,0,1,3,0,3],
-"settings_8cpp.html#af4a6d28c36cbeaaa4715ac47df04cf73":[3,0,1,3,0,8],
 "settings_8h.html":[3,0,1,3,1],
 "settings_8h.html#a19276c778f3034b94881cf1f8614dbb2":[3,0,1,3,1,6],
 "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338":[3,0,1,3,1,5],
@@ -239,6 +240,7 @@ var NAVTREEINDEX5 =
 "widget___message_8cpp.html":[3,0,1,7,8],
 "widget___message_8h.html":[3,0,1,7,9],
 "widget___open_weather_8cpp.html":[3,0,1,7,10],
+"widget___open_weather_8cpp.html#a440c748ee82af45ecd29475d19378ea9":[3,0,1,7,10,1],
 "widget___open_weather_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,1,7,10,0],
 "widget___open_weather_8h.html":[3,0,1,7,11],
 "widget___open_weather_8h.html#a440c748ee82af45ecd29475d19378ea9":[3,0,1,7,11,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "wifi__common_8h.html":[3,0,1,9,3],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d":[3,0,1,9,3,0,9],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a201ddba77586e039f043f8fe91701890":[3,0,1,9,3,0,2],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a3a6cb56aa4c3e8356e4044424001bc91":[3,0,1,9,3,0,6]
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10]
 };

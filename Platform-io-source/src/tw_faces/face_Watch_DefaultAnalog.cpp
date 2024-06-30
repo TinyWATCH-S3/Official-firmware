@@ -37,7 +37,7 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			canvas[canvasid].setTextColor(TFT_WHITE);
 
 			canvas[canvasid].fillCircle(center_x, center_y, face_radius, RGB(0x45, 0x45, 0x45));
-			canvas[canvasid].setTextDatum(0); // Middle, Center
+			canvas[canvasid].setTextDatum(TL_DATUM); // Top, Left
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
 			canvas[canvasid].setTextColor(0, RGB(0x45, 0x45, 0x45));
 			canvas[canvasid].drawString(rtc.get_day_of_week(), center_x + 10, center_y - 43);
@@ -55,6 +55,8 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			canvas[canvasid].setFreeFont(RobotoMono_Light[5]);
 			canvas[canvasid].setTextDatum(4);
 
+			draw_children(false, 0);
+
 			int hours = rtc.get_hours();
 
 			if (hours > 12)
@@ -70,8 +72,6 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			canvas[canvasid].fillCircle(pos_secs[secs][0], pos_secs[secs][1], 5, RGB(0x00, 0x65, 0xff));
 
 			canvas[canvasid].fillCircle(center_x, center_y, 6, 0);
-
-			draw_children(false, 0);
 
 			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
 		}
