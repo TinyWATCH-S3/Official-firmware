@@ -92,7 +92,7 @@ String WebServer::generate_settings_html(int group_id)
 
 	for (size_t i = 0; i < group_name.groups.size(); ++i)
 	{
-		html += "				<div class='col-6'>\n";
+		html += "				<div class='col-6 pb-1'>\n";
 		html += group_name.groups[i]->generate_html(i);
 		html += "				</div>\n";
 	}

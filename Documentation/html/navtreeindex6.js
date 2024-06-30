@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d":[3,0,1,9,3,0,9],
+"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a201ddba77586e039f043f8fe91701890":[3,0,1,9,3,0,2],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a3a6cb56aa4c3e8356e4044424001bc91":[3,0,1,9,3,0,6],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a4f5a601f990dda41daaf08c491abda5c":[3,0,1,9,3,0,8],

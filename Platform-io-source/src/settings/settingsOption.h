@@ -203,7 +203,7 @@ class SettingsOptionBool : public SettingsOptionBase
 class SettingsOptionString : public SettingsOptionBase
 {
 	public:
-		SettingsOptionString(String *val, int _group, const String &_fn) : setting_ref(val)
+		SettingsOptionString(String *val, int _group, const String &_fn, bool req = true) : setting_ref(val), required_field(req)
 		{
 			group = _group;
 			fieldname = _fn;
@@ -222,4 +222,5 @@ class SettingsOptionString : public SettingsOptionBase
 
 	private:
 		String *setting_ref = nullptr;
+		bool required_field = true;
 };

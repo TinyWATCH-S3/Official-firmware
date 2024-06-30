@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"rtc_8cpp.html":[3,0,1,2,8],
+"rtc_8cpp.html#a1950b74d251f4d30c82a0a0efef490ef":[3,0,1,2,8,3],
 "rtc_8cpp.html#a6a111b83a9cd857fcdf09e1726a0fbba":[3,0,1,2,8,0],
 "rtc_8cpp.html#a6bd950625db0f240acc63a9cb41873f6":[3,0,1,2,8,4],
 "rtc_8cpp.html#abcb4cacf52bf654a9d5adbbde8893b0d":[3,0,1,2,8,1],
@@ -9,11 +11,11 @@ var NAVTREEINDEX5 =
 "rtc_8h.html#afa7e240c7456eaf5ef27ee8be3a23bd4":[3,0,1,2,9,2],
 "settings_8cpp.html":[3,0,1,3,0],
 "settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2":[3,0,1,3,0,9],
-"settings_8cpp.html#a1ec01be28217864976843d77d7655f16":[3,0,1,3,0,8],
 "settings_8cpp.html#a2a9a9bbd2df6b17a84bfa72dd336877a":[3,0,1,3,0,5],
 "settings_8cpp.html#a4db085ceb431a59fbdc28a8cdb1262de":[3,0,1,3,0,1],
 "settings_8cpp.html#a708e8194bbe2ececd850e82f6a52391f":[3,0,1,3,0,4],
 "settings_8cpp.html#a80d36c480da5250b7baac6aee2f705a5":[3,0,1,3,0,2],
+"settings_8cpp.html#aa08b5201cc534019f9237f4a5de6c185":[3,0,1,3,0,8],
 "settings_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,1,3,0,0],
 "settings_8cpp.html#ac0813fcaf6fdc8a3c2ba1a40ce685d24":[3,0,1,3,0,6],
 "settings_8cpp.html#ac5816d9f4f00bfa170b06ce32ee3a9c9":[3,0,1,3,0,7],
@@ -112,6 +114,7 @@ var NAVTREEINDEX5 =
 "struct_config__widget__battery.html#a47948ea50a2d5fc02329ea5895ec134a":[2,0,13,2],
 "struct_config__widget__battery.html#ad7d6f61471a23c41494fa44fc61f16d1":[2,0,13,0],
 "struct_config__widget__open__weather.html":[2,0,14],
+"struct_config__widget__open__weather.html#a14bb7c15b975cd6ee865ee976b2230bc":[2,0,14,3],
 "struct_config__widget__open__weather.html#a16aa9183af5379891667647d82d84303":[2,0,14,1],
 "struct_config__widget__open__weather.html#a472593f3fbd90b315a28d0f6a041299e":[2,0,14,0],
 "struct_config__widget__open__weather.html#ab0a949419950c45d18fea241d7285a76":[2,0,14,2],
@@ -246,8 +249,5 @@ var NAVTREEINDEX5 =
 "widget___open_weather_8h.html#a440c748ee82af45ecd29475d19378ea9":[3,0,1,7,11,1],
 "widget___wifi_8cpp.html":[3,0,1,7,12],
 "widget___wifi_8h.html":[3,0,1,7,13],
-"wifi__common_8h.html":[3,0,1,9,3],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d":[3,0,1,9,3,0,9],
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10]
+"wifi__common_8h.html":[3,0,1,9,3]
 };

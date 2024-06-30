@@ -34,4 +34,5 @@ struct Config_widget_open_weather
 		int poll_frequency = 30; // Open Weather poll interval - 30mins.
 		String api_key = "";	 // API key for Open Weather
 		bool enabled = false;
+		bool units_metric = true;
 };

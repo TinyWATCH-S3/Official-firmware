@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"dir_51f38f8198c9ee37be3d3c50840de8d9.html":[3,0,1,9,0],
+"dir_65283e70fc21ac69dbc8164b817a6ba1.html":[3,0,1],
 "dir_707cef24204d13f07a990d203672c60a.html":[3,0,1,7],
 "dir_8754a0b74411b33d5cca1a47e4d2c1f1.html":[3,0,0,0],
 "dir_8a01438507db5018a84e6740d62b4428.html":[3,0,1,9],
@@ -111,8 +113,8 @@ var NAVTREEINDEX4 =
 "face___watch_settings_8h.html":[3,0,1,6,25],
 "face___watch_settings_8h.html#a378952fac46bedfca7392d4949d9c948":[3,0,1,6,25,1],
 "files.html":[3,0],
-"functions.html":[2,3,0,0],
 "functions.html":[2,3,0],
+"functions.html":[2,3,0,0],
 "functions_a.html":[2,3,0,1],
 "functions_b.html":[2,3,0,2],
 "functions_c.html":[2,3,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md7":[1,0],
 "md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md8":[1,1],
 "md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md9":[1,2],
-"pages.html":[],
-"rtc_8cpp.html":[3,0,1,2,8],
-"rtc_8cpp.html#a1950b74d251f4d30c82a0a0efef490ef":[3,0,1,2,8,3]
+"pages.html":[]
 };

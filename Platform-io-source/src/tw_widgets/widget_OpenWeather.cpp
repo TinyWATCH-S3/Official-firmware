@@ -15,7 +15,7 @@ String WidgetOpenWeather::build_server_path()
 		return "";
 
 	// return server_path + settings.config.city + "," + settings.config.country + "&APPID=" + settings.config.ow_api_key;
-	return server_path + settings.config.city + "," + settings.config.country + "&APPID=" + settings.config.open_weather.api_key + "&units=metric";
+	return server_path + settings.config.city + "," + settings.config.country + "&APPID=" + settings.config.open_weather.api_key + "&units=" + (settings.config.open_weather.units_metric ? "metric" : "imperial");
 }
 
 void WidgetOpenWeather::load_icons()
@@ -133,7 +133,7 @@ void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 			canvas[canvasid].drawString(String(_humidity) + "%", display.center_x - 10, center_y - 21);
 			canvas[canvasid].setFreeFont(&Roboto_Regular18);
 			canvas[canvasid].setTextColor(RGB(0x00, 0x45, 0xaa), RGB(0x45, 0x45, 0x45));
-			canvas[canvasid].drawString(String(_temp) + "C", display.center_x - 10, center_y + 8);
+			canvas[canvasid].drawString(String(_temp) + (settings.config.open_weather.units_metric ? "C" : "F"), display.center_x - 10, center_y + 8);
 		}
 	}
 	else

@@ -188,15 +188,16 @@ class Settings
 
 		// Open Weather
 		SettingsOptionBool widget_ow_enabled{&config.open_weather.enabled, 4, "Enabled", "NO", "YES"};
-		SettingsOptionString widget_ow_apikey{&config.open_weather.api_key, 4, "API KEY"};
+		SettingsOptionString widget_ow_apikey{&config.open_weather.api_key, 4, "API KEY", false};
 		SettingsOptionIntRange widget_ow_poll_interval{&config.open_weather.poll_frequency, 10, 300, 10, false, 4, "Poll Interval (Min)"};
+		SettingsOptionBool widget_ow_units{&config.open_weather.units_metric, 4, "Temperature Units", "Fahrenheit", "Celsius"};
 
 		// MQTT
 		SettingsOptionBool mqtt_enabled{&config.mqtt.enabled, 5, "Enabled", "NO", "YES"};
 		SettingsOptionString mqtt_broker_ip{&config.mqtt.broker_ip, 5, "Broker IP"};
 		SettingsOptionInt mqtt_broker_port{&config.mqtt.broker_port, 1, 2000, false, 5, "Broker Port"};
-		SettingsOptionString mqtt_username{&config.mqtt.username, 5, "Username"};
-		SettingsOptionString mqtt_password{&config.mqtt.password, 5, "Password"};
+		SettingsOptionString mqtt_username{&config.mqtt.username, 5, "Username", false};
+		SettingsOptionString mqtt_password{&config.mqtt.password, 5, "Password", false};
 		SettingsOptionString mqtt_device_name{&config.mqtt.device_name, 5, "Device Name"};
 		SettingsOptionString mqtt_topic_listen{&config.mqtt.topic_listen, 5, "Listen Topic"};
 

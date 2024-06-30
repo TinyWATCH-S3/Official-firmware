@@ -89,6 +89,7 @@ var NAVTREEINDEX2 =
 "class_settings.html#a7ad4f2b31a9a92bc9b395b0e88cc8c8d":[2,0,40,16],
 "class_settings.html#a7b06db15a01da9758da6e7eedd692ad2":[2,0,40,24],
 "class_settings.html#a7b75bfb359b1533477accd5e65601f60":[2,0,40,23],
+"class_settings.html#a80132ec21decaaf24e536c195b703abc":[2,0,40,48],
 "class_settings.html#a86d2b2aab653f1121c491b8561f270cf":[2,0,40,34],
 "class_settings.html#a887c8621115683b32478bf17d2448839":[2,0,40,29],
 "class_settings.html#a8a78770cf0b69be969be6050082b33b9":[2,0,40,15],
@@ -201,13 +202,14 @@ var NAVTREEINDEX2 =
 "class_settings_option_int_vector.html#ab6062a99843dd85db080739c424b1b5b":[2,0,46,8],
 "class_settings_option_int_vector.html#af91e5699d04e74bc2a37184801ef42e2":[2,0,46,5],
 "class_settings_option_string.html":[2,0,47],
+"class_settings_option_string.html#a4616f388c244dc2e3de4ce57651053d3":[2,0,47,0],
 "class_settings_option_string.html#a58d4ae6317a71cddfd6ad0f576f00e84":[2,0,47,3],
 "class_settings_option_string.html#a59792ebb81654ebf1d04c9be5aa5001a":[2,0,47,5],
+"class_settings_option_string.html#a5ec45742c03035f163a436171122c8eb":[2,0,47,6],
 "class_settings_option_string.html#a636661d1526c162679c9a846611b58b5":[2,0,47,1],
 "class_settings_option_string.html#a761381203111e174c107afabf42bada8":[2,0,47,4],
 "class_settings_option_string.html#a950c835b2626933a5ea828d09ad8320d":[2,0,47,2],
-"class_settings_option_string.html#aac2c6801befc3e1c18f3cc70b6a16696":[2,0,47,6],
-"class_settings_option_string.html#acf7039a673a982fd0aa05b358e8dbb92":[2,0,47,0],
+"class_settings_option_string.html#aac2c6801befc3e1c18f3cc70b6a16696":[2,0,47,7],
 "class_tiny_w_a_t_c_h.html":[2,0,48],
 "class_tiny_w_a_t_c_h.html#a1dd77ecfe4df7787f1fce46df043305a":[2,0,48,6],
 "class_tiny_w_a_t_c_h.html#a31de99c7e1854294dd7864dd6840baee":[2,0,48,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "class_widget_battery.html#a85dc366c38e73222304ea07bfc8eca28":[2,0,57,1],
 "class_widget_battery.html#aca2729892880403dcd9bfbb302ebab8e":[2,0,57,5],
 "class_widget_battery.html#ad23efd1d5e75296e7cb5f8c9451664ae":[2,0,57,3],
-"class_widget_e_s_p32.html":[2,0,58],
-"class_widget_e_s_p32.html#a6420e8f7e42aef16a5991061fb39891f":[2,0,58,2],
-"class_widget_e_s_p32.html#aaee840dadacb8ed5e969e0342b524124":[2,0,58,3]
+"class_widget_e_s_p32.html":[2,0,58]
 };

@@ -135,7 +135,7 @@ String SettingsOptionIntRange::generate_html(uint16_t index)
 	fn.replace("_(%%)", "");
 	fn = String(group) + "," + String(index) + "__" + fn;
 
-	String html = "					<div class='input-group input-group-sm flex-nowrap mt-1'>\n";
+	String html = "					<div class='input-group input-group-sm flex-nowrap'>\n";
 	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
 	html += "						<input type='range' min='" + String(value_min) + "' max='" + String(value_max) + "' step='" + String(value_step) + "' class='form-range form-range-sm ms-2 me-2 mt-2' id='" + fn + "' name='" + fn + "' value='" + get_str() + "' required oninput='document.getElementById(\"" + fn + "range\").innerHTML = this.value;'>\n";
 	html += "						<span class='input-group-text' id='" + fn + "range'>" + get_str() + "</span>\n";
@@ -210,7 +210,7 @@ String SettingsOptionIntVector::generate_html(uint16_t index)
 	for (size_t i = 0; i < (*setting_ref).size(); i++)
 	{
 		html += "								<div class='col-sm-4 form-floating'>\n";
-		html += "									<input type='number' class='form-control form-control-sm' id='" + fn + "_" + String(i) + "' name='" + fn + "_" + String(i) + "' value='" + String(get(i)) + "' min='" + String(value_min) + "' max='" + String(value_max) + "' required onchange='' />\n";
+		html += "									<input type='number' class='form-control form-control-sm' id='" + fn + "_" + String(i) + "' name='" + fn + "_" + String(i) + "' value='" + String(get(i)) + "' min='" + String(value_min) + "' max='" + String(value_max) + "' required />\n";
 		html += "									<label class='ms-1' for='" + fn + "_" + String(i) + "'>Step " + String(i + 1) + "</label>\n";
 		html += "								</div>\n";
 	}
@@ -324,7 +324,7 @@ String SettingsOptionBool::generate_html(uint16_t index)
 
 	String html = "					<div class='input-group input-group-sm'>\n";
 	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
-	html += "						<select class='form-select form-select-sm' id='" + fn + "' name='" + fn + "' onchange='set_input_states();'>\n";
+	html += "						<select class='form-select form-select-sm' id='" + fn + "' name='" + fn + "'>\n";
 
 	html += "							<option value='0' ";
 	html += get() ? "" : "selected";
@@ -384,7 +384,7 @@ String SettingsOptionString::generate_html(uint16_t index)
 
 	String html = "					<div class='input-group input-group-sm'>\n";
 	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
-	html += "						<input type='text' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' required>\n";
+	html += "						<input type='text' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' " + (required_field ? "required" : "") + ">\n";
 	html += "					</div>\n";
 
 	return html;

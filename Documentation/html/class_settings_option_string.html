@@ -113,8 +113,8 @@ Inheritance diagram for SettingsOptionString:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acf7039a673a982fd0aa05b358e8dbb92" id="r_acf7039a673a982fd0aa05b358e8dbb92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf7039a673a982fd0aa05b358e8dbb92">SettingsOptionString</a> (String *val, int _group, const String &amp;_fn)</td></tr>
-<tr class="separator:acf7039a673a982fd0aa05b358e8dbb92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4616f388c244dc2e3de4ce57651053d3" id="r_a4616f388c244dc2e3de4ce57651053d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4616f388c244dc2e3de4ce57651053d3">SettingsOptionString</a> (String *val, int _group, const String &amp;_fn, bool req=true)</td></tr>
+<tr class="separator:a4616f388c244dc2e3de4ce57651053d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a761381203111e174c107afabf42bada8" id="r_a761381203111e174c107afabf42bada8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfb">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a761381203111e174c107afabf42bada8">getType</a> () const override</td></tr>
 <tr class="separator:a761381203111e174c107afabf42bada8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a636661d1526c162679c9a846611b58b5" id="r_a636661d1526c162679c9a846611b58b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a636661d1526c162679c9a846611b58b5">change</a> (String *val)</td></tr>
@@ -137,6 +137,8 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aac2c6801befc3e1c18f3cc70b6a16696" id="r_aac2c6801befc3e1c18f3cc70b6a16696"><td class="memItemLeft" align="right" valign="top">String *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac2c6801befc3e1c18f3cc70b6a16696">setting_ref</a> = nullptr</td></tr>
 <tr class="separator:aac2c6801befc3e1c18f3cc70b6a16696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec45742c03035f163a436171122c8eb" id="r_a5ec45742c03035f163a436171122c8eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ec45742c03035f163a436171122c8eb">required_field</a> = true</td></tr>
+<tr class="separator:a5ec45742c03035f163a436171122c8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -162,8 +164,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a019e12d5ce83fb8c0ab3a5199c202f45 inherit pub_attribs_class_settings_option_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acf7039a673a982fd0aa05b358e8dbb92" name="acf7039a673a982fd0aa05b358e8dbb92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf7039a673a982fd0aa05b358e8dbb92">&#9670;&#160;</a></span>SettingsOptionString()</h2>
+<a id="a4616f388c244dc2e3de4ce57651053d3" name="a4616f388c244dc2e3de4ce57651053d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4616f388c244dc2e3de4ce57651053d3">&#9670;&#160;</a></span>SettingsOptionString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +186,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>_fn</em></span>&#160;)</td>
+          <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>_fn</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>req</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -303,6 +310,28 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5ec45742c03035f163a436171122c8eb" name="a5ec45742c03035f163a436171122c8eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec45742c03035f163a436171122c8eb">&#9670;&#160;</a></span>required_field</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SettingsOptionString::required_field = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac2c6801befc3e1c18f3cc70b6a16696" name="aac2c6801befc3e1c18f3cc70b6a16696"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac2c6801befc3e1c18f3cc70b6a16696">&#9670;&#160;</a></span>setting_ref</h2>
 

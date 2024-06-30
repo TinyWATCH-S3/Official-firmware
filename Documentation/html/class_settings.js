@@ -47,5 +47,6 @@ var class_settings =
     [ "ui_forced_save", "class_settings.html#ae2fc8f423e48dd7d0c62018b3d27ed8b", null ],
     [ "widget_ow_apikey", "class_settings.html#a4e9ff3aafa4fe8c0effc301873408d5b", null ],
     [ "widget_ow_enabled", "class_settings.html#a9f6887ecb811c3f2bfb6d9928c23690f", null ],
-    [ "widget_ow_poll_interval", "class_settings.html#a65a2a1d4de2c9392e83233b7fe89bbcb", null ]
+    [ "widget_ow_poll_interval", "class_settings.html#a65a2a1d4de2c9392e83233b7fe89bbcb", null ],
+    [ "widget_ow_units", "class_settings.html#a80132ec21decaaf24e536c195b703abc", null ]
 ];
