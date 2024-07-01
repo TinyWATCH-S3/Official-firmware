@@ -1,5 +1,6 @@
 var tinywatch_8h =
 [
+    [ "log_message", "structlog__message.html", "structlog__message" ],
     [ "TinyWATCH", "class_tiny_w_a_t_c_h.html", "class_tiny_w_a_t_c_h" ],
     [ "CPU_SPEED", "tinywatch_8h.html#ac916bea15062cbaac57b26b727949c05", [
       [ "CPU_CHANGE_LOW", "tinywatch_8h.html#ac916bea15062cbaac57b26b727949c05aa8502ac52571d5d4643ff871e183b5d9", null ],

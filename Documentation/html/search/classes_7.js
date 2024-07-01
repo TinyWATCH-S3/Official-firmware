@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rtc_0',['RTC',['../class_r_t_c.html',1,'']]]
+  ['log_5fmessage_0',['log_message',['../structlog__message.html',1,'']]]
 ];

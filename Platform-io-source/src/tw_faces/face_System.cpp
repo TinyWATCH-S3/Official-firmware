@@ -47,9 +47,9 @@ void FaceSystem::draw(bool force)
 			canvas[canvasid].setTextColor(TFT_WHITE);
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
 
-			// Display all system messages
-			for (int i = 0; i < tinywatch.messages.size(); i++)
-				canvas[canvasid].drawString(tinywatch.messages[i], 120, (scroll_start_y + 50 + i * 20));
+			// // Display all system messages
+			// for (int i = 0; i < tinywatch.messages.size(); i++)
+			// 	canvas[canvasid].drawString(tinywatch.messages[i], 120, (scroll_start_y + 50 + i * 20));
 
 			canvas[canvasid].fillRect(220, 30, 5, 200, RGB(0x33, 0x33, 0x33));
 			int16_t scroll_length = (widgets_height <= 220) ? 220 : ((220.0 / (float)widgets_height) * 220);

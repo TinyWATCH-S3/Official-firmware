@@ -65,10 +65,10 @@ var NAVTREEINDEX =
 "_clock___digits_8h.html",
 "class_control_value_slider.html#a3291e929cd847f8f7ed0c3b6a15e35b6",
 "class_haptics.html#a8e0fd25b8ef5bdf10c17a135249c3b5b",
-"class_widget_e_s_p32.html#a6420e8f7e42aef16a5991061fb39891f",
-"dir_51f38f8198c9ee37be3d3c50840de8d9.html",
-"rtc_8cpp.html",
-"wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221"
+"class_widget_battery.html#aca2729892880403dcd9bfbb302ebab8e",
+"dir_092c6e4746471ad3066068ee73bd8774.html",
+"md__2_users_2seon_2_dropbox_2_unexpected_01_maker_2_repositories_2tinywatchs3-org_2_official-fir68989a01c190abd1f2e3ba74e11948a4.html#autotoc_md8",
+"widget___open_weather_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -10,6 +10,7 @@
 #include "web/www/www_settings_watch.h"
 #include "web/www/www_settings_widgets.h"
 #include "web/www/www_settings_apps.h"
+#include "web/www/www_debug_logs.h"
 
 String WebServer::processor(const String &var)
 {
@@ -39,7 +40,29 @@ String WebServer::processor(const String &var)
 			return String(css);
 		}
 	}
+	else if (var == "FW_VER")
+	{
+		return (tinywatch.version_firmware + " " + tinywatch.version_year);
+	}
+	else if (var == "UPDATE_NOTICE")
+	{
+		return "";
+	}
+	else if (var == "DEBUG_LOGS")
+	{
+		String logs = "";
+		for (size_t l = 0; l < tinywatch.messages.size(); l++)
+		{
+			String mess = tinywatch.messages[l].message;
+			mess.replace(" %:", " %%:");
+			logs += "<div class='row p-1 " + String(l % 2 == 0 ? "alt" : "alt2") + "'>\n";
+			logs += "<div class='col-2 text-end nowrap'>" + String(tinywatch.messages[l].timestamp) + "&nbsp;sec</div>\n";
+			logs += "<div class='col-10 text-start'>" + mess + "</div>\n";
+			logs += "</div>\n";
+		}
 
+		return logs;
+	}
 	else if (var == "SETTING_OPTIONS")
 	{
 		String html = "";
@@ -150,7 +173,7 @@ void WebServer::start_callback(bool success, const String &response)
 		// Set the local mDSN name so you can navigate to tinywatchs3.local instead of IP address
 		settings.config.mdns_name.trim();
 		if (settings.config.mdns_name.isEmpty())
-			settings.config.mdns_name = "tinywatchs3";
+			settings.config.mdns_name = "tinywatch";
 
 		if (!MDNS.begin(settings.config.mdns_name.c_str()))
 		{
@@ -168,6 +191,8 @@ void WebServer::start_callback(bool success, const String &response)
 		web_server.on("/index.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
 
 		web_server.on("/web_settings_apps.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_apps_html, processor); });
+
+		web_server.on("/debug_logs.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", debug_logs_html, processor); });
 
 		web_server.on("/web_settings_widgets.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_html, processor); });
 

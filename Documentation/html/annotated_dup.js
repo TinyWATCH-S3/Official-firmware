@@ -37,6 +37,7 @@ var annotated_dup =
     [ "FaceWatchSettings", "class_face_watch_settings.html", "class_face_watch_settings" ],
     [ "Haptics", "class_haptics.html", "class_haptics" ],
     [ "IMU", "class_i_m_u.html", "class_i_m_u" ],
+    [ "log_message", "structlog__message.html", "structlog__message" ],
     [ "RTC", "class_r_t_c.html", "class_r_t_c" ],
     [ "scan_responder", "structscan__responder.html", "structscan__responder" ],
     [ "setting_group", "structsetting__group.html", "structsetting__group" ],

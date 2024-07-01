@@ -95,7 +95,6 @@ $(function(){initNavTree('class_settings.html',''); initResizable(); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
@@ -142,8 +141,6 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4ca1d960902db935f5a7ec3db599b53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae81c3d2d2d731e95248d32bd8d6b3c7a" id="r_ae81c3d2d2d731e95248d32bd8d6b3c7a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structsetting__group.html">setting_group</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae81c3d2d2d731e95248d32bd8d6b3c7a">settings_groups</a></td></tr>
 <tr class="separator:ae81c3d2d2d731e95248d32bd8d6b3c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509f772f09ffc6fff7979da55a31a39e" id="r_a509f772f09ffc6fff7979da55a31a39e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509f772f09ffc6fff7979da55a31a39e">setting_wifi_start</a> {&amp;config.wifi_start, 0, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
-<tr class="separator:a509f772f09ffc6fff7979da55a31a39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa42da92c05be487651de3a57ba3a53b0" id="r_aa42da92c05be487651de3a57ba3a53b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa42da92c05be487651de3a57ba3a53b0">setting_time_24hour</a> {&amp;config.time_24hour, 0, &quot;Time Mode&quot;, &quot;12H&quot;, &quot;24H&quot;}</td></tr>
 <tr class="separator:aa42da92c05be487651de3a57ba3a53b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8a0fdb8c98a2f7738995106b522f17d" id="r_ab8a0fdb8c98a2f7738995106b522f17d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a0fdb8c98a2f7738995106b522f17d">setting_time_dateformat</a> {&amp;config.time_dateformat, 0, &quot;Date FMT&quot;, &quot;DMY&quot;, &quot;MDY&quot;}</td></tr>
@@ -154,63 +151,66 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1207215c27f2d0beb3b23115e0001463"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf120d605881586eb6300bb1efbb2394" id="r_aaf120d605881586eb6300bb1efbb2394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf120d605881586eb6300bb1efbb2394">setting_nav_arrows</a> {&amp;config.show_nav_arrows, 0, &quot;Nav Arrows&quot;, &quot;HIDE&quot;, &quot;SHOW&quot;}</td></tr>
 <tr class="separator:aaf120d605881586eb6300bb1efbb2394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07f3193633d813269b3495255dc63125" id="r_a07f3193633d813269b3495255dc63125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f3193633d813269b3495255dc63125">setting_audio_ui</a> {&amp;config.audio_ui, 1, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a509f772f09ffc6fff7979da55a31a39e" id="r_a509f772f09ffc6fff7979da55a31a39e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509f772f09ffc6fff7979da55a31a39e">setting_wifi_start</a> {&amp;config.wifi_start, 1, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="separator:a509f772f09ffc6fff7979da55a31a39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8abd37bfaa2fadec823923b9dd24a0f3" id="r_a8abd37bfaa2fadec823923b9dd24a0f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abd37bfaa2fadec823923b9dd24a0f3">setting_wifi_check_updates</a> {&amp;config.wifi_check_for_updates, 1, &quot;Update Check&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="separator:a8abd37bfaa2fadec823923b9dd24a0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac761901429c712ebe38885dabe3ba3e4" id="r_ac761901429c712ebe38885dabe3ba3e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac761901429c712ebe38885dabe3ba3e4">setting_web_theme</a> {&amp;config.website_darkmode, 1, &quot;Theme&quot;, &quot;LIGHT&quot;, &quot;DARK&quot;}</td></tr>
+<tr class="separator:ac761901429c712ebe38885dabe3ba3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a0601cfeb9bfbaa89f94f4e475a15f" id="r_ae2a0601cfeb9bfbaa89f94f4e475a15f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2a0601cfeb9bfbaa89f94f4e475a15f">setting_web_mdns</a> {&amp;config.mdns_name, 1, &quot;mDNS Name&quot;, &quot;tinywatch&quot;, false}</td></tr>
+<tr class="separator:ae2a0601cfeb9bfbaa89f94f4e475a15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f3193633d813269b3495255dc63125" id="r_a07f3193633d813269b3495255dc63125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f3193633d813269b3495255dc63125">setting_audio_ui</a> {&amp;config.audio_ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a07f3193633d813269b3495255dc63125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b75bfb359b1533477accd5e65601f60" id="r_a7b75bfb359b1533477accd5e65601f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b75bfb359b1533477accd5e65601f60">setting_audio_alarm</a> {&amp;config.audio_alarm, 1, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a7b75bfb359b1533477accd5e65601f60" id="r_a7b75bfb359b1533477accd5e65601f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b75bfb359b1533477accd5e65601f60">setting_audio_alarm</a> {&amp;config.audio_alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a7b75bfb359b1533477accd5e65601f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b06db15a01da9758da6e7eedd692ad2" id="r_a7b06db15a01da9758da6e7eedd692ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b06db15a01da9758da6e7eedd692ad2">setting_audio_on_hour</a> {&amp;config.audio_on_hour, 1, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a7b06db15a01da9758da6e7eedd692ad2" id="r_a7b06db15a01da9758da6e7eedd692ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b06db15a01da9758da6e7eedd692ad2">setting_audio_on_hour</a> {&amp;config.audio_on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a7b06db15a01da9758da6e7eedd692ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43427ee636d6d26811373a2cff595192" id="r_a43427ee636d6d26811373a2cff595192"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43427ee636d6d26811373a2cff595192">setting_haptics_enabled</a> {&amp;config.haptics.enabled, 2, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a43427ee636d6d26811373a2cff595192" id="r_a43427ee636d6d26811373a2cff595192"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43427ee636d6d26811373a2cff595192">setting_haptics_enabled</a> {&amp;config.haptics.enabled, 3, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a43427ee636d6d26811373a2cff595192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c8baefa625522dc89fd73a89f37ebbc" id="r_a9c8baefa625522dc89fd73a89f37ebbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8baefa625522dc89fd73a89f37ebbc">setting_haptics_trig_boot</a> {&amp;config.haptics.trigger_on_boot, 2, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a9c8baefa625522dc89fd73a89f37ebbc" id="r_a9c8baefa625522dc89fd73a89f37ebbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8baefa625522dc89fd73a89f37ebbc">setting_haptics_trig_boot</a> {&amp;config.haptics.trigger_on_boot, 3, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a9c8baefa625522dc89fd73a89f37ebbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab27aa33bfb2e90aff917c7fd116f90d6" id="r_ab27aa33bfb2e90aff917c7fd116f90d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab27aa33bfb2e90aff917c7fd116f90d6">setting_haptics_trig_wake</a> {&amp;config.haptics.trigger_on_wake, 2, &quot;On Wake&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:ab27aa33bfb2e90aff917c7fd116f90d6" id="r_ab27aa33bfb2e90aff917c7fd116f90d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab27aa33bfb2e90aff917c7fd116f90d6">setting_haptics_trig_wake</a> {&amp;config.haptics.trigger_on_wake, 3, &quot;On Wake&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:ab27aa33bfb2e90aff917c7fd116f90d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab44397a44cbf69bf152e935efcbee0e0" id="r_ab44397a44cbf69bf152e935efcbee0e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab44397a44cbf69bf152e935efcbee0e0">setting_haptics_trig_alarm</a> {&amp;config.haptics.trigger_on_alarm, 2, &quot;On Alarm&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:ab44397a44cbf69bf152e935efcbee0e0" id="r_ab44397a44cbf69bf152e935efcbee0e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab44397a44cbf69bf152e935efcbee0e0">setting_haptics_trig_alarm</a> {&amp;config.haptics.trigger_on_alarm, 3, &quot;On Alarm&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:ab44397a44cbf69bf152e935efcbee0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3b637fbc9c0b4c5b4c49760a9ce4d5d" id="r_ab3b637fbc9c0b4c5b4c49760a9ce4d5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3b637fbc9c0b4c5b4c49760a9ce4d5d">setting_haptics_trig_hour</a> {&amp;config.haptics.trigger_on_hour, 2, &quot;On Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:ab3b637fbc9c0b4c5b4c49760a9ce4d5d" id="r_ab3b637fbc9c0b4c5b4c49760a9ce4d5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3b637fbc9c0b4c5b4c49760a9ce4d5d">setting_haptics_trig_hour</a> {&amp;config.haptics.trigger_on_hour, 3, &quot;On Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:ab3b637fbc9c0b4c5b4c49760a9ce4d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86d2b2aab653f1121c491b8561f270cf" id="r_a86d2b2aab653f1121c491b8561f270cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86d2b2aab653f1121c491b8561f270cf">setting_haptics_trig_event</a> {&amp;config.haptics.trigger_on_event, 2, &quot;On Event&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a86d2b2aab653f1121c491b8561f270cf" id="r_a86d2b2aab653f1121c491b8561f270cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86d2b2aab653f1121c491b8561f270cf">setting_haptics_trig_event</a> {&amp;config.haptics.trigger_on_event, 3, &quot;On Event&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a86d2b2aab653f1121c491b8561f270cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd1f22316adc97c9020df1cacdd953dc" id="r_afd1f22316adc97c9020df1cacdd953dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd1f22316adc97c9020df1cacdd953dc">setting_haptics_trig_longpress</a> {&amp;config.haptics.trigger_on_longpress, 2, &quot;LongPress&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:afd1f22316adc97c9020df1cacdd953dc" id="r_afd1f22316adc97c9020df1cacdd953dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd1f22316adc97c9020df1cacdd953dc">setting_haptics_trig_longpress</a> {&amp;config.haptics.trigger_on_longpress, 3, &quot;LongPress&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:afd1f22316adc97c9020df1cacdd953dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae85ff6e54092af58012391c7f9714a4f" id="r_ae85ff6e54092af58012391c7f9714a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85ff6e54092af58012391c7f9714a4f">setting_bl_level_vbus</a> {&amp;config.bl_level_vbus, 0, 100, 10, false, 3, &quot;Backlight brightness on USB (%%)&quot;}</td></tr>
+<tr class="memitem:ae85ff6e54092af58012391c7f9714a4f" id="r_ae85ff6e54092af58012391c7f9714a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85ff6e54092af58012391c7f9714a4f">setting_bl_level_vbus</a> {&amp;config.bl_level_vbus, 0, 100, 10, false, 4, &quot;Backlight brightness on USB (%%)&quot;}</td></tr>
 <tr class="separator:ae85ff6e54092af58012391c7f9714a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0fe788562c60ff27f4fb12673049d8c" id="r_ac0fe788562c60ff27f4fb12673049d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0fe788562c60ff27f4fb12673049d8c">setting_bl_level_vbat</a> {&amp;config.bl_level_vbat, 0, 100, 10, false, 3, &quot;Backlight brightness on <a class="el" href="class_battery.html">Battery</a> (%%)&quot;}</td></tr>
+<tr class="memitem:ac0fe788562c60ff27f4fb12673049d8c" id="r_ac0fe788562c60ff27f4fb12673049d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0fe788562c60ff27f4fb12673049d8c">setting_bl_level_vbat</a> {&amp;config.bl_level_vbat, 0, 100, 10, false, 4, &quot;Backlight brightness on <a class="el" href="class_battery.html">Battery</a> (%%)&quot;}</td></tr>
 <tr class="separator:ac0fe788562c60ff27f4fb12673049d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a887c8621115683b32478bf17d2448839" id="r_a887c8621115683b32478bf17d2448839"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a887c8621115683b32478bf17d2448839">setting_bl_period_vbus</a> {&amp;config.bl_period_vbus, 0, 600, 1, false, 3, &quot;Backlight duration on USB (Sec)&quot;}</td></tr>
+<tr class="memitem:a887c8621115683b32478bf17d2448839" id="r_a887c8621115683b32478bf17d2448839"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a887c8621115683b32478bf17d2448839">setting_bl_period_vbus</a> {&amp;config.bl_period_vbus, 0, 600, 1, false, 4, &quot;Backlight duration on USB (Sec)&quot;}</td></tr>
 <tr class="separator:a887c8621115683b32478bf17d2448839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e6f22fb0c93193f8bc444b2adc36c2d" id="r_a8e6f22fb0c93193f8bc444b2adc36c2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e6f22fb0c93193f8bc444b2adc36c2d">setting_bl_period_vbat</a> {&amp;config.bl_period_vbat, 0, 600, 1, false, 3, &quot;Backlight duration on <a class="el" href="class_battery.html">Battery</a> (Sec)&quot;}</td></tr>
+<tr class="memitem:a8e6f22fb0c93193f8bc444b2adc36c2d" id="r_a8e6f22fb0c93193f8bc444b2adc36c2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e6f22fb0c93193f8bc444b2adc36c2d">setting_bl_period_vbat</a> {&amp;config.bl_period_vbat, 0, 600, 1, false, 4, &quot;Backlight duration on <a class="el" href="class_battery.html">Battery</a> (Sec)&quot;}</td></tr>
 <tr class="separator:a8e6f22fb0c93193f8bc444b2adc36c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f6887ecb811c3f2bfb6d9928c23690f" id="r_a9f6887ecb811c3f2bfb6d9928c23690f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f6887ecb811c3f2bfb6d9928c23690f">widget_ow_enabled</a> {&amp;config.open_weather.enabled, 4, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a9f6887ecb811c3f2bfb6d9928c23690f" id="r_a9f6887ecb811c3f2bfb6d9928c23690f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f6887ecb811c3f2bfb6d9928c23690f">widget_ow_enabled</a> {&amp;config.open_weather.enabled, 5, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a9f6887ecb811c3f2bfb6d9928c23690f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9ff3aafa4fe8c0effc301873408d5b" id="r_a4e9ff3aafa4fe8c0effc301873408d5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e9ff3aafa4fe8c0effc301873408d5b">widget_ow_apikey</a> {&amp;config.open_weather.api_key, 4, &quot;API KEY&quot;, false}</td></tr>
+<tr class="memitem:a4e9ff3aafa4fe8c0effc301873408d5b" id="r_a4e9ff3aafa4fe8c0effc301873408d5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e9ff3aafa4fe8c0effc301873408d5b">widget_ow_apikey</a> {&amp;config.open_weather.api_key, 5, &quot;API KEY&quot;, &quot;&quot;, false}</td></tr>
 <tr class="separator:a4e9ff3aafa4fe8c0effc301873408d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65a2a1d4de2c9392e83233b7fe89bbcb" id="r_a65a2a1d4de2c9392e83233b7fe89bbcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_range.html">SettingsOptionIntRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65a2a1d4de2c9392e83233b7fe89bbcb">widget_ow_poll_interval</a> {&amp;config.open_weather.poll_frequency, 10, 300, 10, false, 4, &quot;Poll Interval (Min)&quot;}</td></tr>
+<tr class="memitem:a65a2a1d4de2c9392e83233b7fe89bbcb" id="r_a65a2a1d4de2c9392e83233b7fe89bbcb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_range.html">SettingsOptionIntRange</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65a2a1d4de2c9392e83233b7fe89bbcb">widget_ow_poll_interval</a> {&amp;config.open_weather.poll_frequency, 30, 300, 10, false, 5, &quot;Poll Interval (Min)&quot;}</td></tr>
 <tr class="separator:a65a2a1d4de2c9392e83233b7fe89bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80132ec21decaaf24e536c195b703abc" id="r_a80132ec21decaaf24e536c195b703abc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80132ec21decaaf24e536c195b703abc">widget_ow_units</a> {&amp;config.open_weather.units_metric, 4, &quot;Temperature Units&quot;, &quot;Fahrenheit&quot;, &quot;Celsius&quot;}</td></tr>
+<tr class="memitem:a80132ec21decaaf24e536c195b703abc" id="r_a80132ec21decaaf24e536c195b703abc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80132ec21decaaf24e536c195b703abc">widget_ow_units</a> {&amp;config.open_weather.units_metric, 5, &quot;Temperature Units&quot;, &quot;Fahrenheit&quot;, &quot;Celsius&quot;}</td></tr>
 <tr class="separator:a80132ec21decaaf24e536c195b703abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a244bceb0f573e6686e7efcaddcf39" id="r_a91a244bceb0f573e6686e7efcaddcf39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91a244bceb0f573e6686e7efcaddcf39">mqtt_enabled</a> {&amp;config.mqtt.enabled, 5, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a91a244bceb0f573e6686e7efcaddcf39" id="r_a91a244bceb0f573e6686e7efcaddcf39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91a244bceb0f573e6686e7efcaddcf39">mqtt_enabled</a> {&amp;config.mqtt.enabled, 6, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a91a244bceb0f573e6686e7efcaddcf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a78770cf0b69be969be6050082b33b9" id="r_a8a78770cf0b69be969be6050082b33b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a78770cf0b69be969be6050082b33b9">mqtt_broker_ip</a> {&amp;config.mqtt.broker_ip, 5, &quot;Broker IP&quot;}</td></tr>
+<tr class="memitem:a8a78770cf0b69be969be6050082b33b9" id="r_a8a78770cf0b69be969be6050082b33b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a78770cf0b69be969be6050082b33b9">mqtt_broker_ip</a> {&amp;config.mqtt.broker_ip, 6, &quot;Broker IP&quot;}</td></tr>
 <tr class="separator:a8a78770cf0b69be969be6050082b33b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad4f2b31a9a92bc9b395b0e88cc8c8d" id="r_a7ad4f2b31a9a92bc9b395b0e88cc8c8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int.html">SettingsOptionInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ad4f2b31a9a92bc9b395b0e88cc8c8d">mqtt_broker_port</a> {&amp;config.mqtt.broker_port, 1, 2000, false, 5, &quot;Broker Port&quot;}</td></tr>
+<tr class="memitem:a7ad4f2b31a9a92bc9b395b0e88cc8c8d" id="r_a7ad4f2b31a9a92bc9b395b0e88cc8c8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int.html">SettingsOptionInt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ad4f2b31a9a92bc9b395b0e88cc8c8d">mqtt_broker_port</a> {&amp;config.mqtt.broker_port, 1, 2000, false, 6, &quot;Broker Port&quot;}</td></tr>
 <tr class="separator:a7ad4f2b31a9a92bc9b395b0e88cc8c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a9b95ffda2d4ad7a59e2e105517177" id="r_aa0a9b95ffda2d4ad7a59e2e105517177"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0a9b95ffda2d4ad7a59e2e105517177">mqtt_username</a> {&amp;config.mqtt.username, 5, &quot;Username&quot;, false}</td></tr>
+<tr class="memitem:aa0a9b95ffda2d4ad7a59e2e105517177" id="r_aa0a9b95ffda2d4ad7a59e2e105517177"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0a9b95ffda2d4ad7a59e2e105517177">mqtt_username</a> {&amp;config.mqtt.username, 6, &quot;Username&quot;, &quot;&quot;, false}</td></tr>
 <tr class="separator:aa0a9b95ffda2d4ad7a59e2e105517177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae89341bd4a3ebe9b048582730115c9f6" id="r_ae89341bd4a3ebe9b048582730115c9f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89341bd4a3ebe9b048582730115c9f6">mqtt_password</a> {&amp;config.mqtt.password, 5, &quot;Password&quot;, false}</td></tr>
+<tr class="memitem:ae89341bd4a3ebe9b048582730115c9f6" id="r_ae89341bd4a3ebe9b048582730115c9f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89341bd4a3ebe9b048582730115c9f6">mqtt_password</a> {&amp;config.mqtt.password, 6, &quot;Password&quot;, &quot;&quot;, false}</td></tr>
 <tr class="separator:ae89341bd4a3ebe9b048582730115c9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17028de661d6e3c04447f02789387a9d" id="r_a17028de661d6e3c04447f02789387a9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17028de661d6e3c04447f02789387a9d">mqtt_device_name</a> {&amp;config.mqtt.device_name, 5, &quot;Device Name&quot;}</td></tr>
+<tr class="memitem:a17028de661d6e3c04447f02789387a9d" id="r_a17028de661d6e3c04447f02789387a9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17028de661d6e3c04447f02789387a9d">mqtt_device_name</a> {&amp;config.mqtt.device_name, 6, &quot;Device Name&quot;}</td></tr>
 <tr class="separator:a17028de661d6e3c04447f02789387a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cda991eaa47ec4182fa90822cb315ea" id="r_a8cda991eaa47ec4182fa90822cb315ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cda991eaa47ec4182fa90822cb315ea">mqtt_topic_listen</a> {&amp;config.mqtt.topic_listen, 5, &quot;Listen Topic&quot;}</td></tr>
+<tr class="memitem:a8cda991eaa47ec4182fa90822cb315ea" id="r_a8cda991eaa47ec4182fa90822cb315ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cda991eaa47ec4182fa90822cb315ea">mqtt_topic_listen</a> {&amp;config.mqtt.topic_listen, 6, &quot;Listen Topic&quot;}</td></tr>
 <tr class="separator:a8cda991eaa47ec4182fa90822cb315ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2fc8f423e48dd7d0c62018b3d27ed8b" id="r_ae2fc8f423e48dd7d0c62018b3d27ed8b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2fc8f423e48dd7d0c62018b3d27ed8b">ui_forced_save</a> = false</td></tr>
 <tr class="separator:ae2fc8f423e48dd7d0c62018b3d27ed8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a77482d4930cb4f700856c02ccc528785" id="r_a77482d4930cb4f700856c02ccc528785"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77482d4930cb4f700856c02ccc528785">log_to_nvs</a> (const char *key, const char *<a class="el" href="#a02350e39c1cb382d74b6e2ae869b5e85">log</a>)</td></tr>
-<tr class="separator:a77482d4930cb4f700856c02ccc528785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -423,35 +423,6 @@ false credentials are empty strings </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>true </dd>
 <dd>
 false </dd></dl>
-
-</div>
-</div>
-<a id="a77482d4930cb4f700856c02ccc528785" name="a77482d4930cb4f700856c02ccc528785"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77482d4930cb4f700856c02ccc528785">&#9670;&#160;</a></span>log_to_nvs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Settings::log_to_nvs </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>log</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -685,7 +656,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_broker_ip {&amp;config.mqtt.broker_ip, 5, &quot;Broker IP&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_broker_ip {&amp;config.mqtt.broker_ip, 6, &quot;Broker IP&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -699,7 +670,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int.html">SettingsOptionInt</a> Settings::mqtt_broker_port {&amp;config.mqtt.broker_port, 1, 2000, false, 5, &quot;Broker Port&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int.html">SettingsOptionInt</a> Settings::mqtt_broker_port {&amp;config.mqtt.broker_port, 1, 2000, false, 6, &quot;Broker Port&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -713,7 +684,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_device_name {&amp;config.mqtt.device_name, 5, &quot;Device Name&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_device_name {&amp;config.mqtt.device_name, 6, &quot;Device Name&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -727,7 +698,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::mqtt_enabled {&amp;config.mqtt.enabled, 5, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::mqtt_enabled {&amp;config.mqtt.enabled, 6, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -741,7 +712,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_password {&amp;config.mqtt.password, 5, &quot;Password&quot;, false}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_password {&amp;config.mqtt.password, 6, &quot;Password&quot;, &quot;&quot;, false}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -755,7 +726,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_topic_listen {&amp;config.mqtt.topic_listen, 5, &quot;Listen Topic&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_topic_listen {&amp;config.mqtt.topic_listen, 6, &quot;Listen Topic&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -769,7 +740,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_username {&amp;config.mqtt.username, 5, &quot;Username&quot;, false}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::mqtt_username {&amp;config.mqtt.username, 6, &quot;Username&quot;, &quot;&quot;, false}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -805,7 +776,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_alarm {&amp;config.audio_alarm, 1, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_alarm {&amp;config.audio_alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -819,7 +790,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_on_hour {&amp;config.audio_on_hour, 1, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_on_hour {&amp;config.audio_on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -833,7 +804,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_ui {&amp;config.audio_ui, 1, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_ui {&amp;config.audio_ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -847,7 +818,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_level_vbat {&amp;config.bl_level_vbat, 0, 100, 10, false, 3, &quot;Backlight brightness on <a class="el" href="class_battery.html">Battery</a> (%%)&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_level_vbat {&amp;config.bl_level_vbat, 0, 100, 10, false, 4, &quot;Backlight brightness on <a class="el" href="class_battery.html">Battery</a> (%%)&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -861,7 +832,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_level_vbus {&amp;config.bl_level_vbus, 0, 100, 10, false, 3, &quot;Backlight brightness on USB (%%)&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_level_vbus {&amp;config.bl_level_vbus, 0, 100, 10, false, 4, &quot;Backlight brightness on USB (%%)&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -875,7 +846,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_period_vbat {&amp;config.bl_period_vbat, 0, 600, 1, false, 3, &quot;Backlight duration on <a class="el" href="class_battery.html">Battery</a> (Sec)&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_period_vbat {&amp;config.bl_period_vbat, 0, 600, 1, false, 4, &quot;Backlight duration on <a class="el" href="class_battery.html">Battery</a> (Sec)&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -889,7 +860,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_period_vbus {&amp;config.bl_period_vbus, 0, 600, 1, false, 3, &quot;Backlight duration on USB (Sec)&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a> Settings::setting_bl_period_vbus {&amp;config.bl_period_vbus, 0, 600, 1, false, 4, &quot;Backlight duration on USB (Sec)&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -917,7 +888,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_enabled {&amp;config.haptics.enabled, 2, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_enabled {&amp;config.haptics.enabled, 3, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -931,7 +902,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_alarm {&amp;config.haptics.trigger_on_alarm, 2, &quot;On Alarm&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_alarm {&amp;config.haptics.trigger_on_alarm, 3, &quot;On Alarm&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -945,7 +916,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_boot {&amp;config.haptics.trigger_on_boot, 2, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_boot {&amp;config.haptics.trigger_on_boot, 3, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -959,7 +930,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_event {&amp;config.haptics.trigger_on_event, 2, &quot;On Event&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_event {&amp;config.haptics.trigger_on_event, 3, &quot;On Event&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -973,7 +944,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_hour {&amp;config.haptics.trigger_on_hour, 2, &quot;On Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_hour {&amp;config.haptics.trigger_on_hour, 3, &quot;On Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -987,7 +958,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_longpress {&amp;config.haptics.trigger_on_longpress, 2, &quot;LongPress&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_longpress {&amp;config.haptics.trigger_on_longpress, 3, &quot;LongPress&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1001,7 +972,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_wake {&amp;config.haptics.trigger_on_wake, 2, &quot;On Wake&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_wake {&amp;config.haptics.trigger_on_wake, 3, &quot;On Wake&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1064,6 +1035,48 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="ae2a0601cfeb9bfbaa89f94f4e475a15f" name="ae2a0601cfeb9bfbaa89f94f4e475a15f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2a0601cfeb9bfbaa89f94f4e475a15f">&#9670;&#160;</a></span>setting_web_mdns</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::setting_web_mdns {&amp;config.mdns_name, 1, &quot;mDNS Name&quot;, &quot;tinywatch&quot;, false}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac761901429c712ebe38885dabe3ba3e4" name="ac761901429c712ebe38885dabe3ba3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac761901429c712ebe38885dabe3ba3e4">&#9670;&#160;</a></span>setting_web_theme</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_web_theme {&amp;config.website_darkmode, 1, &quot;Theme&quot;, &quot;LIGHT&quot;, &quot;DARK&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8abd37bfaa2fadec823923b9dd24a0f3" name="a8abd37bfaa2fadec823923b9dd24a0f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8abd37bfaa2fadec823923b9dd24a0f3">&#9670;&#160;</a></span>setting_wifi_check_updates</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_check_updates {&amp;config.wifi_check_for_updates, 1, &quot;Update Check&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a509f772f09ffc6fff7979da55a31a39e" name="a509f772f09ffc6fff7979da55a31a39e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a509f772f09ffc6fff7979da55a31a39e">&#9670;&#160;</a></span>setting_wifi_start</h2>
 
@@ -1071,7 +1084,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_start {&amp;config.wifi_start, 0, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_start {&amp;config.wifi_start, 1, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1135,7 +1148,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::widget_ow_apikey {&amp;config.open_weather.api_key, 4, &quot;API KEY&quot;, false}</td>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::widget_ow_apikey {&amp;config.open_weather.api_key, 5, &quot;API KEY&quot;, &quot;&quot;, false}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1149,7 +1162,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::widget_ow_enabled {&amp;config.open_weather.enabled, 4, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::widget_ow_enabled {&amp;config.open_weather.enabled, 5, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1163,7 +1176,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_int_range.html">SettingsOptionIntRange</a> Settings::widget_ow_poll_interval {&amp;config.open_weather.poll_frequency, 10, 300, 10, false, 4, &quot;Poll Interval (Min)&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_int_range.html">SettingsOptionIntRange</a> Settings::widget_ow_poll_interval {&amp;config.open_weather.poll_frequency, 30, 300, 10, false, 5, &quot;Poll Interval (Min)&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1177,7 +1190,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::widget_ow_units {&amp;config.open_weather.units_metric, 4, &quot;Temperature Units&quot;, &quot;Fahrenheit&quot;, &quot;Celsius&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::widget_ow_units {&amp;config.open_weather.units_metric, 5, &quot;Temperature Units&quot;, &quot;Fahrenheit&quot;, &quot;Celsius&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">

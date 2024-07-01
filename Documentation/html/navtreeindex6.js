@@ -1,5 +1,13 @@
 var NAVTREEINDEX6 =
 {
+"widget___open_weather_8cpp.html":[3,0,1,7,10],
+"widget___open_weather_8cpp.html#a440c748ee82af45ecd29475d19378ea9":[3,0,1,7,10,1],
+"widget___open_weather_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d":[3,0,1,7,10,0],
+"widget___open_weather_8h.html":[3,0,1,7,11],
+"widget___open_weather_8h.html#a440c748ee82af45ecd29475d19378ea9":[3,0,1,7,11,1],
+"widget___wifi_8cpp.html":[3,0,1,7,12],
+"widget___wifi_8h.html":[3,0,1,7,13],
+"wifi__common_8h.html":[3,0,1,9,3],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221":[3,0,1,9,3,0],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a06f1d05ffd9482944b4bce6ffd024d6d":[3,0,1,9,3,0,9],
 "wifi__common_8h.html#a23bd682c361f8af2ffb20903672bc221a19a354b438db607d43a3ee78a335abcc":[3,0,1,9,3,0,10],
@@ -23,12 +31,14 @@ var NAVTREEINDEX6 =
 "wifi__setup_8h.html":[3,0,1,9,7],
 "wifi__setup_8h.html#a8e9196c4b5c9e3a69989756b17c07fb3":[3,0,1,9,7,1],
 "wifi__setup__templates_8h.html":[3,0,1,9,8],
-"www__general_8h.html":[3,0,1,9,0,0],
-"www__general_8h.html#a232427fe84e92c9624e8b1aa6ef568cf":[3,0,1,9,0,0,0],
-"www__settings__apps_8h.html":[3,0,1,9,0,1],
-"www__settings__apps_8h.html#afdacf915473fced7654cd3be09e992fc":[3,0,1,9,0,1,0],
-"www__settings__watch_8h.html":[3,0,1,9,0,2],
-"www__settings__watch_8h.html#a0636a7ee7da25093b870ac94f55f2e2b":[3,0,1,9,0,2,0],
-"www__settings__widgets_8h.html":[3,0,1,9,0,3],
-"www__settings__widgets_8h.html#a6886194a6e6788f13864f284bd7beb88":[3,0,1,9,0,3,0]
+"www__debug__logs_8h.html":[3,0,1,9,0,0],
+"www__debug__logs_8h.html#a5c4e12fc97f14cd4a0effe189846ff05":[3,0,1,9,0,0,0],
+"www__general_8h.html":[3,0,1,9,0,1],
+"www__general_8h.html#a232427fe84e92c9624e8b1aa6ef568cf":[3,0,1,9,0,1,0],
+"www__settings__apps_8h.html":[3,0,1,9,0,2],
+"www__settings__apps_8h.html#afdacf915473fced7654cd3be09e992fc":[3,0,1,9,0,2,0],
+"www__settings__watch_8h.html":[3,0,1,9,0,3],
+"www__settings__watch_8h.html#a0636a7ee7da25093b870ac94f55f2e2b":[3,0,1,9,0,3,0],
+"www__settings__widgets_8h.html":[3,0,1,9,0,4],
+"www__settings__widgets_8h.html#a6886194a6e6788f13864f284bd7beb88":[3,0,1,9,0,4,0]
 };

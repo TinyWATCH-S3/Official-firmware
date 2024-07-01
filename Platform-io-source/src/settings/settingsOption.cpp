@@ -384,7 +384,7 @@ String SettingsOptionString::generate_html(uint16_t index)
 
 	String html = "					<div class='input-group input-group-sm'>\n";
 	html += "						<span class='input-group-text' id='inputGroup-sizing-sm'>" + fieldname + "</span>\n";
-	html += "						<input type='text' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' " + (required_field ? "required" : "") + ">\n";
+	html += "						<input type='text' class='form-control form-control-sm' id='" + fn + "' name='" + fn + "' value='" + get() + "' placeholder='" + placeholder + "'" + (required_field ? "required" : "") + ">\n";
 	html += "					</div>\n";
 
 	return html;

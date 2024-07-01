@@ -31,6 +31,7 @@ var struct_config =
     [ "utc_offset", "struct_config.html#a42c1d36660530f571613a4eecff662bb", null ],
     [ "ver", "struct_config.html#ae5382eb0018ed9dedc2eb7c0ce79440d", null ],
     [ "website_darkmode", "struct_config.html#a802a0bab3ef7725919ec3318ddb77844", null ],
+    [ "wifi_check_for_updates", "struct_config.html#ae877b7e4ba86a0b41e6a84e3e02c6fb7", null ],
     [ "wifi_options", "struct_config.html#a833704f7a31df920ffc31ca8620412a6", null ],
     [ "wifi_pass", "struct_config.html#abd2cb3697545308259b67c9dc2e75134", null ],
     [ "wifi_ssid", "struct_config.html#a804424388e0c9b9c3accceb144e1e4d0", null ],

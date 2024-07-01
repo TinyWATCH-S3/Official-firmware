@@ -20,8 +20,9 @@ var searchData=
   ['wifi_5fsetup_2ecpp_17',['wifi_setup.cpp',['../wifi__setup_8cpp.html',1,'']]],
   ['wifi_5fsetup_2eh_18',['wifi_setup.h',['../wifi__setup_8h.html',1,'']]],
   ['wifi_5fsetup_5ftemplates_2eh_19',['wifi_setup_templates.h',['../wifi__setup__templates_8h.html',1,'']]],
-  ['www_5fgeneral_2eh_20',['www_general.h',['../www__general_8h.html',1,'']]],
-  ['www_5fsettings_5fapps_2eh_21',['www_settings_apps.h',['../www__settings__apps_8h.html',1,'']]],
-  ['www_5fsettings_5fwatch_2eh_22',['www_settings_watch.h',['../www__settings__watch_8h.html',1,'']]],
-  ['www_5fsettings_5fwidgets_2eh_23',['www_settings_widgets.h',['../www__settings__widgets_8h.html',1,'']]]
+  ['www_5fdebug_5flogs_2eh_20',['www_debug_logs.h',['../www__debug__logs_8h.html',1,'']]],
+  ['www_5fgeneral_2eh_21',['www_general.h',['../www__general_8h.html',1,'']]],
+  ['www_5fsettings_5fapps_2eh_22',['www_settings_apps.h',['../www__settings__apps_8h.html',1,'']]],
+  ['www_5fsettings_5fwatch_2eh_23',['www_settings_watch.h',['../www__settings__watch_8h.html',1,'']]],
+  ['www_5fsettings_5fwidgets_2eh_24',['www_settings_widgets.h',['../www__settings__widgets_8h.html',1,'']]]
 ];

@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['tinywatch_0',['TinyWATCH',['../class_tiny_w_a_t_c_h.html',1,'']]],
-  ['touch_5fevent_5ft_1',['touch_event_t',['../structtouch__event__t.html',1,'']]],
-  ['tt_5ftime_2',['TT_Time',['../struct_t_t___time.html',1,'']]],
-  ['tw_5fapp_3',['tw_app',['../classtw__app.html',1,'']]],
-  ['tw_5fcontrol_4',['tw_control',['../classtw__control.html',1,'']]],
-  ['tw_5fface_5',['tw_face',['../classtw__face.html',1,'']]],
-  ['tw_5fwidget_6',['tw_widget',['../classtw__widget.html',1,'']]]
+  ['scan_5fresponder_0',['scan_responder',['../structscan__responder.html',1,'']]],
+  ['setting_5fgroup_1',['setting_group',['../structsetting__group.html',1,'']]],
+  ['settings_2',['Settings',['../class_settings.html',1,'']]],
+  ['settingsoptionbase_3',['SettingsOptionBase',['../class_settings_option_base.html',1,'']]],
+  ['settingsoptionbool_4',['SettingsOptionBool',['../class_settings_option_bool.html',1,'']]],
+  ['settingsoptionfloat_5',['SettingsOptionFloat',['../class_settings_option_float.html',1,'']]],
+  ['settingsoptionint_6',['SettingsOptionInt',['../class_settings_option_int.html',1,'']]],
+  ['settingsoptionintrange_7',['SettingsOptionIntRange',['../class_settings_option_int_range.html',1,'']]],
+  ['settingsoptionintvector_8',['SettingsOptionIntVector',['../class_settings_option_int_vector.html',1,'']]],
+  ['settingsoptionstring_9',['SettingsOptionString',['../class_settings_option_string.html',1,'']]]
 ];

@@ -72,11 +72,11 @@ void setup()
 	else
 	{
 		delay(100);
-		tinywatch.log_system_message("Load Status");
-		tinywatch.log_system_message(settings.get_load_status());
-		tinywatch.log_system_message("Save Status");
-		tinywatch.log_system_message(settings.get_save_status());
-		tinywatch.log_system_message("------");
+		// tinywatch.log_system_message("Load Status");
+		// tinywatch.log_system_message(settings.get_load_status());
+		// tinywatch.log_system_message("Save Status");
+		// tinywatch.log_system_message(settings.get_save_status());
+		// tinywatch.log_system_message("------");
 		settings.load();
 	}
 
@@ -439,7 +439,10 @@ bool TinyWATCH::vbus_present()
 	return (vbus);
 }
 
-void TinyWATCH::log_system_message(String txt) { tinywatch.messages.push_back(txt); }
+void TinyWATCH::log_system_message(String txt)
+{
+	tinywatch.messages.push_back(log_message((millis() / 1000), txt));
+}
 
 void TinyWATCH::get_public_ip(bool success, const String &response)
 {

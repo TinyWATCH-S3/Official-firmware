@@ -24,23 +24,14 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_microphone, sweep_siz
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_compass, hard_iron_x, hard_iron_y, hard_iron_z, soft_iron_x, soft_iron_y, soft_iron_z, magnetic_declination);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, mdns_name, website_darkmode, mqtt, haptics, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, bl_level_vbus, bl_level_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, show_nav_arrows, audio_ui, audio_alarm, audio_on_hour, audio_test, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, wifi_check_for_updates, mdns_name, website_darkmode, mqtt, haptics, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, bl_level_vbus, bl_level_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, show_nav_arrows, audio_ui, audio_alarm, audio_on_hour, audio_test, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
 
-// void Settings::init()
+// void Settings::log_to_nvs(const char *key, const char *log)
 // {
-// 	// Setup settings groups
-// 	settings_groups[0] = "General Watch Settings";
-// 	settings_groups[1] = "Audio Settings";
-// 	settings_groups[2] = "Haptics Settings";
-// 	settings_groups[3] = "Display Settings";
+// 	nvs.begin("flash_log");
+// 	nvs.putString(key, log);
+// 	nvs.end();
 // }
-
-void Settings::log_to_nvs(const char *key, const char *log)
-{
-	nvs.begin("flash_log");
-	nvs.putString(key, log);
-	nvs.end();
-}
 
 /**
  * @brief Checks to see if there are WiFi credentials stores in the user settings
@@ -106,7 +97,7 @@ bool Settings::load()
 		tinywatch.log_system_message("No data on flash");
 		file.close();
 		create();
-		log_to_nvs("load_status", "no file");
+		// log_to_nvs("load_status", "no file");
 		return false;
 	}
 
@@ -117,7 +108,7 @@ bool Settings::load()
 		// Reading failed
 		tinywatch.log_system_message("Reading data failed");
 		String log = "bad read " + String(file.size()) + " " + String((int)data_bytes_read);
-		log_to_nvs("load_status", log.c_str());
+		// log_to_nvs("load_status", log.c_str());
 		file.close();
 		create();
 		return false;
@@ -140,7 +131,7 @@ bool Settings::load()
 		tinywatch.log_system_message("JSON parse error on read");
 		file.close();
 		create();
-		log_to_nvs("load_status", "bad json parse");
+		// log_to_nvs("load_status", "bad json parse");
 		return false;
 	}
 
@@ -242,18 +233,18 @@ bool Settings::save(bool force)
 	{
 		error_println("Failed to write to settings file");
 		tinywatch.log_system_message("Write settings failed");
-		log_to_nvs("save_status", "failed to open for write");
+		// log_to_nvs("save_status", "failed to open for write");
 		return false;
 	}
 
 	file.print(serializedObject.c_str());
-	log_to_nvs("save_status", "data written");
+	// log_to_nvs("save_status", "data written");
 
 	file.close();
-	log_to_nvs("save_status", "file closed");
+	// log_to_nvs("save_status", "file closed");
 
 	LittleFS.rename(tmp_filename, filename);
-	log_to_nvs("save_status", "file renamed");
+	// log_to_nvs("save_status", "file renamed");
 
 	info_println("Settings SAVE: Saved!");
 

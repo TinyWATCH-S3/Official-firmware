@@ -8,7 +8,7 @@ var class_tiny_w_a_t_c_h =
     [ "woke_by", "class_tiny_w_a_t_c_h.html#a4067252dd43ba7790b0d51ebb8e5e064", null ],
     [ "block_update_low_battery", "class_tiny_w_a_t_c_h.html#a1dd77ecfe4df7787f1fce46df043305a", null ],
     [ "low_battery_update_check", "class_tiny_w_a_t_c_h.html#af3f1a673303ccb81a7ea8e304fd3b304", null ],
-    [ "messages", "class_tiny_w_a_t_c_h.html#aeb44ecae81f3bf26847e1e52f8cfda6c", null ],
+    [ "messages", "class_tiny_w_a_t_c_h.html#a1deefd462fe43903516b07d873e692e6", null ],
     [ "version_firmware", "class_tiny_w_a_t_c_h.html#a439c0df24b0a268b1c1c58b3c778730b", null ],
     [ "version_year", "class_tiny_w_a_t_c_h.html#a31de99c7e1854294dd7864dd6840baee", null ]
 ];

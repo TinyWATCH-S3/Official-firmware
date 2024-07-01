@@ -1,7 +1,7 @@
 var settings_8cpp =
 [
     [ "json", "settings_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d", null ],
-    [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a4db085ceb431a59fbdc28a8cdb1262de", null ],
+    [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a2e9d2df914888bf0ed5062883d051c2d", null ],
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a80d36c480da5250b7baac6aee2f705a5", null ],
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#ae806cbca279f16fde746aa6f0dd673f8", null ],
     [ "NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT", "settings_8cpp.html#a708e8194bbe2ececd850e82f6a52391f", null ],

@@ -16,6 +16,7 @@ var hierarchy =
     [ "Display", "class_display.html", null ],
     [ "Haptics", "class_haptics.html", null ],
     [ "IMU", "class_i_m_u.html", null ],
+    [ "log_message", "structlog__message.html", null ],
     [ "RTC", "class_r_t_c.html", null ],
     [ "scan_responder", "structscan__responder.html", null ],
     [ "setting_group", "structsetting__group.html", null ],
