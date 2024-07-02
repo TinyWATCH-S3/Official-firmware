@@ -46,7 +46,11 @@ String WebServer::processor(const String &var)
 	}
 	else if (var == "UPDATE_NOTICE")
 	{
-		return "";
+		if (tinywatch.update_available())
+			return tinywatch.version_firmware + " " + tinywatch.version_year + " <a href='https://tinywatch.io/firmware_alpha/' target='_blank'>NEW VERSION AVAILABLE</a>\n";
+		else
+
+			return (tinywatch.version_firmware + " " + tinywatch.version_year);
 	}
 	else if (var == "DEBUG_LOGS")
 	{
@@ -184,6 +188,8 @@ void WebServer::start_callback(bool success, const String &response)
 			return;
 		}
 
+		wifi_controller.add_to_queue("https://tinywatch.io/latestver", [this](bool success, const String &response) { this->process_version(success, response); });
+
 		web_server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
 
 		web_server.on("/index.htm", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_html, processor); });
@@ -242,15 +248,15 @@ void WebServer::start_callback(bool success, const String &response)
 						{
 							String fn_indexed = String(group_id) + "," + String(i) + "__" + fn + "_" + String(v);
 
-							info_printf("Looking for id: %s - ", fn_indexed.c_str());
+							// info_printf("Looking for id: %s - ", fn_indexed.c_str());
 
 							if (request->hasParam(fn_indexed, true))
 							{
-								info_print("Found - ");
+								// info_print("Found - ");
 								AsyncWebParameter *_param = request->getParam(fn_indexed, true);
 								int data = String(_param->value().c_str()).toInt();
 
-								info_printf("Web data: %d, class data %d, change? %s\n", data, intPtr->get(v), (intPtr->update(v, data) ? "YES" : "no"));
+								// info_printf("Web data: %d, class data %d, change? %s\n", data, intPtr->get(v), (intPtr->update(v, data) ? "YES" : "no"));
 								intPtr->update(v, data);
 							}
 						}
@@ -259,7 +265,7 @@ void WebServer::start_callback(bool success, const String &response)
 					{
 						String fn_indexed = String(group_id) + "," + String(i) + "__" + fn;
 
-						info_printf("Looking for id: %s - ", fn_indexed.c_str());
+						// info_printf("Looking for id: %s - ", fn_indexed.c_str());
 
 						if (request->hasParam(fn_indexed, true))
 						{
@@ -270,41 +276,41 @@ void WebServer::start_callback(bool success, const String &response)
 								bool data = (String(_param->value().c_str()) == "1");
 								SettingsOptionBool *intPtr = static_cast<SettingsOptionBool *>(setting);
 
-								info_printf("Web data (new): %s, class data (current): %s - ", (data ? "T" : "F"), (intPtr->get() ? "T" : "F"));
+								// info_printf("Web data (new): %s, class data (current): %s - ", (data ? "T" : "F"), (intPtr->get() ? "T" : "F"));
 								bool updated = intPtr->update(data);
-								info_printf("Now: %s - changed? %s\n", (intPtr->get() ? "T" : "F"), (updated ? "YES" : "no"));
+								// info_printf("Now: %s - changed? %s\n", (intPtr->get() ? "T" : "F"), (updated ? "YES" : "no"));
 							}
 							else if (setting->getType() == SettingsOptionBase::FLOAT)
 							{
 								float data = String(_param->value().c_str()).toFloat();
 								SettingsOptionFloat *intPtr = static_cast<SettingsOptionFloat *>(setting);
-								info_printf("Web data: %f, class data %f - ", data, intPtr->get());
+								// info_printf("Web data: %f, class data %f - ", data, intPtr->get());
 								bool updated = intPtr->update(data);
-								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+								// info_printf("changed? %s\n", (updated ? "YES" : "no"));
 							}
 							else if (setting->getType() == SettingsOptionBase::STRING)
 							{
 								String data = String(_param->value().c_str());
 								SettingsOptionString *intPtr = static_cast<SettingsOptionString *>(setting);
-								info_printf("Web data: %s, class data %s - ", data, intPtr->get());
+								// info_printf("Web data: %s, class data %s - ", data, intPtr->get());
 								bool updated = intPtr->update(&data);
-								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+								// info_printf("changed? %s\n", (updated ? "YES" : "no"));
 							}
 							else if (setting->getType() == SettingsOptionBase::INT)
 							{
 								int data = String(_param->value().c_str()).toInt();
 								SettingsOptionInt *intPtr = static_cast<SettingsOptionInt *>(setting);
-								info_printf("Web data: %d, class data %d - ", data, intPtr->get());
+								// info_printf("Web data: %d, class data %d - ", data, intPtr->get());
 								bool updated = intPtr->update(data);
-								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+								// info_printf("changed? %s\n", (updated ? "YES" : "no"));
 							}
 							else if (setting->getType() == SettingsOptionBase::INT_RANGE)
 							{
 								int data = String(_param->value().c_str()).toInt();
 								SettingsOptionIntRange *intPtr = static_cast<SettingsOptionIntRange *>(setting);
-								info_printf("Web data: %d, class data %d - ", data, intPtr->get());
+								// info_printf("Web data: %d, class data %d - ", data, intPtr->get());
 								bool updated = intPtr->update(data);
-								info_printf("changed? %s\n", (updated ? "YES" : "no"));
+								// info_printf("changed? %s\n", (updated ? "YES" : "no"));
 							}
 							// info_printf("Data: %s\n", String(_param->value().c_str()));
 							// 	settings.config.look_ahead = String(_set_reflow_lookahead->value().c_str()).toInt();
@@ -406,5 +412,23 @@ void WebServer::stop(bool restart)
 void WebServer::process() {}
 
 bool WebServer::is_running() { return _running; }
+
+void WebServer::process_version(bool success, const String &response)
+{
+	try
+	{
+		json data = json::parse(response);
+
+		uint16_t latest_version = data["latest_version"];
+
+		info_printf("Latest Version: %d, Build Version: %d, Should notify? %s\n", latest_version, tinywatch.version_build, String(latest_version > tinywatch.version_build ? "YES!" : "no"));
+		tinywatch.version_latest = latest_version;
+	}
+	catch (json::exception &e)
+	{
+		info_println("Verion Check parse error:");
+		info_println(e.what());
+	}
+}
 
 WebServer web_server;

@@ -25,12 +25,15 @@ class TinyWATCH
 		bool vbus_present();
 		void set_cpu_frequency(uint32_t freq, CPU_SPEED speed);
 		void log_system_message(String txt);
+		bool update_available();
 
 		bool block_update_low_battery = false;
 		unsigned long low_battery_update_check = 0;
 
-		const String version_firmware = "v0.61";
+		const String version_firmware = "v0.63";
 		const String version_year = "2024";
+		const uint16_t version_build = 1;
+		uint16_t version_latest = 0;
 
 		std::vector<log_message> messages;
 

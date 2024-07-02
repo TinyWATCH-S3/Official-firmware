@@ -18,6 +18,7 @@ class WebServer
 		void stop(bool restart);
 		void process();
 		bool is_running();
+		void process_version(bool success, const String &response);
 
 		static String processor(const String &var);
 

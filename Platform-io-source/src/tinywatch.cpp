@@ -349,6 +349,8 @@ void loop()
 	yield();
 }
 
+bool TinyWATCH::update_available() { return (version_latest > version_build); }
+
 void TinyWATCH::set_cpu_frequency(uint32_t freq, CPU_SPEED speed)
 {
 	// Wifi will crash if the CPU speed is less than 80
@@ -392,7 +394,10 @@ void TinyWATCH::go_to_sleep()
 {
 	// if the web server is running, we don't want to go to sleep...
 	if (web_server.is_running())
+	{
+		info_println("Web server is running, exiting call to sleep");
 		return;
+	}
 
 	if (wifi_controller.is_connected())
 		wifi_controller.disconnect(true);
@@ -422,13 +427,15 @@ void TinyWATCH::go_to_sleep()
 
 	imu.set_hibernate(false);
 	settings.save(true);
+	delay(200);
 	activity.save(true);
 	delay(500); // no delay and it sometimes wakes up immediately
 
 	LittleFS.end();
 
 	// esp_sleep_enable_ext1_wakeup(WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ALL_LOW);
-	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ANY_LOW);
+	// esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_FG_ALERT | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ANY_LOW);
+	esp_sleep_enable_ext1_wakeup(WAKE_REASON_TOUCH | WAKE_REASON_RTC_ALARM | WAKE_REASON_BMI270_WRIST, ESP_EXT1_WAKEUP_ANY_LOW);
 	esp_deep_sleep_start();
 }
 

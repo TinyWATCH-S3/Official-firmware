@@ -33,7 +33,7 @@ Display display;
 #include "tw_faces/face_IMU.h"
 #include "tw_faces/face_Notifications.h"
 #include "tw_faces/face_Settings.h"
-#include "tw_faces/face_System.h"
+// #include "tw_faces/face_System.h"
 #include "tw_faces/face_WatchSettings.h"
 
 // Widgets
@@ -328,9 +328,9 @@ void Display::createFaces(bool was_sleeping)
 	face_notifications.add("Messages", 1000, 80);
 	face_notifications.set_scrollable(false, true);
 
-	face_system.add("System Info", 0);
-	face_system.set_scrollable(false, true);
-	face_system.set_single_navigation(UP, &face_notifications);
+	// face_system.add("System Info", 0);
+	// face_system.set_scrollable(false, true);
+	// face_system.set_single_navigation(UP, &face_notifications);
 
 	if (haptics.available)
 	{
@@ -729,6 +729,7 @@ void Display::process_touch()
 	// Process the backlight timer
 	if (millis() - last_touch > get_backlight_period())
 	{
+		// info_printf("bl_time_period: %d\n", bl_time_period);
 		last_touch = millis();
 		if (backlight_level < 3)
 		{
@@ -738,6 +739,7 @@ void Display::process_touch()
 		}
 		else if (!tinywatch.vbus_present())
 		{
+			info_println("Going to sleep?");
 			tinywatch.go_to_sleep();
 		}
 	}
@@ -746,7 +748,9 @@ void Display::process_touch()
 uint Display::get_backlight_period()
 {
 	// Is 5V present even though we think we are on battery power?
-	return tinywatch.vbus_present() ? (settings.config.bl_period_vbus[last_backlight] * 1000) : (settings.config.bl_period_vbat[last_backlight] * 1000);
+	int max_level = (settings.config.bl_period_vbus.size() - 1);
+	int lbl = constrain(last_backlight, 0, settings.config.bl_period_vbus.size() - 1);
+	return tinywatch.vbus_present() ? (settings.config.bl_period_vbus[lbl] * 1000) : (settings.config.bl_period_vbat[lbl] * 1000);
 }
 
 void Display::set_backlight(int level, bool force)
@@ -754,7 +758,13 @@ void Display::set_backlight(int level, bool force)
 	if (last_backlight != level || force)
 	{
 		last_backlight = level;
+		int max_level = (settings.config.bl_level_vbus.size() - 1);
+		level = constrain(level, 0, max_level);
+
 		backlight_target_val = tinywatch.vbus_present() ? settings.config.bl_level_vbus[level] : settings.config.bl_level_vbat[level];
+		String mess = "Set backlight to level " + String(level) + " - " + String(backlight_target_val) + "%% " + (force ? "FORCED" : "");
+		tinywatch.log_system_message(mess);
+		// info_println(mess);
 	}
 }
 

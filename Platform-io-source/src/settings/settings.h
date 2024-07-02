@@ -171,7 +171,7 @@ class Settings
 
 		// Web and WiFi
 		SettingsOptionBool setting_wifi_start{&config.wifi_start, 1, "Auto WiFi", "NO", "YES"};
-		SettingsOptionBool setting_wifi_check_updates{&config.wifi_check_for_updates, 1, "Update Check", "NO", "YES"};
+		SettingsOptionBool setting_wifi_check_updates{&config.wifi_check_for_updates, 1, "Notify Updates", "NO", "YES"};
 		SettingsOptionBool setting_web_theme{&config.website_darkmode, 1, "Theme", "LIGHT", "DARK"};
 		SettingsOptionString setting_web_mdns{&config.mdns_name, 1, "mDNS Name", "tinywatch", false};
 
