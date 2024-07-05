@@ -72,11 +72,6 @@ void setup()
 	else
 	{
 		delay(100);
-		// tinywatch.log_system_message("Load Status");
-		// tinywatch.log_system_message(settings.get_load_status());
-		// tinywatch.log_system_message("Save Status");
-		// tinywatch.log_system_message(settings.get_save_status());
-		// tinywatch.log_system_message("------");
 		settings.load();
 	}
 
@@ -113,7 +108,8 @@ void setup()
 	imu.preinit(was_asleep);
 
 	// Start the haptics peripheral if present, so we can buzz on wake or start if enabled.
-	haptics.init();
+	// If haptics fails to initialise, then we are on older HW than P7.
+	tinywatch.hw_revision_p7_or_later = haptics.init();
 
 	if (was_asleep)
 	{
@@ -132,6 +128,13 @@ void setup()
 
 	if (was_asleep)
 	{
+		// Process any POST DS callbacks onw that we have faces!
+		for (size_t i = 0; i < tinywatch.post_ds_callbacks.size(); i++)
+		{
+			if (tinywatch.post_ds_callbacks[i] != nullptr)
+				tinywatch.post_ds_callbacks[i]();
+		}
+
 		// Wake up the peripherals because we were sleeping!
 
 		// work out why we were woken up and do something about it
@@ -173,8 +176,8 @@ void setup()
 
 			// If our voltage is too low, we exit startup and show a blocking battery screen until the battery charges
 			// We only do this if we are running from battery, with no USB connected
-			if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
-				return;
+			// if (!tinywatch.vbus_present() && tinywatch.block_update_low_battery)
+			// 	return;
 		}
 		else
 		{
@@ -222,8 +225,6 @@ void setup()
 		{
 			// Hold the boot screen for a smidge
 			delay(1000);
-			// display.update_boot_face(BOOT);
-			// display.show_low_battery();
 			display.show_watch_from_boot();
 		}
 	}
@@ -299,7 +300,7 @@ void loop()
 				tinywatch.log_system_message("loop LOW V: " + String(battery.is_low(false)));
 				tinywatch.log_system_message("loop LOW %: " + String(battery.is_low(true)));
 				battery.clear_alert_status();
-				tinywatch.block_update_low_battery = true;
+				// tinywatch.block_update_low_battery = true;
 			}
 		}
 	}
@@ -312,7 +313,7 @@ void loop()
 	// }
 
 	// Process the wifi controller task queue
-	// Only processes every 1 second
+	// Only processes every 1 second inside it's loop
 	wifi_controller.loop();
 
 	// If we are doing a loading activity, halt the rest of the loop
@@ -345,6 +346,12 @@ void loop()
 
 	// Update the current face based on it's own update period
 	display.update_current_face();
+
+	// If the user has pressed IO0/BOOT then we want to immediately go into deep sleep
+	if (tinywatch.hw_revision_p7_or_later && digitalRead(0) == LOW)
+	{
+		tinywatch.go_to_sleep();
+	}
 
 	yield();
 }
@@ -408,6 +415,12 @@ void TinyWATCH::go_to_sleep()
 		return;
 	}
 
+	for (size_t i = 0; i < pre_ds_callbacks.size(); i++)
+	{
+		if (pre_ds_callbacks[i] != nullptr)
+			pre_ds_callbacks[i]();
+	}
+
 	// Dont call this if the task was not created!
 	wifi_controller.kill_controller_task();
 
@@ -459,7 +472,7 @@ void TinyWATCH::get_public_ip(bool success, const String &response)
 
 void TinyWATCH::get_and_update_utc_settings(bool success, const String &response)
 {
-	// info_println("Callback executed. Success: " + String(success ? "TRUE" : "FALSE") + ", Response: " + String(response));
+	info_println("Callback executed. Success: " + String(success ? "TRUE" : "FALSE") + ", Response: " + String(response));
 
 	// don't hold wifi on anymore
 	settings.config.wifi_start = false;
@@ -518,6 +531,75 @@ void TinyWATCH::get_and_update_utc_settings(bool success, const String &response
 
 	if (!settings.config.wifi_start)
 		wifi_controller.disconnect(false);
+}
+
+void TinyWATCH::ds_remove(const char *key)
+{
+	nvs.begin(deep_sleep_store_name);
+	nvs.remove(key);
+	nvs.end();
+}
+
+void TinyWATCH::ds_store_string(const char *key, const char *data)
+{
+	nvs.begin(deep_sleep_store_name);
+	nvs.putString(key, data);
+	nvs.end();
+}
+
+void TinyWATCH::ds_store_int32(const char *key, int32_t data)
+{
+	nvs.begin(deep_sleep_store_name);
+	nvs.putInt(key, data);
+	nvs.end();
+}
+
+void TinyWATCH::ds_store_uint32(const char *key, uint32_t data)
+{
+	nvs.begin(deep_sleep_store_name);
+	nvs.putUInt(key, data);
+	nvs.end();
+}
+
+String TinyWATCH::ds_retrieve_string(const char *key)
+{
+	nvs.begin(deep_sleep_store_name);
+	String data = nvs.getString(key);
+	nvs.end();
+
+	return data;
+}
+
+int32_t TinyWATCH::ds_retrieve_int32(const char *key)
+{
+	nvs.begin(deep_sleep_store_name);
+	int32_t data = nvs.getInt(key);
+	nvs.end();
+
+	return data;
+}
+
+uint32_t TinyWATCH::ds_retrieve_uint32(const char *key)
+{
+	uint32_t data = 99;
+	nvs.begin(deep_sleep_store_name);
+	if (nvs.isKey(key))
+		data = nvs.getUInt(key, 101);
+	nvs.end();
+
+	return data;
+}
+
+void TinyWATCH::register_pre_ds_callback(_CALLBACK_DS _callback)
+{
+	pre_ds_callbacks.push_back(_callback);
+	info_printf("Adding item to PRE DS callbacks Now %d items\n", pre_ds_callbacks.size());
+}
+
+void TinyWATCH::register_post_ds_callback(_CALLBACK_DS _callback)
+{
+	post_ds_callbacks.push_back(_callback);
+	info_printf("Adding item to POST DS callbacks Now %d items\n", pre_ds_callbacks.size());
 }
 
 TinyWATCH tinywatch;

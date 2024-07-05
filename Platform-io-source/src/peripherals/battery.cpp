@@ -32,14 +32,15 @@ bool Battery::init()
 	info_println(F("%"));
 
 	// Enable the State Of Change alert
-	info_print(F("Enabling the State Of Change alert: "));
-	if (maxlipo.enableSOCAlert())
-		info_println(F("success."));
-	else
-		info_println(F("FAILED!"));
+	// SEON
+	// info_print(F("Enabling the State Of Change alert: "));
+	// if (maxlipo.enableSOCAlert())
+	// 	info_println(F("success."));
+	// else
+	// 	info_println(F("FAILED!"));
 
 	// Set the high voltage threshold
-	maxlipo.setVALRTMax((float)4.1); // Set high voltage threshold (Volts) 
+	maxlipo.setVALRTMax((float)4.1); // Set high voltage threshold (Volts)
 
 	// Read and print the high voltage threshold
 	info_print(F("High voltage threshold is now: "));
@@ -109,7 +110,7 @@ void Battery::update_stats(bool forced)
 		// the charge/depletion rate still shows a depletion.
 		cached_percent = constrain(maxlipo.getSOC() + settings.config.battery.perc_offset, 0.0, 100.0);
 		cached_rate = maxlipo.getChangeRate();
-		next_battery_read = millis();		
+		next_battery_read = millis();
 	}
 
 	// Create a historical record of the rate of change every 5 seconds for ~ 5 minutes
@@ -132,7 +133,6 @@ void Battery::update_stats(bool forced)
 
 				rate_history[rate_historyrecords] = cached_rate;
 				rate_historyrecords = max_historyrecords;
-				
 			}
 			next_battery_timeupdate = millis();
 			tinywatch.log_system_message("Records: " + String(rate_historyrecords));

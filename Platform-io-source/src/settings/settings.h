@@ -159,8 +159,6 @@ class Settings
 		bool has_wifi_creds(void);
 		bool has_country_set(void);
 		void update_wifi_credentials(String ssid, String pass);
-		String get_load_status();
-		String get_save_status();
 
 		// Add any SettingsOption values here for any settings you want to bind with a tw_Control
 		SettingsOptionBool setting_time_24hour{&config.time_24hour, 0, "Time Mode", "12H", "24H"};
@@ -174,6 +172,8 @@ class Settings
 		SettingsOptionBool setting_wifi_check_updates{&config.wifi_check_for_updates, 1, "Notify Updates", "NO", "YES"};
 		SettingsOptionBool setting_web_theme{&config.website_darkmode, 1, "Theme", "LIGHT", "DARK"};
 		SettingsOptionString setting_web_mdns{&config.mdns_name, 1, "mDNS Name", "tinywatch", false};
+		SettingsOptionString setting_country{&config.country, 1, "Country"};
+		SettingsOptionString setting_city{&config.city, 1, "City"};
 
 		// Audio
 		SettingsOptionBool setting_audio_ui{&config.audio_ui, 2, "UI Sound", "NO", "YES"};
@@ -222,9 +222,6 @@ class Settings
 
 		unsigned long max_time_between_saves = 30000; // every 30 seconds
 		unsigned long last_save_time = 0;
-
-		// void log_to_nvs(const char *key, const char *log);
-		Preferences nvs;
 };
 
 extern Settings settings;

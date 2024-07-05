@@ -253,8 +253,8 @@ void Display::createFaces(bool was_sleeping)
 		BuzzerUI({{262, 210}, {1851, 150}, {523, 150}});
 	}
 
-	backlight_level = 0;
-	set_backlight(0, true);
+	// backlight_level = 0;
+	// set_backlight(0, true);
 
 	WidgetBattery *wBattery = new WidgetBattery();
 	wBattery->create("Battery", 210, 7, 40, 40, 1000);
@@ -549,8 +549,7 @@ void Display::process_touch()
 
 			current_face->drag_begin(startX, startY);
 
-			backlight_level = 0;
-			set_backlight(backlight_level, false);
+			set_backlight(0, false);
 		}
 		else if (isTouched && touchpad.finger_num == 1)
 		{
@@ -735,9 +734,9 @@ void Display::process_touch()
 		{
 			backlight_level++;
 			set_backlight(backlight_level, false);
-			info_println("Setting backlight level: " + String(backlight_level));
 		}
 		else if (!tinywatch.vbus_present())
+		// else
 		{
 			info_println("Going to sleep?");
 			tinywatch.go_to_sleep();
@@ -758,6 +757,9 @@ void Display::set_backlight(int level, bool force)
 	if (last_backlight != level || force)
 	{
 		last_backlight = level;
+		backlight_level = level;
+		info_println("Setting backlight level: " + String(backlight_level));
+
 		int max_level = (settings.config.bl_level_vbus.size() - 1);
 		level = constrain(level, 0, max_level);
 

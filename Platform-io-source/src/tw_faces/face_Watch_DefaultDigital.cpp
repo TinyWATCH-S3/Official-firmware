@@ -54,7 +54,7 @@ void FaceWatch_DefaultDigital::setup()
 		get_v_RLEBM(icon_v);
 		get_pcnt_RLEBM(icon_pcnt);
 		get_db_RLEBM(icon_db);
-		get_walking_RLEBM(activityLCD);
+		// get_walking_RLEBM(activityLCD);
 	}
 }
 
@@ -135,7 +135,8 @@ void FaceWatch_DefaultDigital::draw(bool force)
 				uint16_t day, month, year;
 				rtc.get_step_date(day, month, year);
 				uint32_t steps = imu.get_steps(day, month, year);
-				step_bar_bmp = activitybar[map(steps, 0, 1000, 0, 13)];
+				// step_bar_bmp = activitybar[map(steps, 0, 1000, 0, 13)];
+				step_bar_bmp = activitybar[maplim(steps, 0, 10000, 0, 13, true)];
 				canvas[canvasid].drawString(String(steps), 185 + pushactright, 99);
 
 				// Activity Window Icon

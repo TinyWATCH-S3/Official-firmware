@@ -26,9 +26,9 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config_app_compass, hard_iron_x,
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(Config, wifi_start, wifi_ssid, wifi_pass, wifi_check_for_updates, mdns_name, website_darkmode, mqtt, haptics, battery, open_weather, city, country, utc_offset, bl_period_vbus, bl_period_vbat, bl_level_vbus, bl_level_vbat, time_24hour, time_dateformat, clock_face_index, left_handed, flipped, show_nav_arrows, audio_ui, audio_alarm, audio_on_hour, audio_test, imu_process_steps, imu_process_wrist, app_microphone, compass, custom_binary);
 
-// void Settings::log_to_nvs(const char *key, const char *log)
+// void Settings::store_in_nvs(const char *key, const char *log)
 // {
-// 	nvs.begin("flash_log");
+// 	nvs.begin("deep_sleep_cache");
 // 	nvs.putString(key, log);
 // 	nvs.end();
 // }
@@ -60,25 +60,25 @@ void Settings::update_wifi_credentials(String ssid, String pass)
 	save(true);
 }
 
-String Settings::get_load_status()
-{
-	String log = "";
-	nvs.begin("flash_log");
-	log = nvs.getString("load_status", "load_nada");
-	nvs.end();
+// String Settings::get_load_status()
+// {
+// 	String log = "";
+// 	nvs.begin("flash_log");
+// 	log = nvs.getString("load_status", "load_nada");
+// 	nvs.end();
 
-	return log;
-}
+// 	return log;
+// }
 
-String Settings::get_save_status()
-{
-	String log = "";
-	nvs.begin("flash_log");
-	log = nvs.getString("save_status", "save_nada");
-	nvs.end();
+// String Settings::get_save_status()
+// {
+// 	String log = "";
+// 	nvs.begin("flash_log");
+// 	log = nvs.getString("save_status", "save_nada");
+// 	nvs.end();
 
-	return log;
-}
+// 	return log;
+// }
 
 /**
  * @brief Load the user settings from the user flash FS and deserialise them from JSON back into the Config struct

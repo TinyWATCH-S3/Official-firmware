@@ -15,10 +15,13 @@ class WidgetOpenWeather : public tw_widget
 
 		void process_weather_data(bool success, const String &response);
 
+		void store_values_for_deepsleep();
+		void retrieve_values_for_deepsleep();
+
 	private:
 		String version = "1.0";
 		String server_path = "http://api.openweathermap.org/data/2.5/weather?q=";
-		unsigned long next_update = 0;
+		unsigned long next_update = millis() + 5000;
 
 		bool icons_loaded = false;
 
@@ -31,6 +34,13 @@ class WidgetOpenWeather : public tw_widget
 		uint8_t stat = 0;
 
 		std::map<String, const uint16_t *> ow_icons;
+
+		bool should_store_values_for_deepsleep()
+		{
+			return (_temp > -999);
+		}
+
+		bool deepsleep_data_stored = false;
 };
 
 extern WidgetOpenWeather ow_widget;

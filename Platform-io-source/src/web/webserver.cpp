@@ -60,7 +60,7 @@ String WebServer::processor(const String &var)
 			String mess = tinywatch.messages[l].message;
 			mess.replace(" %:", " %%:");
 			logs += "<div class='row p-1 " + String(l % 2 == 0 ? "alt" : "alt2") + "'>\n";
-			logs += "<div class='col-2 text-end nowrap'>" + String(tinywatch.messages[l].timestamp) + "&nbsp;sec</div>\n";
+			logs += "<div class='col-2 text-end nowrap'>" + tinywatch.messages[l].get_time() + "</div>\n";
 			logs += "<div class='col-10 text-start'>" + mess + "</div>\n";
 			logs += "</div>\n";
 		}
@@ -319,6 +319,7 @@ void WebServer::start_callback(bool success, const String &response)
 				}
 
 				Buzzer({{2000, 20}});
+				settings.save(true);
 				request->send_P(200, "text/html", generate_settings_html(group_id).c_str(), processor);
 			}
 			else
