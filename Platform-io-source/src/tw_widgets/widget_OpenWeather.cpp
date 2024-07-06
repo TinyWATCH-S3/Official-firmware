@@ -50,8 +50,6 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 	{
 		_temp = -999;
 
-		info_println(response);
-
 		json data = json::parse(response);
 
 		json main = data["main"];
@@ -74,9 +72,10 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 	}
 	catch (json::exception &e)
 	{
+		info_printf("response: %s\n", response);
 		info_println("OW Json parse error:");
 		info_println(e.what());
-		next_update = 0;
+		next_update += 10000;
 	}
 }
 

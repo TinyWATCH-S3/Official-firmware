@@ -106,9 +106,9 @@ struct Config
 
 enum SettingType
 {
-	CONTROL,
+	WATCH,
+	WEB,
 	WIDGET,
-	MQTT
 };
 
 struct setting_group
@@ -116,7 +116,7 @@ struct setting_group
 		String name = "";
 		String description = "";
 		std::vector<SettingsOptionBase *> groups = {};
-		SettingType type = SettingType::CONTROL;
+		SettingType type = SettingType::WATCH;
 
 		void setup(String nm, SettingType t, String d = "")
 		{
@@ -136,19 +136,19 @@ class Settings
 		Settings()
 		{
 			// Setup settings groups
-			settings_groups[0].setup("General Watch Settings", SettingType::CONTROL);
+			settings_groups[0].setup("General Watch Settings", SettingType::WATCH);
 
-			settings_groups[1].setup("WiFi & Web Settings", SettingType::CONTROL);
+			settings_groups[1].setup("WiFi & Web Settings", SettingType::WEB);
 
-			settings_groups[2].setup("Audio Settings", SettingType::CONTROL);
+			settings_groups[2].setup("Audio Settings", SettingType::WATCH);
 
-			settings_groups[3].setup("Haptics Settings", SettingType::CONTROL, "Haptics are only available in TinyWATCH revision P7 and later.");
+			settings_groups[3].setup("Haptics Settings", SettingType::WATCH, "Haptics are only available in TinyWATCH revision P7 and later.");
 
-			settings_groups[4].setup("Display Settings", SettingType::CONTROL, "Your watch has 3 steps of brightness, based on the duration at each step. Step 1 is the highest brightest and step 3 is the lowest.<br>At each duration interval, the brightness will reduce to the next step.<br>This is to conserve battery capacity as the backlight draws more current the brighter it is.<br>Touching the screen will automatically set the display back to step 1.");
+			settings_groups[4].setup("Display Settings", SettingType::WATCH, "Your watch has 3 steps of brightness, based on the duration at each step. Step 1 is the highest brightest and step 3 is the lowest.<br>At each duration interval, the brightness will reduce to the next step.<br>This is to conserve battery capacity as the backlight draws more current the brighter it is.<br>Touching the screen will automatically set the display back to step 1.");
 
 			settings_groups[5].setup("Open Weather Settings", SettingType::WIDGET, "Add your Open Weather API key here to be able to see your current weather details on your watch face.");
 
-			settings_groups[6].setup("MQTT Settings", SettingType::WIDGET);
+			settings_groups[6].setup("MQTT Settings", SettingType::WEB);
 		}
 
 		bool load();
@@ -172,7 +172,7 @@ class Settings
 		SettingsOptionBool setting_wifi_check_updates{&config.wifi_check_for_updates, 1, "Notify Updates", "NO", "YES"};
 		SettingsOptionBool setting_web_theme{&config.website_darkmode, 1, "Theme", "LIGHT", "DARK"};
 		SettingsOptionString setting_web_mdns{&config.mdns_name, 1, "mDNS Name", "tinywatch", false};
-		SettingsOptionString setting_country{&config.country, 1, "Country"};
+		SettingsOptionString setting_country{&config.country, 1, "Country Code"};
 		SettingsOptionString setting_city{&config.city, 1, "City"};
 
 		// Audio

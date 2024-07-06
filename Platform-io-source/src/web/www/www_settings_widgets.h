@@ -9,21 +9,22 @@ const char index_settings_widgets_html[] PROGMEM = R"rawliteral(
 	</head>
 	<body>
 		<div class="content" style="margin-top:12px;">
-			<h2 class="center">TinyWATCH S3 | Web Settings | Widgets</h2>
+			<h2 class="center">TinyWATCH S3 | Web Portal | Widgets</h2>
 
 			<div class="content" style="margin:30px;">
 				<div class="row">
-					<div class='col-3'>&nbsp;</div>
+					<div class='col-2'>&nbsp;</div>
 					<div class='col-2 center'><a href='/index.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>WATCH</button></a></div>
+					<div class='col-2 center'><a href='/web_settings_web.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>WIFI&nbsp;&&nbsp;WEB</button></a></div>
 					<div class='col-2 center'><button class='btn btn-sm btn-primary' style='width:130px;'>WIDGETS</button></div>
 					<div class='col-2 center'><a href='/web_settings_apps.html'><button class='btn btn-sm btn-outline-primary' style='width:130px;'>APPS</button></a></div>
-					<div class='col-3'>&nbsp;</div>
+					<div class='col-2'>&nbsp;</div>
 				</div>
 			</div>
 
 			<div class="content">
 
-				%WIDGET_OPTIONS%
+				%SETTING_OPTIONS_WIDGETS%
 
 			</div>
 

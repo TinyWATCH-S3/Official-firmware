@@ -10,6 +10,7 @@
 #include "web/www/www_settings_watch.h"
 #include "web/www/www_settings_widgets.h"
 #include "web/www/www_settings_apps.h"
+#include "web/www/www_settings_web.h"
 #include "web/www/www_debug_logs.h"
 
 String WebServer::processor(const String &var)
@@ -67,18 +68,29 @@ String WebServer::processor(const String &var)
 
 		return logs;
 	}
-	else if (var == "SETTING_OPTIONS")
+	else if (var == "SETTING_OPTIONS_WATCH")
 	{
 		String html = "";
 		for (size_t i = 0; i < settings.settings_groups.size(); i++)
 		{
-			if (settings.settings_groups[i].type == SettingType::CONTROL)
+			if (settings.settings_groups[i].type == SettingType::WATCH)
 				html += generate_settings_html(i);
 		}
 
 		return html;
 	}
-	else if (var == "WIDGET_OPTIONS")
+	else if (var == "SETTING_OPTIONS_WEB")
+	{
+		String html = "";
+		for (size_t i = 0; i < settings.settings_groups.size(); i++)
+		{
+			if (settings.settings_groups[i].type == SettingType::WEB)
+				html += generate_settings_html(i);
+		}
+
+		return html;
+	}
+	else if (var == "SETTING_OPTIONS_WIDGETS")
 	{
 		String html = "";
 		for (size_t i = 0; i < settings.settings_groups.size(); i++)
@@ -201,6 +213,8 @@ void WebServer::start_callback(bool success, const String &response)
 		web_server.on("/debug_logs.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", debug_logs_html, processor); });
 
 		web_server.on("/web_settings_widgets.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_html, processor); });
+
+		web_server.on("/web_settings_web.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_web_html, processor); });
 
 		web_server.onNotFound([](AsyncWebServerRequest *request) { request->send(404, "text/plain", "Not found"); });
 
