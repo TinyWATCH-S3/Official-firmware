@@ -68,12 +68,12 @@ static void queueNotes(std::initializer_list<BuzzerNote> notes)
 
 void Buzzer(std::initializer_list<BuzzerNote> notes)
 {
-	if (settings.config.audio_alarm)
+	if (settings.config.audio.alarm)
 		queueNotes(notes);
 }
 
 void BuzzerUI(std::initializer_list<BuzzerNote> notes)
 {
-	if (settings.config.audio_ui)
+	if (settings.config.audio.ui)
 		queueNotes(notes);
 }

@@ -68,6 +68,10 @@ bool Haptics::init()
 		0x3A, 120
 	};
 
+	sounds[6] = {
+		0x3A, 120
+	};
+
 	return true;
 }
 
@@ -147,7 +151,11 @@ void Haptics::play_trigger(Triggers trigger)
 	if (trigger == Triggers::LONGPRESS && !settings.config.haptics.trigger_on_longpress)
 		return;
 
-	info_printf("Playing trigger %d\n", (int)trigger);
+	if (trigger == Triggers::CHARGE && !settings.config.haptics.trigger_on_charge)
+		return;
+
+	
+		info_printf("Playing trigger %d\n", (int)trigger);
 
 	drv.setMode(DRV2605_MODE_REALTIME);
 

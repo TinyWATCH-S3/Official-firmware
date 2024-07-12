@@ -58,12 +58,6 @@ struct Config
 		bool flipped = false;
 		bool show_nav_arrows = true;
 
-		// Sound
-		bool audio_ui = true;
-		bool audio_alarm = true;
-		bool audio_on_hour = false;
-		bool audio_test = false;
-
 		// IMU
 		bool imu_process_steps = true;
 		bool imu_process_wrist = false;
@@ -71,6 +65,9 @@ struct Config
 		/*
 		 * Additional settings stucts go here
 		 */
+
+		// Audio specific settings
+		Config_audio audio;
 
 		// MQTT specific settings - see Struct above
 		Config_mqtt mqtt;
@@ -176,9 +173,10 @@ class Settings
 		SettingsOptionString setting_city{&config.city, 1, "City"};
 
 		// Audio
-		SettingsOptionBool setting_audio_ui{&config.audio_ui, 2, "UI Sound", "NO", "YES"};
-		SettingsOptionBool setting_audio_alarm{&config.audio_alarm, 2, "Alarm Sound", "NO", "YES"};
-		SettingsOptionBool setting_audio_on_hour{&config.audio_on_hour, 2, "Beep Hour", "NO", "YES"};
+		SettingsOptionBool setting_audio_ui{&config.audio.ui, 2, "UI Sound", "NO", "YES"};
+		SettingsOptionBool setting_audio_alarm{&config.audio.alarm, 2, "Alarm Sound", "NO", "YES"};
+		SettingsOptionBool setting_audio_on_hour{&config.audio.on_hour, 2, "Beep Hour", "NO", "YES"};
+		SettingsOptionBool setting_audio_charge{&config.audio.charge, 2, "Start Charge", "NO", "YES"};
 
 		// haptics
 		SettingsOptionBool setting_haptics_enabled{&config.haptics.enabled, 3, "Enabled", "NO", "YES"};
@@ -188,6 +186,7 @@ class Settings
 		SettingsOptionBool setting_haptics_trig_hour{&config.haptics.trigger_on_hour, 3, "On Hour", "NO", "YES"};
 		SettingsOptionBool setting_haptics_trig_event{&config.haptics.trigger_on_event, 3, "On Event", "NO", "YES"};
 		SettingsOptionBool setting_haptics_trig_longpress{&config.haptics.trigger_on_longpress, 3, "LongPress", "NO", "YES"};
+		SettingsOptionBool setting_haptics_trig_charge{&config.haptics.trigger_on_charge, 3, "Start Charge", "NO", "YES"};
 
 		// Display
 		SettingsOptionIntVector setting_bl_level_vbus{&config.bl_level_vbus, 0, 100, 10, false, 4, "Backlight brightness on USB (%%)"};		// need %% to have it not be PARSED by the string processor :(

@@ -36,6 +36,7 @@ class TinyWATCH
 		int woke_by();
 		void go_to_sleep();
 		bool vbus_present();
+		bool vbus_changed();
 		void set_cpu_frequency(uint32_t freq, CPU_SPEED speed);
 		void log_system_message(String txt);
 		bool update_available();
@@ -76,6 +77,7 @@ class TinyWATCH
 	private:
 		Preferences nvs;
 		const char *deep_sleep_store_name = "ds_store";
+		bool is_5V_detected = true;
 };
 
 extern TinyWATCH tinywatch;

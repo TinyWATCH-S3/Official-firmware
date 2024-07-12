@@ -11,7 +11,8 @@ enum Triggers
 	HOUR,
 	EVENT,
 	WAKE,
-	LONGPRESS
+	LONGPRESS,
+	CHARGE,
 };
 
 class Haptics
@@ -26,7 +27,7 @@ class Haptics
 
 	private:
 		Adafruit_DRV2605 drv;
-		std::array<std::vector<uint8_t>, 6> sounds;
+		std::array<std::vector<uint8_t>, 7> sounds;
 };
 
 extern Haptics haptics;

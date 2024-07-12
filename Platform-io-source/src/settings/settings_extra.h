@@ -42,4 +42,17 @@ struct Config_haptics
 		bool trigger_on_event = false;
 		bool trigger_on_wake = false;
 		bool trigger_on_longpress = true;
+		bool trigger_on_charge = true;
+};
+
+/**
+ * @brief Settings struct for Haptics support
+ */
+struct Config_audio
+{
+		// Sound
+		bool ui = true;
+		bool alarm = true;
+		bool on_hour = false;
+		bool charge = true;
 };

@@ -353,6 +353,17 @@ void loop()
 		tinywatch.go_to_sleep();
 	}
 
+	// If the USB was just plugged in,
+	if (tinywatch.vbus_changed())
+	{
+		// Beep speaker is enabled
+		if (settings.config.audio.charge)
+			BuzzerUI({{2000, 50}});
+
+		// Buzz haptics if enabled
+		haptics.play_trigger(Triggers::CHARGE);
+	}
+
 	yield();
 }
 
@@ -457,6 +468,19 @@ bool TinyWATCH::vbus_present()
 	bool vbus = digitalRead(VBUS_SENSE);
 	// info_println("vbus " + String(vbus));
 	return (vbus);
+}
+
+/// @brief Detect if 5V as gone from NO to YES. Look complicated, but we dont want to check a change in both ways, just a change from NO to YES.
+/// @return if 5V was not present and now is.
+bool TinyWATCH::vbus_changed()
+{
+	bool detected = false;
+	bool vbus = digitalRead(VBUS_SENSE);
+	if (vbus && vbus != is_5V_detected)
+		detected = true;
+
+	is_5V_detected = vbus;
+	return detected;
 }
 
 void TinyWATCH::log_system_message(String txt)
