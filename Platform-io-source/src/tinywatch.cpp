@@ -143,7 +143,8 @@ void setup()
 		// 1: RTC Alarm
 		// 2: FG Alert
 		// 3: IMU Wrist
-		int wake_reason = tinywatch.woke_by();
+		int wake_reason = tinywatch.wake_reason = tinywatch.woke_by();
+
 		info_println("Woke from sleep by " + String(wake_reason));
 
 		// String bat_volt = String(battery.get_voltage(true));
@@ -153,6 +154,8 @@ void setup()
 		{
 			// show alarm status and then clear the RTC alarm flag
 			tinywatch.log_system_message("WOKE RTC");
+			rtc.process_alarms();
+			// tinywatch.log_system_message("INT TRIG?" + String(rtc.rtc.isInterruptDetected(INTERRUPT_ALARM)));
 		}
 		else if (wake_reason == 2)
 		{
@@ -250,6 +253,9 @@ void setup()
 
 	// Start the rest of the peripherals
 	imu.init();
+
+	// rtc.print_file();
+	// rtc.create_alarm(AlarmType::A_HOURLY, rtc.get_mins() + 2);
 }
 
 void loop()
@@ -317,6 +323,9 @@ void loop()
 	// Only processes every 1 second inside it's loop
 	wifi_controller.loop();
 
+	// Process the RTC alarm interrupt detection
+	rtc.process_alarms();
+
 	// If we are doing a loading activity, halt the rest of the loop
 	if (display.get_current_display_state() == LOADING)
 	{
@@ -366,6 +375,14 @@ void loop()
 	}
 
 	yield();
+}
+
+void TinyWATCH::notify_alarm()
+{
+	info_println("Alarm!!!!!");
+	haptics.play_trigger(Triggers::ALARM);
+	Buzzer({{262, 210}, {1851, 150}, {523, 150}});
+	// settings.config.audio.audio
 }
 
 bool TinyWATCH::update_available() { return (version_latest > version_build); }
