@@ -4,6 +4,7 @@ var class_web_server =
     [ "get_obj_from_id", "class_web_server.html#a05e8666392d1c2078292b750a56dbae1", null ],
     [ "is_running", "class_web_server.html#ae4afb83030c87b83425f0ca3a6f49b72", null ],
     [ "process", "class_web_server.html#a8513128c907be1e630d22dc3402d2b14", null ],
+    [ "process_version", "class_web_server.html#a33fdae9da334091a44f9c01f945698ad", null ],
     [ "start", "class_web_server.html#aa11a807dd663199f91cc3571a22fc936", null ],
     [ "start_callback", "class_web_server.html#a26b984084ea122ca20cf70324b44aca6", null ],
     [ "stop", "class_web_server.html#a09e0bc35886a3088dec9e459eb99092d", null ],

@@ -1,6 +1,6 @@
 var class_widget_battery =
 [
-    [ "draw", "class_widget_battery.html#a5212c030e3976230bdf47cc00c07caf5", null ],
+    [ "draw", "class_widget_battery.html#a6c165f2d0f41152385246e40a8db07c7", null ],
     [ "process_touch", "class_widget_battery.html#a85dc366c38e73222304ea07bfc8eca28", null ],
     [ "col_high", "class_widget_battery.html#a68897b53bf09e9ba571a0c4004271705", null ],
     [ "col_low", "class_widget_battery.html#ad23efd1d5e75296e7cb5f8c9451664ae", null ],

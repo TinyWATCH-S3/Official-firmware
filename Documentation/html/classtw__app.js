@@ -7,7 +7,7 @@ var classtw__app =
     [ "click_icon", "classtw__app.html#abad7976cee8827d4e7394d88790a5ecd", null ],
     [ "close", "classtw__app.html#ab1914aae31b736e21441c926a7045854", null ],
     [ "draw", "classtw__app.html#aac3219a95c9f0b26a6f4226ba2bc9bc2", null ],
-    [ "draw_icon", "classtw__app.html#af52944199ec0fcedf5a0d10dd2b3cda3", null ],
+    [ "draw_icon", "classtw__app.html#a346a8c846a04f61f65f0f032028a51ef", null ],
     [ "get_icon_pos", "classtw__app.html#ab15356ac70f04a3a428fcd3a8af616cf", null ],
     [ "pre_start", "classtw__app.html#a9210babf07943910c5324c71d0cb4575", null ],
     [ "process_touch", "classtw__app.html#a8d8e2a58b7b9b742584be3735c5d99dd", null ],

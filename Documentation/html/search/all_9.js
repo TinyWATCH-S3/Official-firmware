@@ -38,7 +38,7 @@ var searchData=
   ['int_5frange_35',['INT_RANGE',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfbaf97f9deeaece314160ebe7926aa2e903',1,'SettingsOptionBase']]],
   ['int_5fvector_36',['INT_VECTOR',['../class_settings_option_base.html#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79',1,'SettingsOptionBase']]],
   ['interruptpin_37',['interruptPin',['../class_r_t_c.html#ab0b4e674c18c508d4d07a7e2452cc051',1,'RTC']]],
-  ['interrupttriggered_38',['interruptTriggered',['../rtc_8cpp.html#aeab314524096f5423acf1fe3905b2acf',1,'rtc.cpp']]],
+  ['is_5f5v_5fdetected_38',['is_5V_detected',['../class_tiny_w_a_t_c_h.html#af7318bfd0657bdcf27cef27f2d8b30c6',1,'TinyWATCH']]],
   ['is_5fanimating_39',['is_animating',['../class_face_app_list.html#aba2864941788c33912a6e6027162568a',1,'FaceAppList']]],
   ['is_5fbusy_40',['is_busy',['../class_wifi_controller.html#aada0337953ca0d29dacfbc9428c53148',1,'WifiController']]],
   ['is_5fcached_41',['is_cached',['../classtw__face.html#aaf4db7d3b1123560eaa2ddb227ab48c3',1,'tw_face']]],

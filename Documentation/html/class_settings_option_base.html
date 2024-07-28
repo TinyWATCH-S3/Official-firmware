@@ -108,12 +108,13 @@ Inheritance diagram for SettingsOptionBase:</div>
  <div class="center">
   <img src="class_settings_option_base.png" usemap="#SettingsOptionBase_map" alt=""/>
   <map id="SettingsOptionBase_map" name="SettingsOptionBase_map">
-<area href="class_settings_option_bool.html" alt="SettingsOptionBool" shape="rect" coords="0,56,144,80"/>
-<area href="class_settings_option_float.html" alt="SettingsOptionFloat" shape="rect" coords="154,56,298,80"/>
-<area href="class_settings_option_int.html" alt="SettingsOptionInt" shape="rect" coords="308,56,452,80"/>
-<area href="class_settings_option_int_range.html" alt="SettingsOptionIntRange" shape="rect" coords="462,56,606,80"/>
-<area href="class_settings_option_int_vector.html" alt="SettingsOptionIntVector" shape="rect" coords="616,56,760,80"/>
-<area href="class_settings_option_string.html" alt="SettingsOptionString" shape="rect" coords="770,56,914,80"/>
+<area href="class_settings_option_bool.html" alt="SettingsOptionBool" shape="rect" coords="0,56,162,80"/>
+<area href="class_settings_option_float.html" alt="SettingsOptionFloat" shape="rect" coords="172,56,334,80"/>
+<area href="class_settings_option_int.html" alt="SettingsOptionInt" shape="rect" coords="344,56,506,80"/>
+<area href="class_settings_option_int_range.html" alt="SettingsOptionIntRange" shape="rect" coords="516,56,678,80"/>
+<area href="class_settings_option_int_vector.html" alt="SettingsOptionIntVector" shape="rect" coords="688,56,850,80"/>
+<area href="class_settings_option_string.html" alt="SettingsOptionString" shape="rect" coords="860,56,1022,80"/>
+<area href="class_settings_option_wi_fi_stations.html" alt="SettingsOptionWiFiStations" shape="rect" coords="1032,56,1194,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -128,6 +129,7 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="#afcee479e2f42469d06910a9b14681bfbaf3e41b6d2cca90986e803bd8c1e1d1b4">STRING</a>
 , <a class="el" href="#afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79">INT_VECTOR</a>
 , <a class="el" href="#afcee479e2f42469d06910a9b14681bfbaf97f9deeaece314160ebe7926aa2e903">INT_RANGE</a>
+, <a class="el" href="#afcee479e2f42469d06910a9b14681bfbac4c79a41216e9018a43fd95330fb54a3">WIFI_STATION</a>
 <br />
  }</td></tr>
 <tr class="separator:afcee479e2f42469d06910a9b14681bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +155,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a335cc7f0b285f6c8d2267ed38fa6296e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a019e12d5ce83fb8c0ab3a5199c202f45" id="r_a019e12d5ce83fb8c0ab3a5199c202f45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a019e12d5ce83fb8c0ab3a5199c202f45">data_is_vector</a> = false</td></tr>
 <tr class="separator:a019e12d5ce83fb8c0ab3a5199c202f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5e6a215d833357dafe62f857f82fdf5" id="r_ad5e6a215d833357dafe62f857f82fdf5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5e6a215d833357dafe62f857f82fdf5">req_full_width</a> = false</td></tr>
+<tr class="separator:ad5e6a215d833357dafe62f857f82fdf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="afcee479e2f42469d06910a9b14681bfb" name="afcee479e2f42469d06910a9b14681bfb"></a>
@@ -174,6 +178,7 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="afcee479e2f42469d06910a9b14681bfbaf3e41b6d2cca90986e803bd8c1e1d1b4" name="afcee479e2f42469d06910a9b14681bfbaf3e41b6d2cca90986e803bd8c1e1d1b4"></a>STRING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79" name="afcee479e2f42469d06910a9b14681bfba43b94ab9d7ffe922d93bc5f900e72e79"></a>INT_VECTOR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="afcee479e2f42469d06910a9b14681bfbaf97f9deeaece314160ebe7926aa2e903" name="afcee479e2f42469d06910a9b14681bfbaf97f9deeaece314160ebe7926aa2e903"></a>INT_RANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afcee479e2f42469d06910a9b14681bfbac4c79a41216e9018a43fd95330fb54a3" name="afcee479e2f42469d06910a9b14681bfbac4c79a41216e9018a43fd95330fb54a3"></a>WIFI_STATION&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -257,7 +262,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_settings_option_int.html#a076cc95d2a2d5beacde098f473c31a74">SettingsOptionInt</a>, <a class="el" href="class_settings_option_int_range.html#a852688bc78b2866bbddab186d2185cc6">SettingsOptionIntRange</a>, <a class="el" href="class_settings_option_int_vector.html#a12da2eb0bbdd540fc7435bfd2b8d377f">SettingsOptionIntVector</a>, <a class="el" href="class_settings_option_float.html#aabe7e13b80f2a912feb9a2ad0df52815">SettingsOptionFloat</a>, <a class="el" href="class_settings_option_bool.html#a9ce51dc4df3e4ebc6709c2265908b5ae">SettingsOptionBool</a>, and <a class="el" href="class_settings_option_string.html#a950c835b2626933a5ea828d09ad8320d">SettingsOptionString</a>.</p>
+<p>Reimplemented in <a class="el" href="class_settings_option_int.html#a076cc95d2a2d5beacde098f473c31a74">SettingsOptionInt</a>, <a class="el" href="class_settings_option_int_range.html#a852688bc78b2866bbddab186d2185cc6">SettingsOptionIntRange</a>, <a class="el" href="class_settings_option_int_vector.html#a12da2eb0bbdd540fc7435bfd2b8d377f">SettingsOptionIntVector</a>, <a class="el" href="class_settings_option_float.html#aabe7e13b80f2a912feb9a2ad0df52815">SettingsOptionFloat</a>, <a class="el" href="class_settings_option_bool.html#a9ce51dc4df3e4ebc6709c2265908b5ae">SettingsOptionBool</a>, <a class="el" href="class_settings_option_string.html#a950c835b2626933a5ea828d09ad8320d">SettingsOptionString</a>, and <a class="el" href="class_settings_option_wi_fi_stations.html#a0d7660c0aac95201324f1936503eabe2">SettingsOptionWiFiStations</a>.</p>
 
 </div>
 </div>
@@ -284,7 +289,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_settings_option_int.html#a40da43c28e11f2a2ebc3d7fd21d326cb">SettingsOptionInt</a>, <a class="el" href="class_settings_option_int_range.html#a57ef5cee333d47b7d4e8a52dd329a309">SettingsOptionIntRange</a>, <a class="el" href="class_settings_option_int_vector.html#af91e5699d04e74bc2a37184801ef42e2">SettingsOptionIntVector</a>, <a class="el" href="class_settings_option_float.html#a11d7d490587b658eb28b50bed48dfbc5">SettingsOptionFloat</a>, <a class="el" href="class_settings_option_bool.html#aa575fd89a1def087173f020c89aa223f">SettingsOptionBool</a>, and <a class="el" href="class_settings_option_string.html#a761381203111e174c107afabf42bada8">SettingsOptionString</a>.</p>
+<p>Reimplemented in <a class="el" href="class_settings_option_int.html#a40da43c28e11f2a2ebc3d7fd21d326cb">SettingsOptionInt</a>, <a class="el" href="class_settings_option_int_range.html#a57ef5cee333d47b7d4e8a52dd329a309">SettingsOptionIntRange</a>, <a class="el" href="class_settings_option_int_vector.html#af91e5699d04e74bc2a37184801ef42e2">SettingsOptionIntVector</a>, <a class="el" href="class_settings_option_float.html#a11d7d490587b658eb28b50bed48dfbc5">SettingsOptionFloat</a>, <a class="el" href="class_settings_option_bool.html#aa575fd89a1def087173f020c89aa223f">SettingsOptionBool</a>, <a class="el" href="class_settings_option_string.html#a761381203111e174c107afabf42bada8">SettingsOptionString</a>, and <a class="el" href="class_settings_option_wi_fi_stations.html#a4cf9805d31f220a9290be2ffc72f3238">SettingsOptionWiFiStations</a>.</p>
 
 </div>
 </div>
@@ -342,6 +347,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int SettingsOptionBase::group = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5e6a215d833357dafe62f857f82fdf5" name="ad5e6a215d833357dafe62f857f82fdf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e6a215d833357dafe62f857f82fdf5">&#9670;&#160;</a></span>req_full_width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SettingsOptionBase::req_full_width = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

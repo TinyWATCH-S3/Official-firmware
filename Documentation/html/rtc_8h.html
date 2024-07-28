@@ -94,24 +94,90 @@ $(function(){initNavTree('rtc_8h.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">rtc.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;RV3028C7.h&quot;</code><br />
+<code>#include &quot;Arduino.h&quot;</code><br />
+<code>#include &quot;json.h&quot;</code><br />
+<code>#include &quot;json_conversions.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="logging_8h.html">utilities/logging.h</a>&quot;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_t_t___time.html">TT_Time</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_alarm.html">Alarm</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_alarms.html">Alarms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_t_c.html">RTC</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d" id="r_ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab24e7dd602a82a4cf2afea61f26726e2" id="r_ab24e7dd602a82a4cf2afea61f26726e2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a> { <br />
+&#160;&#160;<a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2ac37d7fcf08476115eecdec827dcc936b">A_DISABLED</a> = 0
+, <a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2a144b9ef01aa57508b2b6f7ff2561b40b">A_MONTHLY</a> = 1
+, <a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2a6152b55dd2617ca260c20ba029dc3eb8">A_WEEKLY</a> = 2
+, <a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2a7bffc6effa0e251175c419d77c7bd6ff">A_DAILY</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2a312fa5dae82e0641e461fe5e4b750bf8">A_HOURLY</a> = 4
+<br />
+ }</td></tr>
+<tr class="separator:ab24e7dd602a82a4cf2afea61f26726e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:afa7e240c7456eaf5ef27ee8be3a23bd4" id="r_afa7e240c7456eaf5ef27ee8be3a23bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_r_t_c.html">RTC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa7e240c7456eaf5ef27ee8be3a23bd4">rtc</a></td></tr>
 <tr class="separator:afa7e240c7456eaf5ef27ee8be3a23bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab701e3ac61a85b337ec5c1abaad6742d" name="ab701e3ac61a85b337ec5c1abaad6742d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&#160;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="activity_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ab24e7dd602a82a4cf2afea61f26726e2" name="ab24e7dd602a82a4cf2afea61f26726e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab24e7dd602a82a4cf2afea61f26726e2">&#9670;&#160;</a></span>AlarmType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab24e7dd602a82a4cf2afea61f26726e2ac37d7fcf08476115eecdec827dcc936b" name="ab24e7dd602a82a4cf2afea61f26726e2ac37d7fcf08476115eecdec827dcc936b"></a>A_DISABLED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab24e7dd602a82a4cf2afea61f26726e2a144b9ef01aa57508b2b6f7ff2561b40b" name="ab24e7dd602a82a4cf2afea61f26726e2a144b9ef01aa57508b2b6f7ff2561b40b"></a>A_MONTHLY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab24e7dd602a82a4cf2afea61f26726e2a6152b55dd2617ca260c20ba029dc3eb8" name="ab24e7dd602a82a4cf2afea61f26726e2a6152b55dd2617ca260c20ba029dc3eb8"></a>A_WEEKLY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab24e7dd602a82a4cf2afea61f26726e2a7bffc6effa0e251175c419d77c7bd6ff" name="ab24e7dd602a82a4cf2afea61f26726e2a7bffc6effa0e251175c419d77c7bd6ff"></a>A_DAILY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab24e7dd602a82a4cf2afea61f26726e2a312fa5dae82e0641e461fe5e4b750bf8" name="ab24e7dd602a82a4cf2afea61f26726e2a312fa5dae82e0641e461fe5e4b750bf8"></a>A_HOURLY&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="afa7e240c7456eaf5ef27ee8be3a23bd4" name="afa7e240c7456eaf5ef27ee8be3a23bd4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa7e240c7456eaf5ef27ee8be3a23bd4">&#9670;&#160;</a></span>rtc</h2>

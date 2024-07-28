@@ -96,6 +96,7 @@ $(function(){initNavTree('class_tiny_w_a_t_c_h.html',''); initResizable(); });
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_tiny_w_a_t_c_h-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">TinyWATCH Class Reference</div></div>
 </div><!--header-->
@@ -113,10 +114,35 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af40eb68ae6d6d22a5e5dd0295268df4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad663ff18437a2cf94b2fbaed03fa11ee" id="r_ad663ff18437a2cf94b2fbaed03fa11ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad663ff18437a2cf94b2fbaed03fa11ee">vbus_present</a> ()</td></tr>
 <tr class="separator:ad663ff18437a2cf94b2fbaed03fa11ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a994297b39412d918772c419cd92f3094" id="r_a994297b39412d918772c419cd92f3094"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a994297b39412d918772c419cd92f3094">vbus_changed</a> ()</td></tr>
+<tr class="memdesc:a994297b39412d918772c419cd92f3094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect if 5V as gone from NO to YES. Look complicated, but we dont want to check a change in both ways, just a change from NO to YES.  <br /></td></tr>
+<tr class="separator:a994297b39412d918772c419cd92f3094"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b19b69d59de3d9fc53005a28d59cc81" id="r_a4b19b69d59de3d9fc53005a28d59cc81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b19b69d59de3d9fc53005a28d59cc81">set_cpu_frequency</a> (uint32_t freq, <a class="el" href="tinywatch_8h.html#ac916bea15062cbaac57b26b727949c05">CPU_SPEED</a> speed)</td></tr>
 <tr class="separator:a4b19b69d59de3d9fc53005a28d59cc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7d0c5282f91c98b88fb52af50ec204d" id="r_aa7d0c5282f91c98b88fb52af50ec204d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7d0c5282f91c98b88fb52af50ec204d">log_system_message</a> (String txt)</td></tr>
 <tr class="separator:aa7d0c5282f91c98b88fb52af50ec204d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303011d675e2f58898994457f9467066" id="r_a303011d675e2f58898994457f9467066"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a303011d675e2f58898994457f9467066">update_available</a> ()</td></tr>
+<tr class="separator:a303011d675e2f58898994457f9467066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68556e999334e39008694040539dacaf" id="r_a68556e999334e39008694040539dacaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68556e999334e39008694040539dacaf">notify_alarm</a> ()</td></tr>
+<tr class="separator:a68556e999334e39008694040539dacaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad71bfaae95371bfd6ecee7a347cff8c1" id="r_ad71bfaae95371bfd6ecee7a347cff8c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad71bfaae95371bfd6ecee7a347cff8c1">ds_remove</a> (const char *key)</td></tr>
+<tr class="separator:ad71bfaae95371bfd6ecee7a347cff8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a485d44c4ebf3dcaa039f59619dd6f977" id="r_a485d44c4ebf3dcaa039f59619dd6f977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a485d44c4ebf3dcaa039f59619dd6f977">ds_store_string</a> (const char *key, const char *data)</td></tr>
+<tr class="separator:a485d44c4ebf3dcaa039f59619dd6f977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd218584fa3bec6392289085f478ccb" id="r_a3bd218584fa3bec6392289085f478ccb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bd218584fa3bec6392289085f478ccb">ds_store_int32</a> (const char *key, int32_t data)</td></tr>
+<tr class="separator:a3bd218584fa3bec6392289085f478ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8a5b2653e7314b27bf7ca98acf1413" id="r_aac8a5b2653e7314b27bf7ca98acf1413"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac8a5b2653e7314b27bf7ca98acf1413">ds_store_uint32</a> (const char *key, uint32_t data)</td></tr>
+<tr class="separator:aac8a5b2653e7314b27bf7ca98acf1413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee5479c93da089c4a538263bccf36b1" id="r_a1ee5479c93da089c4a538263bccf36b1"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ee5479c93da089c4a538263bccf36b1">ds_retrieve_string</a> (const char *key)</td></tr>
+<tr class="separator:a1ee5479c93da089c4a538263bccf36b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ce9f33ed29466f6c8158e4c0c85590" id="r_aa9ce9f33ed29466f6c8158e4c0c85590"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9ce9f33ed29466f6c8158e4c0c85590">ds_retrieve_int32</a> (const char *key)</td></tr>
+<tr class="separator:aa9ce9f33ed29466f6c8158e4c0c85590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadc5a6ae1fa219f6928c7e2f36e67a22" id="r_aadc5a6ae1fa219f6928c7e2f36e67a22"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadc5a6ae1fa219f6928c7e2f36e67a22">ds_retrieve_uint32</a> (const char *key)</td></tr>
+<tr class="separator:aadc5a6ae1fa219f6928c7e2f36e67a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7857c7ea3253f52d84daf9fda6042f02" id="r_a7857c7ea3253f52d84daf9fda6042f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7857c7ea3253f52d84daf9fda6042f02">register_pre_ds_callback</a> (<a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a> _callback)</td></tr>
+<tr class="separator:a7857c7ea3253f52d84daf9fda6042f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c2733e1aafc9ff1d8360d6bb37ad2d6" id="r_a8c2733e1aafc9ff1d8360d6bb37ad2d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c2733e1aafc9ff1d8360d6bb37ad2d6">register_post_ds_callback</a> (<a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a> _callback)</td></tr>
+<tr class="separator:a8c2733e1aafc9ff1d8360d6bb37ad2d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -131,14 +157,166 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1dd77ecfe4df7787f1fce46df043305a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f1a673303ccb81a7ea8e304fd3b304" id="r_af3f1a673303ccb81a7ea8e304fd3b304"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3f1a673303ccb81a7ea8e304fd3b304">low_battery_update_check</a> = 0</td></tr>
 <tr class="separator:af3f1a673303ccb81a7ea8e304fd3b304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439c0df24b0a268b1c1c58b3c778730b" id="r_a439c0df24b0a268b1c1c58b3c778730b"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a439c0df24b0a268b1c1c58b3c778730b">version_firmware</a> = &quot;v0.61&quot;</td></tr>
+<tr class="memitem:a439c0df24b0a268b1c1c58b3c778730b" id="r_a439c0df24b0a268b1c1c58b3c778730b"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a439c0df24b0a268b1c1c58b3c778730b">version_firmware</a> = &quot;v0.65&quot;</td></tr>
 <tr class="separator:a439c0df24b0a268b1c1c58b3c778730b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31de99c7e1854294dd7864dd6840baee" id="r_a31de99c7e1854294dd7864dd6840baee"><td class="memItemLeft" align="right" valign="top">const String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31de99c7e1854294dd7864dd6840baee">version_year</a> = &quot;2024&quot;</td></tr>
 <tr class="separator:a31de99c7e1854294dd7864dd6840baee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1c38c4028265e35f212a70967665ea" id="r_a2f1c38c4028265e35f212a70967665ea"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f1c38c4028265e35f212a70967665ea">version_build</a> = 4</td></tr>
+<tr class="separator:a2f1c38c4028265e35f212a70967665ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4077f72ca6d7f9d0c4147cfe5c9ee89" id="r_ad4077f72ca6d7f9d0c4147cfe5c9ee89"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4077f72ca6d7f9d0c4147cfe5c9ee89">version_latest</a> = 0</td></tr>
+<tr class="separator:ad4077f72ca6d7f9d0c4147cfe5c9ee89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05f56db19a8b2ea0f31db0665c44c07d" id="r_a05f56db19a8b2ea0f31db0665c44c07d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05f56db19a8b2ea0f31db0665c44c07d">wake_reason</a> = 0</td></tr>
+<tr class="separator:a05f56db19a8b2ea0f31db0665c44c07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003dbbfe849bd2de9ebf991b573e4a8e" id="r_a003dbbfe849bd2de9ebf991b573e4a8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a003dbbfe849bd2de9ebf991b573e4a8e">hw_revision_p7_or_later</a> = false</td></tr>
+<tr class="separator:a003dbbfe849bd2de9ebf991b573e4a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1deefd462fe43903516b07d873e692e6" id="r_a1deefd462fe43903516b07d873e692e6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structlog__message.html">log_message</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1deefd462fe43903516b07d873e692e6">messages</a></td></tr>
 <tr class="separator:a1deefd462fe43903516b07d873e692e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bbce538e4d33b964efe6b4c1a6a1517" id="r_a9bbce538e4d33b964efe6b4c1a6a1517"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bbce538e4d33b964efe6b4c1a6a1517">pre_ds_callbacks</a></td></tr>
+<tr class="separator:a9bbce538e4d33b964efe6b4c1a6a1517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c879fd99f72d430af6c9102ef9ed33b" id="r_a3c879fd99f72d430af6c9102ef9ed33b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c879fd99f72d430af6c9102ef9ed33b">post_ds_callbacks</a></td></tr>
+<tr class="separator:a3c879fd99f72d430af6c9102ef9ed33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3b49a1721b92d0fa3f2d33cea8f03ee6" id="r_a3b49a1721b92d0fa3f2d33cea8f03ee6"><td class="memItemLeft" align="right" valign="top">Preferences&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b49a1721b92d0fa3f2d33cea8f03ee6">nvs</a></td></tr>
+<tr class="separator:a3b49a1721b92d0fa3f2d33cea8f03ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90433de6fdecb4cee4df44660cfa86d" id="r_ac90433de6fdecb4cee4df44660cfa86d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac90433de6fdecb4cee4df44660cfa86d">deep_sleep_store_name</a> = &quot;ds_store&quot;</td></tr>
+<tr class="separator:ac90433de6fdecb4cee4df44660cfa86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7318bfd0657bdcf27cef27f2d8b30c6" id="r_af7318bfd0657bdcf27cef27f2d8b30c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7318bfd0657bdcf27cef27f2d8b30c6">is_5V_detected</a> = true</td></tr>
+<tr class="separator:af7318bfd0657bdcf27cef27f2d8b30c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad71bfaae95371bfd6ecee7a347cff8c1" name="ad71bfaae95371bfd6ecee7a347cff8c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71bfaae95371bfd6ecee7a347cff8c1">&#9670;&#160;</a></span>ds_remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::ds_remove </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9ce9f33ed29466f6c8158e4c0c85590" name="aa9ce9f33ed29466f6c8158e4c0c85590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ce9f33ed29466f6c8158e4c0c85590">&#9670;&#160;</a></span>ds_retrieve_int32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t TinyWATCH::ds_retrieve_int32 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ee5479c93da089c4a538263bccf36b1" name="a1ee5479c93da089c4a538263bccf36b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee5479c93da089c4a538263bccf36b1">&#9670;&#160;</a></span>ds_retrieve_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String TinyWATCH::ds_retrieve_string </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadc5a6ae1fa219f6928c7e2f36e67a22" name="aadc5a6ae1fa219f6928c7e2f36e67a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc5a6ae1fa219f6928c7e2f36e67a22">&#9670;&#160;</a></span>ds_retrieve_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t TinyWATCH::ds_retrieve_uint32 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bd218584fa3bec6392289085f478ccb" name="a3bd218584fa3bec6392289085f478ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd218584fa3bec6392289085f478ccb">&#9670;&#160;</a></span>ds_store_int32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::ds_store_int32 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a485d44c4ebf3dcaa039f59619dd6f977" name="a485d44c4ebf3dcaa039f59619dd6f977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a485d44c4ebf3dcaa039f59619dd6f977">&#9670;&#160;</a></span>ds_store_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::ds_store_string </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac8a5b2653e7314b27bf7ca98acf1413" name="aac8a5b2653e7314b27bf7ca98acf1413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8a5b2653e7314b27bf7ca98acf1413">&#9670;&#160;</a></span>ds_store_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::ds_store_uint32 </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a24813f09af29a3975a42a406e2c70956" name="a24813f09af29a3975a42a406e2c70956"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24813f09af29a3975a42a406e2c70956">&#9670;&#160;</a></span>get_and_update_utc_settings()</h2>
 
@@ -231,6 +409,57 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a68556e999334e39008694040539dacaf" name="a68556e999334e39008694040539dacaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68556e999334e39008694040539dacaf">&#9670;&#160;</a></span>notify_alarm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::notify_alarm </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c2733e1aafc9ff1d8360d6bb37ad2d6" name="a8c2733e1aafc9ff1d8360d6bb37ad2d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2733e1aafc9ff1d8360d6bb37ad2d6">&#9670;&#160;</a></span>register_post_ds_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::register_post_ds_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a></td>          <td class="paramname"><span class="paramname"><em>_callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7857c7ea3253f52d84daf9fda6042f02" name="a7857c7ea3253f52d84daf9fda6042f02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7857c7ea3253f52d84daf9fda6042f02">&#9670;&#160;</a></span>register_pre_ds_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TinyWATCH::register_pre_ds_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a></td>          <td class="paramname"><span class="paramname"><em>_callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4b19b69d59de3d9fc53005a28d59cc81" name="a4b19b69d59de3d9fc53005a28d59cc81"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b19b69d59de3d9fc53005a28d59cc81">&#9670;&#160;</a></span>set_cpu_frequency()</h2>
 
@@ -249,6 +478,43 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a303011d675e2f58898994457f9467066" name="a303011d675e2f58898994457f9467066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303011d675e2f58898994457f9467066">&#9670;&#160;</a></span>update_available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TinyWATCH::update_available </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a994297b39412d918772c419cd92f3094" name="a994297b39412d918772c419cd92f3094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a994297b39412d918772c419cd92f3094">&#9670;&#160;</a></span>vbus_changed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TinyWATCH::vbus_changed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detect if 5V as gone from NO to YES. Look complicated, but we dont want to check a change in both ways, just a change from NO to YES. </p>
+<dl class="section return"><dt>Returns</dt><dd>if 5V was not present and now is. </dd></dl>
 
 </div>
 </div>
@@ -318,6 +584,64 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac90433de6fdecb4cee4df44660cfa86d" name="ac90433de6fdecb4cee4df44660cfa86d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90433de6fdecb4cee4df44660cfa86d">&#9670;&#160;</a></span>deep_sleep_store_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* TinyWATCH::deep_sleep_store_name = &quot;ds_store&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a003dbbfe849bd2de9ebf991b573e4a8e" name="a003dbbfe849bd2de9ebf991b573e4a8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003dbbfe849bd2de9ebf991b573e4a8e">&#9670;&#160;</a></span>hw_revision_p7_or_later</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TinyWATCH::hw_revision_p7_or_later = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7318bfd0657bdcf27cef27f2d8b30c6" name="af7318bfd0657bdcf27cef27f2d8b30c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7318bfd0657bdcf27cef27f2d8b30c6">&#9670;&#160;</a></span>is_5V_detected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TinyWATCH::is_5V_detected = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af3f1a673303ccb81a7ea8e304fd3b304" name="af3f1a673303ccb81a7ea8e304fd3b304"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3f1a673303ccb81a7ea8e304fd3b304">&#9670;&#160;</a></span>low_battery_update_check</h2>
 
@@ -346,6 +670,70 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3b49a1721b92d0fa3f2d33cea8f03ee6" name="a3b49a1721b92d0fa3f2d33cea8f03ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b49a1721b92d0fa3f2d33cea8f03ee6">&#9670;&#160;</a></span>nvs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Preferences TinyWATCH::nvs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c879fd99f72d430af6c9102ef9ed33b" name="a3c879fd99f72d430af6c9102ef9ed33b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c879fd99f72d430af6c9102ef9ed33b">&#9670;&#160;</a></span>post_ds_callbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a>&gt; TinyWATCH::post_ds_callbacks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9bbce538e4d33b964efe6b4c1a6a1517" name="a9bbce538e4d33b964efe6b4c1a6a1517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbce538e4d33b964efe6b4c1a6a1517">&#9670;&#160;</a></span>pre_ds_callbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="tinywatch_8h.html#a0497837dfed85fa03c6a35a97f12ec91">_CALLBACK_DS</a>&gt; TinyWATCH::pre_ds_callbacks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f1c38c4028265e35f212a70967665ea" name="a2f1c38c4028265e35f212a70967665ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1c38c4028265e35f212a70967665ea">&#9670;&#160;</a></span>version_build</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t TinyWATCH::version_build = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a439c0df24b0a268b1c1c58b3c778730b" name="a439c0df24b0a268b1c1c58b3c778730b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a439c0df24b0a268b1c1c58b3c778730b">&#9670;&#160;</a></span>version_firmware</h2>
 
@@ -353,7 +741,21 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const String TinyWATCH::version_firmware = &quot;v0.61&quot;</td>
+          <td class="memname">const String TinyWATCH::version_firmware = &quot;v0.65&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4077f72ca6d7f9d0c4147cfe5c9ee89" name="ad4077f72ca6d7f9d0c4147cfe5c9ee89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4077f72ca6d7f9d0c4147cfe5c9ee89">&#9670;&#160;</a></span>version_latest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t TinyWATCH::version_latest = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -368,6 +770,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const String TinyWATCH::version_year = &quot;2024&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05f56db19a8b2ea0f31db0665c44c07d" name="a05f56db19a8b2ea0f31db0665c44c07d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f56db19a8b2ea0f31db0665c44c07d">&#9670;&#160;</a></span>wake_reason</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t TinyWATCH::wake_reason = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

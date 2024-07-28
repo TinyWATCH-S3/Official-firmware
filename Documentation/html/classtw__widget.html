@@ -130,10 +130,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa0f22b5d7bae0f592ad6f3731beee8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af517be976fc16074e1ae9e2f102fa348" id="r_af517be976fc16074e1ae9e2f102fa348"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af517be976fc16074e1ae9e2f102fa348">get_height</a> ()</td></tr>
 <tr class="separator:af517be976fc16074e1ae9e2f102fa348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26a1faf7b703bdb1aa569dc93f4d2e62" id="r_a26a1faf7b703bdb1aa569dc93f4d2e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26a1faf7b703bdb1aa569dc93f4d2e62">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
-<tr class="separator:a26a1faf7b703bdb1aa569dc93f4d2e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6baf7012213ea3023cc8fc676fb538cf" id="r_a6baf7012213ea3023cc8fc676fb538cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6baf7012213ea3023cc8fc676fb538cf">draw</a> (uint canvasid, uint8_t style_hint)=0</td></tr>
-<tr class="separator:a6baf7012213ea3023cc8fc676fb538cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997dfd6a34ba06a4c4b06d8abf57dc8a" id="r_a997dfd6a34ba06a4c4b06d8abf57dc8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a997dfd6a34ba06a4c4b06d8abf57dc8a">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y)</td></tr>
+<tr class="separator:a997dfd6a34ba06a4c4b06d8abf57dc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808c736b74708fff3270d36b51e7133c" id="r_a808c736b74708fff3270d36b51e7133c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a808c736b74708fff3270d36b51e7133c">draw</a> (uint canvasid)=0</td></tr>
+<tr class="separator:a808c736b74708fff3270d36b51e7133c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afad5ee7eff1002b7e5368038743c0465" id="r_afad5ee7eff1002b7e5368038743c0465"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afad5ee7eff1002b7e5368038743c0465">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
 <tr class="separator:afad5ee7eff1002b7e5368038743c0465"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -278,8 +278,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6baf7012213ea3023cc8fc676fb538cf" name="a6baf7012213ea3023cc8fc676fb538cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6baf7012213ea3023cc8fc676fb538cf">&#9670;&#160;</a></span>draw() <span class="overload">[1/2]</span></h2>
+<a id="a808c736b74708fff3270d36b51e7133c" name="a808c736b74708fff3270d36b51e7133c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808c736b74708fff3270d36b51e7133c">&#9670;&#160;</a></span>draw() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,12 +290,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual void tw_widget::draw </td>
           <td>(</td>
-          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>canvasid</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>canvasid</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>style_hint</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -305,12 +301,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_widget_activity_ring.html#a18a606522e86d5d9fd5f789e21bdda67">WidgetActivityRing</a>, <a class="el" href="class_widget_battery.html#a5212c030e3976230bdf47cc00c07caf5">WidgetBattery</a>, <a class="el" href="class_widget_e_s_p32.html#abb5b1f07f61c21f9c30ef9a1351154cd">WidgetESP32</a>, <a class="el" href="class_widget_message.html#aeb493fa7c92b41633381989ce2b0142f">WidgetMessage</a>, <a class="el" href="class_widget_open_weather.html#ac08b20e012d1ea886abbbbf7887c7a9c">WidgetOpenWeather</a>, and <a class="el" href="class_widget_wifi.html#ab689d6ae1032be9524b008f0558dbb51">WidgetWifi</a>.</p>
+<p>Implemented in <a class="el" href="class_widget_activity_ring.html#a553357ee7a5b85e0e9cfd1c52838c4b7">WidgetActivityRing</a>, <a class="el" href="class_widget_battery.html#a6c165f2d0f41152385246e40a8db07c7">WidgetBattery</a>, <a class="el" href="class_widget_e_s_p32.html#a38eeaade7111d14ad40191fa4c4936b0">WidgetESP32</a>, <a class="el" href="class_widget_message.html#a51c213eeabd4aa69e68f29a5fffd6115">WidgetMessage</a>, <a class="el" href="class_widget_open_weather.html#a432efae20ba4267893956d3b78b15494">WidgetOpenWeather</a>, and <a class="el" href="class_widget_wifi.html#a8f41422415a53bdc70a23b4bbd8b96fe">WidgetWifi</a>.</p>
 
 </div>
 </div>
-<a id="a26a1faf7b703bdb1aa569dc93f4d2e62" name="a26a1faf7b703bdb1aa569dc93f4d2e62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26a1faf7b703bdb1aa569dc93f4d2e62">&#9670;&#160;</a></span>draw() <span class="overload">[2/2]</span></h2>
+<a id="a997dfd6a34ba06a4c4b06d8abf57dc8a" name="a997dfd6a34ba06a4c4b06d8abf57dc8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997dfd6a34ba06a4c4b06d8abf57dc8a">&#9670;&#160;</a></span>draw() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,12 +324,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>_pos_y</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>style_hint</em></span>&#160;)</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>_pos_y</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

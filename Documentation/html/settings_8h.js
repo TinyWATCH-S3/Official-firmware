@@ -6,9 +6,9 @@ var settings_8h =
     [ "Settings", "class_settings.html", "class_settings" ],
     [ "json", "settings_8h.html#ab701e3ac61a85b337ec5c1abaad6742d", null ],
     [ "SettingType", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338", [
-      [ "CONTROL", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338af722a5faa36087c914da53ebe4711f08", null ],
-      [ "WIDGET", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab", null ],
-      [ "MQTT", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a3d9883e35c082e84541192595e9b7419", null ]
+      [ "WATCH", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a5c7bccd8ed6e19045c3a2cb023d519e6", null ],
+      [ "WEB", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a4d1db9b6243d18978adc5f9af5847cf9", null ],
+      [ "WIDGET", "settings_8h.html#a8dfa1a122b59a38c38cc2824be723338a1850d20397f8f03921157d36581a6fab", null ]
     ] ],
     [ "settings", "settings_8h.html#a19276c778f3034b94881cf1f8614dbb2", null ]
 ];

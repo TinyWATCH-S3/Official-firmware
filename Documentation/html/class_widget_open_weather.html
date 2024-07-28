@@ -94,6 +94,7 @@ $(function(){initNavTree('class_widget_open_weather.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_widget_open_weather-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">WidgetOpenWeather Class Reference</div></div>
@@ -113,8 +114,8 @@ Inheritance diagram for WidgetOpenWeather:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac08b20e012d1ea886abbbbf7887c7a9c" id="r_ac08b20e012d1ea886abbbbf7887c7a9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08b20e012d1ea886abbbbf7887c7a9c">draw</a> (uint canvasid, uint8_t style_hint=0)</td></tr>
-<tr class="separator:ac08b20e012d1ea886abbbbf7887c7a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a432efae20ba4267893956d3b78b15494" id="r_a432efae20ba4267893956d3b78b15494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a432efae20ba4267893956d3b78b15494">draw</a> (uint canvasid)</td></tr>
+<tr class="separator:a432efae20ba4267893956d3b78b15494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f4daa1307663fc70c4ca2daec6df04" id="r_a50f4daa1307663fc70c4ca2daec6df04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50f4daa1307663fc70c4ca2daec6df04">process_touch</a> (<a class="el" href="structtouch__event__t.html">touch_event_t</a> touch_event)</td></tr>
 <tr class="separator:a50f4daa1307663fc70c4ca2daec6df04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeea1c2e14beb3f5c31b541422f045eef" id="r_aeea1c2e14beb3f5c31b541422f045eef"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeea1c2e14beb3f5c31b541422f045eef">build_server_path</a> ()</td></tr>
@@ -125,6 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aac1dff4b3d44e1feaa818ee90b3cdb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af05c43996e88e21401268b612a5a991c" id="r_af05c43996e88e21401268b612a5a991c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af05c43996e88e21401268b612a5a991c">process_weather_data</a> (bool success, const String &amp;response)</td></tr>
 <tr class="separator:af05c43996e88e21401268b612a5a991c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8503562c9a8543afc0ac197300501a97" id="r_a8503562c9a8543afc0ac197300501a97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8503562c9a8543afc0ac197300501a97">store_values_for_deepsleep</a> ()</td></tr>
+<tr class="separator:a8503562c9a8543afc0ac197300501a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae51495e3c25523cf459cc0371b6e02c1" id="r_ae51495e3c25523cf459cc0371b6e02c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae51495e3c25523cf459cc0371b6e02c1">retrieve_values_for_deepsleep</a> ()</td></tr>
+<tr class="separator:ae51495e3c25523cf459cc0371b6e02c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtw__widget"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classtw__widget')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtw__widget.html">tw_widget</a></td></tr>
 <tr class="memitem:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget" id="r_a9256a8106c4e5c2f3a79df688399a1b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a9256a8106c4e5c2f3a79df688399a1b2">tw_widget</a> ()</td></tr>
 <tr class="separator:a9256a8106c4e5c2f3a79df688399a1b2 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,8 +143,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa0f22b5d7bae0f592ad6f3731beee8cb inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af517be976fc16074e1ae9e2f102fa348 inherit pub_methods_classtw__widget" id="r_af517be976fc16074e1ae9e2f102fa348"><td class="memItemLeft" align="right" valign="top">uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#af517be976fc16074e1ae9e2f102fa348">get_height</a> ()</td></tr>
 <tr class="separator:af517be976fc16074e1ae9e2f102fa348 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget" id="r_a26a1faf7b703bdb1aa569dc93f4d2e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a26a1faf7b703bdb1aa569dc93f4d2e62">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)</td></tr>
-<tr class="separator:a26a1faf7b703bdb1aa569dc93f4d2e62 inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997dfd6a34ba06a4c4b06d8abf57dc8a inherit pub_methods_classtw__widget" id="r_a997dfd6a34ba06a4c4b06d8abf57dc8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtw__widget.html#a997dfd6a34ba06a4c4b06d8abf57dc8a">draw</a> (uint8_t canvasid, int16_t _pos_x, int16_t _pos_y)</td></tr>
+<tr class="separator:a997dfd6a34ba06a4c4b06d8abf57dc8a inherit pub_methods_classtw__widget"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a988505a2c7730d1cead7ea7b9567a279" id="r_a988505a2c7730d1cead7ea7b9567a279"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a988505a2c7730d1cead7ea7b9567a279">should_store_values_for_deepsleep</a> ()</td></tr>
+<tr class="separator:a988505a2c7730d1cead7ea7b9567a279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -147,7 +157,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a151d3616546f24c3788cfb9d177b2a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dabb88202aae2beca41d61692268a23" id="r_a7dabb88202aae2beca41d61692268a23"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dabb88202aae2beca41d61692268a23">server_path</a> = &quot;http://api.openweathermap.org/data/2.5/weather?q=&quot;</td></tr>
 <tr class="separator:a7dabb88202aae2beca41d61692268a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87784c33a5bfd2e790a6f6744b3bcb64" id="r_a87784c33a5bfd2e790a6f6744b3bcb64"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87784c33a5bfd2e790a6f6744b3bcb64">next_update</a> = 0</td></tr>
+<tr class="memitem:a87784c33a5bfd2e790a6f6744b3bcb64" id="r_a87784c33a5bfd2e790a6f6744b3bcb64"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87784c33a5bfd2e790a6f6744b3bcb64">next_update</a> = millis() + 5000</td></tr>
 <tr class="separator:a87784c33a5bfd2e790a6f6744b3bcb64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a321bcf6eefc774f9569791a4d140b4fb" id="r_a321bcf6eefc774f9569791a4d140b4fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a321bcf6eefc774f9569791a4d140b4fb">icons_loaded</a> = false</td></tr>
 <tr class="separator:a321bcf6eefc774f9569791a4d140b4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +175,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6bd17d132211863116f1d850eab20f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a613462263599f2c0a6753439544e149e" id="r_a613462263599f2c0a6753439544e149e"><td class="memItemLeft" align="right" valign="top">std::map&lt; String, const uint16_t * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a613462263599f2c0a6753439544e149e">ow_icons</a></td></tr>
 <tr class="separator:a613462263599f2c0a6753439544e149e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d89d32a8a8edbc4be4dd64b2e22417" id="r_a65d89d32a8a8edbc4be4dd64b2e22417"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65d89d32a8a8edbc4be4dd64b2e22417">deepsleep_data_stored</a> = false</td></tr>
+<tr class="separator:a65d89d32a8a8edbc4be4dd64b2e22417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -229,8 +241,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ac08b20e012d1ea886abbbbf7887c7a9c" name="ac08b20e012d1ea886abbbbf7887c7a9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac08b20e012d1ea886abbbbf7887c7a9c">&#9670;&#160;</a></span>draw()</h2>
+<a id="a432efae20ba4267893956d3b78b15494" name="a432efae20ba4267893956d3b78b15494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a432efae20ba4267893956d3b78b15494">&#9670;&#160;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,12 +253,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void WidgetOpenWeather::draw </td>
           <td>(</td>
-          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>canvasid</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>canvasid</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>style_hint</em><span class="paramdefsep"> = </span><span class="paramdefval">0</span></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -256,7 +264,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classtw__widget.html#a6baf7012213ea3023cc8fc676fb538cf">tw_widget</a>.</p>
+<p>Implements <a class="el" href="classtw__widget.html#a808c736b74708fff3270d36b51e7133c">tw_widget</a>.</p>
 
 </div>
 </div>
@@ -319,6 +327,65 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae51495e3c25523cf459cc0371b6e02c1" name="ae51495e3c25523cf459cc0371b6e02c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51495e3c25523cf459cc0371b6e02c1">&#9670;&#160;</a></span>retrieve_values_for_deepsleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WidgetOpenWeather::retrieve_values_for_deepsleep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a988505a2c7730d1cead7ea7b9567a279" name="a988505a2c7730d1cead7ea7b9567a279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a988505a2c7730d1cead7ea7b9567a279">&#9670;&#160;</a></span>should_store_values_for_deepsleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WidgetOpenWeather::should_store_values_for_deepsleep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8503562c9a8543afc0ac197300501a97" name="a8503562c9a8543afc0ac197300501a97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8503562c9a8543afc0ac197300501a97">&#9670;&#160;</a></span>store_values_for_deepsleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WidgetOpenWeather::store_values_for_deepsleep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -436,6 +503,28 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a65d89d32a8a8edbc4be4dd64b2e22417" name="a65d89d32a8a8edbc4be4dd64b2e22417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d89d32a8a8edbc4be4dd64b2e22417">&#9670;&#160;</a></span>deepsleep_data_stored</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WidgetOpenWeather::deepsleep_data_stored = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a321bcf6eefc774f9569791a4d140b4fb" name="a321bcf6eefc774f9569791a4d140b4fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a321bcf6eefc774f9569791a4d140b4fb">&#9670;&#160;</a></span>icons_loaded</h2>
 
@@ -468,7 +557,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long WidgetOpenWeather::next_update = 0</td>
+          <td class="memname">unsigned long WidgetOpenWeather::next_update = millis() + 5000</td>
         </tr>
       </table>
   </td>

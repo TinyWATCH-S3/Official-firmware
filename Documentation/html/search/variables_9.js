@@ -24,7 +24,7 @@ var searchData=
   ['inertia_5fx_21',['inertia_x',['../classtw__face.html#ad1b7564d901ad170e5b7df68f04d4716',1,'tw_face']]],
   ['inertia_5fy_22',['inertia_y',['../classtw__face.html#a0da244bddaf186eacf0893064007c574',1,'tw_face']]],
   ['interruptpin_23',['interruptPin',['../class_r_t_c.html#ab0b4e674c18c508d4d07a7e2452cc051',1,'RTC']]],
-  ['interrupttriggered_24',['interruptTriggered',['../rtc_8cpp.html#aeab314524096f5423acf1fe3905b2acf',1,'rtc.cpp']]],
+  ['is_5f5v_5fdetected_24',['is_5V_detected',['../class_tiny_w_a_t_c_h.html#af7318bfd0657bdcf27cef27f2d8b30c6',1,'TinyWATCH']]],
   ['is_5fanimating_25',['is_animating',['../class_face_app_list.html#aba2864941788c33912a6e6027162568a',1,'FaceAppList']]],
   ['is_5fcached_26',['is_cached',['../classtw__face.html#aaf4db7d3b1123560eaa2ddb227ab48c3',1,'tw_face']]],
   ['is_5fclock_5fface_27',['is_clock_face',['../classtw__face.html#ae638d9d240228539afc9ab7c033350cd',1,'tw_face']]],

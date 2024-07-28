@@ -96,6 +96,7 @@ $(function(){initNavTree('class_r_t_c.html',''); initResizable(); });
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_r_t_c-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">RTC Class Reference</div></div>
 </div><!--header-->
@@ -143,6 +144,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae8f63503b20d8504e4a4fd2669bcfb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a7cab8de2329400ba4f6f13588fca9" id="r_ac9a7cab8de2329400ba4f6f13588fca9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a7cab8de2329400ba4f6f13588fca9">get_step_date</a> (uint16_t &amp;day, uint16_t &amp;month, uint16_t &amp;year)</td></tr>
 <tr class="separator:ac9a7cab8de2329400ba4f6f13588fca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e04645ba5425c3131105046538cf0a0" id="r_a8e04645ba5425c3131105046538cf0a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e04645ba5425c3131105046538cf0a0">process_alarms</a> ()</td></tr>
+<tr class="separator:a8e04645ba5425c3131105046538cf0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ae4cb9b9f3e929fcf6f8d882345bef0" id="r_a3ae4cb9b9f3e929fcf6f8d882345bef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ae4cb9b9f3e929fcf6f8d882345bef0">create_alarm</a> (<a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a> _mode, uint8_t _dayOfMonth, uint8_t _hour, uint8_t _minute)</td></tr>
+<tr class="separator:a3ae4cb9b9f3e929fcf6f8d882345bef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86923d0c2c6ccbc2152c24fe1579520" id="r_ac86923d0c2c6ccbc2152c24fe1579520"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac86923d0c2c6ccbc2152c24fe1579520">create_alarm</a> (<a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a> _mode, uint8_t _hour, uint8_t _minute)</td></tr>
+<tr class="separator:ac86923d0c2c6ccbc2152c24fe1579520"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbba28639897fb71d3387f18aa7a6387" id="r_adbba28639897fb71d3387f18aa7a6387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbba28639897fb71d3387f18aa7a6387">create_alarm</a> (<a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a> _mode, uint8_t _minute)</td></tr>
+<tr class="separator:adbba28639897fb71d3387f18aa7a6387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c1a4b8cb52f9b5d24f1187f58f5aa7" id="r_ac7c1a4b8cb52f9b5d24f1187f58f5aa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c1a4b8cb52f9b5d24f1187f58f5aa7">load</a> ()</td></tr>
+<tr class="memdesc:ac7c1a4b8cb52f9b5d24f1187f58f5aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the alarms from the FLASH FS and deserialise them from JSON back into the <a class="el" href="struct_alarms.html">Alarms</a> struct.  <br /></td></tr>
+<tr class="separator:ac7c1a4b8cb52f9b5d24f1187f58f5aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac82d78df8c40cde62121154712f799fe" id="r_ac82d78df8c40cde62121154712f799fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac82d78df8c40cde62121154712f799fe">save</a> ()</td></tr>
+<tr class="separator:ac82d78df8c40cde62121154712f799fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea5dedafa54e0830810daef37adb5e4" id="r_a0ea5dedafa54e0830810daef37adb5e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ea5dedafa54e0830810daef37adb5e4">print_file</a> ()</td></tr>
+<tr class="separator:a0ea5dedafa54e0830810daef37adb5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -157,16 +173,27 @@ Public Attributes</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:acbde1a4dbc26c6066fa3fb1f7a358032" id="r_acbde1a4dbc26c6066fa3fb1f7a358032"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbde1a4dbc26c6066fa3fb1f7a358032">enabled</a> = false</td></tr>
 <tr class="separator:acbde1a4dbc26c6066fa3fb1f7a358032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0b4e674c18c508d4d07a7e2452cc051" id="r_ab0b4e674c18c508d4d07a7e2452cc051"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0b4e674c18c508d4d07a7e2452cc051">interruptPin</a> = 33</td></tr>
+<tr class="memitem:ab0b4e674c18c508d4d07a7e2452cc051" id="r_ab0b4e674c18c508d4d07a7e2452cc051"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0b4e674c18c508d4d07a7e2452cc051">interruptPin</a> = 4</td></tr>
 <tr class="separator:ab0b4e674c18c508d4d07a7e2452cc051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea8434a3279d7440a97fb643dc438507" id="r_aea8434a3279d7440a97fb643dc438507"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea8434a3279d7440a97fb643dc438507">next_rtc_read</a> = 0</td></tr>
 <tr class="separator:aea8434a3279d7440a97fb643dc438507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c525c09e66501df57394e775b45a7c4" id="r_a3c525c09e66501df57394e775b45a7c4"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c525c09e66501df57394e775b45a7c4">next_int_check</a> = 0</td></tr>
+<tr class="separator:a3c525c09e66501df57394e775b45a7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf78123b7124b89372f133212553e8dc" id="r_aaf78123b7124b89372f133212553e8dc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf78123b7124b89372f133212553e8dc">cached_day</a> = 0</td></tr>
 <tr class="separator:aaf78123b7124b89372f133212553e8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae308c53de31d457194a04abad1c70073" id="r_ae308c53de31d457194a04abad1c70073"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae308c53de31d457194a04abad1c70073">cached_month</a> = 0</td></tr>
 <tr class="separator:ae308c53de31d457194a04abad1c70073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f6a206e98022fdc8dcbe3d74a90482f" id="r_a3f6a206e98022fdc8dcbe3d74a90482f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f6a206e98022fdc8dcbe3d74a90482f">cached_year</a> = 0</td></tr>
 <tr class="separator:a3f6a206e98022fdc8dcbe3d74a90482f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a43d77558d44936c6c939c981a1f34e" id="r_a0a43d77558d44936c6c939c981a1f34e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_alarms.html">Alarms</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a43d77558d44936c6c939c981a1f34e">current_alarms</a></td></tr>
+<tr class="separator:a0a43d77558d44936c6c939c981a1f34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a136cba6d076ddc4ace91e85a0289f3f6" id="r_a136cba6d076ddc4ace91e85a0289f3f6"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a136cba6d076ddc4ace91e85a0289f3f6">filename</a> = &quot;/alarms.json&quot;</td></tr>
+<tr class="separator:a136cba6d076ddc4ace91e85a0289f3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d353b2b4a6cadc384f5d031aad46e08" id="r_a5d353b2b4a6cadc384f5d031aad46e08"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d353b2b4a6cadc384f5d031aad46e08">tmp_filename</a> = &quot;/tmp_alarms.json&quot;</td></tr>
+<tr class="separator:a5d353b2b4a6cadc384f5d031aad46e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6f545dc205dc7efda261842c752eabb1" name="a6f545dc205dc7efda261842c752eabb1"></a>
@@ -180,6 +207,84 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ae4cb9b9f3e929fcf6f8d882345bef0" name="a3ae4cb9b9f3e929fcf6f8d882345bef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae4cb9b9f3e929fcf6f8d882345bef0">&#9670;&#160;</a></span>create_alarm() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTC::create_alarm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a></td>          <td class="paramname"><span class="paramname"><em>_mode</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_dayOfMonth</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_hour</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_minute</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac86923d0c2c6ccbc2152c24fe1579520" name="ac86923d0c2c6ccbc2152c24fe1579520"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac86923d0c2c6ccbc2152c24fe1579520">&#9670;&#160;</a></span>create_alarm() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTC::create_alarm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a></td>          <td class="paramname"><span class="paramname"><em>_mode</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_hour</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_minute</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbba28639897fb71d3387f18aa7a6387" name="adbba28639897fb71d3387f18aa7a6387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbba28639897fb71d3387f18aa7a6387">&#9670;&#160;</a></span>create_alarm() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTC::create_alarm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2">AlarmType</a></td>          <td class="paramname"><span class="paramname"><em>_mode</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>_minute</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -458,6 +563,79 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac7c1a4b8cb52f9b5d24f1187f58f5aa7" name="ac7c1a4b8cb52f9b5d24f1187f58f5aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7c1a4b8cb52f9b5d24f1187f58f5aa7">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTC::load </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load the alarms from the FLASH FS and deserialise them from JSON back into the <a class="el" href="struct_alarms.html">Alarms</a> struct. </p>
+<dl class="section return"><dt>Returns</dt><dd>true </dd>
+<dd>
+false </dd></dl>
+
+</div>
+</div>
+<a id="a0ea5dedafa54e0830810daef37adb5e4" name="a0ea5dedafa54e0830810daef37adb5e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea5dedafa54e0830810daef37adb5e4">&#9670;&#160;</a></span>print_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTC::print_file </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e04645ba5425c3131105046538cf0a0" name="a8e04645ba5425c3131105046538cf0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e04645ba5425c3131105046538cf0a0">&#9670;&#160;</a></span>process_alarms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTC::process_alarms </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac82d78df8c40cde62121154712f799fe" name="ac82d78df8c40cde62121154712f799fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82d78df8c40cde62121154712f799fe">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTC::save </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac05ae8a75f785cc467b6917d6ca41a7d" name="ac05ae8a75f785cc467b6917d6ca41a7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac05ae8a75f785cc467b6917d6ca41a7d">&#9670;&#160;</a></span>set_hourly_alarm()</h2>
 
@@ -576,6 +754,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0a43d77558d44936c6c939c981a1f34e" name="a0a43d77558d44936c6c939c981a1f34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a43d77558d44936c6c939c981a1f34e">&#9670;&#160;</a></span>current_alarms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_alarms.html">Alarms</a> RTC::current_alarms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acbde1a4dbc26c6066fa3fb1f7a358032" name="acbde1a4dbc26c6066fa3fb1f7a358032"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbde1a4dbc26c6066fa3fb1f7a358032">&#9670;&#160;</a></span>enabled</h2>
 
@@ -598,6 +798,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a136cba6d076ddc4ace91e85a0289f3f6" name="a136cba6d076ddc4ace91e85a0289f3f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136cba6d076ddc4ace91e85a0289f3f6">&#9670;&#160;</a></span>filename</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* RTC::filename = &quot;/alarms.json&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab0b4e674c18c508d4d07a7e2452cc051" name="ab0b4e674c18c508d4d07a7e2452cc051"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab0b4e674c18c508d4d07a7e2452cc051">&#9670;&#160;</a></span>interruptPin</h2>
 
@@ -608,7 +830,29 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t RTC::interruptPin = 33</td>
+          <td class="memname">uint8_t RTC::interruptPin = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c525c09e66501df57394e775b45a7c4" name="a3c525c09e66501df57394e775b45a7c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c525c09e66501df57394e775b45a7c4">&#9670;&#160;</a></span>next_int_check</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long RTC::next_int_check = 0</td>
         </tr>
       </table>
   </td>
@@ -680,6 +924,28 @@ Private Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="struct_t_t___time.html">TT_Time</a> RTC::time_components</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d353b2b4a6cadc384f5d031aad46e08" name="a5d353b2b4a6cadc384f5d031aad46e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d353b2b4a6cadc384f5d031aad46e08">&#9670;&#160;</a></span>tmp_filename</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* RTC::tmp_filename = &quot;/tmp_alarms.json&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

@@ -110,10 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7169a6eefce79566dd07db3b1e5e967" id="r_ab7169a6eefce79566dd07db3b1e5e967"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7169a6eefce79566dd07db3b1e5e967">Settings</a> ()</td></tr>
 <tr class="separator:ab7169a6eefce79566dd07db3b1e5e967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06d1d58938c8fdc7a577e52f9ffda29d" id="r_a06d1d58938c8fdc7a577e52f9ffda29d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06d1d58938c8fdc7a577e52f9ffda29d">load</a> ()</td></tr>
-<tr class="memdesc:a06d1d58938c8fdc7a577e52f9ffda29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the user settings from the user flash FS and deserialise them from JSON back into the <a class="el" href="struct_config.html">Config</a> struct.  <br /></td></tr>
+<tr class="memdesc:a06d1d58938c8fdc7a577e52f9ffda29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the user settings from the FLASH FS and deserialise them from JSON back into the <a class="el" href="struct_config.html">Config</a> struct.  <br /></td></tr>
 <tr class="separator:a06d1d58938c8fdc7a577e52f9ffda29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00dcb4d9f9a4f7deaee375a545947752" id="r_a00dcb4d9f9a4f7deaee375a545947752"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00dcb4d9f9a4f7deaee375a545947752">save</a> (bool force)</td></tr>
-<tr class="memdesc:a00dcb4d9f9a4f7deaee375a545947752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialise the cConfig struct into JSON and save to the user flash FS Only check for save every 5 mins, and then only save if the data has changed.  <br /></td></tr>
+<tr class="memdesc:a00dcb4d9f9a4f7deaee375a545947752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialise the cConfig struct into JSON and save to the FLASH FS Only check for save every 5 mins, and then only save if the data has changed.  <br /></td></tr>
 <tr class="separator:a00dcb4d9f9a4f7deaee375a545947752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4e5b7dd1bc7037dae326078619852a6" id="r_aa4e5b7dd1bc7037dae326078619852a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4e5b7dd1bc7037dae326078619852a6">backup</a> ()</td></tr>
 <tr class="separator:aa4e5b7dd1bc7037dae326078619852a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,10 +130,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe820637e10449ff29f61ab90f59cc2f" id="r_afe820637e10449ff29f61ab90f59cc2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe820637e10449ff29f61ab90f59cc2f">update_wifi_credentials</a> (String ssid, String pass)</td></tr>
 <tr class="memdesc:afe820637e10449ff29f61ab90f59cc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the users WiFi credentials in the settings struct.  <br /></td></tr>
 <tr class="separator:afe820637e10449ff29f61ab90f59cc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ed3552ca49c29b917e5826c799b70d7" id="r_a5ed3552ca49c29b917e5826c799b70d7"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ed3552ca49c29b917e5826c799b70d7">get_load_status</a> ()</td></tr>
-<tr class="separator:a5ed3552ca49c29b917e5826c799b70d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00753c3834f8ac98173ed55b06d26477" id="r_a00753c3834f8ac98173ed55b06d26477"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00753c3834f8ac98173ed55b06d26477">get_save_status</a> ()</td></tr>
-<tr class="separator:a00753c3834f8ac98173ed55b06d26477"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -153,18 +149,26 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aaf120d605881586eb6300bb1efbb2394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a509f772f09ffc6fff7979da55a31a39e" id="r_a509f772f09ffc6fff7979da55a31a39e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509f772f09ffc6fff7979da55a31a39e">setting_wifi_start</a> {&amp;config.wifi_start, 1, &quot;Auto WiFi&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a509f772f09ffc6fff7979da55a31a39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abd37bfaa2fadec823923b9dd24a0f3" id="r_a8abd37bfaa2fadec823923b9dd24a0f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abd37bfaa2fadec823923b9dd24a0f3">setting_wifi_check_updates</a> {&amp;config.wifi_check_for_updates, 1, &quot;Update Check&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a8abd37bfaa2fadec823923b9dd24a0f3" id="r_a8abd37bfaa2fadec823923b9dd24a0f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abd37bfaa2fadec823923b9dd24a0f3">setting_wifi_check_updates</a> {&amp;config.wifi_check_for_updates, 1, &quot;Notify Updates&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a8abd37bfaa2fadec823923b9dd24a0f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac761901429c712ebe38885dabe3ba3e4" id="r_ac761901429c712ebe38885dabe3ba3e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac761901429c712ebe38885dabe3ba3e4">setting_web_theme</a> {&amp;config.website_darkmode, 1, &quot;Theme&quot;, &quot;LIGHT&quot;, &quot;DARK&quot;}</td></tr>
 <tr class="separator:ac761901429c712ebe38885dabe3ba3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2a0601cfeb9bfbaa89f94f4e475a15f" id="r_ae2a0601cfeb9bfbaa89f94f4e475a15f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2a0601cfeb9bfbaa89f94f4e475a15f">setting_web_mdns</a> {&amp;config.mdns_name, 1, &quot;mDNS Name&quot;, &quot;tinywatch&quot;, false}</td></tr>
 <tr class="separator:ae2a0601cfeb9bfbaa89f94f4e475a15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07f3193633d813269b3495255dc63125" id="r_a07f3193633d813269b3495255dc63125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f3193633d813269b3495255dc63125">setting_audio_ui</a> {&amp;config.audio_ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a739275c906b400d4165b63d5257e5150" id="r_a739275c906b400d4165b63d5257e5150"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a739275c906b400d4165b63d5257e5150">setting_country</a> {&amp;config.country, 1, &quot;Country Code&quot;}</td></tr>
+<tr class="separator:a739275c906b400d4165b63d5257e5150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dcf7319adc16e46cb84d6259ae838ca" id="r_a7dcf7319adc16e46cb84d6259ae838ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dcf7319adc16e46cb84d6259ae838ca">setting_city</a> {&amp;config.city, 1, &quot;City&quot;}</td></tr>
+<tr class="separator:a7dcf7319adc16e46cb84d6259ae838ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe778b30eb4328364b4f20d8d163e2ec" id="r_afe778b30eb4328364b4f20d8d163e2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_wi_fi_stations.html">SettingsOptionWiFiStations</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe778b30eb4328364b4f20d8d163e2ec">wifi_stations</a> {&amp;config.wifi_options, 1, &quot;Wifi Stations&quot;}</td></tr>
+<tr class="separator:afe778b30eb4328364b4f20d8d163e2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f3193633d813269b3495255dc63125" id="r_a07f3193633d813269b3495255dc63125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07f3193633d813269b3495255dc63125">setting_audio_ui</a> {&amp;config.audio.ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a07f3193633d813269b3495255dc63125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b75bfb359b1533477accd5e65601f60" id="r_a7b75bfb359b1533477accd5e65601f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b75bfb359b1533477accd5e65601f60">setting_audio_alarm</a> {&amp;config.audio_alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a7b75bfb359b1533477accd5e65601f60" id="r_a7b75bfb359b1533477accd5e65601f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b75bfb359b1533477accd5e65601f60">setting_audio_alarm</a> {&amp;config.audio.alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a7b75bfb359b1533477accd5e65601f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b06db15a01da9758da6e7eedd692ad2" id="r_a7b06db15a01da9758da6e7eedd692ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b06db15a01da9758da6e7eedd692ad2">setting_audio_on_hour</a> {&amp;config.audio_on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="memitem:a7b06db15a01da9758da6e7eedd692ad2" id="r_a7b06db15a01da9758da6e7eedd692ad2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b06db15a01da9758da6e7eedd692ad2">setting_audio_on_hour</a> {&amp;config.audio.on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a7b06db15a01da9758da6e7eedd692ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1cbd5c7bf813b2c9b3823096b14f4af" id="r_ad1cbd5c7bf813b2c9b3823096b14f4af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1cbd5c7bf813b2c9b3823096b14f4af">setting_audio_charge</a> {&amp;config.audio.charge, 2, &quot;Start Charge&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="separator:ad1cbd5c7bf813b2c9b3823096b14f4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43427ee636d6d26811373a2cff595192" id="r_a43427ee636d6d26811373a2cff595192"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43427ee636d6d26811373a2cff595192">setting_haptics_enabled</a> {&amp;config.haptics.enabled, 3, &quot;Enabled&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:a43427ee636d6d26811373a2cff595192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8baefa625522dc89fd73a89f37ebbc" id="r_a9c8baefa625522dc89fd73a89f37ebbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8baefa625522dc89fd73a89f37ebbc">setting_haptics_trig_boot</a> {&amp;config.haptics.trigger_on_boot, 3, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
@@ -179,6 +183,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a86d2b2aab653f1121c491b8561f270cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd1f22316adc97c9020df1cacdd953dc" id="r_afd1f22316adc97c9020df1cacdd953dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd1f22316adc97c9020df1cacdd953dc">setting_haptics_trig_longpress</a> {&amp;config.haptics.trigger_on_longpress, 3, &quot;LongPress&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
 <tr class="separator:afd1f22316adc97c9020df1cacdd953dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66bf0bd10ceab07644cd4bc3b914d235" id="r_a66bf0bd10ceab07644cd4bc3b914d235"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66bf0bd10ceab07644cd4bc3b914d235">setting_haptics_trig_charge</a> {&amp;config.haptics.trigger_on_charge, 3, &quot;Start Charge&quot;, &quot;NO&quot;, &quot;YES&quot;}</td></tr>
+<tr class="separator:a66bf0bd10ceab07644cd4bc3b914d235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae85ff6e54092af58012391c7f9714a4f" id="r_ae85ff6e54092af58012391c7f9714a4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85ff6e54092af58012391c7f9714a4f">setting_bl_level_vbus</a> {&amp;config.bl_level_vbus, 0, 100, 10, false, 4, &quot;Backlight brightness on USB (%%)&quot;}</td></tr>
 <tr class="separator:ae85ff6e54092af58012391c7f9714a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0fe788562c60ff27f4fb12673049d8c" id="r_ac0fe788562c60ff27f4fb12673049d8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_option_int_vector.html">SettingsOptionIntVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0fe788562c60ff27f4fb12673049d8c">setting_bl_level_vbat</a> {&amp;config.bl_level_vbat, 0, 100, 10, false, 4, &quot;Backlight brightness on <a class="el" href="class_battery.html">Battery</a> (%%)&quot;}</td></tr>
@@ -223,8 +229,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae9cfa0afc12575661b57f107fca803e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a142b93e70d4701aec73d790d0636003c" id="r_a142b93e70d4701aec73d790d0636003c"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a142b93e70d4701aec73d790d0636003c">last_save_time</a> = 0</td></tr>
 <tr class="separator:a142b93e70d4701aec73d790d0636003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1656c5e0b8259976be7cfd2d720459d" id="r_ab1656c5e0b8259976be7cfd2d720459d"><td class="memItemLeft" align="right" valign="top">Preferences&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1656c5e0b8259976be7cfd2d720459d">nvs</a></td></tr>
-<tr class="separator:ab1656c5e0b8259976be7cfd2d720459d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -331,40 +335,6 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a5ed3552ca49c29b917e5826c799b70d7" name="a5ed3552ca49c29b917e5826c799b70d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ed3552ca49c29b917e5826c799b70d7">&#9670;&#160;</a></span>get_load_status()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String Settings::get_load_status </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a00753c3834f8ac98173ed55b06d26477" name="a00753c3834f8ac98173ed55b06d26477"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00753c3834f8ac98173ed55b06d26477">&#9670;&#160;</a></span>get_save_status()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String Settings::get_save_status </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a53c5758b55206fe6754ed044a50a41ee" name="a53c5758b55206fe6754ed044a50a41ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53c5758b55206fe6754ed044a50a41ee">&#9670;&#160;</a></span>has_country_set()</h2>
 
@@ -419,7 +389,7 @@ false credentials are empty strings </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Load the user settings from the user flash FS and deserialise them from JSON back into the <a class="el" href="struct_config.html">Config</a> struct. </p>
+<p>Load the user settings from the FLASH FS and deserialise them from JSON back into the <a class="el" href="struct_config.html">Config</a> struct. </p>
 <dl class="section return"><dt>Returns</dt><dd>true </dd>
 <dd>
 false </dd></dl>
@@ -458,7 +428,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Serialise the cConfig struct into JSON and save to the user flash FS Only check for save every 5 mins, and then only save if the data has changed. </p>
+<p>Serialise the cConfig struct into JSON and save to the FLASH FS Only check for save every 5 mins, and then only save if the data has changed. </p>
 <p>We only want to save data when it's changed because we dont want to wear out the Flash.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -747,28 +717,6 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="ab1656c5e0b8259976be7cfd2d720459d" name="ab1656c5e0b8259976be7cfd2d720459d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1656c5e0b8259976be7cfd2d720459d">&#9670;&#160;</a></span>nvs</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Preferences Settings::nvs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7b75bfb359b1533477accd5e65601f60" name="a7b75bfb359b1533477accd5e65601f60"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b75bfb359b1533477accd5e65601f60">&#9670;&#160;</a></span>setting_audio_alarm</h2>
 
@@ -776,7 +724,21 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_alarm {&amp;config.audio_alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_alarm {&amp;config.audio.alarm, 2, &quot;Alarm Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1cbd5c7bf813b2c9b3823096b14f4af" name="ad1cbd5c7bf813b2c9b3823096b14f4af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1cbd5c7bf813b2c9b3823096b14f4af">&#9670;&#160;</a></span>setting_audio_charge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_charge {&amp;config.audio.charge, 2, &quot;Start Charge&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -790,7 +752,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_on_hour {&amp;config.audio_on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_on_hour {&amp;config.audio.on_hour, 2, &quot;Beep Hour&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -804,7 +766,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_ui {&amp;config.audio_ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_audio_ui {&amp;config.audio.ui, 2, &quot;UI Sound&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -867,6 +829,34 @@ false </dd></dl>
 
 </div>
 </div>
+<a id="a7dcf7319adc16e46cb84d6259ae838ca" name="a7dcf7319adc16e46cb84d6259ae838ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dcf7319adc16e46cb84d6259ae838ca">&#9670;&#160;</a></span>setting_city</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::setting_city {&amp;config.city, 1, &quot;City&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a739275c906b400d4165b63d5257e5150" name="a739275c906b400d4165b63d5257e5150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739275c906b400d4165b63d5257e5150">&#9670;&#160;</a></span>setting_country</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_string.html">SettingsOptionString</a> Settings::setting_country {&amp;config.country, 1, &quot;Country Code&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1207215c27f2d0beb3b23115e0001463" name="a1207215c27f2d0beb3b23115e0001463"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1207215c27f2d0beb3b23115e0001463">&#9670;&#160;</a></span>setting_flipped</h2>
 
@@ -917,6 +907,20 @@ false </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_boot {&amp;config.haptics.trigger_on_boot, 3, &quot;On Boot&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66bf0bd10ceab07644cd4bc3b914d235" name="a66bf0bd10ceab07644cd4bc3b914d235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66bf0bd10ceab07644cd4bc3b914d235">&#9670;&#160;</a></span>setting_haptics_trig_charge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_haptics_trig_charge {&amp;config.haptics.trigger_on_charge, 3, &quot;Start Charge&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1070,7 +1074,7 @@ false </dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_check_updates {&amp;config.wifi_check_for_updates, 1, &quot;Update Check&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
+          <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::setting_wifi_check_updates {&amp;config.wifi_check_for_updates, 1, &quot;Notify Updates&quot;, &quot;NO&quot;, &quot;YES&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1191,6 +1195,20 @@ false </dd></dl>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_settings_option_bool.html">SettingsOptionBool</a> Settings::widget_ow_units {&amp;config.open_weather.units_metric, 5, &quot;Temperature Units&quot;, &quot;Fahrenheit&quot;, &quot;Celsius&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe778b30eb4328364b4f20d8d163e2ec" name="afe778b30eb4328364b4f20d8d163e2ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe778b30eb4328364b4f20d8d163e2ec">&#9670;&#160;</a></span>wifi_stations</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_settings_option_wi_fi_stations.html">SettingsOptionWiFiStations</a> Settings::wifi_stations {&amp;config.wifi_options, 1, &quot;Wifi Stations&quot;}</td>
         </tr>
       </table>
 </div><div class="memdoc">

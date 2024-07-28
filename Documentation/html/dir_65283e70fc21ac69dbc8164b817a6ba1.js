@@ -14,6 +14,8 @@ var dir_65283e70fc21ac69dbc8164b817a6ba1 =
     [ "activity.h", "activity_8h.html", "activity_8h" ],
     [ "display.cpp", "display_8cpp.html", "display_8cpp" ],
     [ "display.h", "display_8h.html", "display_8h" ],
+    [ "themes.cpp", "themes_8cpp.html", "themes_8cpp" ],
+    [ "themes.h", "themes_8h.html", "themes_8h" ],
     [ "tinywatch.cpp", "tinywatch_8cpp.html", "tinywatch_8cpp" ],
     [ "tinywatch.h", "tinywatch_8h.html", "tinywatch_8h" ]
 ];

@@ -24,5 +24,6 @@ var searchData=
   ['www_5fgeneral_2eh_21',['www_general.h',['../www__general_8h.html',1,'']]],
   ['www_5fsettings_5fapps_2eh_22',['www_settings_apps.h',['../www__settings__apps_8h.html',1,'']]],
   ['www_5fsettings_5fwatch_2eh_23',['www_settings_watch.h',['../www__settings__watch_8h.html',1,'']]],
-  ['www_5fsettings_5fwidgets_2eh_24',['www_settings_widgets.h',['../www__settings__widgets_8h.html',1,'']]]
+  ['www_5fsettings_5fweb_2eh_24',['www_settings_web.h',['../www__settings__web_8h.html',1,'']]],
+  ['www_5fsettings_5fwidgets_2eh_25',['www_settings_widgets.h',['../www__settings__widgets_8h.html',1,'']]]
 ];

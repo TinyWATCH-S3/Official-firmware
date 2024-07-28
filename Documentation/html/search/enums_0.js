@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cpu_5fspeed_0',['CPU_SPEED',['../tinywatch_8h.html#ac916bea15062cbaac57b26b727949c05',1,'tinywatch.h']]]
+  ['alarmtype_0',['AlarmType',['../rtc_8h.html#ab24e7dd602a82a4cf2afea61f26726e2',1,'rtc.h']]]
 ];

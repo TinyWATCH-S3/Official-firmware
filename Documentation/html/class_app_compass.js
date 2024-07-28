@@ -1,7 +1,7 @@
 var class_app_compass =
 [
     [ "draw", "class_app_compass.html#a94e74af29d8ebcc9d7de0879ed94e540", null ],
-    [ "draw_icon", "class_app_compass.html#ab6a82cec74937c780c78d978891de9da", null ],
+    [ "draw_icon", "class_app_compass.html#adef7cae84268ca92ac112189329a6765", null ],
     [ "drawCalibrate", "class_app_compass.html#a619fde49289ad9ed649ea6c6218fa428", null ],
     [ "drawCompass", "class_app_compass.html#a62d379514dacf977ce6f3496a9f795cf", null ],
     [ "drawUI", "class_app_compass.html#a856eb9e5e503f8827b46b9452a81baa2", null ],

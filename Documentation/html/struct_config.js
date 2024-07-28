@@ -1,10 +1,7 @@
 var struct_config =
 [
     [ "app_microphone", "struct_config.html#a4081a307b1840cbb50ecedb0ceeab8b7", null ],
-    [ "audio_alarm", "struct_config.html#aa811fa8a4f958fe255c04368233f36ca", null ],
-    [ "audio_on_hour", "struct_config.html#ae699be522d4d24ff2c2565bfa473bab2", null ],
-    [ "audio_test", "struct_config.html#a909d84456bda4a13c0ab16d35c653e8c", null ],
-    [ "audio_ui", "struct_config.html#ab96058cff80a87107bd72619f96261ed", null ],
+    [ "audio", "struct_config.html#ab6bd2173fdb1eccebd57747786d5b6bd", null ],
     [ "battery", "struct_config.html#a885cb4f0bc81a62bc37b63c350e1834c", null ],
     [ "bl_level_vbat", "struct_config.html#a220b8356fc50ed78e5b580f9916a210a", null ],
     [ "bl_level_vbus", "struct_config.html#affd9c829c68e4e8d1c976a3fa14e6d35", null ],
@@ -14,6 +11,7 @@ var struct_config =
     [ "clock_face_index", "struct_config.html#a6699ffbe0533602cbc8beb3ddb061155", null ],
     [ "compass", "struct_config.html#aa31eafce5b0afa2b16493f672da26e56", null ],
     [ "country", "struct_config.html#ad2f32cf7a8977a88bcc0bfcb4fbb3ae8", null ],
+    [ "current_wifi_station", "struct_config.html#a6c694b104539dfda17a0af61e4bc523e", null ],
     [ "custom_binary", "struct_config.html#ad695ac00b4880f31dd061497c64c4fad", null ],
     [ "first_time", "struct_config.html#a099a67b516ac62f95fa2f49483721310", null ],
     [ "flipped", "struct_config.html#a81edb463c86272b52b8fd5b1c535e226", null ],

@@ -8,5 +8,7 @@ var searchData=
   ['heading_5',['heading',['../class_app_compass.html#a7721ab51217feb7c04dfb5f725b42870',1,'AppCompass']]],
   ['height_6',['height',['../class_display.html#a202b766060c68a78b77dfad3a843853a',1,'Display::height'],['../classtw__control.html#aa956a65e35e7c37c996e3241c578242e',1,'tw_control::height'],['../struct_face_watch___custom_windows_1_1_windows_clock_settings.html#a9d4191c058c314925e87b15bef0cdd92',1,'FaceWatch_CustomWindows::WindowsClockSettings::height'],['../classtw__widget.html#a5d58c8d469f14fdc97055d1b24e45f16',1,'tw_widget::height']]],
   ['hide_5factivityicon_7',['hide_activityicon',['../class_face_watch___default_digital.html#a8de3e06b592b8fe13e53cfe783909079',1,'FaceWatch_DefaultDigital']]],
-  ['hours_8',['hours',['../struct_t_t___time.html#a0925903ac104e0965df84d101f61e917',1,'TT_Time::hours'],['../class_face_watch___custom_binary.html#aa10123c0c9a404c385e88d131f11df40',1,'FaceWatch_CustomBinary::hours'],['../class_face_watch___custom_windows.html#a61481461dd26fe5a20f50bd8e1d70fdf',1,'FaceWatch_CustomWindows::hours']]]
+  ['hour_8',['hour',['../struct_alarm.html#a6db13956a74666a043e7a2f83d09503f',1,'Alarm']]],
+  ['hours_9',['hours',['../struct_t_t___time.html#a0925903ac104e0965df84d101f61e917',1,'TT_Time::hours'],['../class_face_watch___custom_binary.html#aa10123c0c9a404c385e88d131f11df40',1,'FaceWatch_CustomBinary::hours'],['../class_face_watch___custom_windows.html#a61481461dd26fe5a20f50bd8e1d70fdf',1,'FaceWatch_CustomWindows::hours']]],
+  ['hw_5frevision_5fp7_5for_5flater_10',['hw_revision_p7_or_later',['../class_tiny_w_a_t_c_h.html#a003dbbfe849bd2de9ebf991b573e4a8e',1,'TinyWATCH']]]
 ];

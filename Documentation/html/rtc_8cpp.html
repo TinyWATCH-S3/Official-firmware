@@ -93,6 +93,7 @@ $(function(){initNavTree('rtc_8cpp.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">rtc.cpp File Reference</div></div>
@@ -101,16 +102,24 @@ $(function(){initNavTree('rtc_8cpp.html',''); initResizable(); });
 <div class="textblock"><code>#include &quot;<a class="el" href="rtc_8h.html">rtc.h</a>&quot;</code><br />
 <code>#include &quot;esp32s3/rom/rtc.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="logging_8h.html">utilities/logging.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tinywatch_8h.html">tinywatch.h</a>&quot;</code><br />
+<code>#include &lt;LittleFS.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d" id="r_ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
+<tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6a111b83a9cd857fcdf09e1726a0fbba" id="r_a6a111b83a9cd857fcdf09e1726a0fbba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a111b83a9cd857fcdf09e1726a0fbba">rtcInterrupt</a> ()</td></tr>
-<tr class="separator:a6a111b83a9cd857fcdf09e1726a0fbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5009295f9cb70ae0f7687e71a4400b26" id="r_a5009295f9cb70ae0f7687e71a4400b26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5009295f9cb70ae0f7687e71a4400b26">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT</a> (<a class="el" href="struct_alarm.html">Alarm</a>, type, dayOfMonth, dayOfWeek, hour, minute, enabled)</td></tr>
+<tr class="memdesc:a5009295f9cb70ae0f7687e71a4400b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new nlohmann define type non intrusive with default object.  <br /></td></tr>
+<tr class="separator:a5009295f9cb70ae0f7687e71a4400b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79120d501508af2c4dccdc25663e4506" id="r_a79120d501508af2c4dccdc25663e4506"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79120d501508af2c4dccdc25663e4506">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT</a> (<a class="el" href="struct_alarms.html">Alarms</a>, alarms)</td></tr>
+<tr class="separator:a79120d501508af2c4dccdc25663e4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aeab314524096f5423acf1fe3905b2acf" id="r_aeab314524096f5423acf1fe3905b2acf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeab314524096f5423acf1fe3905b2acf">interruptTriggered</a> = true</td></tr>
-<tr class="separator:aeab314524096f5423acf1fe3905b2acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bd950625db0f240acc63a9cb41873f6" id="r_a6bd950625db0f240acc63a9cb41873f6"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bd950625db0f240acc63a9cb41873f6">ntpServer</a> = &quot;pool.ntp.org&quot;</td></tr>
 <tr class="separator:a6bd950625db0f240acc63a9cb41873f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcb4cacf52bf654a9d5adbbde8893b0d" id="r_abcb4cacf52bf654a9d5adbbde8893b0d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcb4cacf52bf654a9d5adbbde8893b0d">days</a> [7] = {&quot;SUN&quot;, &quot;MON&quot;, &quot;TUE&quot;, &quot;WED&quot;, &quot;THU&quot;, &quot;FRI&quot;, &quot;SAT&quot;}</td></tr>
@@ -120,18 +129,86 @@ Variables</h2></td></tr>
 <tr class="memitem:afa7e240c7456eaf5ef27ee8be3a23bd4" id="r_afa7e240c7456eaf5ef27ee8be3a23bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_r_t_c.html">RTC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa7e240c7456eaf5ef27ee8be3a23bd4">rtc</a></td></tr>
 <tr class="separator:afa7e240c7456eaf5ef27ee8be3a23bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a6a111b83a9cd857fcdf09e1726a0fbba" name="a6a111b83a9cd857fcdf09e1726a0fbba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a111b83a9cd857fcdf09e1726a0fbba">&#9670;&#160;</a></span>rtcInterrupt()</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ab701e3ac61a85b337ec5c1abaad6742d" name="ab701e3ac61a85b337ec5c1abaad6742d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&#160;</a></span>json</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void rtcInterrupt </td>
+          <td class="memname">using <a class="el" href="activity_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a5009295f9cb70ae0f7687e71a4400b26" name="a5009295f9cb70ae0f7687e71a4400b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5009295f9cb70ae0f7687e71a4400b26">&#9670;&#160;</a></span>NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_alarm.html">Alarm</a></td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">type</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dayOfMonth</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dayOfWeek</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">hour</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">minute</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enabled</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new nlohmann define type non intrusive with default object. </p>
+<p>All settings you want to be serialised and deserialised with JSON and stored in user flash need to be added here. This has a HARD (NOT CHANGEABLE) LIMIT of 64 items </p>
+
+</div>
+</div>
+<a id="a79120d501508af2c4dccdc25663e4506" name="a79120d501508af2c4dccdc25663e4506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79120d501508af2c4dccdc25663e4506">&#9670;&#160;</a></span>NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_alarms.html">Alarms</a></td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">alarms</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,20 +224,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">String days[7] = {&quot;SUN&quot;, &quot;MON&quot;, &quot;TUE&quot;, &quot;WED&quot;, &quot;THU&quot;, &quot;FRI&quot;, &quot;SAT&quot;}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aeab314524096f5423acf1fe3905b2acf" name="aeab314524096f5423acf1fe3905b2acf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeab314524096f5423acf1fe3905b2acf">&#9670;&#160;</a></span>interruptTriggered</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool interruptTriggered = true</td>
         </tr>
       </table>
 </div><div class="memdoc">

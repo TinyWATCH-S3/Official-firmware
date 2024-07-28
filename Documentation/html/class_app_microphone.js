@@ -3,7 +3,7 @@ var class_app_microphone =
     [ "do_fft_calcs", "class_app_microphone.html#a1ae20553e83be4534241100eaa56c243", null ],
     [ "do_waveform_calcs", "class_app_microphone.html#af21c9e10dd5f781358eb28606b32c4a3", null ],
     [ "draw", "class_app_microphone.html#af062de6d4e4191d30579caa2cba9dd71", null ],
-    [ "draw_icon", "class_app_microphone.html#a4f7c9b8e5e9ac7eacc8e9e228eddfd67", null ],
+    [ "draw_icon", "class_app_microphone.html#a1025ba7c8d4419f87ee04235bf99d69a", null ],
     [ "fill_arc", "class_app_microphone.html#a78629ec2c830bb67f5d856bc164ab8f2", null ],
     [ "pre_start", "class_app_microphone.html#a3374361517cde1ec48c3066180fefd7e", null ],
     [ "process_touch", "class_app_microphone.html#a0537012f542d6f656a4c9ee6e2fc3a38", null ],

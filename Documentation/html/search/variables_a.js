@@ -3,7 +3,7 @@ var searchData=
   ['last_5fbacklight_0',['last_backlight',['../class_display.html#a6750a83619ceebd90eddde941ff80cef',1,'Display']]],
   ['last_5ffinger_5fmove_1',['last_finger_move',['../display_8cpp.html#ae3739741f9886e2a5acfb51d6845f15e',1,'display.cpp']]],
   ['last_5fsave_5ftime_2',['last_save_time',['../class_activity.html#a996870b92eaf75e9e00cdaf244710782',1,'Activity::last_save_time'],['../class_settings.html#a142b93e70d4701aec73d790d0636003c',1,'Settings::last_save_time']]],
-  ['last_5fsaved_5fdata_3',['last_saved_data',['../struct_activity___data.html#a769665f5cf1dc4cba1adc2fa4ee2b156',1,'Activity_Data::last_saved_data'],['../struct_config.html#ad223c29215eb3925e60cd2540a0736f3',1,'Config::last_saved_data']]],
+  ['last_5fsaved_5fdata_3',['last_saved_data',['../struct_activity___data.html#a769665f5cf1dc4cba1adc2fa4ee2b156',1,'Activity_Data::last_saved_data'],['../struct_alarms.html#abc4efb11b357f05b4d5656c4d9136f62',1,'Alarms::last_saved_data'],['../struct_config.html#ad223c29215eb3925e60cd2540a0736f3',1,'Config::last_saved_data'],['../struct_watch_themes.html#a7a6f9c6c3ed142418c43ff2b6a452b76',1,'WatchThemes::last_saved_data']]],
   ['last_5ftouch_4',['last_touch',['../display_8cpp.html#a7521b94ee0818adfd6b61c1e229089ee',1,'display.cpp']]],
   ['last_5fwas_5fclick_5',['last_was_click',['../display_8cpp.html#ae9ce7ec5e04f07a2403c5f921a8f8c35',1,'display.cpp']]],
   ['last_5fwas_5flong_6',['last_was_long',['../display_8cpp.html#ab0232c5d01608a95c4abba342e841bf7',1,'display.cpp']]],

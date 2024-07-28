@@ -1,6 +1,6 @@
 var class_widget_activity_ring =
 [
-    [ "draw", "class_widget_activity_ring.html#a18a606522e86d5d9fd5f789e21bdda67", null ],
+    [ "draw", "class_widget_activity_ring.html#a553357ee7a5b85e0e9cfd1c52838c4b7", null ],
     [ "process_touch", "class_widget_activity_ring.html#a4d6ba8073b61afa17e29e988f3dbfb77", null ],
     [ "arc_pos", "class_widget_activity_ring.html#af0f613708b5a41b7e97b0872bf724a0d", null ],
     [ "col_rings", "class_widget_activity_ring.html#a4c194a74459e299f8ef841f9338ea8f5", null ],
