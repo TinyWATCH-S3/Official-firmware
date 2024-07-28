@@ -397,3 +397,107 @@ String SettingsOptionString::generate_html(uint16_t index)
 
 // 	settings.settings_groups[grp].groups.push_back(this);
 // }
+
+//
+// WIFI STATIONS
+//
+
+bool SettingsOptionWiFiStations::update(int index, String _ssid, String _pass)
+{
+	(*setting_ref)[index].ssid = _ssid;
+	(*setting_ref)[index].pass = _pass;
+	settings.save(false);
+
+	return true;
+}
+
+void SettingsOptionWiFiStations::remove_if_empty()
+{
+	(*setting_ref).erase(std::remove_if((*setting_ref).begin(), (*setting_ref).end(), [](const wifi_station &station) {
+							 return station.ssid.isEmpty() && station.pass.isEmpty();
+						 }),
+						 (*setting_ref).end());
+}
+
+uint8_t SettingsOptionWiFiStations::vector_size() { return (*setting_ref).size(); }
+String SettingsOptionWiFiStations::get_ssid(int index) { return (*setting_ref)[index].ssid; }
+String SettingsOptionWiFiStations::get_pass(int index) { return (*setting_ref)[index].pass; }
+
+void SettingsOptionWiFiStations::add_station(String ssid, String pass)
+{
+
+	wifi_station o = wifi_station();
+	o.ssid = ssid;
+	o.pass = pass;
+	(*setting_ref).push_back(o);
+}
+
+String SettingsOptionWiFiStations::generate_html(uint16_t index)
+{
+	String fn = fieldname;
+	fn.replace(" ", "_");
+	fn.toLowerCase();
+	fn = String(group) + "," + String(index) + "__" + fn;
+
+	String html = "					<div class='input-group input-group-sm mb-1'>\n";
+	html += "						<div class='row g-2'>\n";
+	html += "							<div class='col-sm-12 ps-3 pt-2 pb-0' style='font-size:14px;'>" + fieldname + "</div>\n";
+	String highlight = "";
+	String readonly = "required";
+
+	for (size_t i = 0; i < (*setting_ref).size(); i++)
+	{
+		highlight = (settings.config.current_wifi_station == i) ? " style='background-color:#333388;'" : "";
+		readonly = (settings.config.current_wifi_station == i) ? " readonly " : "";
+		html += "								<div class='input-group input-group-sm'>\n";
+		html += "									<span class='input-group-text' id='inputGroup-sizing-sm' " + highlight + ">" + String(i + 1) + "</span>\n";
+		html += "									<span class='input-group-text' id='inputGroup-sizing-sm'>SSID</span>\n";
+		html += "									<input type='text' class='form-control form-control-sm' id='" + fn + "_ssid_" + String(i) + "' name='" + fn + "_ssid_" + String(i) + "' value='" + String(get_ssid(i)) + "'" + readonly + "/>\n";
+		html += "									<span class='input-group-text' id='inputGroup-sizing-sm'>Password</span>\n";
+		html += "									<input type='password' class='form-control form-control-sm' id='" + fn + "_pass_" + String(i) + "' name='" + fn + "_pass_" + String(i) + "' value='" + String(get_pass(i)) + "'" + readonly + "/>\n";
+
+		html += "								</div>\n";
+	}
+	// Add the empty
+	int i = (*setting_ref).size();
+	html += "								<div class='input-group input-group-sm'>\n";
+	html += "									<span class='input-group-text' id='inputGroup-sizing-sm'>+</span>\n";
+	html += "									<span class='input-group-text' id='inputGroup-sizing-sm'>SSID</span>\n";
+	html += "									<input type='text' class='form-control form-control-sm' id='" + fn + "_ssid_" + String(i) + "' name='" + fn + "_ssid_" + String(i) + "' placeholder='New SSID' />\n";
+	html += "									<span class='input-group-text' id='inputGroup-sizing-sm'>Password</span>\n";
+	html += "									<input type='password' class='form-control form-control-sm' id='" + fn + "_pass_" + String(i) + "' name='" + fn + "_pass_" + String(i) + "' placeholder='New PASSWORD' />\n";
+	html += "								</div>\n";
+
+	html += "							</div>\n";
+	html += "						</div>\n";
+
+	return html;
+}
+
+/*
+class SettingsOptionWiFiStations : public SettingsOptionBase
+{
+	public:
+		SettingsOptionWiFiStations(std::vector<wifi_station> *val, int _group, const String &_fn) : setting_ref(val)
+		{
+			group = _group;
+			fieldname = _fn;
+			data_is_vector = true;
+			register_option(_group);
+		}
+
+		Type getType() const override
+		{
+			return WIFI_STATION;
+		}
+
+		bool update(int index, String _ssid, String _pass);
+		// int get(int index);
+		String get_str(int index);
+		String generate_html(uint16_t index);
+		uint8_t vector_size();
+
+	private:
+		std::vector<wifi_station> *setting_ref = nullptr;
+};
+*/

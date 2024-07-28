@@ -1,5 +1,6 @@
 #pragma once
 
+#include "themes.h"
 #include "tw_apps/tw_app.h"
 #include "tw_controls/tw_control.h"
 #include "tw_widgets/tw_widget.h"
@@ -34,7 +35,7 @@ class tw_face
 		bool control_process_clicks(touch_event_t touch_event);
 		bool is_face_clock_face();
 
-		void draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint = 0);
+		void draw_children(bool stacked, int16_t stacked_y_start);
 		void draw_children_scroll(int16_t offset_x, int16_t offset_y);
 		uint32_t get_cpu_speed();
 
@@ -71,7 +72,7 @@ class tw_face
 		virtual bool process_touch(touch_event_t touch_event) { return false; }
 
 		tw_face *navigation[4] = {nullptr, nullptr, nullptr, nullptr};
-		void draw_navigation(uint8_t canvasid, uint32_t color);
+		void draw_navigation(uint8_t canvasid);
 
 	protected:
 		bool is_setup = false;

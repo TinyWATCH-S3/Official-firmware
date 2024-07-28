@@ -71,16 +71,16 @@ void ControlToggle::draw(uint8_t canvasid)
 	{
 		uint16_t color = canvas[canvasid].readPixel(adjusted_pos_x, adjusted_pos_y);
 		my_sprite.fillSprite(color);
-		my_sprite.fillRoundRect(0, 14, width, height, 4, RGB(0x22, 0x22, 0x22));
+		my_sprite.fillRoundRect(0, 14, width, height, 4, themes.current().col_background_dull);
 		my_sprite.setFreeFont(RobotoMono_Light[7]);
 		my_sprite.setTextDatum(TC_DATUM); // Top, Center
 		my_sprite.setTextColor(TFT_WHITE);
 		my_sprite.drawString(name, (width / 2), 0);
 
 		if (setting_option->get())
-			my_sprite.fillRoundRect((width / 2) + 2, 16, width / 2 - 2, height - 4, 4, RGB(0x99, 0xFF, 0x99));
+			my_sprite.fillRoundRect((width / 2) + 2, 16, width / 2 - 2, height - 4, 4, themes.current().col_secondary);
 		else
-			my_sprite.fillRoundRect(2, 16, width / 2 - 2, height - 4, 4, RGB(0x66, 0x66, 0x66));
+			my_sprite.fillRoundRect(2, 16, width / 2 - 2, height - 4, 4, themes.current().col_control_back);
 
 		my_sprite.setTextColor(TFT_WHITE, RGB(0x22, 0x22, 0x22));
 		my_sprite.setFreeFont(RobotoMono_Light[8]);

@@ -43,9 +43,9 @@ bool tw_widget::bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y)
 
 uint tw_widget::get_height() { return (height + padding_y); }
 
-void tw_widget::draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)
+void tw_widget::draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y)
 {
 	pos_x = _pos_x;
 	pos_y = _pos_y;
-	draw(canvasid, style_hint);
+	draw(canvasid);
 }

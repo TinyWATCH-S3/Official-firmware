@@ -25,15 +25,15 @@ void FaceNotifications::draw(bool force)
 				is_cached = true;
 
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
-			canvas[canvasid].fillSprite(TFT_PURPLE);
-			canvas[canvasid].setTextColor(TFT_YELLOW);
+			canvas[canvasid].fillSprite(themes.current().col_background_dull);
+			canvas[canvasid].setTextColor(themes.current().col_primary);
 			canvas[canvasid].setTextDatum(4); // Middle, Center
-			canvas[canvasid].drawString("MESSAGES", 120, 40);
+			canvas[canvasid].drawString("MESSAGES", 120, 30);
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[7]);
 
 			if (num_messages == 0)
 			{
-				canvas[canvasid].setTextColor(TFT_WHITE);
+				canvas[canvasid].setTextColor(themes.current().col_secondary);
 				canvas[canvasid].drawString("No new messages!", 120, 80);
 			}
 			else
@@ -71,7 +71,7 @@ void FaceNotifications::draw(bool force)
 					// info_println("scroll length "+String(scroll_length));
 				}
 			}
-			draw_navigation(canvasid, RGB(0xaa, 0xaa, 0xaa));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

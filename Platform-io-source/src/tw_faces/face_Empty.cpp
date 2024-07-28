@@ -36,7 +36,7 @@ void FaceEmpty::draw(bool force)
 
 			// End Custom Face Code
 
-			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

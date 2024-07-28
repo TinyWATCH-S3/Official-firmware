@@ -447,14 +447,14 @@ bool tw_face::drag_end(int16_t drag_x, int16_t drag_y, bool current_face, int16_
 	return false;
 }
 
-void tw_face::draw_children(bool stacked, int16_t stacked_y_start, uint8_t style_hint)
+void tw_face::draw_children(bool stacked, int16_t stacked_y_start)
 {
 	if (stacked)
 	{
 		int16_t _y = stacked_y_start;
 		for (int w = 0; w < widgets.size(); w++)
 		{
-			widgets[w]->draw(canvasid, 10, _y, style_hint);
+			widgets[w]->draw(canvasid, 10, _y);
 			_y -= widgets[w]->get_height();
 		}
 
@@ -468,7 +468,7 @@ void tw_face::draw_children(bool stacked, int16_t stacked_y_start, uint8_t style
 	{
 		for (int w = 0; w < widgets.size(); w++)
 		{
-			widgets[w]->draw(canvasid, style_hint);
+			widgets[w]->draw(canvasid);
 		}
 
 		for (int w = 0; w < controls.size(); w++)
@@ -482,7 +482,7 @@ void tw_face::draw_children_scroll(int16_t offset_x, int16_t offset_y)
 {
 	for (int w = 0; w < widgets.size(); w++)
 	{
-		widgets[w]->draw(canvasid, offset_x, offset_y, 0);
+		widgets[w]->draw(canvasid, offset_x, offset_y);
 	}
 
 	for (int w = 0; w < controls.size(); w++)
@@ -646,10 +646,12 @@ void tw_face::update_screen()
 	canvas[canvasid].pushSprite(_x, _y);
 }
 
-void tw_face::draw_navigation(uint8_t _canvasid, uint32_t color)
+void tw_face::draw_navigation(uint8_t _canvasid)
 {
 	if (!display.is_finger || !settings.config.show_nav_arrows)
 		return;
+
+	uint32_t color = themes.current().col_control_back;
 
 	uint8_t triangle_radius = 7;
 	if (navigation[DOWN] != nullptr)

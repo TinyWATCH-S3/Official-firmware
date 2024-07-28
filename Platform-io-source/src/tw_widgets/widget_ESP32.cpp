@@ -2,7 +2,7 @@
 #include "bitmaps/bitmaps_general.h"
 #include "fonts/RobotoMono_Light_All.h"
 
-void WidgetESP32::draw(uint canvasid, uint8_t style_hint)
+void WidgetESP32::draw(uint canvasid)
 {
 
 	if (millis() - next_stat_cycle > 5000)

@@ -127,9 +127,9 @@ void FaceWatch_CustomBinary::draw(bool force)
 			canvas[canvasid].drawString(String(year), display.center_x + 72, display.height - 50);
 			canvas[canvasid].drawString(months[month - 1], display.center_x + 64, display.height - 25);
 
-			draw_children(false, 0, abs(1 - clock_style));
+			draw_children(false, 0);
 
-			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

@@ -25,6 +25,7 @@
 #include <LittleFS.h>
 
 #include "utilities/logging.h"
+#include "utilities/capture.h"
 
 // CPU speeds
 #define CPU_LOW_FREQ 40

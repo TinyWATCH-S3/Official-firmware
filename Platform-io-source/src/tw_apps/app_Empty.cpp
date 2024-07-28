@@ -32,9 +32,9 @@ void AppEmpty::pre_start() { shutdown_timer = millis(); }
  * @param canvasid
  * @param _pos_x
  * @param _pos_y
- * @param style_hint
+
  */
-void AppEmpty::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)
+void AppEmpty::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y)
 {
 	if (!is_icon_cached)
 	{

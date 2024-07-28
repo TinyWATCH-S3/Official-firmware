@@ -360,7 +360,7 @@ void FaceWatch_DefaultDigital::draw(bool force)
 
 			draw_children(false, 0);
 
-			draw_navigation(canvasid, RGB(0x33, 0x33, 0x3FF));
+			draw_navigation(canvasid);
 		}
 
 		// Lets draw the screen, finally.

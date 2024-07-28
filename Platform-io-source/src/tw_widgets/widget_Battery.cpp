@@ -6,7 +6,7 @@
 
 extern Battery battery;
 
-void WidgetBattery::draw(uint canvasid, uint8_t style_hint)
+void WidgetBattery::draw(uint canvasid)
 {
 	float bat_perc = (int)battery.get_percent(false);
 

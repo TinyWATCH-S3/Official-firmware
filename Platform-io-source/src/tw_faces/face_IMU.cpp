@@ -26,67 +26,66 @@ void FaceIMU::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
-			if (true)
+			canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
+			canvas[canvasid].fillSprite(themes.current().col_background_bright);
+			canvas[canvasid].setTextColor(themes.current().col_primary);
+			canvas[canvasid].setTextDatum(MC_DATUM); // Middle, Center
+			canvas[canvasid].drawString("IMU + MAG", 120, 30);
 
-				canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
-			canvas[canvasid].fillSprite(RGB(0x22, 0x22, 0x22));
-			canvas[canvasid].setTextColor(TFT_WHITE);
-			canvas[canvasid].setTextDatum(4); // Middle, Center
-			canvas[canvasid].drawString("IMU + MAG", 120, 40);
-
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[5]);
+			canvas[canvasid].setFreeFont(RobotoMono_Regular[6]);
 
 			imu.update();
+
+			int pos_y = 65;
+
+			canvas[canvasid].fillRoundRect(15, pos_y + 15, 90, 38, 8, themes.current().col_background_dull);
+			canvas[canvasid].fillRoundRect(15, pos_y + 85, 90, 38, 8, themes.current().col_background_dull);
+			canvas[canvasid].fillRoundRect(15, pos_y + 155, 90, 38, 8, themes.current().col_background_dull);
+
+			canvas[canvasid].setTextColor(themes.current().col_secondary);
+
 			if (showingGyro)
 			{
-				canvas[canvasid].setTextColor(TFT_YELLOW);
-				canvas[canvasid].drawString("GYRO", 55, 100);
+				canvas[canvasid].drawString("GYRO X", 62, pos_y);
+				canvas[canvasid].drawString("GYRO Y", 62, pos_y + 70);
+				canvas[canvasid].drawString("GYRO Z", 62, pos_y + 140);
+
 				canvas[canvasid].setTextColor(TFT_WHITE);
-				canvas[canvasid].fillRoundRect(10, 120, 105, 38, 8, RGB(0x55, 0x22, 0x22));
-				canvas[canvasid].fillRoundRect(10, 175, 105, 38, 8, RGB(0x55, 0x22, 0x22));
-				canvas[canvasid].fillRoundRect(10, 230, 105, 38, 8, RGB(0x55, 0x22, 0x22));
-				canvas[canvasid].setCursor(15, 144);
-				canvas[canvasid].print("X " + String(imu.get_gyro_x()));
-				canvas[canvasid].setCursor(15, 199);
-				canvas[canvasid].print("Y " + String(imu.get_gyro_y()));
-				canvas[canvasid].setCursor(15, 254);
-				canvas[canvasid].print("Z " + String(imu.get_gyro_z()));
+				canvas[canvasid].drawNumber(imu.get_gyro_x(), 62, pos_y + 34);
+				canvas[canvasid].drawNumber(imu.get_gyro_y(), 62, pos_y + 104);
+				canvas[canvasid].drawNumber(imu.get_gyro_z(), 62, pos_y + 174);
 			}
 			else
 			{
-				canvas[canvasid].setTextColor(TFT_YELLOW);
-				canvas[canvasid].drawString("ACCEL", 55, 100);
+				canvas[canvasid].drawString("ACCEL X", 62, pos_y);
+				canvas[canvasid].drawString("ACCEL Y", 62, pos_y + 70);
+				canvas[canvasid].drawString("ACCEL Z", 62, pos_y + 140);
+
 				canvas[canvasid].setTextColor(TFT_WHITE);
-				canvas[canvasid].fillRoundRect(10, 120, 105, 38, 8, RGB(0x22, 0x22, 0x55));
-				canvas[canvasid].fillRoundRect(10, 175, 105, 38, 8, RGB(0x22, 0x22, 0x55));
-				canvas[canvasid].fillRoundRect(10, 230, 105, 38, 8, RGB(0x22, 0x22, 0x55));
-				canvas[canvasid].setCursor(15, 144);
-				canvas[canvasid].print("X " + String(imu.get_accel_x()));
-				canvas[canvasid].setCursor(15, 199);
-				canvas[canvasid].print("Y " + String(imu.get_accel_y()));
-				canvas[canvasid].setCursor(15, 254);
-				canvas[canvasid].print("Z " + String(imu.get_accel_z()));
+				canvas[canvasid].drawFloat(imu.get_accel_x(), 2, 62, pos_y + 34);
+				canvas[canvasid].drawFloat(imu.get_accel_y(), 2, 62, pos_y + 104);
+				canvas[canvasid].drawFloat(imu.get_accel_z(), 2, 62, pos_y + 174);
 			}
 
-			canvas[canvasid].setTextColor(TFT_YELLOW);
-			canvas[canvasid].drawString("PITCH", 185, 80);
-			canvas[canvasid].drawString("ROLL", 185, 150);
-			canvas[canvasid].drawString("YAW", 185, 220);
+			canvas[canvasid].setTextColor(themes.current().col_secondary);
+			canvas[canvasid].drawString("PITCH", 180, pos_y);
+			canvas[canvasid].drawString("ROLL", 180, pos_y + 70);
+			canvas[canvasid].drawString("YAW", 180, pos_y + 140);
 
-			canvas[canvasid].fillRoundRect(135, 95, 100, 40, 8, RGB(0x44, 0x44, 0x44));
-			canvas[canvasid].fillRoundRect(135, 165, 100, 40, 8, RGB(0x44, 0x44, 0x44));
-			canvas[canvasid].fillRoundRect(135, 235, 100, 40, 8, RGB(0x44, 0x44, 0x44));
+			canvas[canvasid].fillRoundRect(135, pos_y + 15, 90, 40, 8, themes.current().col_background_dull);
+			canvas[canvasid].fillRoundRect(135, pos_y + 85, 90, 40, 8, themes.current().col_background_dull);
+			canvas[canvasid].fillRoundRect(135, pos_y + 155, 90, 40, 8, themes.current().col_background_dull);
 			canvas[canvasid].setTextColor(TFT_WHITE);
-			canvas[canvasid].drawNumber(imu.get_pitch(), 185, 115);
-			canvas[canvasid].drawNumber(imu.get_roll(), 185, 185);
-			canvas[canvasid].drawNumber(imu.get_yaw(), 185, 255);
+			canvas[canvasid].drawNumber(imu.get_pitch(), 180, pos_y + 34);
+			canvas[canvasid].drawNumber(imu.get_roll(), 180, pos_y + 104);
+			canvas[canvasid].drawNumber(imu.get_yaw(), 180, pos_y + 174);
 
 			for (int w = 0; w < widgets.size(); w++)
 			{
-				widgets[w]->draw(canvasid, 0);
+				widgets[w]->draw(canvasid);
 			}
 
-			draw_navigation(canvasid, RGB(0x55, 0x55, 0x55));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

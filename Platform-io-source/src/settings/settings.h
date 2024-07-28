@@ -15,8 +15,8 @@ using json = nlohmann::json;
 
 struct wifi_station
 {
-		String wifi_ssid = "";
-		String wifi_pass = "";
+		String ssid = "";
+		String pass = "";
 		uint8_t channel = 9;
 };
 
@@ -32,6 +32,7 @@ struct Config
 		bool wifi_check_for_updates = true;
 
 		std::vector<wifi_station> wifi_options;
+		uint8_t current_wifi_station = 0;
 
 		String mdns_name = "tinywatch";
 		bool website_darkmode = true;
@@ -171,6 +172,7 @@ class Settings
 		SettingsOptionString setting_web_mdns{&config.mdns_name, 1, "mDNS Name", "tinywatch", false};
 		SettingsOptionString setting_country{&config.country, 1, "Country Code"};
 		SettingsOptionString setting_city{&config.city, 1, "City"};
+		SettingsOptionWiFiStations wifi_stations{&config.wifi_options, 1, "Wifi Stations"};
 
 		// Audio
 		SettingsOptionBool setting_audio_ui{&config.audio.ui, 2, "UI Sound", "NO", "YES"};

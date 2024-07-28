@@ -44,9 +44,9 @@ class TinyWATCH
 		bool block_update_low_battery = false;
 		unsigned long low_battery_update_check = 0;
 
-		const String version_firmware = "v0.64";
+		const String version_firmware = "v0.65";
 		const String version_year = "2024";
-		const uint16_t version_build = 3;
+		const uint16_t version_build = 4;
 		uint16_t version_latest = 0;
 
 		bool hw_revision_p7_or_later = false;

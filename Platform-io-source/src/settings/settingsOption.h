@@ -5,6 +5,8 @@
 #include "utilities/logging.h"
 #include <vector>
 
+struct wifi_station;
+
 class SettingsOptionBase
 {
 
@@ -21,7 +23,8 @@ class SettingsOptionBase
 			FLOAT,
 			STRING,
 			INT_VECTOR,
-			INT_RANGE
+			INT_RANGE,
+			WIFI_STATION
 		};
 
 		virtual Type getType() const
@@ -48,6 +51,7 @@ class SettingsOptionBase
 		String fieldname = "";
 		int group = -1;
 		bool data_is_vector = false;
+		bool req_full_width = false;
 };
 
 class SettingsOptionInt : public SettingsOptionBase
@@ -225,4 +229,33 @@ class SettingsOptionString : public SettingsOptionBase
 		String *setting_ref = nullptr;
 		String placeholder = "";
 		bool required_field = true;
+};
+
+class SettingsOptionWiFiStations : public SettingsOptionBase
+{
+	public:
+		SettingsOptionWiFiStations(std::vector<wifi_station> *val, int _group, const String &_fn) : setting_ref(val)
+		{
+			group = _group;
+			fieldname = _fn;
+			data_is_vector = true;
+			req_full_width = true;
+			register_option(_group);
+		}
+
+		Type getType() const override
+		{
+			return WIFI_STATION;
+		}
+
+		bool update(int index, String _ssid, String _pass);
+		void remove_if_empty();
+		String get_ssid(int index);
+		String get_pass(int index);
+		void add_station(String ssid, String pass);
+		String generate_html(uint16_t index);
+		uint8_t vector_size();
+
+	private:
+		std::vector<wifi_station> *setting_ref = nullptr;
 };

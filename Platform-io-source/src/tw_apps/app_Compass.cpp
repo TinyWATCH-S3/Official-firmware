@@ -6,7 +6,7 @@
 #include "settings/settings.h"
 
 /**
- * 
+ *
  */
 void AppCompass::setup()
 {
@@ -23,7 +23,7 @@ void AppCompass::setup()
  * This is not the same as setup() above that only ever gets called the first time the app opens
  *
  */
-void AppCompass::pre_start() 
+void AppCompass::pre_start()
 {
 	running_state = RUNNING_STATE_DRAW;
 }
@@ -35,9 +35,8 @@ void AppCompass::pre_start()
  * @param canvasid
  * @param _pos_x
  * @param _pos_y
- * @param style_hint
  */
-void AppCompass::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint)
+void AppCompass::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y)
 {
 	if (!is_icon_cached)
 	{
@@ -57,7 +56,7 @@ void AppCompass::draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uin
 }
 
 /**
- * 
+ *
  */
 bool AppCompass::process_touch(touch_event_t touch_event)
 {
@@ -82,14 +81,14 @@ bool AppCompass::process_touch(touch_event_t touch_event)
 		else if (running_state == RUNNING_STATE_CALIBRATE)
 		{
 			if (touch_event.x < 32u && touch_event.y > 248u)
-			{				
+			{
 				// https://github.com/kriswiner/MPU6050/wiki/Simple-and-Effective-Magnetometer-Calibration
 				info_println("Saving compass calibration values");
 
 				float soft_iron_x = (mag_x_max - mag_x_min) / 2;
 				float soft_iron_y = (mag_y_max - mag_y_min) / 2;
 				float soft_iron_z = (mag_z_max - mag_z_min) / 2;
-			
+
 				float soft_scale = (soft_iron_x + soft_iron_y + soft_iron_z) / 3;
 
 				settings.config.compass.hard_iron_x = (mag_x_max + mag_x_min) / 2;
@@ -100,7 +99,7 @@ bool AppCompass::process_touch(touch_event_t touch_event)
 				settings.config.compass.soft_iron_y = soft_scale / soft_iron_y;
 				settings.config.compass.soft_iron_z = soft_scale / soft_iron_z;
 
-				settings.save(true);			
+				settings.save(true);
 
 				running_state = RUNNING_STATE_DRAW;
 				return true;
@@ -123,7 +122,7 @@ bool AppCompass::process_touch(touch_event_t touch_event)
 }
 
 /**
- * 
+ *
  */
 void AppCompass::draw(bool force)
 {
@@ -135,19 +134,19 @@ void AppCompass::draw(bool force)
 		setup();
 		next_update = millis();
 
-		switch(running_state)
+		switch (running_state)
 		{
-			case RUNNING_STATE_DRAW:
-			{
-				drawCompass(); // Draw centre of compass at 120,140
-				break;
-			}
+		case RUNNING_STATE_DRAW:
+		{
+			drawCompass(); // Draw centre of compass at 120,140
+			break;
+		}
 
-			case RUNNING_STATE_CALIBRATE:
-			{
-				drawCalibrate();
-				break;
-			}
+		case RUNNING_STATE_CALIBRATE:
+		{
+			drawCalibrate();
+			break;
+		}
 		}
 
 		drawUI();
@@ -156,7 +155,7 @@ void AppCompass::draw(bool force)
 }
 
 /**
- * 
+ *
  */
 void AppCompass::resetCalibration()
 {
@@ -167,82 +166,81 @@ void AppCompass::resetCalibration()
 	mag_x_max = -6000;
 	mag_y_max = -6000;
 	mag_z_max = -6000;
-	
+
 	canvas[canvasid].fillSprite(TFT_BLACK);
 }
 
-
 /**
- * 
+ *
  */
 void AppCompass::drawUI()
 {
-	switch(running_state)
+	switch (running_state)
 	{
-		case RUNNING_STATE_DRAW:
-		{
-			uint16_t bx = 10, by = 10;
-			uint16_t BUTTON_BG_COLOUR = B_BLUE;
+	case RUNNING_STATE_DRAW:
+	{
+		uint16_t bx = 10, by = 10;
+		uint16_t BUTTON_BG_COLOUR = B_BLUE;
 
-			canvas[canvasid].fillSmoothRoundRect(-20, -20, 55, 55, 16, BUTTON_BG_COLOUR, BUTTON_BG_COLOUR);
-			
-			canvas[canvasid].fillRect(bx + 3, by + 3, 15, 15, TFT_DARKGREY);
+		canvas[canvasid].fillSmoothRoundRect(-20, -20, 55, 55, 16, BUTTON_BG_COLOUR, BUTTON_BG_COLOUR);
 
-			canvas[canvasid].fillRect(bx +  3, by +  3, 2, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 16, by +  3, 2, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx +  3, by + 16, 2, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 16, by + 16, 2, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 3, by + 3, 15, 15, TFT_DARKGREY);
 
-			canvas[canvasid].fillRect(bx +  6, by +  3, 3, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 12, by +  3, 3, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx +  6, by + 16, 3, 2, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 12, by + 16, 3, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 3, by + 3, 2, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 16, by + 3, 2, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 3, by + 16, 2, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 16, by + 16, 2, 2, BUTTON_BG_COLOUR);
 
-			canvas[canvasid].fillRect(bx +  3, by +  6, 2, 3, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 16, by +  6, 2, 3, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx +  3, by + 12, 2, 3, BUTTON_BG_COLOUR);
-			canvas[canvasid].fillRect(bx + 16, by + 12, 2, 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 6, by + 3, 3, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 12, by + 3, 3, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 6, by + 16, 3, 2, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 12, by + 16, 3, 2, BUTTON_BG_COLOUR);
 
-			canvas[canvasid].fillRect(bx +  8, by + 8, 5, 5, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 3, by + 6, 2, 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 16, by + 6, 2, 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 3, by + 12, 2, 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].fillRect(bx + 16, by + 12, 2, 3, BUTTON_BG_COLOUR);
 
-			canvas[canvasid].drawPixel(bx +  5, by +  3, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 15, by +  3, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  3, by +  5, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  7, by +  5, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 13, by +  5, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 17, by +  5, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  5, by +  7, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 10, by +  7, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 15, by +  7, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  7, by + 10, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 13, by + 10, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  5, by + 13, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 10, by + 13, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 15, by + 13, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  3, by + 15, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  7, by + 15, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 13, by + 15, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 17, by + 15, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx +  5, by + 17, BUTTON_BG_COLOUR);
-			canvas[canvasid].drawPixel(bx + 15, by + 17, BUTTON_BG_COLOUR);
-			break;
-		}
+		canvas[canvasid].fillRect(bx + 8, by + 8, 5, 5, BUTTON_BG_COLOUR);
 
-		case RUNNING_STATE_CALIBRATE:
-		{
-			canvas[canvasid].fillSmoothRoundRect(-32, display.height - 32, 64, 64, 16, B_GREEN, B_GREEN);
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[10]);
-			canvas[canvasid].setTextColor(TFT_GREEN);
-			canvas[canvasid].setTextDatum(CC_DATUM);
-			canvas[canvasid].drawString("S", 16, display.height - 19);
+		canvas[canvasid].drawPixel(bx + 5, by + 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 15, by + 3, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 3, by + 5, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 7, by + 5, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 13, by + 5, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 17, by + 5, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 5, by + 7, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 10, by + 7, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 15, by + 7, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 7, by + 10, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 13, by + 10, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 5, by + 13, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 10, by + 13, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 15, by + 13, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 3, by + 15, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 7, by + 15, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 13, by + 15, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 17, by + 15, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 5, by + 17, BUTTON_BG_COLOUR);
+		canvas[canvasid].drawPixel(bx + 15, by + 17, BUTTON_BG_COLOUR);
+		break;
+	}
 
-			canvas[canvasid].fillSmoothRoundRect(display.width - 32, display.height - 32, 64, 64, 16, B_RED, B_RED);
-			canvas[canvasid].setFreeFont(RobotoMono_Regular[10]);
-			canvas[canvasid].setTextColor(TFT_RED);
-			canvas[canvasid].setTextDatum(CC_DATUM);
-			canvas[canvasid].drawString("X", display.width - 18, display.height - 19);
-			break;
-		}
+	case RUNNING_STATE_CALIBRATE:
+	{
+		canvas[canvasid].fillSmoothRoundRect(-32, display.height - 32, 64, 64, 16, B_GREEN, B_GREEN);
+		canvas[canvasid].setFreeFont(RobotoMono_Regular[10]);
+		canvas[canvasid].setTextColor(TFT_GREEN);
+		canvas[canvasid].setTextDatum(CC_DATUM);
+		canvas[canvasid].drawString("S", 16, display.height - 19);
+
+		canvas[canvasid].fillSmoothRoundRect(display.width - 32, display.height - 32, 64, 64, 16, B_RED, B_RED);
+		canvas[canvasid].setFreeFont(RobotoMono_Regular[10]);
+		canvas[canvasid].setTextColor(TFT_RED);
+		canvas[canvasid].setTextDatum(CC_DATUM);
+		canvas[canvasid].drawString("X", display.width - 18, display.height - 19);
+		break;
+	}
 	}
 }
 
@@ -268,22 +266,22 @@ void AppCompass::drawCalibrate()
 	canvas[canvasid].fillSprite(TFT_BLACK);
 
 	canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
-	
+
 	canvas[canvasid].setTextColor(TFT_WHITE);
 	canvas[canvasid].setTextDatum(CC_DATUM);
-	canvas[canvasid].drawString("Calibrating", display.width / 2, 20);		
-	
-	//canvas[canvasid].drawPixel(display.center_x + mag_x, display.center_y + mag_y, TFT_RED);
-	//canvas[canvasid].drawPixel(display.center_x + mag_y, display.center_y + mag_z, TFT_GREEN);
-	//canvas[canvasid].drawPixel(display.center_x + mag_z, display.center_y + mag_x, TFT_BLUE);
-	
-	//float xx = (mag_x_max + mag_x_min) / 2;
-	//float yy = (mag_y_max + mag_y_min) / 2;
-	//float zz = (mag_z_max + mag_z_min) / 2;
+	canvas[canvasid].drawString("Calibrating", display.width / 2, 20);
 
-	//canvas[canvasid].drawSmoothCircle(display.center_x + xx, display.center_y + yy, abs(mag_x_max - mag_x_min) / 2, TFT_RED, TFT_TRANSPARENT);
-	//canvas[canvasid].drawSmoothCircle(display.center_x + yy, display.center_y + zz, abs(mag_y_max - mag_y_min) / 2, TFT_GREEN, TFT_TRANSPARENT);
-	//canvas[canvasid].drawSmoothCircle(display.center_x + zz, display.center_y + xx, abs(mag_z_max - mag_z_min) / 2, TFT_BLUE, TFT_TRANSPARENT);
+	// canvas[canvasid].drawPixel(display.center_x + mag_x, display.center_y + mag_y, TFT_RED);
+	// canvas[canvasid].drawPixel(display.center_x + mag_y, display.center_y + mag_z, TFT_GREEN);
+	// canvas[canvasid].drawPixel(display.center_x + mag_z, display.center_y + mag_x, TFT_BLUE);
+
+	// float xx = (mag_x_max + mag_x_min) / 2;
+	// float yy = (mag_y_max + mag_y_min) / 2;
+	// float zz = (mag_z_max + mag_z_min) / 2;
+
+	// canvas[canvasid].drawSmoothCircle(display.center_x + xx, display.center_y + yy, abs(mag_x_max - mag_x_min) / 2, TFT_RED, TFT_TRANSPARENT);
+	// canvas[canvasid].drawSmoothCircle(display.center_x + yy, display.center_y + zz, abs(mag_y_max - mag_y_min) / 2, TFT_GREEN, TFT_TRANSPARENT);
+	// canvas[canvasid].drawSmoothCircle(display.center_x + zz, display.center_y + xx, abs(mag_z_max - mag_z_min) / 2, TFT_BLUE, TFT_TRANSPARENT);
 
 	canvas[canvasid].drawSmoothCircle(display.center_x, display.center_y, abs(mag_x_max - mag_x_min) / 2, TFT_RED, TFT_TRANSPARENT);
 	canvas[canvasid].drawSmoothCircle(display.center_x, display.center_y, abs(mag_y_max - mag_y_min) / 2, TFT_GREEN, TFT_TRANSPARENT);
@@ -291,7 +289,7 @@ void AppCompass::drawCalibrate()
 }
 
 /**
- * 
+ *
  */
 void AppCompass::drawCompass()
 {
@@ -299,13 +297,12 @@ void AppCompass::drawCompass()
 
 	float a = newHeading - heading;
 	float b = newHeading < heading
-		? newHeading + 360.0 - heading 
-		: newHeading - 360.0 - heading
-	;
+				  ? newHeading + 360.0 - heading
+				  : newHeading - 360.0 - heading;
 	heading = abs(a) < abs(b)
-		? heading + a * 0.5 // 0.5 dampen change in heading
-		: heading + b * 0.5 // 0.5 dampen change in heading
-	;
+				  ? heading + a * 0.5 // 0.5 dampen change in heading
+				  : heading + b * 0.5 // 0.5 dampen change in heading
+		;
 
 	if (heading >= 360.0)
 		heading -= 360.0;
@@ -317,29 +314,29 @@ void AppCompass::drawCompass()
 	/*
 	 Rotate a unit 1 vector pointing down (Cartesian coordinate) [x: 0, y: 1] around the origin at the given angle
 	 We can reduce the calcs in the rotation matrix due to the x component being 0 and y being 1
-	 
+
 	 xp = x(0) * cos(a) - y(1) * sin(a)
 	 yp = y(1) * cos(a) + x(0) * sin(a)
-	 
+
 	 This recuces down to
-	 
+
 	 xp = -y * sin(a)
 	 yp =  y * cos(a)
-	 
+
 	 The result is a normalized rotated vector that can then be multiplied by a radius
 	*/
-	
+
 	float heading_in_rad = heading * DEG_TO_RAD;
-	
-	float normal_x, normal_y, normal_x_90, normal_y_90;	
-	
+
+	float normal_x, normal_y, normal_x_90, normal_y_90;
+
 	// get the rotated normalised vector
 	normal_x = -sin(heading_in_rad);
-	normal_y =  cos(heading_in_rad);
+	normal_y = cos(heading_in_rad);
 
 	// trick that rotates the normal 90 deg for E and W
 	normal_x_90 = -normal_y;
-	normal_y_90 =  normal_x;
+	normal_y_90 = normal_x;
 
 	uint8_t text_N_x = display.center_x - NESW_RADIUS * normal_x;
 	uint8_t text_N_y = display.center_y - NESW_RADIUS * normal_y;
@@ -347,7 +344,7 @@ void AppCompass::drawCompass()
 	uint8_t text_S_y = display.center_y + NESW_RADIUS * normal_y;
 
 	uint8_t text_E_x = display.center_x - NESW_RADIUS * normal_x_90 * 0.6;
-	uint8_t text_E_y = display.center_y - NESW_RADIUS * normal_y_90 * 0.6;	
+	uint8_t text_E_y = display.center_y - NESW_RADIUS * normal_y_90 * 0.6;
 	uint8_t text_W_x = display.center_x + NESW_RADIUS * normal_x_90 * 0.6;
 	uint8_t text_W_y = display.center_y + NESW_RADIUS * normal_y_90 * 0.6;
 

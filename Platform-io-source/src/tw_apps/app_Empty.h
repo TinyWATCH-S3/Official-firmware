@@ -9,7 +9,7 @@ class AppEmpty : public tw_app
 		void setup(void);
 		void pre_start(void);
 		void draw(bool force);
-		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
+		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y);
 		bool process_touch(touch_event_t touch_event);
 
 		// local methods

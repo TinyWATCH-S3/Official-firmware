@@ -79,7 +79,7 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 	}
 }
 
-void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
+void WidgetOpenWeather::draw(uint canvasid)
 {
 	// we want the poll_frequency to be (mins in millis, so mins * 60 * 1000)
 	if (millis() - next_update > (settings.config.open_weather.poll_frequency * 60000) || next_update == 0 || deepsleep_data_stored)
@@ -126,7 +126,7 @@ void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 		{
 			canvas[canvasid].fillRoundRect(pos_x, pos_y, width, height, 8, 0);
 			canvas[canvasid].drawRoundRect(pos_x, pos_y, width, height, 8, RGB(0x44, 0x44, 0x44));
-			canvas[canvasid].setTextColor(RGB(0xAA, 0xAA, 0xCC));
+			canvas[canvasid].setTextColor(themes.current().col_secondary);
 
 			if (ow_icons.count(_icon_name) > 0)
 				canvas[canvasid].pushImage(pos_x + (width / 2 - 36), pos_y + 2, 72, 72, ow_icons[_icon_name]);
@@ -142,12 +142,12 @@ void WidgetOpenWeather::draw(uint canvasid, uint8_t style_hint)
 			int center_y = 131;
 			canvas[canvasid].setTextDatum(TR_DATUM);
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[13]);
-			canvas[canvasid].setTextColor(RGB(0x15, 0x15, 0x15), RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].setTextColor(themes.current().col_low_intensity, themes.current().col_background_bright);
 			canvas[canvasid].drawString(_weather_desc.substring(0, 6), display.center_x - 10, center_y - 43);
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
 			canvas[canvasid].drawString(String(_humidity) + "%", display.center_x - 10, center_y - 21);
 			canvas[canvasid].setFreeFont(&Roboto_Regular18);
-			canvas[canvasid].setTextColor(RGB(0x00, 0x45, 0xaa), RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].setTextColor(themes.current().col_secondary, themes.current().col_background_bright);
 			canvas[canvasid].drawString(String(_temp) + (settings.config.open_weather.units_metric ? "C" : "F"), display.center_x - 10, center_y + 8);
 		}
 	}

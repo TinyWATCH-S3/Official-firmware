@@ -57,7 +57,7 @@ void FaceSystem::draw(bool force)
 
 			canvas[canvasid].fillRect(220, 30 + (220 - scroll_length) - diff, 5, scroll_length, RGB(0x66, 0x66, 0x66));
 
-			draw_navigation(canvasid, RGB(0x77, 0x77, 0x77));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

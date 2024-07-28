@@ -33,17 +33,17 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
-			canvas[canvasid].fillSprite(RGB(0x00, 0x0, 0x0));
+			canvas[canvasid].fillSprite(themes.current().col_background_dull);
 			canvas[canvasid].setTextColor(TFT_WHITE);
 
-			canvas[canvasid].fillCircle(center_x, center_y, face_radius, RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].fillCircle(center_x, center_y, face_radius, themes.current().col_background_bright);
 			canvas[canvasid].setTextDatum(TL_DATUM); // Top, Left
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[16]);
-			canvas[canvasid].setTextColor(0, RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].setTextColor(themes.current().col_secondary, themes.current().col_background_bright);
 			canvas[canvasid].drawString(rtc.get_day_of_week(), center_x + 10, center_y - 43);
 			canvas[canvasid].drawString(rtc.get_month_date(), center_x + 10, center_y - 21);
 			canvas[canvasid].setFreeFont(&Roboto_Regular18);
-			canvas[canvasid].setTextColor(RGB(0x00, 0x65, 0xff), RGB(0x45, 0x45, 0x45));
+			canvas[canvasid].setTextColor(themes.current().col_primary, themes.current().col_background_bright);
 			canvas[canvasid].drawString(rtc.get_time_string(true, settings.config.time_24hour), center_x + 10, center_y + 8);
 
 			if (!cachedTrig)
@@ -68,12 +68,25 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 
 			canvas[canvasid].drawWideLine(center_x, center_y, pos_mins[mins][0], pos_mins[mins][1], 3.0f, 0);
 
+			for (int i = 0; i < 59; i += 5)
+			{
+				canvas[canvasid].fillCircle(pos_secs[i][0], pos_secs[i][1], 2, themes.current().col_background_dull);
+			}
+
 			int secs = rtc.get_seconds();
-			canvas[canvasid].fillCircle(pos_secs[secs][0], pos_secs[secs][1], 5, RGB(0x00, 0x65, 0xff));
+			canvas[canvasid].fillCircle(pos_secs[secs][0], pos_secs[secs][1], 5, themes.current().col_primary);
+
+			for (int i = 0; i < 5; i++)
+			{
+				secs--;
+				if (secs < 0)
+					secs = 59;
+				canvas[canvasid].fillCircle(pos_secs[secs][0], pos_secs[secs][1], 2, themes.current().col_secondary);
+			}
 
 			canvas[canvasid].fillCircle(center_x, center_y, 6, 0);
 
-			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

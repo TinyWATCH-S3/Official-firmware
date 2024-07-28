@@ -3,7 +3,7 @@
 class WidgetActivityRing : public tw_widget
 {
 	public:
-		void draw(uint canvasid, uint8_t style_hint);
+		void draw(uint canvasid);
 		bool process_touch(touch_event_t touch_event);
 
 	private:

@@ -24,9 +24,9 @@ class AppMicrophone : public tw_app
 		void setup(void);
 		void pre_start(void);
 		void draw(bool force);
-		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
+		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y);
 		bool process_touch(touch_event_t touch_event);
-		
+
 		// local methods
 		void do_fft_calcs();
 		void do_waveform_calcs();
@@ -39,12 +39,12 @@ class AppMicrophone : public tw_app
 		int16_t waveform_last = 0;
 		uint8_t sweep_size = 1;
 		uint8_t gain_factor = 0;
-		
+
 		// Text Indicators
 		uint8_t text_fader = 0;
 		bool is_texting = false;
 		String text_indicator = "";
-		
+
 		String swipe_dir_names[4] = {"UP", "RIGHT", "DOWN", "LEFT"};
 		double vReal[BLOCK_SIZE];
 		double vImag[BLOCK_SIZE];

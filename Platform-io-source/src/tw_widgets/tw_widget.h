@@ -1,5 +1,6 @@
 #pragma once
 
+#include "themes.h"
 #include "display.h"
 
 class tw_face;
@@ -14,9 +15,9 @@ class tw_widget
 		void set_parent(tw_face *_parent);
 		bool bounds_check(uint16_t touch_pos_x, uint16_t touch_pos_y);
 		uint get_height();
-		void draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y, uint8_t style_hint);
+		void draw(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y);
 
-		virtual void draw(uint canvasid, uint8_t style_hint) = 0;
+		virtual void draw(uint canvasid) = 0;
 
 		virtual bool process_touch(touch_event_t touch_event) { return false; }
 

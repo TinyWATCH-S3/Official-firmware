@@ -109,19 +109,19 @@ void FaceAppList::draw(bool force)
 			if (is_dragging)
 				is_cached = true;
 
-			canvas[canvasid].fillSprite(TFT_BLACK);
-			canvas[canvasid].setTextDatum(4); // Middle, Center
+			canvas[canvasid].fillSprite(themes.current().col_background_dull);
+			canvas[canvasid].setTextDatum(MC_DATUM); // Middle, Center
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[15]);
 			canvas[canvasid].setTextColor(TFT_GREEN);
 
 			int8_t icon_spacing = 9;
 
-			int16_t icon_x = icon_spacing;
+			int16_t icon_x = icon_spacing + 5;
 			int16_t icon_y = icon_spacing;
 
 			for (auto _app : app_icons)
 			{
-				_app.second->draw_icon(canvasid, icon_x, icon_y, 0);
+				_app.second->draw_icon(canvasid, icon_x, icon_y);
 				icon_x += 64 + icon_spacing;
 				if (icon_x > ((64 + icon_spacing) * 3))
 				{
@@ -134,10 +134,10 @@ void FaceAppList::draw(bool force)
 		if (is_animating)
 		{
 			canvas[canvasid].fillRoundRect(anim_icon_pos_x, anim_icon_pos_y, anim_icon_width, anim_icon_height, anim_corner_roundness, 0);
-			canvas[canvasid].drawRoundRect(anim_icon_pos_x, anim_icon_pos_y, anim_icon_width, anim_icon_height, anim_corner_roundness, TFT_WHITE);
+			canvas[canvasid].drawRoundRect(anim_icon_pos_x, anim_icon_pos_y, anim_icon_width, anim_icon_height, anim_corner_roundness, themes.current().col_secondary);
 		}
 
-		draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+		draw_navigation(canvasid);
 
 		update_screen();
 	}

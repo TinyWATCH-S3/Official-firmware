@@ -2,8 +2,8 @@
  * @file wifi_controller.cpp
  * @details `WifiController` is a class designed for managing non-blocking WiFi connectivity and HTTP request handling in a separate thead using and incoming task queue and outgoing callback queue.
 
- The idea behind this class is to implement a way to fire off a HTTP or HTTPS request along with a callback, and have the WiFi connection, request and disconnection happen without blocking the main thread. 
- * 
+ The idea behind this class is to implement a way to fire off a HTTP or HTTPS request along with a callback, and have the WiFi connection, request and disconnection happen without blocking the main thread.
+ *
  */
 #include "web/wifi_controller.h"
 #include "settings/settings.h"
@@ -43,11 +43,14 @@ bool WifiController::is_connected() { return (WiFi.status() == WL_CONNECTED); }
 // Connect to the WiFi network
 bool WifiController::connect()
 {
+	info_println("Conecting to wifi");
 	if (WiFi.status() == WL_CONNECTED)
 	{
 		wifi_busy = false;
 		return true;
 	}
+
+	uint8_t start_index = settings.config.current_wifi_station;
 
 	WiFi.disconnect(true);
 	if (!settings.has_wifi_creds())
@@ -60,14 +63,50 @@ bool WifiController::connect()
 		delay(500);
 		wifi_busy = true;
 		WiFi.mode(WIFI_STA);
-		WiFi.begin(settings.config.wifi_ssid, settings.config.wifi_pass);
+		uint8_t stations_to_try = settings.config.wifi_options.size();
+		// info_printf("Trying wifi index %d - %s %s\n", settings.config.current_wifi_station, settings.config.wifi_options[settings.config.current_wifi_station].ssid, settings.config.wifi_options[settings.config.current_wifi_station].pass);
+		// WiFi.begin(settings.config.wifi_options[settings.config.current_wifi_station].ssid, settings.config.wifi_options[settings.config.current_wifi_station].pass);
 
-		unsigned long start_time = millis();
-		// Time out the connection if it takes longer than 5 seconds
-		while ((millis() - start_time < 5000) && WiFi.status() != WL_CONNECTED)
+		while (stations_to_try > 0)
 		{
-			delay(500);
+			info_printf("Trying wifi index %d - %s %s\n", settings.config.current_wifi_station, settings.config.wifi_options[settings.config.current_wifi_station].ssid, settings.config.wifi_options[settings.config.current_wifi_station].pass);
+			WiFi.begin(settings.config.wifi_options[settings.config.current_wifi_station].ssid, settings.config.wifi_options[settings.config.current_wifi_station].pass);
+
+			unsigned long start_time = millis();
+			// Time out the connection if it takes longer than 5 seconds
+			while ((millis() - start_time < 5000) && WiFi.status() != WL_CONNECTED)
+			{
+				delay(100);
+			}
+
+			if (WiFi.status() != WL_CONNECTED)
+			{
+				// WiFi.disconnect(true);
+				// delay(500);
+				stations_to_try--;
+
+				settings.config.current_wifi_station++;
+				if (settings.config.current_wifi_station == settings.config.wifi_options.size())
+					settings.config.current_wifi_station = 0;
+
+				info_printf("nope - WiFi.status(): %d, stations_to_try: %d, settings.config.current_wifi_station: %d\n", WiFi.status(), stations_to_try, settings.config.current_wifi_station);
+			}
+			else
+			{
+				break;
+			}
 		}
+	}
+
+	// info_printf("wifi status %d\n\n", WiFi.status());
+
+	if (WiFi.status() == WL_CONNECTED)
+	{
+		info_printf("connected using index %d - %s %s\n", settings.config.current_wifi_station, settings.config.wifi_options[settings.config.current_wifi_station].ssid, settings.config.wifi_options[settings.config.current_wifi_station].pass);
+
+		// If we are connected and it's on a different network than last time, we save the settings with the new connection index
+		if (settings.config.current_wifi_station != start_index)
+			settings.save(true);
 	}
 
 	wifi_busy = false;

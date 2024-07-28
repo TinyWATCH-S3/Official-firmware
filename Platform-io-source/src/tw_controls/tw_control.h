@@ -1,5 +1,6 @@
 #pragma once
 
+#include "themes.h"
 #include "display.h"
 
 extern TFT_eSPI tft;

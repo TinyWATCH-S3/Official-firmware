@@ -7,7 +7,7 @@
 #include "settings/settings.h"
 #include "tinywatch.h"
 
-void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
+void WidgetActivityRing::draw(uint canvasid)
 {
 	if (settings.config.imu_process_steps)
 	{
@@ -18,9 +18,9 @@ void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
 
 		if (!activity.loaded || day == 0)
 		{
-			canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, 0, 360, col_rings[0], 0);
-			canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, arc_pos, arc_pos + 60, col_rings[1], 0);
-			canvas[canvasid].setTextColor(RGB(0x88, 0x88, 0x88));
+			canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, 0, 360, themes.current().col_background_dull, 0);
+			canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, arc_pos, arc_pos + 60, themes.current().col_primary, 0);
+			canvas[canvasid].setTextColor(themes.current().col_background_bright);
 			canvas[canvasid].setFreeFont(RobotoMono_Light[6]);
 			canvas[canvasid].drawString("STEPS", pos_x, pos_y + radius);
 			arc_pos += 60;
@@ -29,16 +29,10 @@ void WidgetActivityRing::draw(uint canvasid, uint8_t style_hint)
 
 		canvas[canvasid].setFreeFont(RobotoMono_Light[(steps < 100) ? 8 : 6]);
 
-		uint32_t ring_color = col_rings[movement];
+		uint32_t ring_color = (movement > 0) ? themes.current().col_primary : themes.current().col_background_bright;
 
-		if (style_hint == 0)
-		{
-			canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, 0, 360, col_rings[movement], 0);
-		}
-		else
-		{
-			canvas[canvasid].drawSmoothRoundRect(pos_x - radius, pos_y, thickness, thickness - 2, radius * 2, radius * 2, col_rings[movement], 0);
-		}
+		canvas[canvasid].drawSmoothArc(pos_x, pos_y + radius, radius, radius - thickness, 0, 360, ring_color, themes.current().col_background_dull);
+
 		canvas[canvasid].setTextColor(RGB(0xff, 0xff, 0xff));
 		canvas[canvasid].drawNumber(steps, pos_x + 1, pos_y + radius - 1);
 	}

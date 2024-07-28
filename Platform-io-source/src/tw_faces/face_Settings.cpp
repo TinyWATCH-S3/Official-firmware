@@ -24,9 +24,9 @@ void FaceSettings::draw(bool force)
 				is_cached = true;
 
 			canvas[canvasid].setFreeFont(RobotoMono_Regular[9]);
-			canvas[canvasid].fillSprite(RGB(0x44, 0x44, 0x44));
-			canvas[canvasid].setTextColor(RGB(0x44, 0x44, 0xFF));
-			canvas[canvasid].setTextDatum(4); // Middle, Center
+			canvas[canvasid].fillSprite(themes.current().col_background_bright);
+			canvas[canvasid].setTextColor(themes.current().col_primary);
+			canvas[canvasid].setTextDatum(MC_DATUM); // Middle, Center
 
 			if (can_scroll_y)
 			{
@@ -63,7 +63,7 @@ void FaceSettings::draw(bool force)
 				draw_children(false, 0);
 			}
 
-			draw_navigation(canvasid, RGB(0x77, 0x77, 0x77));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

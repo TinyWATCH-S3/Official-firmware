@@ -242,6 +242,8 @@ void Display::createFaces(bool was_sleeping)
 	tft.setSwapBytes(true);
 	tft.fillScreen(TFT_BLACK);
 
+	themes.load();
+
 	update_rotation();
 
 	// Now create the boot and watch tw_face
@@ -260,7 +262,7 @@ void Display::createFaces(bool was_sleeping)
 	wBattery->create("Battery", 210, 7, 40, 40, 1000);
 
 	WidgetActivityRing *wActivity = new WidgetActivityRing();
-	wActivity->create("Activity", 40, 218, 40, 40, 1000);
+	wActivity->create("Activity", 38, 216, 40, 40, 1000);
 
 	WidgetOpenWeather *wWeather = new WidgetOpenWeather();
 	wWeather->create("Weather", 172, 180, 90, 90, 5000);
@@ -758,7 +760,7 @@ void Display::set_backlight(int level, bool force)
 	{
 		last_backlight = level;
 		backlight_level = level;
-		info_println("Setting backlight level: " + String(backlight_level));
+		// info_println("Setting backlight level: " + String(backlight_level));
 
 		int max_level = (settings.config.bl_level_vbus.size() - 1);
 		level = constrain(level, 0, max_level);

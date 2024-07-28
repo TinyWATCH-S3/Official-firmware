@@ -280,7 +280,7 @@ void FaceWatch_CustomWindows::draw(bool force)
 
 			draw_children(false, 0);
 
-			draw_navigation(canvasid, RGB(0x33, 0x33, 0x33));
+			draw_navigation(canvasid);
 		}
 
 		update_screen();

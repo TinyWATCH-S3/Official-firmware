@@ -131,7 +131,10 @@ String WebServer::generate_settings_html(int group_id)
 
 	for (size_t i = 0; i < group_name.groups.size(); ++i)
 	{
-		html += "				<div class='col-6 pb-1'>\n";
+		if (group_name.groups[i]->req_full_width)
+			html += "				<div class='col-12 pb-1'>\n";
+		else
+			html += "				<div class='col-6 pb-1'>\n";
 		html += group_name.groups[i]->generate_html(i);
 		html += "				</div>\n";
 	}
@@ -274,6 +277,45 @@ void WebServer::start_callback(bool success, const String &response)
 								intPtr->update(v, data);
 							}
 						}
+					}
+					else if (setting->getType() == SettingsOptionBase::WIFI_STATION)
+					{
+						SettingsOptionWiFiStations *intPtr = static_cast<SettingsOptionWiFiStations *>(setting);
+						for (size_t v = 0; v <= intPtr->vector_size(); v++)
+						{
+							String fn_ssid = String(group_id) + "," + String(i) + "__" + fn + "_ssid_" + String(v);
+							String fn_pass = String(group_id) + "," + String(i) + "__" + fn + "_pass_" + String(v);
+
+							// 1,6__wifi_stations_ssid_0
+							if (request->hasParam(fn_ssid, true) && request->hasParam(fn_pass, true))
+							{
+								// info_print("Found - ");
+								AsyncWebParameter *_param1 = request->getParam(fn_ssid, true);
+								String data1 = String(_param1->value().c_str());
+
+								AsyncWebParameter *_param2 = request->getParam(fn_pass, true);
+								String data2 = String(_param2->value().c_str());
+
+								data1.trim();
+								data2.trim();
+
+								if (v == intPtr->vector_size())
+								{
+									// this is a new one, so we add it, assuming there is data to add
+									if (!data1.isEmpty() && !data2.isEmpty())
+										intPtr->add_station(data1, data2);
+								}
+								else
+								{
+									// We update all stations, even with empty data, to ensure we keep the vector intact
+									// after the updates, we'll prune any that are empty.
+									intPtr->update(v, data1, data2);
+								}
+							}
+						}
+
+						// remove empty entries
+						intPtr->remove_if_empty();
 					}
 					else
 					{
