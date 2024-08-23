@@ -50,6 +50,13 @@ void WidgetOpenWeather::process_weather_data(bool success, const String &respons
 	{
 		_temp = -999;
 
+		// info_println(response);
+
+		if (response == "ERROR")
+		{
+			return;
+		}
+
 		json data = json::parse(response);
 
 		json main = data["main"];

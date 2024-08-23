@@ -2,13 +2,18 @@
 #include "tw_faces/face_AppList.h"
 #include "fonts/RobotoMono_Light_All.h"
 #include "fonts/RobotoMono_Regular_All.h"
+#include "tinywatch.h"
 
 // Apps
 class tw_app;
 
+/// @brief container holding all of the registered apps via their App name (Dictionary)
 static std::map<String, tw_app *> app_icons;
 
-// Called when face is set to current
+/**
+ * @brief Called when this face is set to be the current face
+ *
+ */
 void FaceAppList::setup()
 {
 	if (!is_setup)
@@ -18,8 +23,24 @@ void FaceAppList::setup()
 	}
 }
 
-void FaceAppList::add_app(tw_app *app) { app_icons[app->name] = app; }
+/**
+ * @brief Add an app to the std::map holding all of the apps by name
+ *
+ * @param app
+ */
+void FaceAppList::add_app(tw_app *app)
+{
+	app_icons[app->name] = app;
+}
 
+/**
+ * @brief Check to see if an icon has been touched/clicked
+ *
+ * @param touch_pos_x
+ * @param touch_pos_y
+ * @return true
+ * @return false
+ */
 bool FaceAppList::icon_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y)
 {
 	for (auto _app : app_icons)
@@ -38,7 +59,7 @@ bool FaceAppList::icon_process_clicks(uint16_t touch_pos_x, uint16_t touch_pos_y
 }
 
 /**
- * @brief Find a way to make the apps animate in and out nicely, so it's not so jaring.
+ * @brief Find a way to make the apps animate in and out nicely, so it's not so fugly.
  *
  * @return true
  * @return false
@@ -80,7 +101,7 @@ bool FaceAppList::animate_app_in()
 }
 
 /**
- * @brief Draw the Face
+ * @brief Draw the Face which also draws the App Icons
  *
  * @param force
  */
@@ -143,6 +164,13 @@ void FaceAppList::draw(bool force)
 	}
 }
 
+/**
+ * @brief Process touches in the app via the passed in touch_event
+ *
+ * @param touch_event
+ * @return true
+ * @return false
+ */
 bool FaceAppList::process_touch(touch_event_t touch_event)
 {
 	if (touch_event.type == TOUCH_TAP)
@@ -191,13 +219,35 @@ bool FaceAppList::process_touch(touch_event_t touch_event)
 	return false;
 }
 
+/**
+ * @brief Returns if there is a current app or not via nullptr check
+ *
+ * @return true
+ * @return false
+ */
+bool FaceAppList::app_running()
+{
+	return (current_app != nullptr);
+}
+
+/**
+ * @brief Closes the running app, calling pre_close on the app first, and then does all cleanup
+ *
+ *
+ */
 void FaceAppList::close_app()
 {
-	current_app = nullptr;
+	if (current_app != nullptr)
+	{
+		current_app->pre_close();
+	}
+
 	prevent_dragging(false);
 	reset_cache_status();
 	draw(true);
 	display.set_backlight(0, true);
+	tinywatch.pause_can_sleep();
+	current_app = nullptr;
 }
 
 FaceAppList face_applist;

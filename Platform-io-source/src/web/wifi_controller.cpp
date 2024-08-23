@@ -156,7 +156,7 @@ String WifiController::http_request(const String &url)
 
 	bool is_https = (url_lower.substring(0, 5) == "https");
 
-	while (millis() - timer < 5000)
+	while (millis() - timer < 4000)
 	{
 		if (is_https)
 			http.begin(url.c_str());
@@ -164,15 +164,20 @@ String WifiController::http_request(const String &url)
 			http.begin(client, url.c_str());
 
 		http_code = http.GET(); // send GET request
-		info_println("Response Code: " + String(http_code));
-		if (http_code == 200)
+
+		if (http_code != 200)
+		{
+			info_println("URL: " + url_lower);
+			info_println("** Response Code: " + String(http_code));
+		}
+		else
 		{
 			payload = http.getString();
 			http.end();
 			break;
 		}
 		http.end();
-		delay(500);
+		delay(2000);
 	}
 
 	return payload;

@@ -7,6 +7,7 @@ class AppCompass : public tw_app
 	public:
 		void setup(void);
 		void pre_start(void);
+		void pre_close(void);
 		void draw(bool force);
 		void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y);
 		bool process_touch(touch_event_t touch_event);

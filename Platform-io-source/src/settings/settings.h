@@ -153,7 +153,7 @@ class Settings
 		bool save(bool force);
 		bool backup();
 		bool create();
-		void print_file(void);
+		void print_file();
 		bool has_wifi_creds(void);
 		bool has_country_set(void);
 		void update_wifi_credentials(String ssid, String pass);

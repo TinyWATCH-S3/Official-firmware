@@ -15,6 +15,7 @@
 #include "peripherals/rtc.h"
 #include "peripherals/haptics.h"
 #include "tw_faces/face_Notifications.h"
+#include "tw_faces/face_AppList.h"
 #include "web/webserver.h"
 #include "web/wifi_controller.h"
 #include "web/wifi_setup.h"
@@ -254,6 +255,7 @@ void setup()
 	// Start the rest of the peripherals
 	imu.init();
 
+	// settings.print_file();
 	// rtc.print_file();
 	// rtc.create_alarm(AlarmType::A_HOURLY, rtc.get_mins() + 2);
 }
@@ -358,9 +360,12 @@ void loop()
 	display.update_current_face();
 
 	// If the user has pressed IO0/BOOT then we want to immediately go into deep sleep
-	if (tinywatch.hw_revision_p7_or_later && digitalRead(0) == LOW)
+	// Extra prevention around IO0 when using Apps - specifically the I2S Microphone that triggers IO0 :(
+	pinMode(0, ((face_applist.app_running() || millis() - tinywatch.go_to_sleep_timer_io0 < 750) ? OUTPUT : INPUT_PULLUP));
+	if (!face_applist.app_running() && (millis() - tinywatch.go_to_sleep_timer_io0 > 1500))
 	{
-		tinywatch.go_to_sleep();
+		if (tinywatch.hw_revision_p7_or_later && digitalRead(0) == LOW)
+			tinywatch.go_to_sleep();
 	}
 
 	// If the USB was just plugged in,
@@ -375,6 +380,11 @@ void loop()
 	}
 
 	yield();
+}
+
+void TinyWATCH::pause_can_sleep()
+{
+	go_to_sleep_timer_io0 = millis();
 }
 
 void TinyWATCH::notify_alarm()

@@ -35,6 +35,7 @@ class TinyWATCH
 		bool was_sleeping();
 		int woke_by();
 		void go_to_sleep();
+		void pause_can_sleep();
 		bool vbus_present();
 		bool vbus_changed();
 		void set_cpu_frequency(uint32_t freq, CPU_SPEED speed);
@@ -48,7 +49,7 @@ class TinyWATCH
 
 		const String version_firmware = "v0.65";
 		const String version_year = "2024";
-		const uint16_t version_build = 4;
+		const uint16_t version_build = 3;
 		uint16_t version_latest = 0;
 
 		uint8_t wake_reason = 0;
@@ -74,6 +75,8 @@ class TinyWATCH
 
 		std::vector<_CALLBACK_DS> pre_ds_callbacks;
 		std::vector<_CALLBACK_DS> post_ds_callbacks;
+
+		unsigned long go_to_sleep_timer_io0 = 0;
 
 	protected:
 		//

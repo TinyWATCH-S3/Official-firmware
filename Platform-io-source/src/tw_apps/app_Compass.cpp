@@ -27,6 +27,11 @@ void AppCompass::pre_start()
 {
 	running_state = RUNNING_STATE_DRAW;
 }
+/**
+ * @brief Put anything in here that you want to have run when the app is opened
+ *
+ */
+void AppCompass::pre_close() {}
 
 /**
  * @brief Draw the icon that gets shown on the app menu face

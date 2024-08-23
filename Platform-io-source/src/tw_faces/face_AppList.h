@@ -20,6 +20,8 @@ class FaceAppList : public tw_face
 		bool animate_app_in();
 		void close_app();
 
+		bool app_running();
+
 	private:
 		tw_app *current_app = nullptr;
 		bool is_animating = false;

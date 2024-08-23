@@ -313,6 +313,20 @@ bool Settings::create()
 	return true;
 }
 
-void Settings::print_file(void) { info_println("] Done!"); }
+void Settings::print_file()
+{
+	File file = LittleFS.open(filename);
+	std::vector<char> _data(file.size());
+	size_t data_bytes_read = file.readBytes(_data.data(), _data.size());
+
+	info_println("Settings JSON");
+	for (char c : _data)
+	{
+		info_print(c);
+	}
+	info_println();
+
+	file.close();
+}
 
 Settings settings;

@@ -60,6 +60,17 @@ void AppMicrophone::setup()
 void AppMicrophone::pre_start() { shutdown_timer = millis(); }
 
 /**
+ * @brief Put anything in here that you want to have run when the app is opened
+ *
+ */
+void AppMicrophone::pre_close()
+{
+	// i2s_stop(I2S_NUM_0);
+	// i2s_driver_uninstall(I2S_NUM_0);
+	is_setup = false;
+}
+
+/**
  * @brief Draw the icon that gets shown on the app menu face
  *
  * Icons are 64x64 with rounded corners as per the code below, but the inner content can be anything that represents the app well

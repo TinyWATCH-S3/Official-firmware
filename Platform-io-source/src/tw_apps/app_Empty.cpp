@@ -26,6 +26,12 @@ void AppEmpty::setup()
 void AppEmpty::pre_start() { shutdown_timer = millis(); }
 
 /**
+ * @brief Put anything in here that you want to have run when the app is opened
+ *
+ */
+void AppEmpty::pre_close() {}
+
+/**
  * @brief Draw the icon that gets shown on the app menu face
  *
  * Icons are 64x64 with rounded corners as per the code below, but the inner content can be anything that represents the app well

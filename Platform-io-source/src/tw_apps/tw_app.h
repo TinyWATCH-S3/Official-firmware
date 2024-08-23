@@ -20,6 +20,7 @@ class tw_app
 
 		// Virtual
 		virtual void pre_start() = 0;
+		virtual void pre_close() = 0;
 		virtual void draw(bool force) = 0;
 		virtual void draw_icon(uint8_t canvasid, int16_t _pos_x, int16_t _pos_y) = 0;
 
