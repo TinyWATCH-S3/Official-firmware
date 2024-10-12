@@ -361,8 +361,9 @@ void loop()
 
 	// If the user has pressed IO0/BOOT then we want to immediately go into deep sleep
 	// Extra prevention around IO0 when using Apps - specifically the I2S Microphone that triggers IO0 :(
-	pinMode(0, ((face_applist.app_running() || millis() - tinywatch.go_to_sleep_timer_io0 < 750) ? OUTPUT : INPUT_PULLUP));
-	if (!face_applist.app_running() && (millis() - tinywatch.go_to_sleep_timer_io0 > 1500))
+	// pinMode(0, ((face_applist.app_running() || millis() - tinywatch.go_to_sleep_timer_io0 < 750) ? OUTPUT : INPUT_PULLUP));
+	// if (!face_applist.app_running() && (millis() - tinywatch.go_to_sleep_timer_io0 > 1500))
+	if (!face_applist.app_running())
 	{
 		if (tinywatch.hw_revision_p7_or_later && digitalRead(0) == LOW)
 			tinywatch.go_to_sleep();

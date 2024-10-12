@@ -34,6 +34,21 @@ class AppMicrophone : public tw_app
 		void fill_arc(int x, int y, int start_angle, int seg_count, int rx, int ry, int w, unsigned int colour);
 
 	private:
+		// don't mess around with this
+		i2s_config_t i2s_config = {
+			.mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX),
+			.sample_rate = SAMPLE_RATE,
+			.bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
+			.channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+			.communication_format = I2S_COMM_FORMAT_STAND_I2S,
+			.intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+			.dma_buf_count = 4,
+			.dma_buf_len = BLOCK_SIZE,
+			.use_apll = false,
+			.tx_desc_auto_clear = false,
+			.fixed_mclk = -1,
+		};
+
 		int bands[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 		uint8_t waveform_size = 120;
 		int16_t waveform_data[200] = {0};
@@ -63,7 +78,7 @@ class AppMicrophone : public tw_app
 
 		unsigned long shutdown_timer = 0;
 
-		const uint16_t colors[9] = {
+		const uint32_t colors[9] = {
 			RGB(255, 0, 0),
 			RGB(255, 128, 0),
 			RGB(255, 255, 0),
@@ -75,7 +90,7 @@ class AppMicrophone : public tw_app
 			RGB(0, 0, 255),
 		};
 
-		const uint16_t colors_dark[9] = {
+		const uint32_t colors_dark[9] = {
 			RGB(128, 0, 0),
 			RGB(128, 64, 0),
 			RGB(128, 128, 0),

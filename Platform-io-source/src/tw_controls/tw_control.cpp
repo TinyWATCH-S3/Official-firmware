@@ -23,7 +23,7 @@ void tw_control::create(String _name, String _option1, String _option2, uint _po
 	if (name.length() > 0)
 		extra_height += 14;
 
-	my_sprite.setSwapBytes(true);
+	my_sprite.setSwapBytes(false);
 	my_sprite.createSprite(width, height + extra_height);
 	should_cache = true;
 	is_dirty = true;
@@ -40,7 +40,7 @@ void tw_control::create(String _name, uint _pos_x, uint _pos_y, uint _width, uin
 	width = _width;
 	height = _height;
 
-	my_sprite.setSwapBytes(true);
+	my_sprite.setSwapBytes(false);
 	my_sprite.createSprite(width, height);
 	should_cache = true;
 	is_dirty = true;

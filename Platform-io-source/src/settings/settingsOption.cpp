@@ -474,30 +474,212 @@ String SettingsOptionWiFiStations::generate_html(uint16_t index)
 	return html;
 }
 
-/*
-class SettingsOptionWiFiStations : public SettingsOptionBase
+//
+// THEMES
+//
+
+bool SettingsOptionTheme::update(int index, String _name, int32_t _col_background_dull, uint32_t _col_background_bright, uint32_t _col_control_back, uint32_t _col_primary, uint32_t _col_secondary, uint32_t _col_low_intensity, uint32_t _col_warning, uint32_t _col_error, uint8_t _widget_style)
 {
-	public:
-		SettingsOptionWiFiStations(std::vector<wifi_station> *val, int _group, const String &_fn) : setting_ref(val)
-		{
-			group = _group;
-			fieldname = _fn;
-			data_is_vector = true;
-			register_option(_group);
-		}
+	(*setting_ref)[index].name = _name;
+	(*setting_ref)[index].col_background_dull = _col_background_dull;
+	(*setting_ref)[index].col_background_bright = _col_background_bright;
+	(*setting_ref)[index].col_control_back = _col_control_back;
+	(*setting_ref)[index].col_primary = _col_primary;
+	(*setting_ref)[index].col_secondary = _col_secondary;
+	(*setting_ref)[index].col_low_intensity = _col_low_intensity;
+	(*setting_ref)[index].col_warning = _col_warning;
+	(*setting_ref)[index].col_error = _col_error;
+	(*setting_ref)[index].widget_style = _widget_style;
+	settings.save(false);
 
-		Type getType() const override
-		{
-			return WIFI_STATION;
-		}
+	return true;
+}
 
-		bool update(int index, String _ssid, String _pass);
-		// int get(int index);
-		String get_str(int index);
-		String generate_html(uint16_t index);
-		uint8_t vector_size();
+void SettingsOptionTheme::remove_if_empty()
+{
+	(*setting_ref).erase(std::remove_if((*setting_ref).begin(), (*setting_ref).end(), [](const theme &theme) {
+							 return theme.name.isEmpty();
+						 }),
+						 (*setting_ref).end());
+}
 
-	private:
-		std::vector<wifi_station> *setting_ref = nullptr;
-};
-*/
+uint8_t SettingsOptionTheme::vector_size() { return (*setting_ref).size(); }
+theme &SettingsOptionTheme::get_theme(int index) { return (*setting_ref)[index]; }
+
+void SettingsOptionTheme::add_theme(String _name, int32_t _col_background_dull, uint32_t _col_background_bright, uint32_t _col_control_back, uint32_t _col_primary, uint32_t _col_secondary, uint32_t _col_low_intensity, uint32_t _col_warning, uint32_t _col_error, uint8_t _widget_style)
+{
+	theme t = theme();
+	t.name = _name;
+	t.col_background_dull = _col_background_dull;
+	t.col_background_bright = _col_background_bright;
+	t.col_control_back = _col_control_back;
+	t.col_primary = _col_primary;
+	t.col_secondary = _col_secondary;
+	t.col_low_intensity = _col_low_intensity;
+	t.col_warning = _col_warning;
+	t.col_error = _col_error;
+	t.widget_style = _widget_style;
+	(*setting_ref).push_back(t);
+}
+
+String SettingsOptionTheme::rgbToHex(uint32_t rgbColor)
+{
+	uint8_t red = (rgbColor >> 16) & 0xFF;
+	uint8_t green = (rgbColor >> 8) & 0xFF;
+	uint8_t blue = rgbColor & 0xFF;
+
+	// Convert each component to a two-character hexadecimal string
+	String hexColor = "#";
+	hexColor += (red < 0x10 ? "0" : "") + String(red, HEX);
+	hexColor += (green < 0x10 ? "0" : "") + String(green, HEX);
+	hexColor += (blue < 0x10 ? "0" : "") + String(blue, HEX);
+
+	hexColor.toUpperCase(); // Convert to uppercase (optional)
+
+	return hexColor;
+}
+
+String SettingsOptionTheme::rgb565ToHex(uint16_t rgb565)
+{
+	// Extract red, green, and blue components from the RGB565 value
+	uint8_t red = (rgb565 >> 11) & 0x1F;  // 5 bits for red
+	uint8_t green = (rgb565 >> 5) & 0x3F; // 6 bits for green
+	uint8_t blue = rgb565 & 0x1F;		  // 5 bits for blue
+
+	// Convert to 8-bit per channel RGB values
+	red = (red * 255) / 31;		// Scale 5-bit red to 8-bit
+	green = (green * 255) / 63; // Scale 6-bit green to 8-bit
+	blue = (blue * 255) / 31;	// Scale 5-bit blue to 8-bit
+
+	// Convert each component to a two-character hexadecimal string
+	String hexColor = "#";
+	hexColor += (red < 0x10 ? "0" : "") + String(red, HEX);
+	hexColor += (green < 0x10 ? "0" : "") + String(green, HEX);
+	hexColor += (blue < 0x10 ? "0" : "") + String(blue, HEX);
+
+	hexColor.toUpperCase(); // Convert to uppercase (optional)
+
+	return hexColor;
+}
+
+uint16_t SettingsOptionTheme::hexToRgb565(String hexColor)
+{
+	// Remove the '#' character if it's there
+	if (hexColor.startsWith("#"))
+	{
+		hexColor.remove(0, 1);
+	}
+
+	// Extract red, green, and blue components from the hex string
+	uint8_t red = strtol(hexColor.substring(0, 2).c_str(), NULL, 16);
+	uint8_t green = strtol(hexColor.substring(2, 4).c_str(), NULL, 16);
+	uint8_t blue = strtol(hexColor.substring(4, 6).c_str(), NULL, 16);
+
+	// Scale the 8-bit values to 5-bit (red and blue) and 6-bit (green)
+	red = (red * 31) / 255;		// Scale 8-bit to 5-bit
+	green = (green * 63) / 255; // Scale 8-bit to 6-bit
+	blue = (blue * 31) / 255;	// Scale 8-bit to 5-bit
+
+	// Combine into a single RGB565 value
+	uint16_t rgb565 = (red << 11) | (green << 5) | blue;
+
+	return rgb565;
+}
+
+String SettingsOptionTheme::generate_html(uint16_t index)
+{
+	String fn = fieldname;
+	fn.replace(" ", "_");
+	fn.toLowerCase();
+	fn = String(group) + "," + String(index) + "__" + fn;
+
+	String highlight = "";
+	String readonly = "required";
+	String html = "\n";
+
+	for (size_t i = 0; i < (*setting_ref).size(); i++)
+	{
+		// 	highlight = (settings.config.current_wifi_station == i) ? " style='background-color:#333388;'" : "";
+		// 	readonly = (settings.config.current_wifi_station == i) ? " readonly " : "";
+		readonly = " ";
+		theme t = get_theme(i);
+
+		html = "						<div class='settings_frame_inner m-1'>\n";
+		html += "							<form hx-post='/update_theme' hx-target='#theme_" + String(i) + "' >\n";
+		html += "							<input type='hidden' name='theme_id' id='theme_id' value='" + String(i) + "'>\n";
+		html += "							<div class='row g-2'>\n";
+
+		html += "								<div class='row'>\n";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm style='width:150px;'>Theme Name</span>\n";
+		html += "											<input type='text' class='form-control form-control-sm' id='" + fn + "_name_" + String(i) + "' name='" + fn + "_name_" + String(i) + "' value='" + t.name + "'" + readonly + "/>\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm style='width:150px;'>Widget Style</span>\n";
+		html += "											<input type='number' class='form-control form-control-sm' id='" + fn + "_widget_style_" + String(i) + "' name='" + fn + "_widget_style_" + String(i) + "' value=" + t.widget_style + "" + readonly + "/>\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Background Dull</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_background_dull_" + String(i) + "' name='" + fn + "_col_background_dull_" + String(i) + "' value='" + rgb565ToHex(t.col_background_dull) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Background Bright</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_background_bright_" + String(i) + "' name='" + fn + "_col_background_bright_" + String(i) + "' value='" + rgb565ToHex(t.col_background_bright) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Control Back</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_control_back_" + String(i) + "' name='" + fn + "_col_control_back_" + String(i) + "' value='" + rgb565ToHex(t.col_control_back) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Low Intensity</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_low_intensity_" + String(i) + "' name='" + fn + "_col_low_intensity_" + String(i) + "' value='" + rgb565ToHex(t.col_low_intensity) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Primary</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_primary_" + String(i) + "' name='" + fn + "_col_primary_" + String(i) + "' value='" + rgb565ToHex(t.col_primary) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Secondary</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_secondary_" + String(i) + "' name='" + fn + "_col_secondary_" + String(i) + "' value='" + rgb565ToHex(t.col_secondary) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Warning</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_warning_" + String(i) + "' name='" + fn + "_col_warning_" + String(i) + "' value='" + rgb565ToHex(t.col_warning) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "									<div class='col-6 p-2'>";
+		html += "										<div class='input-group input-group-sm'>\n";
+		html += "											<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Error</span>\n";
+		html += "											<input type='color' class='form-control form-control-color' id='" + fn + "_col_error_" + String(i) + "' name='" + fn + "_col_error_" + String(i) + "' value='" + rgb565ToHex(t.col_error) + "' />\n";
+		html += "										</div>\n";
+		html += "									</div>";
+		html += "								</div>";
+
+		html += "							</div>\n";
+		html += "							<div class='right align-middle' style='height:36px;'>\n";
+		html += "								<span class='flash-span me-2' style='display:none; color:green;'>Theme Updated!</span>\n";
+		html += "								<button type='submit' class='btn btn-sm btn-success m-1' style='width:100px;'>Update</button>\n";
+		html += "							</div>\n";
+		html += "							</form>\n";
+		html += "						</div>\n\n";
+	}
+
+	return html;
+}

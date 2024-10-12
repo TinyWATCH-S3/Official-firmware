@@ -22,6 +22,13 @@ RGB(uint8_t r, uint8_t g, uint8_t b)
 	return ((r & 0xf8) << 8) | ((g & 0xfc) << 3) | (b >> 3);
 }
 
+// constexpr uint32_t
+// RGB(uint8_t r, uint8_t g, uint8_t b)
+// {
+// 	//   return ((r / 8) << 11) | ((g / 4) << 5) | (b / 8);
+// 	return ((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b;
+// }
+
 constexpr float linear_lerp(float a, float b, float t)
 {
 	return a + t * (b - a);

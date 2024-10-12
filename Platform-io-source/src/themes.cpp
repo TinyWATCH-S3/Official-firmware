@@ -13,14 +13,14 @@ using json = nlohmann::json;
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(theme, name, col_background_dull, col_background_bright, col_control_back, col_primary, col_secondary, col_low_intensity, col_warning, col_error, widget_style);
 
-NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(WatchThemes, themes);
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE_WITH_DEFAULT(WatchThemes, themes, current_theme);
 
 theme &Themes::current()
 {
-	if (watch_themes.themes.size() == 0)
+	if (watch_themes.themes.size() == 0 || watch_themes.current_theme >= watch_themes.themes.size())
 		return default_theme;
 
-	return default_theme;
+	return watch_themes.themes[watch_themes.current_theme];
 }
 
 /**
@@ -85,6 +85,25 @@ bool Themes::load()
 	file.close();
 
 	tinywatch.log_system_message("Loaded themes");
+
+	if (watch_themes.themes.size() == 0)
+	{
+		theme example;
+		example.name = "Example Theme";
+		example.col_background_bright = RGB(0x45, 0x45, 0x45);
+		example.col_background_dull = RGB(0x20, 0x20, 0x20);
+		example.col_control_back = RGB(0x66, 0x66, 0x66);
+		example.col_primary = RGB(0x00, 0x65, 0xff);
+		example.col_secondary = RGB(0xFF, 0x84, 0x11);
+		example.col_low_intensity = RGB(0x00, 0x00, 0x00);
+		// default_theme.col_highlight = RGB(0x99, 0xFF, 0x99);
+		example.col_warning = RGB(0xff, 0x65, 0x00);
+		example.col_error = RGB(0xff, 0x00, 0x00);
+
+		watch_themes.themes.push_back(example);
+
+		tinywatch.log_system_message("Added example theme");
+	}
 
 	return true;
 }

@@ -67,8 +67,8 @@ void FaceWatch_CustomWindows::setup_trig()
 void FaceWatch_CustomWindows::draw_batteryicon(uint16_t x, uint16_t y, WindowsClockSettings winclock)
 {
 	// Battery Icon
-	uint16_t bat_barsize = (16.0 * (bat_perc / 100.0));
-	uint16_t bat_barcolor = RGB(0x00, 0xaa, 0x00);
+	uint32_t bat_barsize = (16.0 * (bat_perc / 100.0));
+	uint32_t bat_barcolor = RGB(0x00, 0xaa, 0x00);
 
 	if (bat_perc <= 50)
 		bat_barcolor = RGB(0xff, 0xff, 0x00);

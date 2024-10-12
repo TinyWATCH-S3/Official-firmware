@@ -14,14 +14,14 @@ class FaceWatch_CustomBinary : public tw_face
 		String version = "1.0";
 
 		// Binary Watch Colour Pallette - On
-		const uint16_t on_colors[3] = {
+		const uint32_t on_colors[3] = {
 			RGB(127, 0, 0),
 			RGB(0, 127, 0),
 			RGB(0, 0, 191),
 		};
 
 		// Binary Watch Colour Pallette - Off
-		const uint16_t off_colors[3] = {
+		const uint32_t off_colors[3] = {
 			RGB(32, 0, 0),
 			RGB(0, 32, 0),
 			RGB(0, 0, 32),

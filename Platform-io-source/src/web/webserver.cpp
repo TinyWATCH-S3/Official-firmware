@@ -11,6 +11,7 @@
 #include "web/www/www_settings_widgets.h"
 #include "web/www/www_settings_apps.h"
 #include "web/www/www_settings_web.h"
+#include "web/www/www_settings_themes.h"
 #include "web/www/www_debug_logs.h"
 
 String WebServer::processor(const String &var)
@@ -101,6 +102,19 @@ String WebServer::processor(const String &var)
 
 		return html;
 	}
+	else if (var == "SETTING_OPTIONS_THEMES")
+	{
+		return "Soon!";
+
+		String html = "";
+		for (size_t i = 0; i < settings.settings_groups.size(); i++)
+		{
+			if (settings.settings_groups[i].type == SettingType::THEME)
+				html += generate_themes_html(i);
+		}
+
+		return html;
+	}
 
 	return "";
 }
@@ -149,6 +163,138 @@ String WebServer::generate_settings_html(int group_id)
 	html += "		</form>\n";
 	html += "	</div>\n";
 	html += "</div>\n";
+
+	return html;
+}
+
+String WebServer::generate_themes_html(int group_id)
+{
+	auto &group_name = settings.settings_groups[group_id]; // Cache the current group
+
+	String group_id_str = String(group_id);
+
+	String html = "\n<div id='settings_group_" + group_id_str + "'>\n";
+	html += "	<span class='settings_heading'>" + group_name.name + "</span>\n";
+	html += "	<div class='settings_frame' id='group_" + group_id_str + "' style='margin-bottom:15px; padding-bottom:5px;'>\n";
+
+	if (group_name.description != "")
+	{
+		html += "		<div class='center w-100 mt-1 mb-2'>\n";
+		html += "			<span class='settings_info'>" + group_name.description + "</span>\n";
+		html += "		</div>\n";
+	}
+
+	html += "			<div class ='row'>\n";
+
+	for (size_t i = 0; i < group_name.groups.size(); ++i)
+	{
+		if (group_name.groups[i]->req_full_width)
+			html += "				<div class='col-12 pb-1'>\n";
+		else
+			html += "				<div class='col-6 pb-1'>\n";
+		html += group_name.groups[i]->generate_html(i);
+		html += "				</div>\n";
+	}
+	html += "			</div>\n";
+
+	html += "			<div class ='row m-2 center'>\n";
+
+	html += "			<div class='row' id='add_new_theme' style='display:none;'>\n";
+	html += "				<span class='settings_heading'>Add New Theme</span>\n";
+	html += "				<div class='settings_frame_inner' style='margin-bottom:15px; padding-bottom:5px;'>\n";
+	html += "				<form hx-post='/add_theme'>\n";
+	html += "				<div class='row'>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Theme Name</span>\n";
+	html += "							<input type='text' class='form-control form-control-sm' id='_name' name='_name' value='' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Widget Style</span>\n";
+	html += "							<input type='number' class='form-control form-control-sm' id='_widget_style' name='_widget_style' value='0' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				<div class='row'>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Background Dull</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_background_dull' name='_col_background_dull' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Background Bright</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_background_bright' name='_col_background_bright' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				<div class='row'>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Control Back</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_control_back' name='_col_control_back' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Low Intensity</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_low_intensity' name='_col_low_intensity' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				<div class='row'>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Primary</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_primary' name='_col_primary' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Secondary</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_secondary' name='_col_secondary' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				<div class='row'>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Warning</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_warning' name='_col_warning' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 p-2'>\n";
+	html += "						<div class='input-group input-group-sm'>\n";
+	html += "							<span class='input-group-text' id='inputGroup-sizing-sm' style='width:150px;'>Error</span>\n";
+	html += "							<input type='color' class='form-control form-control-color' id='_col_error' name='_col_error' value='#222222' />\n";
+	html += "						</div>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				<div class='row'>\n";
+
+	html += "					<div class='col-6 align-middle' style='height:36px;'>\n";
+	html += "						<button type='button' class='btn btn-sm btn-primary m-1' onclick='toggle_new_theme(false);' style='width:100px;'>Cancel</button>\n";
+	html += "					</div>\n";
+	html += "					<div class='col-6 right align-middle' style='height:36px;'>\n";
+	html += "						<button type='submit' class='btn btn-sm btn-success m-1' style='width:100px;'>Save</button>\n";
+	html += "					</div>\n";
+	html += "				</div>\n";
+	html += "				</form>\n";
+	html += "				</div>\n";
+	html += "			</div>\n";
+
+	html += "			</div>\n";
+
+	html += "			<div class ='row' id='add_new_theme_button' style='display:block;'>\n";
+	html += "				<div class='col-6 align-middle' style='height:36px;'>\n";
+	html += "					<button type='button' class='btn btn-sm btn-success m-1' onclick='toggle_new_theme(true);' style='width:100px;'>Add Theme</button>\n";
+	html += "				</div>\n";
+	html += "			</div>\n";
+	html += "		</div>\n";
+	html += "	</div>\n";
 
 	return html;
 }
@@ -216,6 +362,8 @@ void WebServer::start_callback(bool success, const String &response)
 		web_server.on("/debug_logs.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", debug_logs_html, processor); });
 
 		web_server.on("/web_settings_widgets.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_widgets_html, processor); });
+
+		web_server.on("/web_settings_themes.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_themes_html, processor); });
 
 		web_server.on("/web_settings_web.html", HTTP_GET, [](AsyncWebServerRequest *request) { request->send_P(200, "text/html", index_settings_web_html, processor); });
 

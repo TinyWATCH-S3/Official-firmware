@@ -15,20 +15,20 @@ class FaceWatch_CustomWindows : public tw_face
 
 		struct WindowsClockSettings
 		{
-				uint16_t width = display.width - 50;
-				uint16_t height = display.height - 50;
-				uint16_t color_background = RGB(0xc3, 0xc7, 0xcb);		// Light Grey
-				uint16_t color_borderedge = RGB(0x00, 0x00, 0x00);		// Black
-				uint16_t color_titlebar = RGB(0x00, 0x00, 0xAA);		// Blue
-				uint16_t color_titletext = RGB(0xFF, 0xFF, 0xFF);		// Blue
-				uint16_t color_buttonshadow = RGB(0x86, 0x8A, 0x8E);	// Dark Grey
-				uint16_t color_buttonhighlight = RGB(0xFF, 0xFF, 0xFF); // White
-				uint16_t color_displaybkg = RGB(0x11, 0x11, 0x11);		// Black
-				uint16_t color_menubar = RGB(0xFF, 0xFF, 0xFF);			// Blue
-				uint16_t color_menutext = RGB(0x00, 0x00, 0x00);		// Blue
-				uint16_t color_hrminhand = RGB(0x00, 0x00, 0x00);		// Black
-				uint16_t color_sechand = RGB(0x88, 0x88, 0x88);			// Grey
-				uint16_t color_hourblock = RGB(85, 170, 170);			// Aqua
+				uint32_t width = display.width - 50;
+				uint32_t height = display.height - 50;
+				uint32_t color_background = RGB(0xc3, 0xc7, 0xcb);		// Light Grey
+				uint32_t color_borderedge = RGB(0x00, 0x00, 0x00);		// Black
+				uint32_t color_titlebar = RGB(0x00, 0x00, 0xAA);		// Blue
+				uint32_t color_titletext = RGB(0xFF, 0xFF, 0xFF);		// Blue
+				uint32_t color_buttonshadow = RGB(0x86, 0x8A, 0x8E);	// Dark Grey
+				uint32_t color_buttonhighlight = RGB(0xFF, 0xFF, 0xFF); // White
+				uint32_t color_displaybkg = RGB(0x11, 0x11, 0x11);		// Black
+				uint32_t color_menubar = RGB(0xFF, 0xFF, 0xFF);			// Blue
+				uint32_t color_menutext = RGB(0x00, 0x00, 0x00);		// Blue
+				uint32_t color_hrminhand = RGB(0x00, 0x00, 0x00);		// Black
+				uint32_t color_sechand = RGB(0x88, 0x88, 0x88);			// Grey
+				uint32_t color_hourblock = RGB(85, 170, 170);			// Aqua
 		};
 
 		const String months[12] = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};

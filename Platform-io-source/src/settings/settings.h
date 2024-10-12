@@ -107,6 +107,7 @@ enum SettingType
 	WATCH,
 	WEB,
 	WIDGET,
+	THEME,
 };
 
 struct setting_group
@@ -147,6 +148,8 @@ class Settings
 			settings_groups[5].setup("Open Weather Settings", SettingType::WIDGET, "Add your Open Weather API key here to be able to see your current weather details on your watch face.");
 
 			settings_groups[6].setup("MQTT Settings", SettingType::WEB);
+
+			settings_groups[7].setup("Watch Themes", SettingType::THEME);
 		}
 
 		bool load();
@@ -210,6 +213,9 @@ class Settings
 		SettingsOptionString mqtt_password{&config.mqtt.password, 6, "Password", "", false};
 		SettingsOptionString mqtt_device_name{&config.mqtt.device_name, 6, "Device Name"};
 		SettingsOptionString mqtt_topic_listen{&config.mqtt.topic_listen, 6, "Listen Topic"};
+
+		// Themes
+		SettingsOptionTheme watch_themes{&themes.watch_themes.themes, 7, "Colour Themes"};
 
 		bool ui_forced_save = false; //
 

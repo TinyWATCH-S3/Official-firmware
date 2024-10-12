@@ -26,6 +26,7 @@ struct theme
 struct WatchThemes
 {
 		std::vector<theme> themes;
+		uint8_t current_theme = 0;
 		json last_saved_data;
 };
 
@@ -47,13 +48,13 @@ class Themes
 		};
 
 		theme &current();
+		WatchThemes watch_themes;
 
 		bool load();
 		bool save();
 		void print_file(void);
 
 	private:
-		WatchThemes watch_themes;
 		theme default_theme;
 		static constexpr const char *filename = "/themes.json";
 		static constexpr const char *tmp_filename = "/tmp_themes.json";

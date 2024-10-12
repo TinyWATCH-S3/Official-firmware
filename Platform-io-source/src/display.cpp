@@ -114,7 +114,7 @@ void Display::init_screen()
 	for (int c = 0; c < 2; c++)
 	{
 		canvas[c].setFreeFont(RobotoMono_Regular[3]);
-		canvas[c].setSwapBytes(true);
+		canvas[c].setSwapBytes(false);
 		canvas[c].createSprite(240, 280);
 		canvas[c].setRotation(0);
 		canvas[c].setTextDatum(4);
@@ -239,7 +239,7 @@ void Display::show_watch_from_boot()
  */
 void Display::createFaces(bool was_sleeping)
 {
-	tft.setSwapBytes(true);
+	tft.setSwapBytes(false);
 	tft.fillScreen(TFT_BLACK);
 
 	themes.load();

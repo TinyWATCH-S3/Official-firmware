@@ -169,6 +169,14 @@ const char css[] PROGMEM = R"rawliteral(
         border-radius: 5px;
         margin-bottom:20px;
     }
+
+	.settings_frame_inner {
+        border:1px #005cb5 solid;
+        background-color:#ddd;
+        padding:10px;
+        border-radius: 5px;
+        margin-bottom:20px;
+    }
     
     .settings_reset_button {
         border:2px #ff0000 solid;
@@ -444,6 +452,14 @@ const char css_dark[] PROGMEM = R"rawliteral(
         border:1px #005cb5 solid;
         background-color:#333;
         padding:8px;
+        border-radius: 5px;
+        margin-bottom:20px;
+    }
+
+	.settings_frame_inner {
+        border:1px #004ba4 solid;
+        background-color:#222;
+        padding:10px;
         border-radius: 5px;
         margin-bottom:20px;
     }

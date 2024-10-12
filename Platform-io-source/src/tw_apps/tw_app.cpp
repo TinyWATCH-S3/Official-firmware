@@ -36,7 +36,7 @@ void tw_app::add(String _name, uint16_t _update_period, uint32_t req_cpu_speed)
 	// but at the cost of memory
 	// This is important if we are going to have a face of scrollable app icons.
 	// If we only ever have a single non scrollable page, then we can remove this as the app icon face itself will cache the
-	icon_sprite.setSwapBytes(true);
+	icon_sprite.setSwapBytes(false);
 	icon_sprite.createSprite(64, 64);
 }
 

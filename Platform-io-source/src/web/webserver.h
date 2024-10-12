@@ -23,6 +23,7 @@ class WebServer
 		static String processor(const String &var);
 
 		static String generate_settings_html(int group_id);
+		static String generate_themes_html(int group_id);
 
 		SettingsOptionBase *get_obj_from_id(String id);
 

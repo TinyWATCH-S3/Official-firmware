@@ -13,7 +13,6 @@ class FaceWatch_DefaultDigital : public tw_face
 		bool process_touch(touch_event_t touch_event);
 
 	private:
-
 		void draw_battery(uint8_t battpos_x, uint8_t battpos_y, TFT_eSprite canvasid);
 		long maplim(long x, long in_min, long in_max, long out_min, long out_max, bool limit);
 
@@ -65,8 +64,8 @@ class FaceWatch_DefaultDigital : public tw_face
 
 		uint8_t battlcd_pos = 1;
 
-		uint16_t TFT_LCD_BKG = RGB(0xD3, 0xDC, 0xDB);
-		uint16_t TFT_LCD_OFF = RGB(0xC3, 0xCC, 0xCB);
+		uint32_t TFT_LCD_BKG = RGB(0xD3, 0xDC, 0xDB);
+		uint32_t TFT_LCD_OFF = RGB(0xC3, 0xCC, 0xCB);
 
 		uint8_t time_ypos = 180;
 		uint8_t time_h_xpos = 35;
@@ -88,8 +87,6 @@ class FaceWatch_DefaultDigital : public tw_face
 		uint8_t stepbarpos_y = 76;
 
 		bool hide_activityicon = true;
-
 };
 
 extern FaceWatch_DefaultDigital face_watch_default_digital;
-
