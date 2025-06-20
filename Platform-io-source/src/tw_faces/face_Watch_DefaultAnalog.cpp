@@ -57,25 +57,42 @@ void FaceWatch_DefaultAnalog::draw(bool force)
 
 			draw_children(false, 0);
 
+			// revised code for calculating hours + extra % for mins for hour hand
 			int hours = rtc.get_hours();
+			int mins = rtc.get_mins();
+			int secs = rtc.get_seconds();
 
 			if (hours > 12)
 				hours -= 12;
 
-			canvas[canvasid].drawWideLine(center_x, center_y, pos_hours[hours][0], pos_hours[hours][1], 3.0f, 0);
-
-			int mins = rtc.get_mins();
-
-			canvas[canvasid].drawWideLine(center_x, center_y, pos_mins[mins][0], pos_mins[mins][1], 3.0f, 0);
-
-			for (int i = 0; i < 59; i += 5)
+			if (cached_mins < 0 || cached_mins != mins)
 			{
-				canvas[canvasid].fillCircle(pos_secs[i][0], pos_secs[i][1], 2, themes.current().col_background_dull);
-			}
+				cached_mins = mins;
 
-			int secs = rtc.get_seconds();
+				float mins_perc = (float)mins/60.0f;
+				int hour_mins = hours * 5 + (int)(5.0f * mins_perc); 
+
+				// Serial.printf("hours: %d, hour_mins: %d, mins_perc: %0.2f\n", hours, hour_mins, mins_perc);
+
+				// recalc the hour position based on the hour plus min spercentage to 60.
+				live_recalc_xy(hour_mins, face_radius - 7, face_radius - 60, &h_x, &h_y);
+
+				// recalc the mins position.
+				live_recalc_xy(mins, face_radius - 7, face_radius - 20, &m_x, &m_y);
+			}
+			// Draw hours hand
+			canvas[canvasid].drawWideLine(center_x, center_y, h_x, h_y, 3.0f, 0);
+			// Draw mins hands
+			canvas[canvasid].drawWideLine(center_x, center_y, m_x, m_y, 3.0f, 0);
+
+			// Blank out seconds ticks
+			for (int i = 0; i < 59; i += 5)
+				canvas[canvasid].fillCircle(pos_secs[i][0], pos_secs[i][1], 2, themes.current().col_background_dull);
+
+			// Draw seconds
 			canvas[canvasid].fillCircle(pos_secs[secs][0], pos_secs[secs][1], 5, themes.current().col_primary);
 
+			// Draw seconds ghost ticks
 			for (int i = 0; i < 5; i++)
 			{
 				secs--;
@@ -118,22 +135,37 @@ void FaceWatch_DefaultAnalog::setup_trig()
 	int b = 0;
 	float i = -M_PI / 2.0;
 
+	// Force first draw
+	cached_mins = -1;
+
 	for (int tick = 0; tick < 60; tick++)
 	{
-		if (tick % 5 == 0)
-		{
-			pos_hours[b][0] = ((face_radius - 60) * cos(i)) + center_x;
-			pos_hours[b][1] = ((face_radius - 60) * sin(i)) + center_y;
-			b++;
-		}
+		// if (tick % 5 == 0)
+		// {
+		// 	pos_hours[b][0] = ((face_radius - 60) * cos(i)) + center_x;
+		// 	pos_hours[b][1] = ((face_radius - 60) * sin(i)) + center_y;
+		// 	b++;
+		// }
 
-		pos_mins[tick][0] = ((face_radius - 20) * cos(i)) + center_x;
-		pos_mins[tick][1] = ((face_radius - 20) * sin(i)) + center_y;
+		// pos_mins[tick][0] = ((face_radius - 20) * cos(i)) + center_x;
+		// pos_mins[tick][1] = ((face_radius - 20) * sin(i)) + center_y;
 		pos_secs[tick][0] = ((face_radius - 7) * cos(i)) + center_x;
 		pos_secs[tick][1] = ((face_radius - 7) * sin(i)) + center_y;
 
 		i += M_PI * 2.0 / 60.0;
 	}
+}
+
+void FaceWatch_DefaultAnalog::live_recalc_xy(uint8_t mins, uint8_t old_len, uint8_t new_len, int *new_x, int *new_y)
+{
+    // Calculate delta from center
+    int dx = pos_secs[mins][0] - center_x;
+    int dy = pos_secs[mins][1] - center_y;
+
+    // Scale vector to new length, using integer math
+    // (cast to int for robustness with negative values)
+    *new_x = center_x + ((int32_t)dx * new_len) / old_len;
+    *new_y = center_y + ((int32_t)dy * new_len) / old_len;
 }
 
 FaceWatch_DefaultAnalog face_watch_default_analog;
