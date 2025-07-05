@@ -389,7 +389,7 @@ void WebServer::start_callback(bool success, const String &response)
 		web_server.on("/update_settings_group", HTTP_POST, [](AsyncWebServerRequest *request) {
 			if (request->hasParam("group_id", true))
 			{
-				AsyncWebParameter *_group = request->getParam("group_id", true);
+				const AsyncWebParameter *_group = request->getParam("group_id", true);
 				info_printf("** Save Settings for Group ID: %s\n", String(_group->value().c_str()));
 				uint8_t group_id = String(_group->value().c_str()).toInt();
 
@@ -418,7 +418,7 @@ void WebServer::start_callback(bool success, const String &response)
 							if (request->hasParam(fn_indexed, true))
 							{
 								// info_print("Found - ");
-								AsyncWebParameter *_param = request->getParam(fn_indexed, true);
+								const AsyncWebParameter *_param = request->getParam(fn_indexed, true);
 								int data = String(_param->value().c_str()).toInt();
 
 								// info_printf("Web data: %d, class data %d, change? %s\n", data, intPtr->get(v), (intPtr->update(v, data) ? "YES" : "no"));
@@ -438,10 +438,10 @@ void WebServer::start_callback(bool success, const String &response)
 							if (request->hasParam(fn_ssid, true) && request->hasParam(fn_pass, true))
 							{
 								// info_print("Found - ");
-								AsyncWebParameter *_param1 = request->getParam(fn_ssid, true);
+								const AsyncWebParameter *_param1 = request->getParam(fn_ssid, true);
 								String data1 = String(_param1->value().c_str());
 
-								AsyncWebParameter *_param2 = request->getParam(fn_pass, true);
+								const AsyncWebParameter *_param2 = request->getParam(fn_pass, true);
 								String data2 = String(_param2->value().c_str());
 
 								data1.trim();
@@ -473,7 +473,7 @@ void WebServer::start_callback(bool success, const String &response)
 
 						if (request->hasParam(fn_indexed, true))
 						{
-							AsyncWebParameter *_param = request->getParam(fn_indexed, true);
+							const AsyncWebParameter *_param = request->getParam(fn_indexed, true);
 
 							if (setting->getType() == SettingsOptionBase::BOOL)
 							{
